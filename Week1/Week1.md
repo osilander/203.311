@@ -1,8 +1,6 @@
+**[Return to the main course page](../index.html)**
+
 # Introduction to UNIX
-
-## [Return to the main course page](../index.html)
-<br><br>
-
 **Associate Professor Patrick Biggs**
 
 ## Purpose
@@ -15,6 +13,6 @@ xxxx
 xxx
 
 
-## Practical starts here
+## Practical sections start here
 
 New material goes here...
