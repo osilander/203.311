@@ -1,6 +1,6 @@
 **[Return to the course home page](../index.html)**
 
-# Introduction to UNIX
+# Barcodes and Diversity
 **Associate Professor Patrick Biggs**
 
 ## Purpose

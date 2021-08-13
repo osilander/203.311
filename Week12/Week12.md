@@ -1,7 +1,7 @@
 **[Return to the course home page](../index.html)**
 
-# Introduction to UNIX
-**Associate Professor Patrick Biggs**
+# Science and the Public
+**Associate Professor Patrick Biggs, Dr Olin Silander and Professor Murray Cox**
 
 ## Purpose
 

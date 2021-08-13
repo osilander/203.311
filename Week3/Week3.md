@@ -1,7 +1,7 @@
 **[Return to the course home page](../index.html)**
 
-# Introduction to UNIX
-**Associate Professor Patrick Biggs**
+# Introduction to Visualization
+**Professor Murray Cox**
 
 ## Purpose
 
