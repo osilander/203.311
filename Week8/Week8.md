@@ -1,6 +1,6 @@
 **[Return to the course home page](../index.html)**
 
-# Barcodes and Diversity
+# Metagenomics
 **Associate Professor Patrick Biggs**
 
 ## Purpose
