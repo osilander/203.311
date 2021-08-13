@@ -4,28 +4,19 @@
 
 ## Practicals
 
-| Module                              | Topic               | Week                                                                   |
-| ----------------------------- | :---------------- | :----------------------------------------------------- |
-| Bootcamp                         | Introduction to UNIX               | [Week 1](Week1/Week1.html)      |
-| Bootcamp                         | Introduction to R                     | [Week 2](Week2/Week2.html)      |
-| Bootcamp                         | Introduction to Visualization   | [Week 3](Week3/Week3.html)      |
-| ----------------------------- | :---------------- | :----------------------------------------------------- |
-| Molecular Evolution          | Sequencing and Mapping      | [Week 4](Week4/Week4.html)      |
-| Molecular Evolution          | Variants and Phylogenies       | [Week 5](Week5/Week5.html)      |
-| Molecular Evolution          | Evolutionary Visualization      | [Week 6](Week6/Week6.html)      |
-| ----------------------------- | :---------------- | :----------------------------------------------------- |
-| Microbial Diversity            | Barcodes and Diversity          | [Week 7](Week7/Week7.html)      |
-| Microbial Diversity            | Metagenomics                        | [Week 8](Week8/Week8.html)      |
-| Microbial Diversity            | Metagenomic Visualization     | [Week 9](Week9/Week9.html)      |
-| ----------------------------- | :---------------- | :----------------------------------------------------- |
-| Human genomics             | Single Cell Transcriptomics    | [Week 10](Week10/Week10.html) |
-| Human genomics             | Transcriptomic Visualization   | [Week 11](Week11/Week11.html) |
-| ----------------------------- | :---------------- | :----------------------------------------------------- |
-| Science Communication  | Science and the Public          | [Week 12](Week12/Week12.html) |
-
-
-
-
-
+| Week | Module | Topic |
+| :----- | :------ | :----------------------------------------------------- |
+| 1 | Bootcamp                         | [Introduction to UNIX](Week1/Week1.html)      |
+| 2 |                                        | [Introduction to R](Week2/Week2.html)      |
+| 3 |                                      | Introduction to Visualization   | [Week 3](Week3/Week3.html)      |
+| 4 | Molecular Evolution            | [Sequencing and Mapping](Week4/Week4.html)      |
+| 5 |          |         [Variants and Phylogenies](Week5/Week5.html)      |
+| 6 |          |        [Evolutionary Visualization](Week6/Week6.html)      |
+| 7 | Microbial Diversity                    | [Barcodes and Diversity](Week7/Week7.html)      |
+| 8 |                                     | [Metagenomics](Week8/Week8.html)      |
+| 9 |                | [Metagenomic Visualization](Week9/Week9.html)      |
+| 10 | Human Genomics                  | [Single Cell Transcriptomics](Week10/Week10.html) |
+| 11 |                | [Transcriptomic Visualization](Week11/Week11.html) |
+| 12 | Science Communication  |            [Science and the Public](Week12/Week12.html) |
 
 
