@@ -1,4 +1,4 @@
-**[Return to the course home page](../index.html)**
+**[Return to the Course Home Page](../index.html)**
 
 # Introduction to UNIX
 **Associate Professor Patrick Biggs**
@@ -16,6 +16,8 @@ xxx
 ## Practical sections start here
 
 New material goes here...
+
+<br><br><br>
 
 [GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
