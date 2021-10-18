@@ -126,7 +126,7 @@ Let's consider a dataset showing the gene expression of 142 genes together with 
 The first thing we need to do is load this dataset.
 
 ```R
-load(url("files/expression.Rdata"))
+load(url("https://github.com/mpcox/203.311/raw/main/Week3/files/expression.Rdata"))
 ```
 
 Gene expression data should be plotted on the *x* axis and is therefore stored in variables called 'set1.x', 'set2.x', etc.  Protein level data should be plotted on the *y* axis and is stored in variables called 'set1.y', 'set2.y', etc.
@@ -209,7 +209,7 @@ In 1980, Robert Jackman wrote an influential [paper](https://www.jstor.org/stabl
 Let's start by loading the dataset.
 
 ```R
-load(url("files/income.Rdata"))
+load(url("https://github.com/mpcox/203.311/raw/main/Week3/files/income.Rdata"))
 ```
 
 This dataset contains two variables for 18 countries: the percentage turnout at national elections ('turnout') and the average level of inequality in the incomes of people ('income.inequality').
@@ -237,8 +237,6 @@ cor.test(turnout[2:18], income.inequality[2:18])
 
 
 ## P Hacking
-
-
 
 
 
