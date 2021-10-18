@@ -79,7 +79,7 @@ As you can see, by making relatively small changes, you can alter how the graph 
 
 R lets you modify essentially every feature of a graph.  Although often a simple graph will suit your purposes, searching for example plots online is a good way to get a feel for what alternative designs might be possible and how to make them.  The [R Graph Gallery](https://www.r-graph-gallery.com) is a particularly nice site with lots of worked examples.
 
-> **EXERCISE 1**
+> **EXERCISE 1**<br>
 > Here is code to generate another dataset.
 >
 > ```x <- runif(100)```<br>
@@ -101,7 +101,7 @@ values <- sample(seq(0,100), 5)
 barplot(values, names=items)
 ```
 
-> **EXERCISE 2**
+> **EXERCISE 2**<br>
 > Try running this code to make a bar chart.  Can you add *x* and *y* axis labels and a title?
 
 And what if you want a pie chart?  That's also easy.
@@ -114,7 +114,7 @@ pie(values, labels=items)
 
 There are lots of ways to graph data, including many plot types you have probably never heard of.  Regardless of what sort of data you have, there will be many ways for you to plot it.  Often, the commands to make these graphs in R are very simple – at least for basic styles.
 
-> **EXERCISE 3**
+> **EXERCISE 3**<br>
 > Take another look through the [R Graph Gallery](https://www.r-graph-gallery.com).
 > Choose a plot style that interests you and use the commands given online to make the plot.  For this exercise, stick to plots described as *base R* rather than *ggplot2*, and unless you have a bit of time to play, don't choose anything too complex!
 
@@ -142,7 +142,7 @@ mean(set3.x)
 mean(set4.x)
 ```
 
-> **EXERCISE 4**
+> **EXERCISE 4**<br>
 > Calculate the mean values of both the gene expression data (e.g., *set1.x*) and protein level data (e.g., *set1.y*) for the four sets.  Do gene expression or protein levels appear to differ under the four environmental conditions?
 
 Standard deviations are also easy to calculate in R.
@@ -151,7 +151,7 @@ Standard deviations are also easy to calculate in R.
 sd(set1.x)
 ```
 
-> **EXERCISE 5**
+> **EXERCISE 5**<br>
 > Calculate standard deviations for both the gene expression and protein levels for the four sets.  Again, do gene expression or protein levels appear to differ under the four environmental conditions?
 
 Finally, it can be helpful to calculate correlations between pair of variables (here, gene expression and protein levels).  A correlation analysis will tell you whether, for instance, genes with high expression of RNA also have high levels of the corresponding protein.
@@ -162,14 +162,14 @@ You can calculate correlations in R using this command.
 cor.test(set1.x, set1.y)
 ```
 
-> **EXERCISE 6**
+> **EXERCISE 6**<br>
 > Calculate correlations of gene expression against protein levels for the four sets.  Are RNA expression levels helpful in predicting protein levels?  (That is, are expression and protein levels significantly correlated?)
 
 By this time, you have probably identified that the four sets of data are very similar, in terms of their expression and protein levels, regardless of which environmental conditions they were generated under. Interestingly, the correlation values are also small – there is little evidence in this data that genes with high RNA expression also produce high levels of the corresponding protein.
 
 Just to finally confirm this, it's a good idea to plot your data, if only to confirm that there are no real differences between the datasets.
 
-> **EXERCISE 7**
+> **EXERCISE 7**<br>
 > Make scatter plots for the four datasets.  Plot gene expression (e.g., *set1.x*) on the *x* axis and protein levels (e.g., *set1.y*) on the *y* axis.
 
 
@@ -188,7 +188,7 @@ primary <- c(20.0, 21.0, 19.0, 20.0, 20.0)
 secondary <- c(21.0, 18.5, 20.0, 23.5, 17.0)
 ```  
 
-> **EXERCISE 8**
+> **EXERCISE 8**<br>
 > We learned how to make pie charts earlier, so make pie charts for the normal tissue, primary tumor and secondary tumor.  Are there any clear differences in the proportions of the five immune cell types?
 
 Because it's hard to know what plot type will produce the clearest visualation of your data, it is often helpful to make different plots and see if you like them better.  For group data, bar charts are a common choice.
@@ -202,7 +202,7 @@ primary <- c(20.0, 20.0, 19.0, 21.0, 20.0)
 secondary <- c(23.5, 21.0, 20.0, 18.5, 17.0)
 ```
 
-> **EXERCISE 9**
+> **EXERCISE 9**<br>
 > We learned how to make bar charts earlier, so make bar charts for the normal tissue, primary tumor and secondary tumor.  Are the pie charts or the bar charts more clear at presenting the data?
 
 
@@ -218,12 +218,12 @@ load(url("https://github.com/mpcox/203.311/raw/main/Week3/files/income.Rdata"))
 
 This dataset contains two variables across 18 countries: the percentage turnout at national elections (*turnout*) and the average level of inequality in people's incomes (*income.inequality*).
 
-> **EXERCISE 10**
+> **EXERCISE 10**<br>
 > We learned earlier how to calculate correlations.  Take this dataset and calculate the correlation between voter turnout and income inequality.
 
 Hopefully you found, as did many many researchers before Jackman, that there is a strong negative correlation between voter turnout and income inequality (*r* = –0.78, *p* = 0.00013).  Because the probability value is low, we would say that this is a statistically significant result.  Specifically, it tells us that countries with a high voter turnout have less income inequality than countries with low voter turnout.
 
-> **EXERCISE 11**
+> **EXERCISE 11**<br>
 > So now let's do what Jackman did.  Make a scatter plot of voter turnout (on the *x* axis) versus income inequality (on the *y* axis).  What do you see?
 
 One country – South Africa – stands out as being very different to all the other countries.  In statistics, this process of looking for unusual data points is called [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection), and on this graph, South Africa would be said to be an *outlier*.  It is important to think critically before removing data from any analysis – doing that can effectively force the data to look the way you want it to rather than the way it actually is.  However, this is a good example of where a single point looks suspicious.  It would be quite reasonable to ask whether you get the same result if you just considered the countries other than South Africa.  If there is genuinely an association between voter turnout and income inequality, the correlation you calculated above should still hold up.
@@ -236,7 +236,7 @@ First, we have to tell R to ignore the South Africa data point.  Conveniently, S
 cor.test(turnout[2:18], income.inequality[2:18])
 ```
 
-> **EXERCISE 12**
+> **EXERCISE 12**<br>
 > Calculate the correlation between voter turnout and income inequality, excluding the South Africa data point.  Has the correlation changed, and if so, how?  What does this result mean in a real-world sense for the relationshp between voter turnout and income inequality globally?
 
 
@@ -254,7 +254,7 @@ transposon.loss <- c(9, 8, 11, 12, 11, 13, 12, 9, 9, 7, 9)
 
 This shows the number of transposons gained and lost from the genome of a New Zealand alpine buttercup as a population on the Ruapehu plateau was surveyed over the course of a decade.
 
-> **EXERCISE 13**
+> **EXERCISE 13**<br>
 > Calculate the correlation between transposon gain and transposon loss.  Are these two features associated?  What biological processes might be causing this association?
 
 For time series data, it can often be helpful to add lines linking points on a plot, in order to show trends through time.  There are two alternative ways to do this: using the *type* flag or the *lines* command.  The options for the *type* flag are *p* for *points only*, *l* for *lines only* and *b* for *both points and lines*.  Run the commands below and see if you can figure out how they work.
@@ -264,7 +264,7 @@ plot(year, transposon.gain, type="b", col="blue")
 lines(year, transposon.loss, type="b", col="red")
 ```
 
-> **EXERCISE 14**
+> **EXERCISE 14**<br>
 > This dataset was obtained from an [online data repository](http://www.tylervigen.com/spurious-correlations). Quickly look up the website and just check that the dataset was downloaded correctly.
 
 
@@ -274,7 +274,7 @@ By now, you should have a growing understanding of how important it is to check 
 
 In this final exercise, we will look at the issue of *p hacking*.  P hacking is the name given to the very tempting process of looking through your data until you find a significant result.  When datasets were small, researchers could really ask only one or two questions.  Those questions were either supported by the statistics or they weren't.  However, now that many studies are collecting huge amounts of data, if your first question doesn't hold up, it is tempting to keep looking through the dataset until you find an interesting result.
 
-> **EXERCISE 15**
+> **EXERCISE 15**<br>
 > Take a look at [this website](https://projects.fivethirtyeight.com/p-hacking/). Try selecting various parameters to test.  Can you find a statistically significant result that you like?  Can you disprove a result that you don't want to be true by tweaking the analysis.  How much do you believe either result?
 
 
