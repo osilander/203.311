@@ -82,7 +82,8 @@ R lets you modify essentially every feature of a graph.  Although often a simple
 > **EXERCISE 1**
 > Here is code to generate another dataset.
 >
-> ```x <- runif(100)```<br>
+> ```x <- runif(100)```
+>
 > ```y <- 2 + 3 \* x^2 + rnorm(100, 0, 0.25)```
 > 
 > Let's assume this dataset shows the production of a metabolite in mg/L (*x* axis data) relative to the cellular expression of a gene in read counts per million (*y* axis data).
