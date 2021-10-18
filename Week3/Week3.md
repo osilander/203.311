@@ -84,7 +84,7 @@ R lets you modify essentially every feature of a graph.  Although often a simple
 >
 > ```x <- runif(100)```
 >
-> ```y <- 2 + 3 \* x^2 + rnorm(100, 0, 0.25)```
+> ```y <- 2 + 3 * x^2 + rnorm(100, 0, 0.25)```
 > 
 > Let's assume this dataset shows the production of a metabolite in mg/L (*x* axis data) relative to the cellular expression of a gene in read counts per million (*y* axis data).
 > Can you make a scatter plot that clearly and simply shows the trend between metabolite levels and gene expression?
