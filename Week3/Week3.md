@@ -175,11 +175,11 @@ Just to finally confirm this, it's a good idea to plot your data, if only to con
 
 ## Choosing A Plot Type
 
-It's often a good idea to look at your data visually.  The challenge is: what plot type should you use?  After a while you begin to learn what sorts of plots are particularly good at representing certain types of data. Nevertheless, often you just have to try different plot types and see what works.
+It's often a good idea to look at your data visually.  The challenge is: what plot type should you use?  After a while you begin to learn what styles of plot are most well suited for representing certain types of data. Even then though, you often just have to try different plot types and see what works.
 
-Let's consider genes grouped into functional categories, such as 'immune genes', 'enzymes', 'cell wall genes' and the like.  Classifying genes in this way is very common, and can be highly effective for distinguishing how certain types of genes change under different conditions (say, in cancer cells vs normal tissue).
+Let's consider biological items grouped into functional categories, such as 'immune genes', 'enzymes', 'cell wall genes' and the like.  Classifying things in this way is very common, and looking for differences can be highly effective to distinguish how certain types of genes change under various conditions (say, in cancer cells versus normal tissue).
 
-Here is a dataset of five immune cell types and their percentage frequency under three conditions: normal tissue, the primary tumor, and a secondary tumor ('metastasis').
+Here is a dataset of five immune cell types and their percentage frequency under three conditions: in normal tissue, the primary tumor, and a secondary tumor ('metastasis').
 
 ```R
 cell.type <- c("eosinophils", "mast cells", "lymphocytes", "basophils", "neutrophils")
@@ -189,11 +189,11 @@ secondary <- c(21.0, 18.5, 20.0, 23.5, 17.0)
 ```  
 
 > **EXERCISE 8**
-> We learned earlier how to make pie charts.  Make pie charts for the normal tissue, primary tumor and secondary tumor.  Are there any clear differences in the proportions of the five immune cell types?
+> We learned how to make pie charts earlier, so make pie charts for the normal tissue, primary tumor and secondary tumor.  Are there any clear differences in the proportions of the five immune cell types?
 
-Because it's hard to know what plot type produces the clearest visualation of your data, it is often helpful to try other options and see if you like them better.  For group data, like that given here, bar charts are often used.
+Because it's hard to know what plot type will produce the clearest visualation of your data, it is often helpful to make different plots and see if you like them better.  For group data, bar charts are a common choice.
 
-It can also sometimes be convenient to re-order your dataset – this can make it easier for your readers to understand the results.  Here, let's move the immune cell types around so they're in alphabetical order.
+It is also often convenient to re-order your dataset – this can make it easier for your readers to follow the results.  Here, let's move the immune cell types around so they're in alphabetical order.
 
 ```R
 cell.type <- c("basophils", "eosinophils", "lymphocytes", "mast cells", "neutrophils")
@@ -203,12 +203,12 @@ secondary <- c(23.5, 21.0, 20.0, 18.5, 17.0)
 ```
 
 > **EXERCISE 9**
-> We learned earlier how to make bar charts.  Make bar charts for the normal tissue, primary tumor and secondary tumor.  Do you prefer them to the pie charts?
+> We learned how to make bar charts earlier, so make bar charts for the normal tissue, primary tumor and secondary tumor.  Are the pie charts or the bar charts more clear at presenting the data?
 
 
 ## Critically Evaluating Your Data
 
-In 1980, Robert Jackman wrote an influential [paper](https://www.jstor.org/stable/2095134) looking at the link between social factors and income for a global range of countries.  Although this study is over 40 years old and is not based on genetic data, the analysis is widely known as a case study of how to look critically at data.  It is worth considering for that reason alone.
+Way back in 1980, when spandex and mullets were the height of fashion, Robert Jackman wrote an influential [paper](https://www.jstor.org/stable/2095134).  Jackman was looking for links between social factors and income across a global range of countries.  Although this study is now over 40 years old and it is not genetic data, the analysis is a widely known case study of how to look critically at data.  We're going to look at it for that reason.
 
 Let's start by loading the dataset.
 
@@ -216,79 +216,79 @@ Let's start by loading the dataset.
 load(url("https://github.com/mpcox/203.311/raw/main/Week3/files/income.Rdata"))
 ```
 
-This dataset contains two variables for 18 countries: the percentage turnout at national elections ('turnout') and the average level of inequality in the incomes of people ('income.inequality').
+This dataset contains two variables across 18 countries: the percentage turnout at national elections (*turnout*) and the average level of inequality in people's incomes (*income.inequality*).
 
 > **EXERCISE 10**
 > We learned earlier how to calculate correlations.  Take this dataset and calculate the correlation between voter turnout and income inequality.
 
-Hopefully you found, as did many many researchers before Jackman, that there is a strong negative correlation between voter turnout and income inequality (r = –0.78, p = 0.00013).  Because the P value is low, we would say that this is a statistically significant result.  Specifically, countries with a high voter turnout have less income inequality between people.
+Hopefully you found, as did many many researchers before Jackman, that there is a strong negative correlation between voter turnout and income inequality (*r* = –0.78, *p* = 0.00013).  Because the probability value is low, we would say that this is a statistically significant result.  Specifically, it tells us that countries with a high voter turnout have less income inequality than countries with low voter turnout.
 
 > **EXERCISE 11**
-> Now do what Jackman did: make a scatter plot of voter turnout (*x* axis) vs income inequality (*y* axis).  What do you see?
+> So now let's do what Jackman did.  Make a scatter plot of voter turnout (on the *x* axis) versus income inequality (on the *y* axis).  What do you see?
 
-In this instance, one country – South Africa – stands out as being very different to all the other countries.  In statistics, this process of looking for unusual data points is called [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection) and South Africa would be said to be an *outlier*.  Although it is important to think critically before removing data from any analysis, this is a good example of where it would be reasonable to do that and then see if the analysis changes.
+One country – South Africa – stands out as being very different to all the other countries.  In statistics, this process of looking for unusual data points is called [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection), and on this graph, South Africa would be said to be an *outlier*.  It is important to think critically before removing data from any analysis – doing that can effectively force the data to look the way you want it to rather than the way it actually is.  However, this is a good example of where a single point looks suspicious.  It would be quite reasonable to ask whether you get the same result if you just considered the countries other than South Africa.  If there is genuinely an association between voter turnout and income inequality, the correlation you calculated above should still hold up.
 
-So what does the correlation between voter turnout and income inequality look like if we exclude South Africa?
+So what does the correlation between voter turnout and income inequality look like when we exclude South Africa?
 
-First, we have to take out the South Africa data point.  Conveniently, it is the first entry in each variable.  Because each variable is just a vector of numbers, we can simply ask R to ignore the first country in the list and only consider countries 2 to 18.
+First, we have to tell R to ignore the South Africa data point.  Conveniently, South Africa is the first entry in each variable.  Because these are just vectors of numbers, we can simply ask R to exclude the first country and only consider countries 2 to 18.  The following command shows how to do this in a way that R will understand.
 
 ```R
 cor.test(turnout[2:18], income.inequality[2:18])
 ```
 
 > **EXERCISE 12**
-> Calculate the correlation between voter turnout and income inequality.  How has the correlation value changed?  What is the statistical significance – that is, what is the probability value now?
+> Calculate the correlation between voter turnout and income inequality, excluding the South Africa data point.  Has the correlation changed, and if so, how?  What does this result mean in a real-world sense for the relationshp between voter turnout and income inequality globally?
 
 
 ## Checking Your Data Source
 
-It's always important to check your data, including its source.
+As you're hopefully now beginning to realize, it's really important to always check your data.
 
 Consider the following time series dataset.
 
 ```R
 year <- c(1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009)
-gene.gains <- c(6, 5, 5, 10, 8, 14, 10, 4, 8, 5, 6)
-gene.losses <- c(9, 8, 11, 12, 11, 13, 12, 9, 9, 7, 9)
+transposon.gain <- c(6, 5, 5, 10, 8, 14, 10, 4, 8, 5, 6)
+transposon.loss <- c(9, 8, 11, 12, 11, 13, 12, 9, 9, 7, 9)
 ```
 
-This shows the number of genes gained and lost from the genome of a New Zealand alpine buttercup as a population on the Ruapehu plateau was surveyed over the course of a decade.
+This shows the number of transposons gained and lost from the genome of a New Zealand alpine buttercup as a population on the Ruapehu plateau was surveyed over the course of a decade.
 
 > **EXERCISE 13**
-> Calculate the correlation between gene gain and gene loss.  Are these two values associated?
+> Calculate the correlation between transposon gain and transposon loss.  Are these two features associated?  What biological processes might be causing this association?
 
-For time series data, it can be helpful to add lines to plots.  This can be done in two ways: using the *type* flag or the *lines* command.  In the *type* flag, the options are *p* for **points**, *l* for **lines** and *b* for **both**.  Run the commands below and see if you can figure out how they work.
+For time series data, it can often be helpful to add lines linking points on a plot, in order to show trends through time.  There are two alternative ways to do this: using the *type* flag or the *lines* command.  The options for the *type* flag are *p* for *points only*, *l* for *lines only* and *b* for *both points and lines*.  Run the commands below and see if you can figure out how they work.
 
 ```R
-plot(year, gene.gains, type="b", col="blue")
-lines(year, gene.losses, type="b", col="red")
+plot(year, transposon.gain, type="b", col="blue")
+lines(year, transposon.loss, type="b", col="red")
 ```
 
 > **EXERCISE 14**
-> This dataset was obtained from an [online repository](http://www.tylervigen.com/spurious-correlations). Quickly look through the website and just confirm that the dataset was downloaded correctly.
+> This dataset was obtained from an [online data repository](http://www.tylervigen.com/spurious-correlations). Quickly look up the website and just check that the dataset was downloaded correctly.
 
 
 ## P Hacking
 
-By now, you should have a growing understanding of how important it is to check your data, question your assumptions, and think critically about your decisions, including how you set out to explore and visualize your data.
+By now, you should have a growing understanding of how important it is to check your data, question your assumptions, and think critically about your decisions, including how you choose to explore and visualize your data.
 
-In this final exercise, we will explore the issue of *p hacking*, which is when you keep looking through your data until you find a significant result.  When datasets were small, researchers could only really ask one or two questions of any given dataset.  Now that many studies collect huge amounts of data, it is tempting to look through the data to find interesting results.
+In this final exercise, we will look at the issue of *p hacking*.  P hacking is the name given to the very tempting process of looking through your data until you find a significant result.  When datasets were small, researchers could really ask only one or two questions.  Those questions were either supported by the statistics or they weren't.  However, now that many studies are collecting huge amounts of data, if your first question doesn't hold up, it is tempting to keep looking through the dataset until you find an interesting result.
 
 > **EXERCISE 15**
-> Take a look at [this website](https://projects.fivethirtyeight.com/p-hacking/). Quickly look through the website and just confirm that the dataset was downloaded correctly.  Try selecting various parameters to test.  Can you find a statistically significant result?  How much do you believe it?
+> Take a look at [this website](https://projects.fivethirtyeight.com/p-hacking/). Try selecting various parameters to test.  Can you find a statistically significant result that you like?  Can you disprove a result that you don't want to be true by tweaking the analysis.  How much do you believe either result?
 
 
 ## Take Home Messages
 
-During this practical, you have hopefully encountered some points that are new to you.  From my perspective, I think the main take home messages are:
+During the course of this practical, you have hopefully encountered a few ideas that are new to you.  Some of the main take home messages are:
 
-+ You can make all sorts of plots in R, often easily, but you need to think very carefully about how your readers will interpret the plots you give to them.  Some types of plots are just always worse than others.
++ You can make all sorts of graphs in R, often easily, but you need to think very carefully about how your readers will interpret the graphs you give them.  Some types of plots are just always worse than others.  (I'm looking at you, pie charts).
 
-+ You need to be confident about where your data comes from.  Is it accurate?  Is it complete?  Have any errors crept into the dataset before it came to me?
++ You need to be confident about where your data comes from.  Is it accurate?  Is it complete?  Have any errors crept into the dataset before you got it?  Do you trust the source?
 
-+ You should look at your data carefully.  Does it make sense, given what you expect?  Are there any features of the data that look suspicious?  Are there any outliers?  Even if summary statistics are normal, plot your data to check for unexpected features.
++ You should always look at your data carefully and critically.  Does your data make sense, given how you set up your experiment?  Do any features of the data look suspicious?  Are there any outliers?  Even if the summary statistics look normal, plot your data to check for unexpected features.
 
-+ You need to think about what analyses you want to run before you run them.  The human brain is very good at finding patterns in random data.  Are you using your data to answer a specific question, or are you just looking through your data until you 'find something'?
++ You should develop a habit of thinking about what analyses you want to run before you start them.  The human brain is very good at finding patterns even where there are none.  Are you using your data to answer specific pre-defined questions, or are you just looking through your data until you 'find something'?
 
-If you put all these together, the key point is that you need to think critically as you analyze your data.  Just throwing together a plot can get you into trouble quickly.  Spending the time to think through what you're doing and why will save you a lot of problems down the track.
+If you put all these points together, the key upshot is that you need to think critically as you analyze data.  Simply throwing together a plot can get you into trouble quickly.  Spending the time to think through what you're doing, and why you're doing it, will save you a lot of pain down the track.
 
