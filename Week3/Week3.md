@@ -112,16 +112,23 @@ values <- sample(seq(0,100), 5)
 pie(values, labels=items)
 ```
 
+Note that there are small differences between the commands.  For instance, to plot group names, *barplot* uses the *names* flag, while *pie* uses the *labels* flag.  You can explore all these flag options by asking for help on the R command line.
+
+```R
+?barplot
+?pie
+```
+
 There are lots of ways to graph data, including many plot types you have probably never heard of.  Regardless of what sort of data you have, there will be many ways for you to plot it.  Often, the commands to make these graphs in R are very simple – at least for basic styles.
 
 > **EXERCISE 3**<br>
 > Take another look through the [R Graph Gallery](https://www.r-graph-gallery.com).
-> Choose a plot style that interests you and use the commands given online to make the plot.  For this exercise, stick to plots described as *base R* rather than *ggplot2*, and unless you have a bit of time to play, don't choose anything too complex!
+> Choose a plot style that interests you and use the commands given online to make the plot.  For this exercise, stick to plots described as *base R* rather than *ggplot2*, and unless you have a bit of time to play around, don't choose anything too complex!
 
 
 ## Making Good Use of Summary Statistics
 
-Plotting data can be time consuming, so before we do that, it is best practice to calculate summary statistics first, such as means (averages) and standard deviations.
+Plotting data can be time consuming, so before we do that, it is often best practice to calculate summary statistics first. This might include measurs such as means (averages) or standard deviations.
 
 Let's consider a dataset listing the RNA expression of 142 genes together with their associated protein levels, as determined by mass spectrometry.  The dataset contains four sets of data generated under four different environmental conditions.  
 
@@ -162,12 +169,14 @@ You can calculate correlations in R using this command.
 cor.test(set1.x, set1.y)
 ```
 
+This returns a lot of information, but the most important numbers are the correlation value (*cor* or *r*) and the probabilty (*p-value*).
+
 > **EXERCISE 6**<br>
-> Calculate correlations of gene expression against protein levels for the four sets.  Are RNA expression levels helpful in predicting protein levels?  (That is, are expression and protein levels significantly correlated?)
+> Calculate correlations of gene expression against protein levels for the four sets.  Are RNA expression levels helpful in predicting protein levels?  That is, are expression and protein levels significantly correlated?
 
 By this time, you have probably identified that the four sets of data are very similar, in terms of their expression and protein levels, regardless of which environmental conditions they were generated under. Interestingly, the correlation values are also small – there is little evidence in this data that genes with high RNA expression also produce high levels of the corresponding protein.
 
-Just to finally confirm this, it's a good idea to plot your data, if only to confirm that there are no real differences between the datasets.
+Just to confirm this, it's a good idea to plot your data, if only to check that there are no real differences between the datasets.
 
 > **EXERCISE 7**<br>
 > Make scatter plots for the four datasets.  Plot gene expression (e.g., *set1.x*) on the *x* axis and protein levels (e.g., *set1.y*) on the *y* axis.
@@ -177,9 +186,9 @@ Just to finally confirm this, it's a good idea to plot your data, if only to con
 
 It's often a good idea to look at your data visually.  The challenge is: what plot type should you use?  After a while you begin to learn what styles of plot are most well suited for representing certain types of data. Even then though, you often just have to try different plot types and see what works.
 
-Let's consider biological items grouped into functional categories, such as 'immune genes', 'enzymes', 'cell wall genes' and the like.  Classifying things in this way is very common, and looking for differences can be highly effective to distinguish how certain types of genes change under various conditions (say, in cancer cells versus normal tissue).
+Let's consider biological items grouped into functional categories, such as 'immune genes', 'enzymes', 'cell wall genes' and the like.  Classifying things in this way is very common, and looking for differences can be highly effective in distinguishing how certain types of genes change under various conditions (say, in cancer cells versus normal tissue).
 
-Here is a dataset of five immune cell types and their percentage frequency under three conditions: in normal tissue, the primary tumor, and a secondary tumor ('metastasis').
+Here is a dataset of five immune cell types and their percentage frequency under three conditions: normal tissue, the primary tumor, and a secondary tumor ('metastasis').
 
 ```R
 cell.type <- c("eosinophils", "mast cells", "lymphocytes", "basophils", "neutrophils")
@@ -189,7 +198,7 @@ secondary <- c(21.0, 18.5, 20.0, 23.5, 17.0)
 ```  
 
 > **EXERCISE 8**<br>
-> We learned how to make pie charts earlier, so make pie charts for the normal tissue, primary tumor and secondary tumor.  Are there any clear differences in the proportions of the five immune cell types?
+> We learned how to make pie charts earlier, so make pie charts for the normal tissue, primary tumor and secondary tumor.  Are there any clear differences in the proportions of the five immune cell types?  You may need to save the plots to compare them.
 
 Because it's hard to know what plot type will produce the clearest visualation of your data, it is often helpful to make different plots and see if you like them better.  For group data, bar charts are a common choice.
 
@@ -203,12 +212,12 @@ secondary <- c(23.5, 21.0, 20.0, 18.5, 17.0)
 ```
 
 > **EXERCISE 9**<br>
-> We learned how to make bar charts earlier, so make bar charts for the normal tissue, primary tumor and secondary tumor.  Are the pie charts or the bar charts more clear at presenting the data?
+> We learned how to make bar charts earlier, so make bar charts for the normal tissue, primary tumor and secondary tumor.  Do the pie charts or the bar charts present the data more clearly?
 
 
 ## Critically Evaluating Your Data
 
-Way back in 1980, when spandex and mullets were the height of fashion, Robert Jackman wrote an influential [paper](https://www.jstor.org/stable/2095134).  Jackman was looking for links between social factors and income across a global range of countries.  Although this study is now over 40 years old and it is not genetic data, the analysis is a widely known case study of how to look critically at data.  We're going to look at it for that reason.
+Way back in 1980, when spandex and mullets were the height of fashion, Robert Jackman wrote an influential [paper](https://www.jstor.org/stable/2095134).  Jackman was looking for links between social factors and income across a global range of countries.  Although this study is now over 40 years old and it is not genetic data, the analysis is a widely known case study of how to look critically at data.  We're going to use it for that reason.
 
 Let's start by loading the dataset.
 
@@ -226,7 +235,7 @@ Hopefully you found, as did many many researchers before Jackman, that there is 
 > **EXERCISE 11**<br>
 > So now let's do what Jackman did.  Make a scatter plot of voter turnout (on the *x* axis) versus income inequality (on the *y* axis).  What do you see?
 
-One country – South Africa – stands out as being very different to all the other countries.  In statistics, this process of looking for unusual data points is called [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection), and on this graph, South Africa would be said to be an *outlier*.  It is important to think critically before removing data from any analysis – doing that can effectively force the data to look the way you want it to rather than the way it actually is.  However, this is a good example of where a single point looks suspicious.  It would be quite reasonable to ask whether you get the same result if you just considered the countries other than South Africa.  If there is genuinely an association between voter turnout and income inequality, the correlation you calculated above should still hold up.
+One country – it happens to be South Africa – stands out as being very different to all the other countries.  In statistics, this process of looking for unusual data points is called [anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection), and on this graph, South Africa would be said to be an *outlier*.  It is important to think critically before removing data from any analysis – doing that can effectively force the data to look the way you want it to rather than the way it actually is.  However, this plot is a good example of where a single point looks suspicious.  It would be quite reasonable to ask whether you get the same result if you just consider the countries other than South Africa.  If there is genuinely an association between voter turnout and income inequality, the correlation you calculated above should still hold up.
 
 So what does the correlation between voter turnout and income inequality look like when we exclude South Africa?
 
@@ -242,7 +251,7 @@ cor.test(turnout[2:18], income.inequality[2:18])
 
 ## Checking Your Data Source
 
-As you're hopefully now beginning to realize, it's really important to always check your data.
+As you're hopefully now beginning to realize, it's always really important to check your data.
 
 Consider the following time series dataset.
 
@@ -255,9 +264,9 @@ transposon.loss <- c(9, 8, 11, 12, 11, 13, 12, 9, 9, 7, 9)
 This shows the number of transposons gained and lost from the genome of a New Zealand alpine buttercup as a population on the Ruapehu plateau was surveyed over the course of a decade.
 
 > **EXERCISE 13**<br>
-> Calculate the correlation between transposon gain and transposon loss.  Are these two features associated?  What biological processes might be causing this association?
+> Calculate the correlation between transposon gain and transposon loss.  Are these two features associated?  What biological processes might be causing the association?
 
-For time series data, it can often be helpful to add lines linking points on a plot, in order to show trends through time.  There are two alternative ways to do this: using the *type* flag or the *lines* command.  The options for the *type* flag are *p* for *points only*, *l* for *lines only* and *b* for *both points and lines*.  Run the commands below and see if you can figure out how they work.
+For time series data, it can often be helpful to add lines linking points on a plot, in order to show trends through time.  There are two alternative ways to do this in R: using the *type* flag or the *lines* command.  The options for the *type* flag are *p* for *points only*, *l* for *lines only* and *b* for *both points and lines*.  Run the commands below and see if you can figure out how they work.
 
 ```R
 plot(year, transposon.gain, type="b", col="blue")
@@ -272,10 +281,10 @@ lines(year, transposon.loss, type="b", col="red")
 
 By now, you should have a growing understanding of how important it is to check your data, question your assumptions, and think critically about your decisions, including how you choose to explore and visualize your data.
 
-In this final exercise, we will look at the issue of *p hacking*.  P hacking is the name given to the very tempting process of looking through your data until you find a significant result.  When datasets were small, researchers could really ask only one or two questions.  Those questions were either supported by the statistics or they weren't.  However, now that many studies are collecting huge amounts of data, if your first question doesn't hold up, it is tempting to keep looking through the dataset until you find an interesting result.
+In this final exercise, we will look at the issue of *p hacking*.  P hacking is the name given to the very tempting process of looking through your data until you find a significant result.  When datasets were small, researchers could really only ask one or two questions.  Those questions were either supported by the statistics or they weren't.  However, now that many studies are collecting huge amounts of data, if your first question doesn't hold up, it is tempting to keep looking through the dataset until you find an interesting result.
 
 > **EXERCISE 15**<br>
-> Take a look at [this website](https://projects.fivethirtyeight.com/p-hacking/). Try selecting various parameters to test.  Can you find a statistically significant result that you like?  Can you disprove a result that you don't want to be true by tweaking the analysis.  How much do you believe either result?
+> Take a look at [this website](https://projects.fivethirtyeight.com/p-hacking/). Select various parameters to test.  Can you find a statistically significant result that you like?  Can you disprove a result that you don't like, just by tweaking the analysis.  How much do you believe either outcome?
 
 
 ## Take Home Messages
@@ -286,9 +295,9 @@ During the course of this practical, you have hopefully encountered a few ideas 
 
 + You need to be confident about where your data comes from.  Is it accurate?  Is it complete?  Have any errors crept into the dataset before you got it?  Do you trust the source?
 
-+ You should always look at your data carefully and critically.  Does your data make sense, given how you set up your experiment?  Do any features of the data look suspicious?  Are there any outliers?  Even if the summary statistics look normal, plot your data to check for unexpected features.
++ You should always look at your data carefully and critically.  Does your data make sense, given how the experiment was set up?  Do any features of the data look suspicious?  Are there any outliers?  Even if the summary statistics look fine, plot your data to check for unexpected features.
 
 + You should develop a habit of thinking about what analyses you want to run before you start them.  The human brain is very good at finding patterns even where there are none.  Are you using your data to answer specific pre-defined questions, or are you just looking through your data until you 'find something'?
 
-If you put all these points together, the key upshot is that you need to think critically as you analyze data.  Simply throwing together a plot can get you into trouble quickly.  Spending the time to think through what you're doing, and why you're doing it, will save you a lot of pain down the track.
+If you put all these points together, the key upshot is that you need to think critically as you analyze data.  Simply throwing together a plot can get you into trouble quickly.  Spending the time to think through what you're doing, and why you're doing it, will save you a lot of pain down the track.  Even if your graphs don't confuse you, it's really important to make them in such a way that they don't confuse others either.
 
