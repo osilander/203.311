@@ -13,6 +13,7 @@
 [Checking Your Data Source](#checking-your-data-source)<br>
 [P Hacking](#p-hacking)<br>
 [Take Home Messages](#take-home-messages)<br>
+[Further Reading](#further-reading)<br>
 
 ## Purpose
 
@@ -301,3 +302,11 @@ During the course of this practical, you have hopefully encountered a few ideas 
 
 If you put all these points together, the key upshot is that you need to think critically as you analyze data.  Simply throwing together a plot can get you into trouble quickly.  Spending the time to think through what you're doing, and why you're doing it, will save you a lot of pain down the track.  Even if your graphs don't confuse you, it's really important to make them in such a way that they don't confuse others either.
 
+
+## Further Reading
+
+If you are interested in this subject and want to learn more about good visualization techinques, the following two books are freely available online.
+
+Kieran Healy. 2019. [Data Visualization: A Practical Introduction](https://socviz.co/index.html). Princeton University Press: Princeton.
+
+Claus Wilke. 2019. [Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures](https://clauswilke.com/dataviz/). O'Reilly: New York.
