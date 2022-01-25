@@ -5,12 +5,13 @@
 
 ## Purpose
 
-xxxx
+To learn about the similarities and differences in three most common types of NGS sequencing data, and how to visualise these differences.
 
 
 ## Introduction
 
-xxx
+Since the birth of Next Generation Sequencing in 2005 (or so), the technology rapidly proliferated into a number of 
+[different platforms](https://en.wikipedia.org/wiki/Massive_parallel_sequencing "NGS sequencing platforms") (e.g. 454, IonTorrent, Helicos, and others).
 
 
 ## Practical sections start here
