@@ -36,8 +36,11 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA 
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads, while Oxford Nanopore provides long, less accurate reads. We will see that these provide different advantages.
 
-### The Data
+### The Data Format
 The format of the data that we will be using today is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+
+### The Data Itself
+We will need the actual fastq files. The Illumina data are available here . The Oxford Nanopore data are available here.
 
 <br><br><br>
 
