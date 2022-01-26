@@ -57,7 +57,7 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA 
 ### The Data
 The format of the data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here . The Oxford Nanopore data are available here .
+The Illumina data are available here: [R1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) [R2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
 <br>
 
