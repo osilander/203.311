@@ -33,7 +33,9 @@ Below, we will refer to any DNA sequence data from and NGS platform as a "read".
 In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
 
 > **QUESTION 1**<br>
-> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking uin New Zelanad compared to other countries?
+> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking in New Zealand compared to other countries?
+
+Please look over [this paper here](file/sc2_flight_transmission.pdf) and [this paper here](file/sc2_realtime_genomics.pdf) for some applications of SARS-CoV-2 genome sequencing data in New Zeeland.
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
 
