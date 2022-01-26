@@ -57,11 +57,11 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA 
 ### Today's Data
 The format of the data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here: [R1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) [R2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
+The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paiured end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
 To download the data, click on one of the links above to reach a page linking to the data. It shiould look like this:
 
-<img src="graphics/fastq_download.png" width="400"/>
+<img src="graphics/fastq_download.png" width="600"/>
 
 Right click the "Download" button and scroll to *copy link address*. Then navigate to the RStudio command line, and download the data using *wget*:
 ```bash
@@ -74,7 +74,6 @@ Repeat this process for all three of the files above. Now you have all the DNA s
 ls -lh *fastq.gz
 ```
 
-<br>
 
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
