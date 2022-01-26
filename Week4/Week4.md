@@ -9,7 +9,7 @@
 [Illumina](#illumina)<br>
 [PacBio](#pacbio)<br>
 [Oxford Nanopore](#oxford-nanopore)<br>
-[The Data Format](#data-format)<br>
+[The Data](#data)<br>
 [Making Good Use of Summary Statistics](#making-good-use-of-summary-statistics)<br>
 [Choosing A Plot Type](#choosing-a-plot-type)<br>
 [Critically Evaluating Your Data](#critically-evaluating-your-data)<br>
@@ -54,16 +54,28 @@ PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through the poer. [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
 
-### What are we doing
-We 
+### The Data
+The format of the data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-### The Data Format
-The format of the data that we will be using today is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+The Illumina data are available here . The Oxford Nanopore data are available here .
 
-### The Data Itself
-We will need the actual fastq files. The Illumina data are available here . The Oxford Nanopore data are available here.
+<br>
 
-<br><br><br>
+### Making Good Use of Summary Statistics
+We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
+
+Thus, once we have the data, the first thing we will do is get some summary statistics. First, we need to load the sequencing data into *RStudio*. We will use the *load_sequence* function to do this. Look up this function and the arguments that it takes now.
+
+Note that here and throughout the lab sessions I will refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file even exists for you. Rather, you should replace this name with the file that *does* exist and which you *do* want to analyse.
+```R
+sc2.illumina <- load_fastq("my_fastq.fastq")
+```
+
+### Choosing A Plot Type
+
+### Critically Evaluating Your Data
+
+### Take Home Messages
 
 [GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
