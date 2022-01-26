@@ -30,7 +30,10 @@ These three technologies differ considerably in their methodologies. For all thr
 Below, we will refer to any DNA sequence data from and NGS platform as a "read".
 
 ### SARS-CoV-2 Genome Sequencing
-In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most highly sequenced organisms, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing if performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission. It is this second application that is primarily used here in New Zealand.
+In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
+
+> **QUESTION 1**<br>
+> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking uin New Zelanad compared to other countries?
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
 
@@ -59,7 +62,7 @@ The format of the data that we will be using today are Illumina and Oxford Nanop
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paiured end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
-To download the data, click on one of the links above to reach a page linking to the data. It shiould look like this:
+To download the data, click on one of the links above to reach a page linking to the data. It should look like this:
 
 <img src="graphics/fastq_download.png" width="600"/>
 
@@ -74,6 +77,7 @@ Repeat this process for all three of the files above. Now you have all the DNA s
 ls -lh *fastq.gz
 ```
 
+Are all three files present?
 
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
