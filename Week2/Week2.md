@@ -1,7 +1,7 @@
 **[Return to the Course Home Page](../index.html)**
 
-# Introduction to R
-**Associate Professor Patrick Biggs**
+# Introduction to UNIX
+**Professor Patrick Biggs**
 
 ## Purpose
 
