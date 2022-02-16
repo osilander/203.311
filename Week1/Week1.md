@@ -3,6 +3,10 @@
 # Introduction to R
 **Professor Patrick Biggs**
 
+[Purpose](#purpose)<br>
+[Introduction](#introduction)<br>
+
+
 ## Purpose
 
 To learn how to use a new software environment with the aim of understanding some principles of different data types and their analysis.
