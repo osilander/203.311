@@ -63,10 +63,10 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R con
 
 
 ```R
-> x = 1 ### comment
+> x = 1 ###comment
 > x
 [1] 1
-### comment
+###comment
 ```
 
 ## Practical sections start here
