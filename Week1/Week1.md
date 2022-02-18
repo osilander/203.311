@@ -76,6 +76,13 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R con
 
 ## Practical sections start here
 
+```{r}
+> x = 34 ###comment
+> x
+
+###comment
+```
+
 New material goes here...
 
 <br><br><br>
