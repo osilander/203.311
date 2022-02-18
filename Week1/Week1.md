@@ -56,14 +56,15 @@ So, for example,
 ```
 means \"at the R console prompt `>`  '**\>**', type the code as written to make a vector `x` made up of the values 1, 5, 7 and 14, then press the key marked Enter\".
 
-Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line [unless otherwise stated]{.underline}. It is also assumed that the first '**\>**' is the R console prompt.
+Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line _unless otherwise stated_. It is also assumed that the first `>` is the R console prompt.
 
 
 
 ```R
-> x = 1
+> x = 1 # comment
 > x
 [1] 1
+# comment
 ```
 
 ## Practical sections start here
