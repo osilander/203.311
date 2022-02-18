@@ -47,11 +47,24 @@ First thing, you have an electronic copy of this practical -- which you will see
 
 In what follows, we shall use the following typographical conventions for working with R:
 
-```r
 
+
+So, for example,
+
+```R
+ > x <- c(1, 5, 7, 14) `Enter`
 ```
+means \"at the R console prompt `>`  '**\>**', type the code as written to make a vector `x` made up of the values 1, 5, 7 and 14, then press the key marked Enter\".
+
+Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line [unless otherwise stated]{.underline}. It is also assumed that the first '**\>**' is the R console prompt.
 
 
+
+```R
+x = 1
+x
+[1] 1
+```
 
 ## Practical sections start here
 
