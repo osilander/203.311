@@ -46,7 +46,12 @@ First thing, you have an electronic copy of this practical -- which you will see
 ## Conventions used for this RStudio practical
 
 In what follows, we shall use the following typographical conventions for working with R:
+-   Characters written in **bold Consolas font** are commands to be typed into the computer as they stand. In a difference to practical 1, this will be for both functions and filenames, *[and all these commands should be typed in for this afternoon's practical]{.underline}*.
 
+-   Characters written after something like `###` indicate comments within the code that will help you.
+-   Characters written in **this dark red Consolas font (e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too. These will appear as light grey on the handouts but are in colour online.
+
+-   Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
 
 
 
@@ -54,9 +59,9 @@ In what follows, we shall use the following typographical conventions for workin
 So, for example,
 
 ```R
- > x <- c(1, 5, 7, 14) `Enter`
+ > x <- c(1, 5, 7, 14) [Enter]
 ```
-means \"at the R console prompt `>`  '**\>**', type the code as written to make a vector `x` made up of the values 1, 5, 7 and 14, then press the key marked Enter\".
+means \"at the R console prompt `>`, type the code as written to make a vector `x` made up of the values 1, 5, 7 and 14, then press the key marked Enter\".
 
 Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line _unless otherwise stated_. It is also assumed that the first `>` is the R console prompt.
 
