@@ -134,7 +134,7 @@ This is our first example of using the 3 colours for this practical, and for all
 An alternative way to help you with these practicals would be to rewrite the code like this, and this is the convention I may also use:
 
 ```R
-### this is a comment and it can be at the top of a code bloc
+### this is a comment and it can be at the top of a code block
 > 1 + 1 
 > [1] 2
 ```
@@ -150,6 +150,73 @@ As a quick introduction to installing packages, we will go into this is more det
 > install.packages("XXXXXX")
 ```
 where `"XXXXXX"` is the package name you want to install. This requires an active internet connection to retrieve the package.
+
+>**Exercise A:**
+>
+>Install the package called `alluvial` into your current R session. Write the version column from your package window (lower right quadrant: window #4 for the lectures) in the box below (or in a notebook, text file etc.)
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+If we then want to use or load the package we type the following into the console:
+
+```R
+> library("XXXXXX")
+```
+
+### Getting help
+
+As stated in the lecture, there are many ways to get help within R. Looking for answers on Google can also help -- your question is most likely to have been searched for before! R provides extensive documentation. For example, entering `?c` or `help(c)` at the prompt gives documentation of the function `c()` in R.
+
+```R
+> help(c)
+```
+
+Nothing returns to the console, but you get help in your help window (lower right quadrant: window #4 for the lectures). This is the difference that is found by using RStudio, but it is nothing to worry about.
+
+If you are not sure about the name of the function you are looking for, you can perform a fuzzy search with the `apropos()` function.
+
+```R
+> ### your response might be different depending on the packages installed on your system
+> apropos("nova")
+> [1] "anova" "manova" "power.anova.test" "stat.anova" "summary.manova"
+```
+
+We can also use the `example` command to find out what the package can do.
+
+>**Exercise B:**
+> Load the package called `alluvial` into your current R session (there is a hint below the Exercise A answer box). Write the code in the box below to run as example from the `alluvial` package:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+What it returns to the console and to your \#4 window as a plot is not relevant for now, and we can move on (looks pretty cool though!). Keep on pressing [Enter] (around 9 times) until you get an R command prompt (`>`) back on your console.
+
+
+### Some basic mathematical operations
+
+We can do basic mathematics on variables and numbers.
+
+```R
+> x + x ### examples -- make up your own here
+> x * pi
+> vec + 46
+> 16 + 4567
+> vec * vec
+```
+
+Try some ideas out for yourself, and place some code examples in the box below. Go back to the lecture notes (pages 10 and 11) to try some things out like addition, multiplication, subtraction etc. If it does not work, can you think why?
+
+> <table><tr><td>
+> ____________________
+>
+> What does `vec * vec` do to the values of `vec`? 
+> </td></tr></table>
+
+
+
+
 
 
 
