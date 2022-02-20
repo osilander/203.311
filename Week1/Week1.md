@@ -1,6 +1,7 @@
 **[Return to the Course Home Page](../index.html)**
 
 # Introduction to R
+
 **Professor Patrick Biggs**
 
 [Purpose](#purpose)<br>
@@ -46,15 +47,10 @@ First thing, you have an electronic copy of this practical -- which you will see
 ## Conventions used for this RStudio practical
 
 In what follows, we shall use the following typographical conventions for working with R:
--   Characters written in **bold Consolas font** are commands to be typed into the computer as they stand. In a difference to practical 1, this will be for both functions and filenames, *[and all these commands should be typed in for this afternoon's practical]{.underline}*.
-
--   Characters written after something like `###` indicate comments within the code that will help you.
--   Characters written in **this dark red Consolas font (e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too. These will appear as light grey on the handouts but are in colour online.
-
+-   Characters written in `this programming style` are commands to be typed into the computer as they stand. In a difference to practical 1, this will be for both functions and filenames, *[and all these commands should be typed in for this afternoon's practical]*.
+-   Characters written after something like `###` indicate comments within the code that will help you.  They do not run code. 
+-   Characters written in without `>` at the start of the line **(e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too. 
 -   Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
-
-
-
 
 So, for example,
 
@@ -65,20 +61,106 @@ means \"at the R console prompt `>`, type the code as written to make a vector `
 
 Don\'t forget to press the **\[Enter\]** key: commands are not sent to the R console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line _unless otherwise stated_. It is also assumed that the first `>` is the R console prompt.
 
+# Need to tidy up this bit
 
+***Logging into the iMacs in C5-10***
+
+The machines we are using for the course -- Apple iMacs -- have been updated for 2021, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in. We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+
+***Opening up RStudio Cloud***
+
+***[Setting up an account on RStudio Cloud]{.underline}***
+
+We have organised a student account for you at <https://rstudio.cloud/> to be valid until the end of October 2021 (i.e. for the whole of the Semester). The information for your personalised link has been sent to you separately via a Stream announcement.
+
+***[Important Note]{.underline}***
+
+**Please see the separate document -- Access\_to\_RStudio\_Cloud2021 -- that has been provided both as a Stream announcement and in the "Taiwhanga \| Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
+
+***[Our work today]{.underline}***
+
+We are going to be using RStudio today as a convenient introduction in using R, so we are going to focus mostly on the console today (bottom left pane from the lecture). However, we will be using -- or rather you will need to be aware of -- the whole environment for this morning, and also for both next week, and Modules 2 and 3.
+
+# End of tidying up this bit
+
+
+## Basic operations
+
+### Assigning variables
+
+Let's start off by making the assigning the variable `x` with a value of 1:
 
 ```R
-> x = 1 ###comment
+> x = 1
 > x
 [1] 1
-###comment
 ```
+
+We can also use the \<- operator to do the same thing:
+
+```R
+> x <- 1
+> x
+[1] 1
+```
+
+I prefer the`<-` as to me it is more demonstrative of what is going on i.e. we are making assigning `x` the value of `1`. Using `=` suggests equivalence, which is not strictly true.
+
+
+### Functions
+
+We have seen this in the code conventions above. Let's repeat that, but this time call it **vec**:
+
+```R
+> vec <- c(1, 5, 7, 14)
+> vec
+[1] 1 5 7 14
+```
+
+
+### Comments
+
+We have also seen this in the code conventions above. Say we want to make a comment on some addition:
+
+```R
+> 1 + 1 ### this is a comment***
+> [1] 2
+```
+
+This is our first example of using the 3 colours for this practical, and for all subsequent work within R. In the console the comments will be the same colour, but if you wrote this in the script box within RStudio, you would see the below, which are screenshots from my session. This is due to something called syntax highlighting, which is not relevant for today (but useful nonetheless). Of course, the script does not give you an answer, that is what the console is for.
+
+# add in images for R comments here
+
+An alternative way to help you with these practicals would be to rewrite the code like this, and this is the convention I may also use:
+
+```R
+### this is a comment and it can be at the top of a code bloc
+> 1 + 1 
+> [1] 2
+```
+
+Which one gets used depends on what we are trying to find out, or the principle we are currently exploring.
+
+
+### Introduction to packages
+
+As a quick introduction to installing packages, we will go into this is more detail later, this is as easy as:
+
+```R
+> install.packages("XXXXXX")
+```
+where `"XXXXXX"` is the package name you want to install. This requires an active internet connection to retrieve the package.
+
+
+
+
+
 
 ## Practical sections start here
 
-```{r}
-> x = 34 ###comment
-> x
+```R
+x = 34 ###comment
+x
 
 ###comment
 ```
