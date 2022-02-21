@@ -377,89 +377,133 @@ More functions for string manipulation can be found in the R documentation.
 > </td></tr></table>
 
 
-R data formats3
+## R data formats[^3]
 
 We will consider 4 data formats, and then focus on the one of most importance to use – the data frame – for the rest of the practical.
 
-Vector
+### Vector
+
 A vector is a sequence of data elements of the same basic type. Members in a vector are officially called components. Nevertheless, we will just call them members.  Here is a vector containing three numeric values 7, 8, and 9.
+
+```R
 > c(7,8,9)
 [1] 7 8 9
+```
 
 Type this vector of logical values:
+
+```R
 > c(TRUE, FALSE, TRUE, FALSE, FALSE)
 [1]  TRUE FALSE  TRUE FALSE FALSE
+```
 
 A vector can also contain character strings.
+
+```R
 > c("jj", "kk", "ll", "mm", "nn")
 [1] "jj" "kk" "ll" "mm" "nn"
+```
 
 Incidentally, the number of members in a vector is given by the length function.
+
+```R
 > length(c("jj", "kk", "ll", "mm", "nn"))
 [1] 5
+```
 
 We can combine vectors, even of different types:
+
+```R
 ### we have to coerce the numerics to strings in doing this.
 > n <- c(7, 8, 9)
 > s <- c("jj", "kk", "ll", "mm", "nn")
 > c(n, s)
 [1] "7"  "8"  "9"  "jj" "kk" "ll" "mm" "nn"
+```
 
-Following on from the initial concepts of maths mentioned above, we can perform arithmetic operations of vectors are member-by-member, i.e., member-wise.  For example, suppose we have two vectors a and b.
+Following on from the initial concepts of maths mentioned above, we can perform arithmetic operations of vectors are member-by-member, i.e., member-wise.  For example, suppose we have two vectors `a` and `b`.
+
+```R
 a <- c(5, 8, 12, 15) 
 b <- c(1, 2, 3, 8)
+```
 
 Then, if we multiply a by 5, we would get a vector with each of its members multiplied by 5.
+
+```R
 5 * a 
 [1] 25 40 60 75
+```
 
-And if we add a and b together, the sum would be a vector whose members are the sum of the corresponding members from a and b.
+And if we add `a` and `b` together, the sum would be a vector whose members are the sum of the corresponding members from `a` and `b`.
+
+```R
 > a + b 
 [1]  6 10 15 23
+```
+
 Similarly for subtraction, multiplication and division, we get new vectors via the same member-wise operations.
+
+```R
 > a - b
 [1] 4 6 9 7
 > a * b
 [1]   5  16  36 120
 > a / b
 [1] 5.000 4.000 4.000 1.875
+```
+
 If we have two vectors of unequal length, the shorter one will be recycled in order to match the longer vector. For example, the following vectors u and v have different lengths, and their sum is computed by recycling values of the shorter vector u.
+
+```R
 > u <- c(100, 200, 300)
 > v <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
 > u + v
 [1] 101 202 303 104 205 306 107 208 309
+```
 
-Exercise E:
-Rerun the above but with a new vector u with only 2 members (it doesn’t matter what they are).  Write the result of u + v in the box below.  What has happened?
+> **Exercise E:**
+> Rerun the above but with a new vector `u` with only 2 members (it doesn’t matter what they are).  Write the result of `u + v` in the box below.  What has happened?
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+ 
+In subsequent practicals we will be using indexed positions in vectors, matrices and data frames.  Consider vector `s` above, which should still be in your session.  To find the third member, we simply type:
 
-
-
-
-
-
-   
-In subsequent practicals we will be using indexed positions in vectors, matrices and data frames.  Consider vector s above, which should still be in your session.  To find the third member, we simply type:
+```R
 > s
 [1] "jj" "kk" "ll" "mm" "nn"
 > s[3]
 [1] "ll"
+```
 
-Matrix
-This is a collection of data elements in a 2D format, also known as a table.  Consider a matrix A with 2 rows and 3 columns, such as:	 A= [?(2&4&3@1&5&7)] .  As long as the elements are of the same type, we can use our first multi-line R code to make a matrix:
+### Matrix
+ This is a collection of data elements in a 2D format, also known as a table.  Consider a matrix A with 2 rows and 3 columns, such as:	 A= [?(2&4&3@1&5&7)] .  As long as the elements are of the same type, we can use our first multi-line R code to make a matrix:
+```R
 > A <- matrix(
 +   c(2, 1, 4, 5, 3, 7),      ### data elements
-+   nrow = 2,			    ### number of rows
-+   ncol = 3,			    ### number of columns
++   nrow = 2,		      ### number of rows
++   ncol = 3,		      ### number of columns
 +   byrow = TRUE)             ### fill by rows
 > A
      [,1] [,2] [,3]
 [1,]    2    1    4
 [2,]    5    3    7
+```
 
-We can find the element in the mth row and nth column as A[m, n].
+We can find the element in the mth row and nth column as `A[m, n]`.
 
-Exercise F:
-What is the number in the second column and second row in matrix A?  Write your code and the answer below:
+> **Exercise F:**
+> What is the number in the second column and second row in matrix A?  Write your code and the answer below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
+
+
+
+
 
 
 In the next 6 lines of entered code (black), we will look at extracting a row of A, a column of A, and then making a new matrix B as a subset of A:
@@ -890,6 +934,13 @@ Prof Patrick Biggs,
 Molecular Biosciences Group,
 
 School of Natural Sciences
+
+```
+-. .-.   .-. .-.   .-. .-.   .
+||\|||\ /|||\|||\ /|||\|||\ /|
+|/ \|||\|||/ \|||\|||/ \|||\||
+~   `-~ `-`   `-~ `-`   `-~ `-
+```
 
 <p.biggs@massey.ac.nz>
 
