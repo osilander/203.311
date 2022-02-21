@@ -85,8 +85,8 @@ We are going to be using RStudio today as a convenient introduction in using R, 
 # End of tidying up this bit
 
 
-## Basic operations[^1]
 
+## Basic operations[^1]
 
 ### Assigning variables
 
@@ -217,6 +217,8 @@ Try some ideas out for yourself, and place some code examples in the box below. 
 > </td></tr></table>
 >
 > What does `vec * vec` do to the values of `vec`? 
+
+
 
 ## R data types[^2]
 
@@ -378,6 +380,7 @@ More functions for string manipulation can be found in the R documentation.
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
+
 
 
 ## R data formats[^3]
@@ -738,6 +741,7 @@ Camaro Z28 13.3   8  350 245 3.73 3.84 15.41  0  0    3    4
 > </td></tr></table>
 
 
+
 ## Functions within R
 
 As you will remember from the lecture, we have come across lots of functions already for example, `head()`, `tail()`, `class()`, `c()`, `help()`, `matrix()`, `t()`, `paste()` etc.  There are thousands of them out there, and they are the “things” to make “stuff” happen.  Packaged recipe that converts one or more inputs (called arguments) into a single output.  
@@ -791,6 +795,7 @@ The first line of the “usage” section gives you an example of what the funct
 > </td></tr></table>
 
 
+
 ## Libraries, also known as Packages
 
 There are many basic packages R comes with:
@@ -835,6 +840,7 @@ The package “hexbin” has functions including one – `hexbin()` – that is 
 You might have to hit [Enter] in the console to see the plot.  The `style = "centroids"` option plots filled hexagons, at the centroid of each bin. The sizes of the plotted hexagons are proportional to the number of points in each bin, so now we can see how much data there is there.  Rather impressive, right?
 
 
+
 ## Bioconductor
 
 Our last compulsory activity for today is to install a Bioconductor package and then briefly use it.  It will install as another package, but has that underlying structure and support behind it.  Even though this has been done for you already, it’s probably not a bad idea to load up an active connection into your current session.
@@ -873,9 +879,11 @@ Do not update any packages at this time, so type "n" to answer the question abov
 > </td></tr></table>
 
 
+
 ## Note:
 
 *If you have got up to here, and are running out of time in the practical, I am happy for you to complete the next section on “A small complete exercise” in your own time.  You should have a basic knowledge now having completed this for the Mastery test in two weeks’ time.  If you would like to do the next exercise later that’s fine, otherwise, please go to the next section for the conclusion and the “pop” quiz across today’s work.*
+
 
 
 ## A small complete exercise
@@ -904,7 +912,9 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
 ```
 
 We can regard the last 4 columns as categorical data – that is data with discrete values.  With this data we can plot the relationships between the cars that have engines in the “V” format (“vs”), have automatic gearboxes (“am”), the number of gears (“gear”) and carburettors (“carb”).  Let’s do a basic plot[^4] of our data:
+```R
 > alluvial(mtcars[8:11], freq = mtcars$cyl)
+```
 
 From the help pages:
 
@@ -944,27 +954,33 @@ As a little final exercise, we will look at the answers we have generated today,
 
 One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the `[1]` line count from the R console.  Write your answer in the box below:
 
-Exercise A:	character 1
-Exercise C:	character 1
-Exercise D:	character 1
-Exercise E: 	character 4
-Exercise F:	character 1 of your returned numeric answer
-Exercise G:	character 1 of your returned numeric answer
-Exercise H:	your numeric answer
-Exercise K:	character 1, character 4
-Exercise E: 	character 4, character 1
+> Exercise A:	character 1
+> Exercise C:	character 1
+> Exercise D:	character 1
+> Exercise E: character 4
+> Exercise F:	character 1 of your returned numeric answer
+> Exercise G:	character 1 of your returned numeric answer
+> Exercise H:	your numeric answer
+> Exercise K:	character 1, character 4
+> Exercise E: character 4, character 1
 
-
-This is the series called: _________________________________________
+This is the series called:
+<table><tr><td>
+____________________
+</td></tr></table>
 
 Use the internet or your own understanding to find out what the 17th number in the series is:
-
- _______________
+<table><tr><td>
+____________________
+</td></tr></table>
 
    
 That is today’s practical completed.
 
-Please remember to go to the Apple Menu on your iMac and click on “Log Out Student” to log out of the system.
+For those of you on the iMacs, please remember to go to the Apple Menu on your iMac and click on “Log Out Student” to log out of the system.
+
+<img src="graphics/matrixA.PNG" width="150"/>
+
 
 
 ## Assessment
@@ -975,6 +991,7 @@ To reiterate, for this, the first lab of this course, there is no direct assessm
 2. For a very large part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
+
 
 
 ## Contact
@@ -999,17 +1016,15 @@ School of Natural Sciences
 [^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction>
 [^2]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/basic-data-types>
 [^3]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/>
-[^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2019, due to the version of R.
+[^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2022, due to the version of R.
 
-
-
-<---## Practical sections start here
+<!---## Practical sections start here
 
 ```R
 x = 34 ###comment
 x
 
-###comment
+### comment
 ```
 
 New material goes here...
@@ -1018,11 +1033,8 @@ New material goes here...
 
 [GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-
 This is how you put in an image file:
 ```
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> --->
-
-
