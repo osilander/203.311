@@ -255,7 +255,7 @@ Furthermore, even if we assign an integer to a variable `k`, it is still being s
 To make integers in R, we need to specific them as such. We can be assured that y is indeed an integer by applying the **is.integer()** function.
 
 ```R
-> y \<- as.integer(3)
+> y <- as.integer(3)
 > y               ### print the value of y
 [1] 3 
 > class(y)        ### print the class name of y
@@ -267,16 +267,16 @@ To make integers in R, we need to specific them as such. We can be assured that 
 We can also coerce both numeric value and decimal values into an integer with the same **as.integer()** function.
 
 ```R
-> as.integer(3.14) ### coerce a numeric value
+> as.integer(3.14)    ### coerce a numeric value
 [1]
-> as.integer("5.27") ### coerce a decimal string
+> as.integer("5.27")  ### coerce a decimal string
 [1] 5
 ```
 
 On the other hand, it is erroneous trying to parse a non-decimal string.
 
 ```R
-> as.integer(\"Joe\")   ### coerce a non-decimal string
+> as.integer("Joe")   ### coerce a non-decimal string
 [1] NA
 Warning message:
 NAs introduced by coercion
@@ -316,10 +316,10 @@ A logical value is often created via comparison between variables.
 
 ```R
 > x <- 1; y <- 2    ### sample values, two on one line
-> z <- x > y       ### is x larger than y?
-> z                ### print the logical value
+> z <- x > y        ### is x larger than y?
+> z                 ### print the logical value
 [1] FALSE
-> class(z)         #### print the class name of z
+> class(z)          ### print the class name of z
 [1] "logical"
 ```
 
