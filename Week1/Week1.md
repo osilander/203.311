@@ -139,7 +139,7 @@ This is our first example of using the 3 colours for this practical, and for all
 
 | R script  | R console returns |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
+| <img src="graphics/image1.png" width="250"/>  |  <img src="graphics/image2.png" width="250"/>  |
 
 
 An alternative way to help you with these practicals would be to rewrite the code like this, and this is the convention I may also use:
@@ -1047,3 +1047,7 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> --->
+      
+    
+
+    
