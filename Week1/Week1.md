@@ -26,6 +26,7 @@
 To learn how to use a new software environment with the aim of understanding some principles of different data types and their analysis.
 
 
+
 ## Introduction
 
 The biological world has got much more quantitative and analytical as the way biology is now performed has changed.  Data volumes have increased markedly, and so has our requirement and ability to analyse such data.  The first part of “Bootcamp” will introduce you to two tools that will be used throughout the course:  the statistical software package R and the UNIX command line.  This will be followed up with a look into data visualisation in the third week.
@@ -33,6 +34,7 @@ The biological world has got much more quantitative and analytical as the way bi
 Week 1 focusses on the statistical software package, R. It will also introduce you to the main software environment for the course – RStudio.  We will look at accessing this environment, using it and learning some basic concepts about data handling through the use of R, focussing on data tables.  
 
 <!---In this lab session, you will experience use of R within the RStudio environment as an introduction to the main analyses we will perform for Modules 2 and 3 in the next part of the course.--->
+
 
 
 ## Lecture Overview
@@ -55,6 +57,7 @@ First thing, you have an electronic copy of this practical -- which you will see
 
 
 **This module is an introduction to the worlds of Linux and R, with a mastery test as an assessment. Please use this practical lab as a learning experience for a new set of tools, which in this case might go beyond this course, and into future study.**
+
 
 
 ## Conventions used for this RStudio practical
@@ -105,7 +108,7 @@ We are going to be using RStudio today as a convenient introduction in using R, 
 
 
 
-## Basic operations[^1]
+## Basic operations [^1]
 
 ### Assigning variables
 
@@ -242,7 +245,7 @@ Try some ideas out for yourself, and place some code examples in the box below. 
 
 
 
-## R data types[^2]
+## R data types [^2]
 
 There are 5 data types, and we can find out about them using the `class()` function. As is the lectures that is what we shall do here.
 
@@ -405,7 +408,7 @@ More functions for string manipulation can be found in the R documentation.
 
 
 
-## R data formats[^3]
+## R data formats [^3]
 
 We will consider 4 data formats, and then focus on the one of most importance to use – the data frame – for the rest of the practical.
 
