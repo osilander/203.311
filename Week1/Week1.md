@@ -6,6 +6,7 @@
 
 [Purpose](#purpose)<br>
 [Introduction](#introduction)<br>
+[Lecture Overview](#lectureoverview)<br>
 
 
 ## Purpose
@@ -84,7 +85,8 @@ We are going to be using RStudio today as a convenient introduction in using R, 
 # End of tidying up this bit
 
 
-## Basic operations
+## Basic operations[^1]
+
 
 ### Assigning variables
 
@@ -117,14 +119,13 @@ We have seen this in the code conventions above. Let's repeat that, but this tim
 [1] 1 5 7 14
 ```
 
-
 ### Comments
 
 We have also seen this in the code conventions above. Say we want to make a comment on some addition:
 
 ```R
 > 1 + 1 ### this is a comment***
-> [1] 2
+[1] 2
 ```
 
 This is our first example of using the 3 colours for this practical, and for all subsequent work within R. In the console the comments will be the same colour, but if you wrote this in the script box within RStudio, you would see the below, which are screenshots from my session. This is due to something called syntax highlighting, which is not relevant for today (but useful nonetheless). Of course, the script does not give you an answer, that is what the console is for.
@@ -136,7 +137,7 @@ An alternative way to help you with these practicals would be to rewrite the cod
 ```R
 ### this is a comment and it can be at the top of a code block
 > 1 + 1 
-> [1] 2
+[1] 2
 ```
 
 Which one gets used depends on what we are trying to find out, or the principle we are currently exploring.
@@ -164,6 +165,7 @@ If we then want to use or load the package we type the following into the consol
 ```R
 > library("XXXXXX")
 ```
+
 
 ### Getting help
 
@@ -211,7 +213,167 @@ Try some ideas out for yourself, and place some code examples in the box below. 
 > <table><tr><td>
 > ____________________
 >
+> </td></tr></table>
+>
 > What does `vec * vec` do to the values of `vec`? 
+
+## R data types[^2]
+
+There are 5 data types, and we can find out about them using the `class()` function. As is the lectures that is what we shall do here.
+
+
+### Numeric
+
+This is the default computational data type. If we assign a decimal value to a variable `a` as follows, `a` will be of the numeric type.
+
+```R
+> a <- 10.5   ### assign a decimal value* **
+> a            ### print the value of a* **
+[1] 10.5
+> class(a)     ### print the class name of a
+[1] "numeric"
+```
+Furthermore, even if we assign an integer to a variable `k`, it is still being saved as a numeric value.
+
+```R
+> k <- 1
+> k           ### print the value of k* **
+[1] 1
+> class(k)    ### print the class name of k* **
+[1] "numeric"
+```
+
+>**Exercise C:**
+> You have variables `k` and `x` from the above. Check that both are of the numeric type and then write down what the numeric answer for `x + k - 1` is?
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
+### Integer
+
+To make integers in R, we need to specific them as such. We can be assured that y is indeed an integer by applying the **is.integer()** function.
+
+```R
+> y \<- as.integer(3)
+> y               ### print the value of y
+[1] 3 
+> class(y)        ### print the class name of y
+[1] "integer" 
+> is.integer(y)   ### is y an integer?
+> [1] TRUE
+```
+
+We can also coerce both numeric value and decimal values into an integer with the same **as.integer()** function.
+
+```R
+> as.integer(3.14) ### coerce a numeric value
+[1]
+> as.integer("5.27") ### coerce a decimal string
+[1] 5
+```
+
+On the other hand, it is erroneous trying to parse a non-decimal string.
+
+```R
+> as.integer(\"Joe\")   ### coerce a non-decimal string
+[1] NA
+Warning message:
+NAs introduced by coercion
+```
+
+### Complex
+
+A complex value in R is defined via the pure imaginary value i.
+
+```R
+> z <- 1 + 2i     ### create a complex number
+> z               ### print the value of z
+[1] 1+2i
+> class(z)        ### print the class name of z
+[1] "complex"
+```
+
+The following gives an error as -1 is not a complex value.
+
+```R
+> sqrt(-1)   ### square root of -1
+[1] NaN
+Warning message:
+In sqrt(-1) : NaNs produced
+```
+
+Instead, we have to use the complex value -1 + 0i, which we can do by coercing it.
+
+```R
+> sqrt(as.complex(-1))  #### square root of -1+0i
+[1] 0+1i
+```
+
+### Logical
+
+A logical value is often created via comparison between variables.
+
+```R
+> x <- 1; y <- 2    ### sample values, two on one line
+> z <- x > y       ### is x larger than y?
+> z                ### print the logical value
+[1] FALSE
+> class(z)         #### print the class name of z
+[1] "logical"
+```
+
+### Character
+
+One of the more important data types, which we can start to manipulate using various functions. A character object is used to represent string values in R. We convert objects into character values with the `as.character()` function:
+
+```R
+> x <- as.character(3.14)
+> x                        ### print the character string
+[1] "3.14"
+> class(x)                 ### print the class name of x
+> [1] "character"
+```
+
+Two character values can be concatenated with the paste function.
+
+```R
+> fname = "Joe"; lname = "Bloggs"
+> paste(fname, lname)
+[1] "Joe Bloggs"
+```
+
+However, it is often more convenient to create a readable string with the `sprint()` function, which has a C language syntax (hopefully you can see what is going on in this line of code).
+
+```R
+> sprintf("%s has %d dollars", "Dave", 1000)
+[1] "Dave has 1000 dollars"
+```
+
+To extract a substring, we apply the **substr()** function. Here is an example showing how to extract the substring between the third and twelfth characters in a string.
+
+```R
+> substr("Mary has a little lamb.", start = 3, stop = 12)
+[1] "ry has a l"
+```
+
+And to replace the first occurrence of the word "little" by another word "big" in the string, we apply the sub function.
+
+```R
+> sub("little", "big", "Mary has a little lamb.")
+[1] "Mary has a big lamb."
+```
+
+More functions for string manipulation can be found in the R documentation.
+
+```R
+> help("sub")
+```
+
+>**Exercise D:**
+> Using what you have learned in the section above, write the code to extract the first to seventh characters in the `Mary has a big lamb` string.
+> <table><tr><td>
+> ____________________
 > </td></tr></table>
 
 
@@ -220,6 +382,39 @@ Try some ideas out for yourself, and place some code examples in the box below. 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Contact
+
+I have two offices on the campus (as I work for both SFS and SoVS), so I am not always in my Science Tower office D5-30. If you want to discuss anything, it's best to email me beforehand.
+
+Prof Patrick Biggs,
+
+Molecular Biosciences Group,
+
+School of Natural Sciences
+
+<p.biggs@massey.ac.nz>
+
+[^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction>
+[^2]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/basic-data-types>
+[^3]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/>
+[^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2019, due to the version of R.
 
 
 
