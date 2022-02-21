@@ -188,6 +188,7 @@ If you are not sure about the name of the function you are looking for, you can 
 We can also use the `example` command to find out what the package can do.
 
 >**Exercise B:**
+>
 > Load the package called `alluvial` into your current R session (there is a hint below the Exercise A answer box). Write the code in the box below to run as example from the `alluvial` package:
 > <table><tr><td>
 > ____________________
@@ -244,6 +245,7 @@ Furthermore, even if we assign an integer to a variable `k`, it is still being s
 ```
 
 >**Exercise C:**
+>
 > You have variables `k` and `x` from the above. Check that both are of the numeric type and then write down what the numeric answer for `x + k - 1` is?
 > <table><tr><td>
 > ____________________
@@ -371,6 +373,7 @@ More functions for string manipulation can be found in the R documentation.
 ```
 
 >**Exercise D:**
+>
 > Using what you have learned in the section above, write the code to extract the first to seventh characters in the `Mary has a big lamb` string.
 > <table><tr><td>
 > ____________________
@@ -463,6 +466,7 @@ If we have two vectors of unequal length, the shorter one will be recycled in or
 ```
 
 > **Exercise E:**
+> 
 > Rerun the above but with a new vector `u` with only 2 members (it doesn’t matter what they are).  Write the result of `u + v` in the box below.  What has happened?
 > <table><tr><td>
 > ____________________
@@ -499,6 +503,7 @@ As long as the elements are of the same type, we can use our first multi-line R 
 We can find the element in the mth row and nth column as `A[m, n]`.
 
 > **Exercise F:**
+> 
 > What is the number in the second column and second row in matrix A?  Write your code and the answer below:
 > <table><tr><td>
 > ____________________
@@ -546,13 +551,13 @@ Other ways exist to make matrices.  Let’s make another matrix called B of a di
 ```
 
 > **Exercise G:**
->If you multiply matrix A by the transposed matrix B to make a new matrix AB what is the value in the first column and second row?  Write your code and numeric answer below.
+> 
+> If you multiply matrix A by the transposed matrix B to make a new matrix AB what is the value in the first column and second row?  Write your code and numeric answer below.
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
 
 The columns of two matrices having the same number of rows can be combined into a larger matrix. For example, suppose we have another matrix `C` also with 3 rows.
-
 
 ```R
 > C <- matrix( 
@@ -612,18 +617,18 @@ Let’s make 3 vectors together, and combine them into a list:
 We can slice data from this list, either by one or more members using the `[ ]` square brackets.
 
 ```R
-> x[2]              ### only the 2nd member
+> x[2]               ### only the 2nd member
 [[1]]
 [1] "xx" "yy" "zz" "aa" "bb"
 
-> x[c(2, 3)]        ### 2nd and 3rd members
+> x[c(2, 3)]         ### 2nd and 3rd members
 [[1]]
 [1] "xx" "yy" "zz" "aa" "bb"
 
 [[2]]
 [1] FALSE FALSE  TRUE FALSE
 
-> x[[2]]                                 ### can access directly with [[]]
+> x[[2]]             ### can access directly with [[]]
 [1] "xx" "yy" "zz" "aa" "bb"
 ```
 
@@ -653,9 +658,11 @@ We have left our most important data type to last – the data frame. This is us
 3 5 cc  TRUE
 ```
 
-It is now time to start using some real data that can be found in R, in the base package (i.e., it’s just there).    The dataset “mtcars” gets used a great deal in R introductions etc.  So why not do the same here today?  It is much bigger than anything we have looked at so far.
+It is now time to start using some real data that can be found in R, in the base package (i.e., it’s just there).    The dataset `mtcars` gets used a great deal in R introductions etc.  So why not do the same here today?  It is much bigger than anything we have looked at so far.
 
-Let’s use the head() function – similar to head in Linux that we will also look at next week – to look at the top of this dataframe:
+Let’s use the `head()` function – similar to head in Linux that we will also look at next week – to look at the top of this dataframe:
+
+```R
 > head(mtcars)
                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -664,36 +671,53 @@ Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
 
-What do we have here?  Just like Excel, the top line of the table, called the header, contains the column names. Each horizontal line afterward denotes a data row, which begins with the name of the row, and then followed by the actual data. Each data member of a row is called a cell.
+What do we have here?  Just like Excel -- that you should be familar with -- the top line of the table, called the header, contains the column names. Each horizontal line afterward denotes a data row, which begins with the name of the row, and then followed by the actual data. Each data member of a row is called a cell.
 
-To retrieve data in a cell, we would enter its row and column coordinates in the single square bracket "[]" operator. The two coordinates are separated by a comma. In other words, the coordinates begins with row position, then followed by a comma, and ends with the column position. The order is important.  We can retrieve data either via the column, or via the column names thus:
+To retrieve data in a cell, we would enter its row and column coordinates in the single square bracket `[]` operator. The two coordinates are separated by a comma. In other words, the coordinates begins with row position, then followed by a comma, and ends with the column position. The order is important.  We can retrieve data either via the column, or via the column names thus:
+
+```R
 > mtcars[1, 2]                   ### by column and row
 [1] 6
 > mtcars["Mazda RX4", "cyl"]     ### by names
 [1] 6
+```
 
-We can also see the extent of the data with the nrow() and ncol() functions:
+We can also see the extent of the data with the `nrow()` and `ncol()` functions:
+
+```R
 > nrow(mtcars)      ### number of data rows 
 [1] 32
 > ncol(mtcars)      ### number of data columns
 [1] 11
+```
 
 We can retrieve a column of data 4 ways, say the tenth column of data.  I show the single result, but please check it gives the same result for you:
+
+```R
 > mtcars[[10]]      ### the 10th column
  [1] 4 4 4 3 3 3 3 4 4 4 4 3 3 3 3 3 3 4 4 4 3 3 3 3 3 4 5 5 5 5 5 4
 > mtcars[["gear"]]  ### the name of the 10th column
 > mtcars$gear       ### use the '$' operator instead of [[]]
 > mtcars[,"gear"]   ### use a single [], but prepend with a column for wildcards
+```
 
 In a similar way, we can slice out a row from the data frame.  Again, please check that the following gives the same result:
+
+```R
 > mtcars[1]                 ### the 1st column as a slice
 > mtcars["mpg"]             ### the name of the 1st column as a slice
+```
 
 And then something slightly different by looking at two columns:
+
+```R
 > mtcars[c("mpg", "hp")]    ### the mpg and hp columns
+```
 
 For rows, the principle is the same, though the code is slightly different:
+```R
 > mtcars[24,]              ### one row of data
             mpg cyl disp  hp drat   wt  qsec vs am gear carb
 Camaro Z28 13.3   8  350 245 3.73 3.84 15.41  0  0    3    4
@@ -704,34 +728,32 @@ Camaro Z28     13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
 > mtcars["Camaro Z28",]    ### row 24 by name
             mpg cyl disp  hp drat   wt  qsec vs am gear carb
 Camaro Z28 13.3   8  350 245 3.73 3.84 15.41  0  0    3    4
+```
 
-Exercise H:
-How many cylinders does the Hornet Sportabout (row 5) have?  Write your code, and then your answer in the box below:
-
-
-
-
-
-
-   
+> **Exercise H:**
+> 
+> How many cylinders does the Hornet Sportabout (row 5) have?  Write your code, and then your answer in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
 
-Functions within R
+## Functions within R
 
-As you will remember from the lecture, we have come across lots of functions already for example, head(), tail(), class(), c(), help(), matrix(), t(), paste() etc.  There are thousands of them out there, and they are the “things” to make “stuff” happen.  Packaged recipe that converts one or more inputs (called arguments) into a single output.  
+As you will remember from the lecture, we have come across lots of functions already for example, `head()`, `tail()`, `class()`, `c()`, `help()`, `matrix()`, `t()`, `paste()` etc.  There are thousands of them out there, and they are the “things” to make “stuff” happen.  Packaged recipe that converts one or more inputs (called arguments) into a single output.  
 
-Let’s investigate some arguments of some simple packages.  We will combine this with a little more work with help functions.  Most of your work in R will require knowledge of the functions, and what arguments they take.  Go to window #4 and go to the “Help” tab.  Type “dist” in the search bar, and choose the first one – plain “dist”.
+Let’s investigate some arguments of some simple packages.  We will combine this with a little more work with help functions.  Most of your work in R will require knowledge of the functions, and what arguments they take.  Go to window #4 and go to the “Help” tab.  Type `dist` in the search bar, and choose the first one – plain `dist`.
 
-Exercise I:
-How can you open up the help for dist() using the console?
-
-
-
-
-   
-   
+> **Exercise I:**
+> 
+> How can you open up the help for dist() using the console?
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
 The first line of the “usage” section gives you an example of what the function can do. Let’s make a random matrix – everyone’s will be different here, but I will show mine:
+
+```R
 > x <- matrix(rnorm(100), nrow = 5)
 > head(x, 1)
         [,1]        [,2]      [,3]    [,4]      [,5]      [,6]       [,7]      [,8]      [,9]     [,10]      [,11]     [,12]     [,13]
@@ -759,102 +781,116 @@ The first line of the “usage” section gives you an example of what the funct
 3 6.317562 5.586858          8.591916 7.236120
 4 6.728759 5.704929 8.591916          5.921220
 5 7.198402 5.677087 7.236120 5.921220
+```
 
-Exercise J:
-Taking the last line of code you entered, how would you modify this to generate a distance matrix on x using the “manhattan” method:
+> **Exercise J:**
+> 
+> Taking the last line of code you entered, how would you modify this to generate a distance matrix on `x` using the “manhattan” method?
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
 
-
-
-   
-
-
-Libraries, also known as Packages
+## Libraries, also known as Packages
 
 There are many basic packages R comes with:
-* Base: ~1100 functions such as which(), which.max(), table(), apply(), summary(), sum(), min(), max(), sample(), all the basic object constructors such as matrix(), the all-important c() function to combine objects into a vector.
-* Stats: over 400 including t.test(), hclust(), cutree(), dist(),runif() and rnorm().
-* Utils: another 200 including such essentials as head(), tail() and write().
-* Graphics:  plot(),  boxplot(),  barplot() and hist().
+* Base: ~1100 functions such as `which()`, `which.max()`, `table()`, `apply()`, `summary()`, `sum()`, `min()`, `max()`, `sample()`, all the basic object constructors such as `matrix()`, the all-important `c()` function to combine objects into a vector.
+* Stats: over 400 including `t.test()`, `hclust()`, `cutree()`, `dist()`, `runif()` and `rnorm()`.
+* Utils: another 200 including such essentials as `head()`, `tail()` and `write()`.
+* Graphics:  `plot()`, `boxplot()`, `barplot()` and `hist()`.
 
-Let’s now theoretically install a couple of new packages – “survey” and “hexbin” – and then try using them to see the effect of one package on another.  As I said in the lecture, some packages have data within them that we can use such a dataset as an example. 
+Let’s now theoretically install a couple of new packages – `survey` and `hexbin` – and then try using them to see the effect of one package on another.  As I said in the lecture, some packages have data within them that we can use such a dataset as an example. 
+
+```R
 > install.packages("survey")   ### this has been done for you and there is no need to do it, but this is the code
 > library("survey")
 ### let’s use the ‘api’ dataset
 > data(api, package = "survey")
 ### let’s plot the entire data for the years 1999 and 2000
 > plot(api00~api99,data = apipop)
+```
 
 You might have to hit [Enter] in the console to see the plot.
 
+```R
 ### let’s make a vector of 3 colours based on the variable ‘stype’
 > colors<-c("tomato","forestgreen","purple")[apipop$stype]
 ### plot again
 > plot(api00~api99,data = apipop,col = colors)
+```
 
 You might have to hit [Enter] in the console to see the plot.
 
-How we got here, and what the underlying data is does not matter per se. What does the plot look like?  Kind of colourful, right?  It also has 6,194 data points on it!  Do you believe that?  You cannot be sure really.  Well, let’s load another package to see.
+How we got here, and what the underlying data is does not matter *per se*. What does the plot look like?  Kind of colourful, right?  It also has 6,194 data points on it!  Do you believe that?  You cannot be sure really.  Well, let’s load another package to see.
 
-The package “hexbin” has functions including one – hexbin() – that is a way to aggregate the points in a scatterplot. It computes the number of points in a defined hexagonal bin within the plot area.  So let’s install it and see the effect.
+The package “hexbin” has functions including one – `hexbin()` – that is a way to aggregate the points in a scatterplot. It computes the number of points in a defined hexagonal bin within the plot area.  So let’s install it and see the effect.
+
+```R
 > install.packages("hexbin")  ### this has been done for you and there is no need to do it, but this is the code
 > library("hexbin")
 ### plot the data exactly as before only using centroids
 > with(apipop, plot(hexbin(api99,api00), style = "centroids"))
+```
 
-You might have to hit [Enter] in the console to see the plot.  The style = "centroids" option plots filled hexagons, at the centroid of each bin. The sizes of the plotted hexagons are proportional to the number of points in each bin, so now we can see how much data there is there.  Rather impressive, right?
+You might have to hit [Enter] in the console to see the plot.  The `style = "centroids"` option plots filled hexagons, at the centroid of each bin. The sizes of the plotted hexagons are proportional to the number of points in each bin, so now we can see how much data there is there.  Rather impressive, right?
 
 
-
-Bioconductor
+## Bioconductor
 
 Our last compulsory activity for today is to install a Bioconductor package and then briefly use it.  It will install as another package, but has that underlying structure and support behind it.  Even though this has been done for you already, it’s probably not a bad idea to load up an active connection into your current session.
+
+```R
 > install.packages("BiocManager")  
 > BiocManager::install()
 Update all/some/none? [a/s/n]:
+```
 
 Do not update any packages at this time, so type "n" to answer the question above (this is very important).
 
 Let’s go to https://www.bioconductor.org and find a new package to load.  
 
-
-
-
-
-Exercise K:
-How many Bioconductor packages are there at the current version, according to the website:
-
-
-
+> **Exercise K:**
+> 
+> How many Bioconductor packages are there at the current version, according to the website:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
    
-We shall choose “ggtree”, so let’s go back to our R console and load it:
+We shall choose `ggtree`, so let’s go back to our R console and load it:
+
+```R
 > BiocManager::install("ggtree")  
 Update all/some/none? [a/s/n]:
+```
 
 Do not update any packages at this time, so type "n" to answer the question above (this is very important).  If you have time, explore the help to see what this package can do.
 
-Exercise L:
-Load the package “ggtree” first.  What is the package version for ggtree? Hint: use the help commands such as apropos() to find it.  Hint 2: start typing “package” into the console, and what happens? 
+> **Exercise L:**
+> 
+> Load the package “ggtree” first.  What is the package version for ggtree? Hint: use the help commands such as `apropos()` to find it.  Hint 2: start typing `package` into the console, and what happens? 
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
 
+## Note:
+
+*If you have got up to here, and are running out of time in the practical, I am happy for you to complete the next section on “A small complete exercise” in your own time.  You should have a basic knowledge now having completed this for the Mastery test in two weeks’ time.  If you would like to do the next exercise later that’s fine, otherwise, please go to the next section for the conclusion and the “pop” quiz across today’s work.*
 
 
-   
+## A small complete exercise
 
-
-Note:
-If you have got up to here, and are running out of time in the practical, I am happy for you to complete the next section on “A small complete exercise” in your own time.  You should have a basic knowledge now having completed this for the Mastery test in two weeks’ time.  If you would like to do the next exercise later that’s fine, otherwise, please go to the next section for the conclusion and the “pop” quiz across today’s work.
-
-
-
-A small complete exercise
-
-We shall return to the “mtcars” dataset for some data exploration, including making a few plots, and we shall use the “alluvial” package.
+We shall return to the `mtcars` dataset for some data exploration, including making a few plots, and we shall use the `alluvial` package.
 
 So what’s an alluvial diagram?  From the help pages:
+
+<table><tr><td>
 “An alluvial diagram is a variant of a Parallel Coordinates Plot (PCP) but for categorical variables. Variables are assigned to vertical axes that are parallel. Values are represented with blocks on each axis. Observations are represented with alluvia (sing. “alluvium”) spanning across all the axes.”
+</td></tr></table>
 
 Again, to some degree what it does exactly for today does not matter.  Let’s load the package and check out our data.
+
+```R
 > require("alluvial")
 Loading required package: alluvial
 > head(mtcars)
@@ -865,19 +901,29 @@ Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-We can regard the last 4 columns as categorical data – that is data with discrete values.  With this data we can plot the relationships between the cars that have engines in the “V” format (“vs”), have automatic gearboxes (“am”), the number of gears (“gear”) and carburettors (“carb”).  Let’s do a basic plot4 of our data:
+```
+
+We can regard the last 4 columns as categorical data – that is data with discrete values.  With this data we can plot the relationships between the cars that have engines in the “V” format (“vs”), have automatic gearboxes (“am”), the number of gears (“gear”) and carburettors (“carb”).  Let’s do a basic plot[^4] of our data:
 > alluvial(mtcars[8:11], freq = mtcars$cyl)
 
 From the help pages:
-“Minimal use requires supplying [a] data frame(s) as [the] first argument, and a vector of frequencies as the freq argument. By default all alluvia are drawn using gray, mildly transparent colors.”
 
-Now, let’s add some colour to the plot.  Say we wanted to plot all the values for the results for the automatic cars (“am” = 1), and show them as red bars, with black borders we would type:
+<table><tr><td>
+“Minimal use requires supplying [a] data frame(s) as [the] first argument, and a vector of frequencies as the freq argument. By default all alluvia are drawn using gray, mildly transparent colors.”
+</td></tr></table>
+
+Now, let’s add some colour to the plot.  Say we wanted to plot all the values for the results for the automatic cars (`“am” = 1`), and show them as red bars, with black borders we would type:
+
+```R
 ### perform a test to colour the ‘am’ dataset 
 > alluvial(mtcars[8:11], freq = mtcars$cyl, 
     col = ifelse(mtcars$am == "1", "red", "grey"), 
     border = ifelse(mtcars$am == "1", "black", "grey"))
+```
 
-Let’s now do something new – don’t worry we will do this in detail in Practical 4 if you do not get to this today – save this plot as an image.  The plot will go to your home directory.  However, please try plotting the data with your name as the filename, the non-automatic cars in orange with blue borders, so you will have to change the code below, but I am not going to show you how:
+Let’s now do something new – don’t worry we will do this in detail again if you do not get to this today – save this plot as an image.  The plot will go to your home directory.  However, please try plotting the data with your name as the filename, the non-automatic cars in orange with blue borders, so you will have to change the code below, but I am not going to show you how:
+
+```R
 ### set up a file for an image, but make it for orange colours on non-automatic cars – so this code is wrong…..
 > png('/cloud/project/testAlluvial.png')
 > alluvial(mtcars[8:11], freq = mtcars$cyl, 
@@ -886,16 +932,17 @@ Let’s now do something new – don’t worry we will do this in detail in Prac
 > dev.off()
 RDStudioGD
           1
+```
 
-If this has worked, you have changed code on your own, and exported your first data out of R.  Great.   Go to your home directory to see your plot.  There’s much more of this to come in Modules 2 and 3.
+If this has worked, you have changed code on your own, and exported your first data out of R. Great. Go to your home directory to see your plot. There’s much more of this to come later in the course.
 
 
 
-Conclusion of the practical
+## Conclusion of the practical
 
 As a little final exercise, we will look at the answers we have generated today, to do a numbers-based question.  This is a purely numbers-based answer so hopefully this one will work (all being well), as it has in previous years.  
 
-One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the [1] line count from the R console.  Write your answer in the box below:
+One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the `[1]` line count from the R console.  Write your answer in the box below:
 
 Exercise A:	character 1
 Exercise C:	character 1
@@ -917,41 +964,22 @@ Use the internet or your own understanding to find out what the 17th number in t
    
 That is today’s practical completed.
 
-Please remember to go to the apple Menu on your iMac and click on “Log Out Student” to log out of the system.
+Please remember to go to the Apple Menu on your iMac and click on “Log Out Student” to log out of the system.
 
 
-
-
-Assessment
+## Assessment
 
 To reiterate, for this, the first lab of this course, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for two things:
 
-1. For the mastery test which accounts for 20% of the course.  This will take place at the start of Lab 3 on Tuesday 27th July at 09:00am.
-2. For Modules 2 and 3, in which you will use RStudio to explore an introduction to transcriptomics and metagenomics.
+1. For the mastery test which accounts for 15% of the course.  This will take place on Friday 18-Mar-2022.
+2. For a very large part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
 
 
+## Contact
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Contact
-
-I have two offices on the campus (as I work for both SFS and SoVS), so I am not always in my Science Tower office D5-30. If you want to discuss anything, it's best to email me beforehand.
+I have two offices on the Manawatu campus (as I work for both SFS and SoVS), so I am not always in my Science Tower office D5-30. If you want to discuss anything, it's best to email me beforehand.
 
 Prof Patrick Biggs,
 
@@ -975,7 +1003,7 @@ School of Natural Sciences
 
 
 
-## Practical sections start here
+<---## Practical sections start here
 
 ```R
 x = 34 ###comment
@@ -995,6 +1023,6 @@ This is how you put in an image file:
 ```
 <img src="graphics/giphy.gif" width="300"/>
 ```
-<img src="graphics/giphy.gif" width="300"/>
+<img src="graphics/giphy.gif" width="300"/> --->
 
 
