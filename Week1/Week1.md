@@ -7,16 +7,16 @@
 [Purpose](#purpose)<br>
 [Introduction](#introduction)<br>
 [Lecture Overview](#lecture-overview)<br>
-[Conventions used for this RStudio practical](#conventions-used-for-this-RStudio-practical)<br>
+[Conventions used for this RStudio practical](#conventions-used-for-this-rstudio-practical)<br>
 [Accessing the resources needed](#accessing-the-resources-needed)<br>
-[Basic operations](#)<br>
-[R data types](#)<br>
-[R data formats](#)<br>
-[Functions within R](#)<br>
-[Libraries, also known as Packages](#)<br>
-[Bioconductor](#)<br>
-[A small complete example](#)<br>
-[conclusion of the Practical](#)<br>
+[Basic operations](#basic-operations)<br>
+[R data types](#r-data-types)<br>
+[R data formats](#r-data-formats)<br>
+[Functions within R](#functions-within-r)<br>
+[Libraries, also known as Packages](#libraries,-also-known-as-packages)<br>
+[Bioconductor](#bioconductor)<br>
+[A small complete example](#a-small-complete-example)<br>
+[Conclusion of the Practical](#conclusion-of-the-practical)<br>
 [Assessment](#assessment)<br>
 [Contact](#contact)<br>
 
