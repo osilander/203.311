@@ -504,14 +504,9 @@ We can find the element in the mth row and nth column as `A[m, n]`.
 > ____________________
 > </td></tr></table>
 
+In the next 6 lines of entered code (those with a `>`), we will look at extracting a row of `A`, a column of `A`, and then making a new matrix `B` as a subset of `A`:
 
-
-
-
-
-
-
-In the next 6 lines of entered code (black), we will look at extracting a row of A, a column of A, and then making a new matrix B as a subset of A:
+```R
 > A[2, ]                         ### the 2nd row
 [1] 5 3 7
 > A[ ,3]                         ### the 3rd column
@@ -523,12 +518,18 @@ In the next 6 lines of entered code (black), we will look at extracting a row of
      col1 col2 col3
 row1    2    1    4
 row2    5    3    7
+```
 
 Finally, and importantly, we can assign names to the rows and columns of the matrix, then we can access the elements by names.
+
+```R
 > A["row2", "col3"]       ### element at 2nd row, 3rd column
 [1] 7
+```
 
 Other ways exist to make matrices.  Let’s make another matrix called B of a different shape, and then we can transpose it:
+
+```R
 > B <- matrix(
 +   c(8, 4, 7, 1, 3, 5),
 +   nrow = 3,
@@ -542,20 +543,18 @@ Other ways exist to make matrices.  Let’s make another matrix called B of a di
      [,1] [,2] [,3]
 [1,]    8    4    7
 [2,]    1    3    5
+```
 
-Exercise G:
-If you multiply matrix A by the transposed matrix B to make a new matrix AB what is the value in the first column and second row?  Write your code and numeric answer below.
+> **Exercise G:**
+>If you multiply matrix A by the transposed matrix B to make a new matrix AB what is the value in the first column and second row?  Write your code and numeric answer below.
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+The columns of two matrices having the same number of rows can be combined into a larger matrix. For example, suppose we have another matrix `C` also with 3 rows.
 
 
-
-
-
-
-
-
-
-   
-The columns of two matrices having the same number of rows can be combined into a larger matrix. For example, suppose we have another matrix C also with 3 rows.
+```R
 > C <- matrix( 
 +   c(7, 4, 2), 
 +   nrow = 3, 
@@ -565,24 +564,33 @@ The columns of two matrices having the same number of rows can be combined into 
 [1,]    7
 [2,]    4
 [3,]    2
+```
 
 We can now use the column bind (cbind) function to join C and B together:
+
+```R
 > cbind(C,B)
      [,1] [,2] [,3]
 [1,]    7    8    1
 [2,]    4    4    3
 [3,]    2    7    5
+```
 
 The same principle works with the row bind (rbind) function.  Enter the following code and see what happens with a new matrix D.
-	### we can also write the matrix function on one line to save space.
+
+```R
+### we can also write the matrix function on one line to save space.
 > D <- matrix(c(7, 23), nrow = 1)
 > D                                ### D has 2 columns and 1 row
      [,1] [,2]
 [1,]    7   23
 > rbind(B, D)
+```
 
-List
+### List
 Let’s make 3 vectors together, and combine them into a list:
+
+```R
 > n <- c(5, 6, 1) 
 > s <- c("xx", "yy", "zz", "aa", "bb") 
 > b <- c(FALSE, FALSE, TRUE, FALSE)
@@ -599,8 +607,11 @@ Let’s make 3 vectors together, and combine them into a list:
 
 [[4]]
 [1] 4
+```
 
-We can slice data from this list, either by one or more members using the “[]” square brackets.
+We can slice data from this list, either by one or more members using the `[ ]` square brackets.
+
+```R
 > x[2]              ### only the 2nd member
 [[1]]
 [1] "xx" "yy" "zz" "aa" "bb"
@@ -614,16 +625,23 @@ We can slice data from this list, either by one or more members using the “[]�
 
 > x[[2]]                                 ### can access directly with [[]]
 [1] "xx" "yy" "zz" "aa" "bb"
+```
 
 We can also modify members of the list, but not their source.
+
+```R
 > x[[2]][1] = "gg"
 > x[[2]]
 [1] "gg" "yy" "zz" "aa" "bb"
 > s                   ### the original s is unaffected
 [1] "xx" "yy" "zz" "aa" "bb"
+```
 
-Data frame
-We have left our most important data type to last – the data frame. This is used for storing data tables. It is a list of vectors of equal length. For example, the following variable df is a data frame containing three vectors n, s and b.
+### Data frame
+
+We have left our most important data type to last – the data frame. This is used for storing data tables. It is a list of vectors of equal length. For example, the following variable `df` is a data frame containing three vectors `n`, `s` and `b`.
+
+```R
 > n <- c(2, 3, 5)
 > s <- c("aa", "bb", "cc")
 > b <- c(TRUE, FALSE, TRUE)
@@ -633,6 +651,7 @@ We have left our most important data type to last – the data frame. This is us
 1 2 aa  TRUE
 2 3 bb FALSE
 3 5 cc  TRUE
+```
 
 It is now time to start using some real data that can be found in R, in the base package (i.e., it’s just there).    The dataset “mtcars” gets used a great deal in R introductions etc.  So why not do the same here today?  It is much bigger than anything we have looked at so far.
 
