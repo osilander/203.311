@@ -85,7 +85,7 @@ We have organised a student account for you at <https://rstudio.cloud/> to be va
 
 #### Important Note
 
-**Please see the separate document -- "Access_to_RStudio_Cloud2022" -- that has been provided both as a Stream announcement and in the "Taiwhanga \| Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
+**Please see the separate document -- "Access_to_RStudio_Cloud2022" -- that has been provided both as a Stream announcement and in the "Taiwhanga|Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
 
 ### Our work today
 
