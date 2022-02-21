@@ -480,15 +480,10 @@ In subsequent practicals we will be using indexed positions in vectors, matrices
 ### Matrix
  This is a collection of data elements in a 2D format, also known as a table.  Consider a matrix A with 2 rows and 3 columns, such as:	
  
- ```
-<img src="graphics/giphy.gif" width="300"/>
-```
-<img src="graphics/giphy.gif" width="300"/>
+<img src="graphics/matrixA.PNG" width="150"/>
  
- 
- 
- 
- .  As long as the elements are of the same type, we can use our first multi-line R code to make a matrix:
+As long as the elements are of the same type, we can use our first multi-line R code to make a matrix:
+
 ```R
 > A <- matrix(
 +   c(2, 1, 4, 5, 3, 7),      ### data elements
