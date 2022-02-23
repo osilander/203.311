@@ -35,7 +35,7 @@ In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become o
 > **QUESTION 1**<br>
 > Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking in New Zealand compared to other countries?
 
-Please look over [this paper here](files/sc2_flight_transmission.pdf) and [this paper here](files/sc2_realtime_genomics.pdf) for some applications of SARS-CoV-2 genome sequencing data in New Zeeland.
+Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
 
