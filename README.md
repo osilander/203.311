@@ -6,8 +6,8 @@ This practice-oriented course differs from many of the other courses you may hav
 
 | Week | Module | Topic |
 | :----- | :------ | :----------------------------------------------------- |
-| 1 | Bootcamp                         | [Introduction to UNIX](Week1/Week1.html)      |
-| 2 |                                        | [Introduction to R](Week2/Week2.html)      |
+| 1 | Bootcamp                         | [Introduction to R](Week1/Week1.html)      |
+| 2 |                                        | [Introduction to UNIX](Week2/Week2.html)      |
 | 3 |                                         | [Introduction to Visualization](Week3/Week3.html)      |
 | 4 | Molecular Evolution            | [Sequencing and Mapping](Week4/Week4.html)      |
 | 5 |          |         [Variants and Phylogenies](Week5/Week5.html)      |
