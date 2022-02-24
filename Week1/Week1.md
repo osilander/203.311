@@ -100,7 +100,7 @@ We have organised a student account for you at <https://rstudio.cloud/> to be va
 
 #### Important Note
 
-**Please see the separate document -- "Access_to_RStudio_Cloud2022" -- that has been provided both as a Stream announcement and in the "Taiwhanga|Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
+**Please see the separate document -- "Access_to_RStudio_Cloud2022.pdf" -- that has been provided both as a Stream announcement and in the "Taiwhanga\|Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
 
 ### Our work today
 
@@ -379,7 +379,7 @@ However, it is often more convenient to create a readable string with the `sprin
 [1] "Dave has 1000 dollars"
 ```
 
-To extract a substring, we apply the **substr()** function. Here is an example showing how to extract the substring between the third and twelfth characters in a string.
+To extract a substring, we apply the `substr()` function. Here is an example showing how to extract the substring between the third and twelfth characters in a string.
 
 ```R
 > substr("Mary has a little lamb.", start = 3, stop = 12)
@@ -1041,6 +1041,9 @@ School of Natural Sciences
 [^2]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/basic-data-types>
 [^3]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/>
 [^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2022, due to the version of R.
+
+
+
 
 <!---## Practical sections start here
 
