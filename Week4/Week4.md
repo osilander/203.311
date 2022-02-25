@@ -67,7 +67,7 @@ Despite the existence of dependencies, many bioinformatics software programs, mo
 
 To make sure that we resolve all these dependency issues, we will use a package/tool managing system. This managing system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
 
-As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie"). Note that in the code sample below, you will *not* be able to use tab-complete because the file does not yet exist on your computer.
+As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
 First, navigate to the command line tab on your RStudio window.
 
@@ -75,23 +75,34 @@ Next, I need to post a **reminder** you **must never forget** tab-complete.
 
 ```bash
     # download latest conda installer
+    # we cry because we can't use tab-complete here - because 
+    # the file does not yet exist on our computers.
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-This file (with the extension ``.sh``) is a ``bash`` file, which is usually run using the command line program `bash`. As alluded to previously, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a ``bash`` file with ``.txt`` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with ``.xlsx``, you would end it with ``.doc`` or ``.docx``.
+This file (with the extension ``.sh``) is a ``bash`` file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a ``bash`` file with ``.txt`` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with ``.xlsx``, you would end it with ``.doc`` or ``.docx``.
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
-**Warning*** Be careful when using `rm` in the following command. (Why? What does `rm` do?)
+**Warning** Be careful when using `rm` in the following command. (Why? What does `rm` do?)
 
 ```bash
     # run the installer
     # note: now you can use tab-complete
+    # you will need to press enter and spacebar several
+    # times, and type "yes" twice 
     bash Miniconda3-latest-Linux-x86_64.sh
     
     # delete the installer after successful run
     rm Miniconda3-latest-Linux-x86_64.sh
 ```
+
+**IMPORTANT**
+Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable (see explanation below). You do this by typing the following at the terminal (simply copy-paste):
+
+```bash
+export PATH="$HOME/miniconda3/bin:$PATH"
+``` 
 
 The process of installing a software package is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software is contained in the [bioconda](https://bioconda.github.io "bioconda") channel, which currently has recipes for more than 7000 software packages. `conda` is not installed by default, thus you need to install it first to be able to use it.
 
