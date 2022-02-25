@@ -55,16 +55,6 @@ PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides
 
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
-### SARS-CoV-2 Genome Sequencing
-In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
-
-> **QUESTION 1**<br>
-> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking in New Zealand compared to other countries?
-
-Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
-
-There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
-
 ### Software Installation
 
 Software **packages** and tools are pieces of software that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a ``.fastq`` file.
@@ -114,7 +104,17 @@ Now, you should be able to use the |conda| command. One useful way to check that
 
 This will bring up a list of sub-commands that |conda| can do. Try it.
 
-### Today's Data
+### SARS-CoV-2 Genome Sequencing
+In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
+
+> **QUESTION 1**<br>
+> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking in New Zealand compared to other countries?
+
+Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
+
+There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
+
+## Today's Data
 The data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paired end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
