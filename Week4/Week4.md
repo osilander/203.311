@@ -69,41 +69,83 @@ To download the data, click on one of the links above to reach a page linking to
 
 Right click the "Download" button and scroll to *copy link address*. Then navigate to the RStudio command line (tab at the top of the page labelled `Terminal`, and change into your home directory (how?)
 
-And a reminder as we sit on the command line:
+**Reminder** you **must never forget** tab-complete.
 
-**Reminder**: You **must never forget** tab-complete.
+Also: Note that here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file even exists for you. Rather, you should replace this name with the file that *does* exist and which you *do* want to analyse.
+
 
 Once you have changed into your home directory, make a new directory called `data`. Finally, change into that directory and download the data using *wget*:
+
 ```bash
 wget https://the_data_file_address_you_just_copied
-````
+```
 
-Repeat this process for all three of the files above. Now you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present and whether they contain anything. Here, we are looking specifically for *fastq.gz* files, so we use a *wildcard* (the asterisk) to *list* (ls) only those files that match that pattern:
+**Explanation**: `wget` is a program that is used to transfer data to or from a server on the command line. Thus, this command is simply using this program to find the file at the location indicated.
+
+Repeat this process for all three of the files above. Now you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present and whether they contain anything. Here, we are looking specifically for *fastq.gz* files, so we use a *wildcard* (the asterisk) to *list* (ls) only those files that match that pattern. There are two additional options here, `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
 
 ```bash
 ls -lh *fastq.gz
 ```
 
-Are all three files present? Are they all sitting in the `/data` directory that is sitting within your `/home` directory?
+Are all three files present? Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
+
+### Software Installation
+
+Software **packages** and tools are pieces of software that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a ``.fastq`` file.
+
+*However*, software packages and tools often have **dependencies**, which are other pieces of software or tools that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check that such camera-controlling software exists, and if it does not, may try to install it.
+
+Despite the existence of dependencies, many bioinformatics software programs, most of which is written by inexperienced computer scientists (or worse, biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing dependencies.
+
+<img src="graphics/dependencies.jpg" width="600"/>
+
+To make sure that we resolve all these dependency issues, we will use a package/tool managing system. This managing system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
+
+As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier and you will be on your way to becoming a seasoned [bioinformatician] (https://soundcloud.com/microbinfie "binfie"). Note that in the code sample below, you will *not* be able to use tab-complete because the file does not yet exist on your computer.
+
+```bash
+    # download latest conda installer
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+This file (with the extension ``.sh``) is a ``bash`` file, which is usually run using the command line program `bash`. As alluded to previously, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a ``bash`` file with ``.txt`` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with ``.xlsx``, you would end it with ``.doc`` or ``.docx``.
+
+Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
+
+**Warning*** Be careful when using `rm` in the above command. (Why?)
+
+```bash
+    # run the installer
+    # note: now you can use tab-complete
+    bash Miniconda3-latest-Linux-x86_64.sh
+    
+    # delete the installer after successful run
+    rm Miniconda3-latest-Linux-x86_64.sh
+```
+
+The process of installing a software package is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software is contained in the `bioconda <https://bioconda.github.io/>`_ channel, which currently has recipes for more than 7000 software packages. |conda| is not installed by default, thus you need to install it first to be able to use it.
+
+Finally, close the shell/terminal and open a **new** shell/terminal.
+Now, you should be able to use the |conda| command. One useful way to check that |conda| (*or most other command line programs*) is to ask what the program does. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
+
+```bash
+    conda --help
+```
+
+This will bring up a list of sub-commands that |conda| can do. Try it.
+
+Besides now having |conda| available as your package manager, one additional thing has changed - your `$PATH` variable. |conda| has put the directory `~/miniconda3/bin` first on your `$PATH` variable. (The little `~` (tilde) at the start is short-hand for your home directory.) What is your `$PATH` variable and **why** do we need to prepend it with `~/miniconda3/bin`? Read on:
+
+The `$PATH` variable contains places (directories) in which your computer looks for  programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
+
+Through the installation of |conda| you have now told the computer to also look in `~/miniconda3/bin` - so that the program `conda` can be found anytime you open a new shell, and any program that |conda| installs will be used first. Thus, `conda`-installed programs will take precendence over the same programs installed elsewhere.
 
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
 
 Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use three pieces of software, each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot] (https://github.com/wdecoster/NanoPlot "NanoPlot github").
 
-### Software Installation
-
-As with any software, the first thing we need to do is install it. for all software that we install on the command line we will be using 
-
-
-
-
-First, we need to load the sequencing data into *RStudio*. We will use the *load_sequence* function to do this. Look up this function and the arguments that it takes now.
-
-Note that here and throughout the lab sessions I will refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file even exists for you. Rather, you should replace this name with the file that *does* exist and which you *do* want to analyse.
-```R
-sc2.illumina <- load_fastq("my_fastq.fastq")
-```
 
 ### Choosing A Plot Type
 
