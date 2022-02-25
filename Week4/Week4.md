@@ -67,7 +67,13 @@ To download the data, click on one of the links above to reach a page linking to
 
 <img src="graphics/fastq_download.png" width="600"/>
 
-Right click the "Download" button and scroll to *copy link address*. Then navigate to the RStudio command line, and download the data using *wget*:
+Right click the "Download" button and scroll to *copy link address*. Then navigate to the RStudio command line (tab at the top of the page labelled `Terminal`, and change into your home directory (how?)
+
+And a reminder as we sit on the command line:
+
+**Reminder**: You **must never forget** tab-complete.
+
+Once you have changed into your home directory, make a new directory called `data`. Finally, change into that directory and download the data using *wget*:
 ```bash
 wget https://the_data_file_address_you_just_copied
 ````
@@ -78,12 +84,19 @@ Repeat this process for all three of the files above. Now you have all the DNA s
 ls -lh *fastq.gz
 ```
 
-Are all three files present?
+Are all three files present? Are they all sitting in the `/data` directory that is sitting within your `/home` directory?
 
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
 
-Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel.
+Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use three pieces of software, each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot] (https://github.com/wdecoster/NanoPlot "NanoPlot github").
+
+### Software Installation
+
+As with any software, the first thing we need to do is install it. for all software that we install on the command line we will be using 
+
+
+
 
 First, we need to load the sequencing data into *RStudio*. We will use the *load_sequence* function to do this. Look up this function and the arguments that it takes now.
 
