@@ -54,7 +54,7 @@ Note that below, we will refer to any DNA sequence data from and NGS platform as
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). We will see that these characteristics provide different advantages.
 
-<img src="graphics/ont-ill.png" width="300"/>
+<img src="graphics/ont-ill.png" width="500"/>
 
 ### Software Management
 
