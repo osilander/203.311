@@ -135,7 +135,7 @@ In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become o
 
 **QUESTION 1**
 
-: Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
+:  Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
