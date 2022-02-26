@@ -55,7 +55,7 @@ PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides
 
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
-### Software Installation
+### Software Management
 
 Software **packages** and tools are pieces of software that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a ``.fastq`` file.
 
@@ -98,22 +98,35 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```
 
 **IMPORTANT**
-Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable (see explanation below). You do this by typing the following at the terminal (simply copy-paste):
+Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable (see detailed explanation below). You do this by typing the following at the terminal (simply copy-paste):
 
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
 ``` 
+**If you keep your terminal session active (i.e. don't close it) then you should be able to use conda for the rest of the Semester in the terminal. If you do close it, repeat the above step**.
 
-The process of installing a software package is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software is contained in the [bioconda](https://bioconda.github.io "bioconda") channel, which currently has recipes for more than 7000 software packages. `conda` is not installed by default, thus you need to install it first to be able to use it.
-
-Finally, close the shell/terminal and open a **new** shell/terminal.
-Now, you should be able to use the |conda| command. One useful way to check that |conda| (*or most other command line programs*) is to ask what the program does. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
+Now, you should be able to use the `conda` command. One useful way to check that `conda` (*or most other command line programs*) is to ask what the program does. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
 
 ```bash
-    conda --help
+conda --help
+``` 
+
+This will bring up a list of sub-commands that `conda` can do. Try it.
+
+### Software Installation
+
+The process of installing a software package via `conda` is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software is contained in the [bioconda](https://bioconda.github.io "bioconda") channel, which currently has recipes for more than 7000 software packages.
+
+Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome. We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is realtively simple:
+
+```
+# below we specify which channel we would like conda
+# to look in to find the recipe for minimap2 installation
+
+conda install -c bioconda minimap2
 ```
 
-This will bring up a list of sub-commands that |conda| can do. Try it.
+`conda` will think about where it might fidn this for a minute, and then it shoudl ask you whether you want to install the software. Simply press <enter> or type `Y` and press <enter>.
 
 ### SARS-CoV-2 Genome Sequencing
 In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
