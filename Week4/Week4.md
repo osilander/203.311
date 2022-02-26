@@ -99,12 +99,12 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```
 
 **IMPORTANT**
-Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable (see detailed explanation below). You do this by typing the following at the terminal (simply copy-paste):
+Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable[^1]. You do this by typing the following at the terminal (simply copy-paste):
 
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
 ``` 
-**If you keep your terminal session active (i.e. don't close it) then you should be able to use `conda` for the rest of the Semester in the terminal. If you do close it, repeat the above step**.
+**If you keep your terminal session active (i.e. don't close it) then you should be able to use `conda` for the rest of the Semester in the terminal. If you do close the terminal, repeat the above step**.
 
 Now, you should be able to use the `conda` command. One useful way to check that `conda` (*or most other command line programs*) is to ask what the program does. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
 
@@ -121,20 +121,21 @@ The process of installing a software package via `conda` is called a *recipe*, a
 Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome. We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
 
 ```bash
-# below we specify which channel we would like conda
-# to look in to find the recipe for minimap2 installation
-# this is done using the -c option
+# Below we specify which channel we would like conda
+# to look in to find the recipe to install minimap2.
+# This is done using the -c option
 
 conda install -c bioconda minimap2
 ```
 
-`conda` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press <enter> or type `Y` and press <enter>.
+`conda` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`.
 
 ### SARS-CoV-2 Genome Sequencing
 In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
 
-**QUESTION 1**<br>
-Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
+**QUESTION 1**
+
+: Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
@@ -208,12 +209,9 @@ We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "f
 ### Notes
 Besides now having |conda| available as your package manager, one additional thing has changed - your `$PATH` variable. |conda| has put the directory `~/miniconda3/bin` first on your `$PATH` variable. (The little `~` (tilde) at the start is short-hand for your home directory.) What is your `$PATH` variable and **why** do we need to prepend it with `~/miniconda3/bin`? Read on:
 
-The `$PATH` variable contains places (directories) in which your computer looks for  programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
+[^1]The `$PATH` variable contains places (directories) in which your computer looks for  programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
 
-Through the installation of |conda| you have now told the computer to also look in `~/miniconda3/bin` - so that the program `conda` can be found anytime you open a new shell, and any program that |conda| installs will be used first. Thus, `conda`-installed programs will take precendence over the same programs installed elsewhere.
-
-[GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
+The installation of `conda` shaould have told the computer to also look in `~/miniconda3/bin` - so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
 
 
 
