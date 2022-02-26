@@ -70,14 +70,16 @@ To make sure that we resolve all these dependency issues, we will use a package 
 
 As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
-First, navigate to the command line tab on your RStudio window. This is on the top of the `R` window.
+First, navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window.
 
-Next, I need to post a **reminder** you **must never forget** tab-complete. Then , we download `conda`.
+Next, I need to post a **reminder** you **must never forget** tab-complete. Also, never forget the up arrow. Good. Now, we download `conda`.
 
 ```bash
     # download the latest conda installer
     # we cry because we can't use tab-complete here as 
     # the file does not yet exist on our computers.
+    # you should be able to copy this line and paste 
+    # the whole thing on the command line
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
@@ -138,9 +140,10 @@ Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tr
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
+## Today's Data
+
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") :stuck_out_tongue_winking_eye: as we will be using data generated with that method.
 
-## Today's Data
 The data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paired end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
@@ -159,7 +162,7 @@ Once you have changed into your home directory, make a new directory called `dat
 wget https://the_data_file_address_you_just_copied
 ```
 
-You should see a rapid animated arrown tracking the download.
+You should see a rapid animated arrow tracking the download.
 
 **Explanation**: `wget` is a program that is used to transfer data to or from a server on the command line. Thus, this command is simply using this program to find the file at the location indicated.
 
@@ -169,22 +172,35 @@ Repeat this process for all three of the files above. Now you have all the DNA s
 ls -lh *fastq.gz
 ```
 
-Are all three files present? Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
+#### QUESTIONS
+Are all three files present?
+Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
+What does `.gz` indicate?
+
+Let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple command. You may have encountered it previously
+```bash
+# here we have to use zcat as the files are zipped. 
+# We then pipe | the result to head
+# If you're interested in what a pipe does I can explain it.
+zcat choose_one_fastq_file_to_look_at.fastq.gz | head
+```
 
 
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
 
-Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use three pieces of software, each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot](https://github.com/wdecoster/NanoPlot "NanoPlot github").
-
-First things first, install `Nanoplot`:
+Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
 ```bash
-# again we use conda and look in the bioconda channel
-conda install -c bioconda nanoplot
+# below we use conda (of course) and 
+# tell conda which *channel* to look in
+# for the recipe using the -c option
+conda install -c bioconda seqkit
 ```
 
-We will also use a program called [pycoqc](https://github.com/a-slide/pycoQC "pycoqc github")
+If your command does not work, let a lecturer, demonstrator, or classmate know.
+
+We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install:
 
 ```bash
 # once more we look in bioconda
@@ -193,9 +209,35 @@ We will also use a program called [pycoqc](https://github.com/a-slide/pycoQC "py
 # using conda by looking in a specific channel
 ```
 
-If your command does not work, let a lecturer, demonstrator, or classmate know.
+Let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help.
 
-We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install it now.
+```bash
+# some simple statistics about your files
+seqkit stats *fastq.gz
+```
+
+#### QUESTIONS
+What does `*fastq.gz` mean?
+What is the `*` doing?
+
+```bash
+# some much prettier stats about your sequences
+# first let's get a new package called csvtk
+# install with conda (of course)
+conda install -c bioconda csvtk
+
+# then some nicer looking stats but no commas
+# all the -T -t are *options*. I can explain
+# those too. 
+seqkit stats *.fastq.gz -T | csvtk csv2md -t
+```
+
+```bash
+# even fancier, a histogram of read lengths
+seqkit watch choose_one_fastq_file_to_plot.fastq.gz
+```
+
+Oops the histrograms are a bit messy :grimacing:
 
 
 
@@ -213,4 +255,14 @@ Besides now having |conda| available as your package manager, one additional thi
 The installation of `conda` shaould have told the computer to also look in `~/miniconda3/bin` - so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
 
 
+##### scratch below
+each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot](https://github.com/wdecoster/NanoPlot "NanoPlot github").
 
+First things first, install `Nanoplot`:
+
+```bash
+# again we use conda and look in the bioconda channel
+conda install -c bioconda nanoplot
+```
+
+We will also use a program called [pycoqc](https://github.com/a-slide/pycoQC "pycoqc github")
