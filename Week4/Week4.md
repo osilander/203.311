@@ -104,7 +104,7 @@ Conda does not behave *quite* as it should in this cloud-based platform. For tha
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
 ``` 
-**If you keep your terminal session active (i.e. don't close it) then you should be able to use conda for the rest of the Semester in the terminal. If you do close it, repeat the above step**.
+**If you keep your terminal session active (i.e. don't close it) then you should be able to use `conda` for the rest of the Semester in the terminal. If you do close it, repeat the above step**.
 
 Now, you should be able to use the `conda` command. One useful way to check that `conda` (*or most other command line programs*) is to ask what the program does. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
 
