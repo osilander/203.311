@@ -19,9 +19,9 @@
 
 ## Purpose
 
-1. To learn how to use a package manager to install soiftware for use on the command line.
-2. To understand the advantages and disadvantages of using two of the three most common types of NGS sequencing data
-3. To be able to visualise the differences in these NGS data types
+1. To learn how to use a package manager to install software for use on the command line.
+2. To understand the advantages and disadvantages of using two of the three most common types of NGS sequencing data.
+3. To be able to visualise the differences in these NGS data types.
 4. To discuss what the possible applications are for this type of NGS data.
 
 ## Introduction
@@ -33,11 +33,6 @@ The data we will investigate today is from publicly available SARS-Cov-2 genome 
 Soon after the birth of Next Generation Sequencing in 2005 (or so), the technology rapidly proliferated into a number of 
 [different platforms](https://en.wikipedia.org/wiki/Massive_parallel_sequencing "NGS sequencing platforms") (e.g. 454, IonTorrent, Helicos, and others). However, this number has been gradually weaned down, and currently there are three dominant NGS sequencing platforms: [Illumina](https://en.wikipedia.org/wiki/Illumina,_Inc. "Illumina on Wikipedai"), which dominates the market; [PacBio](https://en.wikipedia.org/wiki/Pacific_Biosciences "PacBio on Wikipedia"); and [Oxford Nanopore](https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies "Oxford Nanopore on Wikipedia").
 These three technologies differ considerably in their methodologies. For all three, sequencing output ranges from tens of gigabases (billions of nucleotides) to terabases (trillions of nucleotides), depending on the specific platform (e.g. Illumina MiSeq, Illumina NovaSeq, Oxford Nanopore MinION, Oxford Nanopore PromethION, etc.).
-
-Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".
-
-
-Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads, while Oxford Nanopore provides long, less accurate reads. We will see that these provide different advantages.
 
 
 ### Illumina
@@ -55,9 +50,15 @@ PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides
 
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
+Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".
+
+Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads, while Oxford Nanopore provides long, less accurate reads. We will see that these provide different advantages.
+
 ### Software Management
 
-Software **packages** and tools are pieces of software that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a ``.fastq`` file.
+We need software to be able to process all of this data. Until now, you have used the pre-installed statistical programming software, `R`. However, we need additional software packages to process the DNA sequence data. We will refer to these as software **packages**, as they often contain several pieces of related software (you have seen this word before when installing new software in `R`).
+
+As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
 *However*, software packages and tools often have **dependencies**, which are other pieces of software or tools that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check that such camera-controlling software exists, and if it does not, may try to install it.
 
@@ -65,22 +66,22 @@ Despite the existence of dependencies, many bioinformatics software programs, mo
 
 <img src="graphics/dependencies.jpg" width="600"/>
 
-To make sure that we resolve all these dependency issues, we will use a package/tool managing system. This managing system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
+To make sure that we resolve all these dependency issues, we will use a package managment system. This managing system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
 
-As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
+As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
-First, navigate to the command line tab on your RStudio window.
+First, navigate to the command line tab on your RStudio window. This is on the top of the `R` window.
 
-Next, I need to post a **reminder** you **must never forget** tab-complete.
+Next, I need to post a **reminder** you **must never forget** tab-complete. Then , we download `conda`.
 
 ```bash
-    # download latest conda installer
-    # we cry because we can't use tab-complete here - because 
+    # download the latest conda installer
+    # we cry because we can't use tab-complete here as 
     # the file does not yet exist on our computers.
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-This file (with the extension ``.sh``) is a ``bash`` file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a ``bash`` file with ``.txt`` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with ``.xlsx``, you would end it with ``.doc`` or ``.docx``.
+This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or .docx.
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -111,32 +112,33 @@ Now, you should be able to use the `conda` command. One useful way to check that
 conda --help
 ``` 
 
-This will bring up a list of sub-commands that `conda` can do. Try it.
+This will bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate).
 
 ### Software Installation
 
 The process of installing a software package via `conda` is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software is contained in the [bioconda](https://bioconda.github.io "bioconda") channel, which currently has recipes for more than 7000 software packages.
 
-Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome. We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is realtively simple:
+Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome. We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
 
-```
+```bash
 # below we specify which channel we would like conda
 # to look in to find the recipe for minimap2 installation
+# this is done using the -c option
 
 conda install -c bioconda minimap2
 ```
 
-`conda` will think about where it might fidn this for a minute, and then it shoudl ask you whether you want to install the software. Simply press <enter> or type `Y` and press <enter>.
+`conda` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press <enter> or type `Y` and press <enter>.
 
 ### SARS-CoV-2 Genome Sequencing
 In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
 
-> **QUESTION 1**<br>
-> Why is SARS-CoV-2 genome sequencing used more commonly for transmission tracking in New Zealand compared to other countries?
+**QUESTION 1**<br>
+Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
-There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method")
+There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via "amplicon panels", in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") as we will be using data generated with that method.
 
 ## Today's Data
 The data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
@@ -147,10 +149,9 @@ To download the data, click on one of the links above to reach a page linking to
 
 <img src="graphics/fastq_download.png" width="600"/>
 
-Right click the "Download" button and scroll to *copy link address*. Then navigate to the RStudio command line (tab at the top of the page labelled `Terminal`, and change into your home directory (how?)
+Right click the "Download" button and scroll to *copy link address*. Then navigate back to the `Terminal`, and change into your home directory (how?).
 
-Also: Note that here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file even exists for you. Rather, you should replace this name with the file that *does* exist and which you *do* want to analyse.
-
+Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse.
 
 Once you have changed into your home directory, make a new directory called `data`. Finally, change into that directory and download the data using *wget*:
 
@@ -158,9 +159,11 @@ Once you have changed into your home directory, make a new directory called `dat
 wget https://the_data_file_address_you_just_copied
 ```
 
+You should see a rapid animated arrown tracking the download.
+
 **Explanation**: `wget` is a program that is used to transfer data to or from a server on the command line. Thus, this command is simply using this program to find the file at the location indicated.
 
-Repeat this process for all three of the files above. Now you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present and whether they contain anything. Here, we are looking specifically for *fastq.gz* files, so we use a *wildcard* (the asterisk) to *list* (ls) only those files that match that pattern. There are two additional options here, `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
+Repeat this process for all three of the files above. Now you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present and whether they contain anything. Here, we are looking specifically for *fastq.gz* files, so we use a *wildcard* (the asterisk) to *list* (`ls`) only those files that match that pattern. There are two additional options in the command below, `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
 
 ```bash
 ls -lh *fastq.gz
@@ -169,11 +172,31 @@ ls -lh *fastq.gz
 Are all three files present? Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
 
 
-
 ### Making Good Use of Summary Statistics
 We will follow much of the format from last week's lab, as this is *simply good practice* in bioinformatics and data analysis.
 
 Thus, once we have the data, the first thing we will do is get some summary statistics. Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use three pieces of software, each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot](https://github.com/wdecoster/NanoPlot "NanoPlot github").
+
+First things first, install `Nanoplot`:
+
+```bash
+# again we use conda and look in the bioconda channel
+conda install -c bioconda nanoplot
+```
+
+We will also use a program called [pycoqc](https://github.com/a-slide/pycoQC "pycoqc github")
+
+```bash
+# once more we look in bioconda
+# but now I won't tell you what to type
+# because you know how to install things 
+# using conda by looking in a specific channel
+```
+
+If your command does not work, let a lecturer, demonstrator, or classmate know.
+
+We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install it now.
+
 
 
 ### Choosing A Plot Type
