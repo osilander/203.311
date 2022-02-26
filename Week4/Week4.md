@@ -133,9 +133,8 @@ conda install -c bioconda minimap2
 ### SARS-CoV-2 Genome Sequencing
 In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with more than five million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is primarily application used here in New Zealand, in constrast to most other countries.
 
-##### QUESTION 1
-
-:  Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
+#### QUESTION 1
+Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf) (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
 
