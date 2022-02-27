@@ -331,13 +331,288 @@ $ ls
 
 You can use the `rmdir` command to remove a directory (make sure it is empty first). Try to remove the _`backups`_ directory. You will not be able to since UNIX will not let you remove a non-empty directory.
 
-  >**Exercise C:**
+>**Exercise C:**
 >
 > Create a directory called _`tempstuff`_ using `mkdir`, then remove it using the `rmdir` command.  Write the two lines of code you have used in the box below:
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
   
+
+## Working with files
+
+Here are a few other useful commands:
+
+#### `clear` (clear screen)
+
+Before you start the next section, you may like to clear the terminal window of the previous commands so the output of the following commands can be clearly understood.  At the prompt, type
+
+```bash
+$ clear
+```
+
+This will clear all text and leave you with the `$` prompt at the top of the window.
+
+#### `cat` (concatenate)
+
+The `cat` command can be used to display the contents of a file on the screen. Type:
+
+```bash
+$ cat science.txt
+```
+
+As you can see, the file is longer than the size of the window, so it scrolls past making it unreadable.  Check is by scrolling up and down in the terminal window using the bar on the right hand side.
+
+#### less
+
+The `less` command writes the contents of a file onto the screen a page at a time. Type
+
+```bash
+$ less science.txt
+```
+
+Press the [space-bar] if you want to see another page, and type [q] if you want to quit reading. As you can see, less is often used in preference to cat for long files.
+
+#### head
+
+The `head` command writes the first ten lines of a file to the screen.  First clear the screen then type
+
+```bash
+$ head science.txt
+```
+
+Then type
+
+```bash
+$ head -n 5 science.txt
+```
+
+What difference did the `-n 5` do to the `head` command?
+
+#### tail
+
+The `tail` command writes the last ten lines of a file to the screen.  Clear the screen and type
+
+```bash
+$ tail science.txt
+```
+
+>**Exercise D:**
+>
+> How can you view the last 15 lines of the file?  Write your full code in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
+## Searching files
+
+We are going to quickly do some simple searching of our file, as well as use the command `grep`, and the utility `wc`.
+
+Using `less`, you can search though a text file for a keyword (pattern). For example, to search through science.txt for the word 'science', type
+
+```bash
+$ less science.txt
+```
+
+then, still in less, type a forward slash [/] followed by the word to search
+
+`/science`
+
+As you can see, `less` finds and highlights the keyword. Type [n] to search for the next occurrence of the word and then [q] to quit.
+
+`grep` is one of many standard UNIX utilities. It searches files for specified words or patterns. First clear the screen, then type
+
+```bash
+$ grep science science.txt
+```
+
+As you can see, `grep` has printed out each line containing the word 'science'.  Or has it????
+
+Try typing
+
+```bash
+$ grep Science science.txt
+```
+
+The `grep` command is case sensitive; it distinguishes between 'Science' and 'science'.  To ignore upper/lower case distinctions, use the `-i` option, i.e. type
+
+```bash
+$ grep -i science science.txt
+```
+
+To search for a phrase or pattern, you must enclose it in single quotes (the apostrophe symbol). For example, to search for 'spinning top', type
+
+```bash
+$ grep -i 'spinning top' science.txt
+```
+
+Some of the other options of grep are:
+- `-v` display those lines that do NOT match 
+- `-n` precede each matching line with the line number 
+- `-c` print only the total count of matched lines
+- 
+Try some of them and see the different results. Don't forget, you can use more than one option at a time. For example, the number of lines without the words 'science' or 'Science' is
+
+```bash
+$ grep -ivc science science.txt
+```
+
+A handy little utility is the `wc` command, short for word count. To do a word count on _`science.txt`_, type
+
+```bash
+$ wc -w science.txt
+```
+
+To find out how many lines the file has, type
+
+```bash
+$ wc -l science.txt
+```
+
+
+## Redirection and pipes
+
+### Redirection
+
+Most processes initiated by UNIX commands write to the standard output (that is, they write to the terminal screen), and many take their input from the standard input (that is, they read it from the keyboard). There is also the standard error, where processes write their error messages, by default, to the terminal screen.  We have already seen one use of the `cat` command to write the contents of a file to the screen.  Now type `cat` without specifying a file to read
+
+```bash
+$ cat
+```
+
+Then type a few words on the keyboard and press the [Return] key.  Finally hold the [Ctrl] key down and press [d] (written as ^D for short) to end the input.
+
+What has happened?
+
+If you run the `cat` command without specifying a file to read, it reads the standard input (the keyboard), and on receiving the 'end of file' (^D) command, copies it to the standard output (the screen).
+
+In UNIX, we can redirect both the input and the output of commands.  We use the `>` symbol to redirect the output of a command. For example, to create a file called list1 containing a list of fruit, type  
+
+```bash
+$ cat > list1
+```
+
+Then type in the names of some fruit. Press [Return] after each one.
+
+```bash
+pear
+banana
+apple
+[^D] 	{this means press [Ctrl] and [d] to stop}
+```
+
+What happens is the `cat` command reads the standard input (the keyboard) and the `>` redirects the output, which normally goes to the screen, into a file called _`list1`_.  To read the contents of the file, type
+
+```bash
+$ cat list1
+```
+>**Exercise E:**
+>
+> Using the above method, create another file called _`list2`_ containing the following fruit: 'orange', 'plum', 'mango', 'grapefruit'. Read the contents of _`list2`_.  Write your code in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+The form `>>` appends standard output to a file. So, to add more items to the file _`list1`_, type
+
+```bash
+$ cat >> list1
+```
+
+Then type in the names of more fruit
+
+```bash
+peach
+grape
+orange
+[^D] 	{this means press [Ctrl] and [d] to stop}
+```
+
+To read the contents of the file, type
+
+```bash
+$ cat list1
+```
+
+You should now have two files. One contains six fruit, the other contains four fruit.  We will now use the `cat` command to join (concatenate) _`list1`_ and _`list2`_ into a new file called _`bigList`_. Type
+
+```bash
+$ cat list1 list2 > bigList
+```
+
+What this is doing is reading the contents of _`list1`_ and _`list2`_ in turn, then outputting the text to the file _`bigList`_.  To read the contents of the new file, type
+
+```bash
+$ cat bigList
+```
+
+We use the `<` symbol to redirect the input of a command.  The command `sort` alphabetically or numerically sorts a list. Type
+
+```bash
+$ sort
+```
+
+Then type in the names of some animals. Press [Return] after each one.
+
+```bash
+dog
+cat
+bird
+ape
+[^D] 	{this means press [Ctrl] and [d] to stop}
+```
+
+The output will be:
+
+```bash
+ape
+bird 
+cat 
+dog
+```
+
+Using `<` you can redirect the input to come from a file rather than the keyboard. For example, to sort the list of fruit, type
+
+```bash
+$ sort < bigList
+```
+and the sorted list will be output to the screen.  To output the sorted list to a file, type,
+
+```bash
+$ sort < bigList > slist
+```
+
+Use `cat` to read the contents of the file _`slist`_.
+
+
+### Pipes
+
+Pipes allow you to link commands together.  This example is slightly limited in its scope, but illustrates the principles.  
+
+Let's consider the use of `head` again, but this time we want to sort the first 10 lines of _`science.txt`_.  One method to get a sorted list of these lines is to type,
+
+```bash
+$ head science.txt > lines.txt
+$ sort < lines.txt
+```
+
+This is a bit slow and you have to remember to remove the temporary file called _`lines.txt`_ when you have finished. What you really want to do is connect the output of the `hea`d command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar `|`.  For example, typing
+
+```bash
+$ head science.txt | sort
+```
+
+will give the same result as above, but is both quicker and cleaner.  
+
+>**Exercise F:**
+>
+> Using pipes, display all lines of _`list1`_ and _`list2`_ containing the letter 'p', and sort the result.  Write your answer in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
 
 
 
