@@ -614,6 +614,393 @@ will give the same result as above, but is both quicker and cleaner.
 
 
 
+## Wildcards and naming files
+
+The character `*` is called a wildcard, and will match against none or more character(s) in a file (or directory) name. For example, in your _`FridayFolder`_ directory, type
+
+```bash
+$ ls list*
+```
+
+This will list all files in the current directory starting with _`list...`_.  Try typing
+
+```bash
+$ ls *list
+```
+
+This will list all files in the current directory ending with _`....list`_
+
+The character `?` will match exactly one character.  So _`?ouse`_ will match files like house and mouse, but not grouse.   Try typing
+
+```bash
+$ ls ?list
+```
+
+We should note here that a directory is merely a special type of file. In addition, the rules and conventions for naming files apply also to directories.  In naming files, characters with special meanings such as `/ * & $`, should be avoided. Also, avoid using spaces within names. The safest way to name a file is to use only alphanumeric characters, that is, letters and numbers, together with _ (underscore) and . (dot).
+
+File names conventionally start with a lower-case letter and may end with a dot followed by a group of letters indicating the contents of the file. For example, all files consisting of C code may be named with the ending _`.c`_, for example, _`prog1.c`_. Then in order to list all files containing C code in your home directory, you need only type `ls` _`*.c`_ in that directory.
+
+| Good filenames| Bad filenames |
+|-----|-----|
+|  project.txt  |  project  |
+|  my_new_project.c  |  my new project.c  |
+|  john_mike.docx  |  john & mike.docx  |
+
+
+
+## Getting help
+
+There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man command` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
+
+```bash
+$ man wc
+```
+
+You will then need to type [q] to return to the terminal prompt.  Alternatively
+
+```bash
+$ whatis wc
+```
+
+gives a one-line description of the command, but omits any information about options etc.
+
+When you are not sure of the exact name of a command, you can use the command `apropos`:
+
+```bash
+$ apropos <<keyword>>
+```
+
+will give you the commands with keyword in their manual page header. For example, try typing
+
+```bash
+$ apropos copy
+```
+
+
+## File security
+
+Head back to the _`FridayFolder`_ folder if you are not already there (Hint: use pwd to check where you are).  Let's look at our files with a long listing
+
+```bash
+$ ls -l
+```
+
+you will something similar to the below:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls -l
+total 28
+drwxrwxr-x 2 rstudio-user rstudio-user 4096 Jul 18 03:11 backups
+-rw-rw-r-- 1 rstudio-user rstudio-user   65 Jul 18 05:11 bigList
+-rw-rw-r-- 1 rstudio-user rstudio-user   37 Jul 18 05:10 list1
+-rw-rw-r-- 1 rstudio-user rstudio-user   29 Jul 18 05:11 list2
+-rw-rw-r-- 1 rstudio-user rstudio-user 7767 Jul 18 05:12 science.txt
+-rw-rw-r-- 1 rstudio-user rstudio-user   65 Jul 18 05:17 slist 
+```
+
+Below is the figure from the lecture to remind you of what the columns mean.  Each file (and directory) has associated security access rights, which may be found by typing `ls -l`. In the left-hand column is a 10 symbol string consisting of the symbols d, r, w, x, -, and, occasionally, s or S. If d is present, it will be at the left-hand end of the string, and indicates a directory: otherwise - will be the starting symbol of the string.
+
+# add in image
+
+The 9 remaining symbols indicate the permissions, or access rights, and are taken as three groups of 3.
+
+- The left group of 3 gives the file permissions for the user that owns the file (or directory) (bioinformatics in the above example); 
+- The middle group gives the permissions for the group of people to whom the file (or directory) belongs (staff in the above example);
+- The rightmost group gives the permissions for all others.
+- The symbols r, w, etc., have slightly different meanings depending on whether they refer to a simple file or to a directory.
+
+Access rights on files.
+r (or -), indicates read permission (or otherwise), that is, the presence or absence of permission to read and copy the file 
+w (or -), indicates write permission (or otherwise), that is, the permission (or otherwise) to change a file 
+x (or -), indicates execution permission (or otherwise), that is, the permission to execute a file, where appropriate
+
+Access rights on directories:
+r allows users to list files in the directory;
+w means that users may delete files from the directory or move files into it;
+x means the right to access files in the directory. This implies that you may read files in the directory provided you have read permission on the individual files.
+
+So, in order to read a file, you must have execute permission on the directory containing that file, and hence on any directory containing that directory as a subdirectory, and so on, up the tree.
+
+We can use the `chmod` command to change the permissions of a file. The options of `chmod` are in the table below.  
+
+| Symbol |  Meaning  |
+|-----|-----|
+|  u  |  user  |
+|  g  |  group  |
+|  o  |  other  |
+|  a  |  all  |
+|  r  |  read  |
+|  w  |  write (& delete)  |
+|  x  |  execute (& access directory)  |
+|  +  |  add permission  |
+|  -  |  remove permission  |
+
+For example, to remove read write and execute permissions on the file _`bigList`_ for the group and others, type
+
+```bash
+$ chmod go-rwx bigList
+```
+
+This will leave the other permissions unaffected.  Check its effect by typing `ls -l`.  To give read and write permissions on the file _`bigList`_ to all,
+
+```bash
+$ chmod a+rw bigList
+```
+
+>**Exercise G:**
+>
+> Try changing access permissions on the file _`science.txt`_ and on the directory backups.  Use `ls -l` to check that the permissions have changed.
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
+
+##  Looking at processes
+
+A process is an executing program identified by a unique PID (process identifier). To see information about your processes, with their associated PID and status, type
+
+```bash
+```$ ps
+
+you should see something like:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ps
+  PID TTY          TIME CMD
+  518 pts/0    00:00:00 bash
+  578 pts/0    00:00:00 ps
+```
+
+A process may be in the foreground, in the background, or be suspended. In general the shell does not return the UNIX prompt until the current process has finished executing.
+
+Some processes take a long time to run and hold up the terminal. Backgrounding a long process has the effect that the UNIX prompt is returned immediately, and other tasks can be carried out while the original process continues executing.
+
+To background a process, type an`&` at the end of the command line. For example, the command `sleep` waits a given number of seconds before continuing. Type
+
+```bash
+$ sleep 10
+```
+
+This will wait 10 seconds before returning the command prompt $. Until the command prompt is returned, you can do nothing except wait.  To run sleep in the background, type
+
+```bash
+$ sleep 10 &
+```
+
+you should see something like:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 10 &
+[1] 588
+```
+
+The `&` runs the job in the background and returns the prompt straight away, allowing you to run other programs while waiting for that one to finish.
+
+The first line in the above example is typed in by the user; the next line, indicating job number and PID, is returned by the machine. The user is be notified of a job number (numbered from 1) enclosed in square brackets, together with a PID and is notified when a background process is finished. Backgrounding is useful for jobs which will take a long time to complete.  At the prompt, type
+
+```bash
+$ sleep 1000
+```
+
+You can suspend the process running in the foreground by typing ^Z, i.e. hold down the [Ctrl] key and type [z]. Then to put it in the background, type
+
+```bash
+bg
+```
+
+When a process is running, backgrounded or suspended, it will be entered onto a list along with a job number. To examine this list, type
+
+```bash
+$ jobs
+```
+
+you should see something like:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ jobs
+[1]+  Running                 sleep 1000 &
+```
+
+To restart (foreground) a suspended process, type
+
+```bash
+$ fg %<<jobnumber>>
+```
+
+For example, to restart sleep 1000, type
+
+```bash
+$ fg %1
+```
+
+Typing `fg` with no job number foregrounds the last suspended process.  It is sometimes necessary to kill a process (for example, when an executing program is in an infinite loop).  To kill a job running in the foreground, type [^C] (control c). For example, run
+
+```bash
+$ sleep 1000
+[^C]
+```
+
+Processes can be killed by finding their process numbers (PIDs) and using kill PID_number
+
+```bash
+$ sleep 1000 &
+$ ps
+```
+you should see something like:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 1000 &
+[1] 595
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ps
+  PID TTY          TIME CMD
+  518 pts/0    00:00:00 bash
+  595 pts/0    00:00:00 sleep
+  596 pts/0    00:00:00 ps
+```
+
+So to kill off the process sleep 1000, type
+
+```bash$ kill 595 {your number of course will be different}
+```
+
+and then type `ps` again to see if it has been removed from the list.  If a process refuses to be killed, uses the `-9` option, i.e. type
+
+```bash
+$ kill -9 595 
+```
+
+Note: It is not possible to kill off other users' processes !!!
+
+
+
+## Other useful commands
+
+#### df
+
+This command reports on the space left on the file system. For example, to find out how much space is left on the machine, type
+
+```bash
+$ df .
+```
+
+#### du
+
+This command outputs the number of kilobyes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. In your _`Lab2UnixAndR`_ directory, type
+
+```bash
+$ du -s *
+```
+
+The `-s` flag will display only a summary (total size) and the `*` means all files and directories.
+
+### gzip
+This reduces the size of a file, thus freeing valuable disk space. For example, move to the _`FridayFolder`_ and type
+
+```bash
+$ ls -l science.txt
+```
+
+and note the size of the file using `ls -l`. Then to compress _`science.txt`_, type
+
+```bash
+$ gzip science.txt
+```
+
+This will compress the file and place it in a file called _`science.txt.gz`_.
+
+To see the change in size, type `ls -l` again.  To expand the file, use the `gunzip` command.
+
+```bash
+$ gunzip science.txt.gz
+```
+
+#### zcat
+
+`zcat` will read gzipped files without needing to uncompress them first.  Go back and repeat the compression of _`science.txt`_, and then type
+
+```bash
+$ zcat < science.txt.gz
+```
+
+If the text scrolls too fast for you, pipe the output though less.
+
+```bash
+$ zcat < science.txt.gz | less
+```
+
+### file
+
+This classifies the named files according to the type of data they contain, for example ascii (text), pictures, compressed data, etc.. To report on all files in your home _`FridayFolder`_, type
+
+```bash
+$ file *
+```
+
+you should see something like:
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ file *
+backups:        directory
+bigList:        ASCII text
+list1:          ASCII text
+list2:          ASCII text
+science.txt.gz: gzip compressed data, was "science.txt", last modified: Sat Jul 18 05:12:00 2020, from Unix
+slist:          ASCII text
+```
+
+#### diff
+
+This command compares the contents of two files and displays the differences. Suppose you have a file called _`file1`_ and you edit some part of it and save it as _`file2`_. To see the differences type
+
+```bash
+$ diff file1 file2
+```
+
+Lines beginning with a `<` denotes _`file1`_, while lines beginning with a `>` denotes _`file2`_.
+
+#### find
+
+This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing `man find`.
+
+
+#### history
+
+The C shell keeps an ordered list of all the commands that you have entered. Each command is given a number according to the order it was entered.
+
+```bash
+$ history (show command history list)
+```
+
+If you are using the C shell, you can use the exclamation character (!) to recall commands easily.
+
+```bash
+$ !! (recall last command)
+$ !-3 (recall third most recent command)
+$ !5 (recall 5th command in list)
+$ !grep (recall last command starting with grep)
+```
+
+You can increase the size of the history buffer by typing
+
+```bash
+$ set history=100
+```
+
+
+
+
+
+
+
+
+##
+
+
+
+
+
+##
 
 
 
