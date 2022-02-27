@@ -166,7 +166,7 @@ To see the directory you have just created, type
 $ ls 
 ```
 
-The command `cd _directory_` means change the current working directory to 'directory'. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.  To change to the directory you have just made, type
+The command `cd`_`directory`_ means change the current working directory to 'directory'. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.  To change to the directory you have just made, type
 
 ```bash
 $ cd FridayFolder
@@ -188,20 +188,18 @@ To see its full contents.  What else do we see?
 There are two special directories called `.` and `..`.  In UNIX, `.` means the current directory, so typing
 
 ```bash
-$ cd . 	{NOTE: there is a space between cd and the dot}
+$ cd .  {NOTE: there is a space between cd and the dot}
 ```
 
 means stay where you are (the _`FridayFolder`_ directory).  This may not seem very useful at first, but using `.` as the name of the current directory will save a lot of typing, as we shall see later in the tutorial.  `..` means the parent of the current directory, so typing
 
 ```bash
-$ cd .. 	{NOTE: there is a space between cd and the dots}
+$ cd ..  {NOTE: there is a space between cd and the dots}
 ```
 
 will take you one directory up the hierarchy (back to your home directory). Try it now.
 
-<table><tr><td>
-Note: typing `cd` with no argument always returns you to your home directory (wherever that is set to be). This is very useful if you are lost in the file system. 
-</td></tr></table>
+> __Note:__ Typing `cd` with no argument always returns you to your home directory (wherever that is set to be). This is very useful if you are lost in the file system. 
 
 Pathnames enable you to work out where you are in relation to the whole filesystem. For example, to find out the absolute pathname of your current directory, type `cd` to get back to your home directory and then type
 
@@ -218,6 +216,129 @@ With these two commands, the full pathname will look something like this -
 ```
 
 Please bear in mind that this will be subtly different for your computers as compared to mine.
+
+
+
+## Pathnames
+
+We have now gone from our test areas to the home directory for your account.  We are not working there, so to get back to our working area, type the following:
+
+```bash
+$ cd /cloud/project/Lab2UnixAndR/FridayFolder
+```
+
+This is very important, as you can see, we can move through multiple levels by typing the path to the folder.  Now type
+
+```bash
+$ ls
+```
+
+to list the contents of your _`FridayFolder`_ directory.  Again, it is empty.  Now type
+
+```bash
+$ ls backups
+```
+
+You will get a message like this -
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls backups
+ls: cannot access 'backups': No such file or directory
+```
+
+The reason is, _`backups`_ is not in your current working directory. To use a command on a file (or directory) not in the current working directory (the directory you are currently in), you must either `cd` to the correct directory, or specify its full pathname. To list the contents of your _`backups`_ directory from where you are now, you must type the following two commands:
+
+```bash
+$ cd ..
+$ ls FridayFolder/backups
+```
+
+You still get the same error as the folder does not exist (yet!).
+
+
+> __Important: please read, but do not do this as it will not work in our current RStudio Cloud environment__
+>
+> Home directories can also be referred to by the tilde `~` character. It can be used to specify paths starting at your home directory. So typing:
+>
+> ```bash
+> $ ls ~/Lab2UnixAndR/FridayFolder
+> ```
+>
+> will list the contents of your FridayFolder directory, no matter where you currently are in the file system.  
+>
+> Our `~` refers to a different part of our current RStudio Cloud environment.
+>
+> __Note: you will not be tested on this behaviour as it is non-standard.__
+
+
+## Copying and moving files, and removing files and directories
+
+`cp` _`<<file1>> <<file2>>`_ is the command which makes a copy of _`<<file1>>`_ in the current working directory and calls it _`<<file2>>`_.  What we are going to do now, is to take a file stored in another part of the file system, and use the `cp` command to copy it to your _`Lab2UnixAndR`_ directory.
+
+First, `cd` to your _`Lab2UnixAndR`_ directory.
+
+```bash
+$ cd /cloud/project/Lab2UnixAndR/FridayFolder
+```
+
+Then at the UNIX prompt, type,
+
+```bash
+$ cp ../../Lab2Other/science.txt .
+```
+
+>__Note:__ Don't forget the dot `.` at the end, and the space. Remember, in UNIX, the dot means the current directory.  The above command means copy the file _`science.txt`_ to the current directory, keeping the name the same.
+
+>**Exercise A:**
+>
+> Create a backup of your science.txt file by copying it to a file called science.bak.  Write the code in the box below
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+   
+`mv` _`<<file1>> <<file2>>`_ moves (or renames) _`<<file1>>`_ to _`<<file2>>`_.  To move a file from one place to another, use the `mv` command. This has the effect of moving rather than copying the file, so you end up with only one file rather than two.  It can also be used to rename a file, by moving the file to the same directory, but giving it a different name.
+
+We are now going to move the file _`science.bak`_ to your backup directory.  Inside the _`FridayFolder`_ directory, type
+
+```bash
+$ mv science.bak backups/
+```
+
+The last backslash is important.  You get an error, like the below.
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ mv science.bak backups/
+mv: failed to access 'backups/': Not a directory
+```
+  
+>**Exercise B:**
+>
+> Create the backups directory inside the _`FridayFolder`_ folder and try again to move the file _`science.bak`_ to your backup directory.  Write the two lines of code you have used in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+  
+Now type `ls` and `ls backups` to see if it has worked.
+
+To delete (remove) a file, use the `rm` command. As an example, we are going to create a copy of the _`science.txt`_ file then delete it.  Inside your _`FridayFolder`_ directory, type
+
+```bash
+$ cp science.txt tempfile.txt
+$ ls
+$ rm tempfile.txt 
+$ ls
+```
+
+You can use the `rmdir` command to remove a directory (make sure it is empty first). Try to remove the _`backups`_ directory. You will not be able to since UNIX will not let you remove a non-empty directory.
+
+  >**Exercise C:**
+>
+> Create a directory called _`tempstuff`_ using `mkdir`, then remove it using the `rmdir` command.  Write the two lines of code you have used in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+  
+
 
 
 
