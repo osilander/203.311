@@ -999,14 +999,14 @@ An example of an environment variable is the OSTYPE variable. The value of this 
 $ echo $OSTYPE
 ```
 
-More examples of environment variables are
+More examples of environment variables are:
 
-USER (your login name)
-HOME (the path name of your home directory)
-HOST (the name of the computer you are using)
-DISPLAY (the name of the computer screen to display X windows)
-PATH (the directories the shell should search to find a command)
-LANG (the language you are using)
+- USER (your login name)
+- HOME (the path name of your home directory)
+- HOST (the name of the computer you are using)
+- DISPLAY (the name of the computer screen to display X windows)
+- PATH (the directories the shell should search to find a command)
+- LANG (the language you are using)
 
 Try a few out yourself to set what is known about your machine.
 
@@ -1032,10 +1032,30 @@ Remember to use the space bar to see the full output as we are using the less co
 
 
 
-##
+## Conclusion of the practical
 
+One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphanumeric characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
 
+> Exercise A:	character 3
+> Exercise B:	character 8
+> Exercise D:	character 3
+> Exercise C:	character 7
+> Exercise A: _character 7, character 1, character 6_
+> Exercise F:	character 10, character 1
+> Exercise F:	_character 2, character 5_ 
+> Exercise H:	characters 1 to 5
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
+The italicised lines define the words.
+
+That is today's practical completed.
+
+Please remember to go to the apple Menu and click on 'Log Out Student' to log out of the system.
+
+# add in image etc.
 
 
 
