@@ -876,7 +876,7 @@ Note: It is not possible to kill off other users' processes !!!
 
 ## Other useful commands
 
-#### df
+#### `df`
 
 This command reports on the space left on the file system. For example, to find out how much space is left on the machine, type
 
@@ -884,7 +884,7 @@ This command reports on the space left on the file system. For example, to find 
 $ df .
 ```
 
-#### du
+#### `du`
 
 This command outputs the number of kilobyes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. In your _`Lab2UnixAndR`_ directory, type
 
@@ -894,7 +894,7 @@ $ du -s *
 
 The `-s` flag will display only a summary (total size) and the `*` means all files and directories.
 
-### gzip
+### `gzip`
 This reduces the size of a file, thus freeing valuable disk space. For example, move to the _`FridayFolder`_ and type
 
 ```bash
@@ -915,7 +915,7 @@ To see the change in size, type `ls -l` again.  To expand the file, use the `gun
 $ gunzip science.txt.gz
 ```
 
-#### zcat
+#### `zcat`
 
 `zcat` will read gzipped files without needing to uncompress them first.  Go back and repeat the compression of _`science.txt`_, and then type
 
@@ -929,7 +929,7 @@ If the text scrolls too fast for you, pipe the output though less.
 $ zcat < science.txt.gz | less
 ```
 
-### file
+### `file`
 
 This classifies the named files according to the type of data they contain, for example ascii (text), pictures, compressed data, etc.. To report on all files in your home _`FridayFolder`_, type
 
@@ -949,7 +949,7 @@ science.txt.gz: gzip compressed data, was "science.txt", last modified: Sat Jul 
 slist:          ASCII text
 ```
 
-#### diff
+#### `diff`
 
 This command compares the contents of two files and displays the differences. Suppose you have a file called _`file1`_ and you edit some part of it and save it as _`file2`_. To see the differences type
 
@@ -959,12 +959,11 @@ $ diff file1 file2
 
 Lines beginning with a `<` denotes _`file1`_, while lines beginning with a `>` denotes _`file2`_.
 
-#### find
+#### `find`
 
 This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing `man find`.
 
-
-#### history
+#### `history`
 
 The C shell keeps an ordered list of all the commands that you have entered. Each command is given a number according to the order it was entered.
 
@@ -988,9 +987,43 @@ $ set history=100
 ```
 
 
+## The environment
 
+Variables are a way of passing information from the shell to programs when you run them. Programs look "in the environment" for particular variables and if they are found will use the values stored. Some are set by the system, others by you, yet others by the shell, or any program that loads another program.
 
+Standard UNIX variables are split into two categories, environment variables and shell variables. In broad terms, shell variables apply only to the current instance of the shell and are used to set short-term working conditions; environment variables have a farther-reaching significance, and those set at login are valid for the duration of the session. By convention, environment variables have UPPER CASE and shell variables have lower case names.
 
+An example of an environment variable is the OSTYPE variable. The value of this is the current operating system you are using. Type
+
+```bash
+$ echo $OSTYPE
+```
+
+More examples of environment variables are
+
+USER (your login name)
+HOME (the path name of your home directory)
+HOST (the name of the computer you are using)
+DISPLAY (the name of the computer screen to display X windows)
+PATH (the directories the shell should search to find a command)
+LANG (the language you are using)
+
+Try a few out yourself to set what is known about your machine.
+
+>**Exercise H:**
+>
+> What is the name of your OS? Write the name in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+ENVIRONMENT variables are set using the `setenv` command, displayed using the `printenv` or `env` commands, and unset using the `unsetenv` command.  To show all values of these variables, type
+
+```bash
+$ printenv | less
+```
+
+Remember to use the space bar to see the full output as we are using the less command. You will also need to type [Q] to leave the `printenv` report.
 
 
 
@@ -999,8 +1032,9 @@ $ set history=100
 
 
 
-
 ##
+
+
 
 
 
