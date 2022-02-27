@@ -106,7 +106,7 @@ On the right-hand side we have "window #4", which again needs to be switched to 
 
 This is the base folder for your work today, and all files for this practical have been loaded into the project for you.
 
-At this point we will start using the University of Surrey Unix notes[^2] to go through some of the commands I used in the lecture.  I will run the practical in the same way as that one.
+At this point we will start using the University of Surrey Unix notes [^1] to go through some of the commands I used in the lecture.  I will run the practical in the same way as that one.
 
 
 
@@ -148,7 +148,77 @@ $ ls -a
 .  ..  .hiddenfile.txt  starting.txt    
 ```
 
-We can now see another file called _`.hiddenfile.txt`_.  What is going on here?  Well, ls does not, in fact, cause all the files in your current directory to be listed, but only those ones whose name does not begin with a dot (.) Files beginning with a dot (.) are known as hidden files and usually contain important program configuration information. They are hidden because you should not change them unless you are very familiar with UNIX!!
+We can now see another file called _`.hiddenfile.txt`_.  What is going on here?  Well, `ls` does not, in fact, cause all the files in your current directory to be listed, but only those ones whose name does not begin with a dot (.) Files beginning with a dot (.) are known as hidden files and usually contain important program configuration information. They are hidden because you should not change them unless you are very familiar with UNIX!!
+
+
+
+## Making and moving around directories
+
+We will now make a subdirectory in your working directory to hold the files you will be creating and using in the course of this tutorial. To make a subdirectory called FridayFolder in your current working directory type 
+
+```bash
+$ mkdir FridayFolder
+```
+
+To see the directory you have just created, type 
+
+```bash
+$ ls 
+```
+
+The command `cd _directory_` means change the current working directory to 'directory'. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.  To change to the directory you have just made, type
+
+```bash
+$ cd FridayFolder
+```
+
+Type `ls` to see the contents (which should be empty).  Inside this directory, type 
+
+```bash
+$ ls -a
+```
+
+To see its full contents.  What else do we see?  
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls -a
+.  ..               
+```
+
+There are two special directories called `.` and `..`.  In UNIX, `.` means the current directory, so typing
+
+```bash
+$ cd . 	{NOTE: there is a space between cd and the dot}
+```
+
+means stay where you are (the _`FridayFolder`_ directory).  This may not seem very useful at first, but using `.` as the name of the current directory will save a lot of typing, as we shall see later in the tutorial.  `..` means the parent of the current directory, so typing
+
+```bash
+$ cd .. 	{NOTE: there is a space between cd and the dots}
+```
+
+will take you one directory up the hierarchy (back to your home directory). Try it now.
+
+<table><tr><td>
+Note: typing `cd` with no argument always returns you to your home directory (wherever that is set to be). This is very useful if you are lost in the file system. 
+</td></tr></table>
+
+Pathnames enable you to work out where you are in relation to the whole filesystem. For example, to find out the absolute pathname of your current directory, type `cd` to get back to your home directory and then type
+
+```bash
+$ pwd
+```
+
+With these two commands, the full pathname will look something like this - 
+
+```bash
+766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ cd ..
+766qp:/cloud/project/Lab2UnixAndR$ pwd
+/cloud/project/Lab2UnixAndR
+```
+
+Please bear in mind that this will be subtly different for your computers as compared to mine.
+
 
 
 
