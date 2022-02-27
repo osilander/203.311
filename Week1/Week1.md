@@ -1020,7 +1020,7 @@ The mastery test will test both Linux and R, so half of the marks will come from
 
 ## Contact
 
-I have two offices on the Manawatu campus (as I work for both SFS and SoVS), so I am not always in my Science Tower office D5-30. If you want to discuss anything, it's best to email me beforehand.
+I have two offices on the Manawatu campus (as I work for both SNS and SoVS), so I am not always in my Science Tower office D5-30. If you want to discuss anything, it's best to email me beforehand.
 
 Prof Patrick Biggs,
 
