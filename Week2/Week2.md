@@ -1027,7 +1027,78 @@ Remember to use the space bar to see the full output as we are using the less co
 
 
 
-##
+#
+## A small exercise with the stream editor sed
+
+Making a new file
+As mentioned in the lecture, the command line is very powerful and there are programs and utilities like sed that can do many things for us.  We are going to explore this in a small exercise3.
+
+First of all we will head back to our starting location, and then we need a new text file, so we will use one of the licence agreements that are part of Linux:
+
+$ cd /cloud/project
+$ cp /usr/share/common-licenses/BSD .
+
+LetÕs use sed to view the contents of the BSD license file.
+
+$ sed '' BSD
+
+YouÕll see the BSD license displayed to the screen.
+
+Printing Lines
+In the previous example, you saw that input passed into sed without any operations would print the results directly to STDOUT.  LetÕs explore sedÕs explicit print command, which you specify by using the p character within single quotes, so type:
+
+$ sed 'p' BSD
+
+YouÕll see each line of the BSD file is printed twice due to the way that sed works, a line at a time.  This is not all that useful, so let's suppress this automatic activity with the -n option.
+
+$ sed -n 'p' BSD
+
+
+Ranges of Output
+Taking the idea of targeting parts of this text stream, we can specify a range.  So to print out the first line only, type:
+
+$ sed -n '1p' BSD
+
+This is called an address range, even though it is only one line.  We can also print ranges, such as:
+
+$ sed -n '1,5p' BSD
+
+which will print out the first 5 lines.  Do you think this is more powerful than the commands head or tail?
+
+We can print every other line, specify the interval after the ~ character. The following command prints every other line in the BSD file, starting with line 1:
+
+$ sed -n '1~2p' BSD
+
+
+Substituting Text
+Perhaps the most well-known use for sed is substituting text.  sed can search for text patterns using regular expressions, and then replace the found text with something else.  Regular expressions are beyond the scope of this course, but we will look at a few simple examples to illustrate the principles.  From the lecture we saw that in its most basic form, you can change one word to another word using the following syntax, as in this example:
+
+<< 's/old_word/new_word/' >>
+
+The s is the substitute command. The three slashes (/) are used to separate the different text fields, this is called a delimiter. You can use other characters to delimit the fields if it would be more helpful, but that is not for now.  So how does this work in practice? 
+
+ Let's replace or substitute the word "the" with the word "our", so type:
+
+$ sed 's/the/our/' BSD
+
+You see the updated BSD output printed to screen.  This is great but how do we find out which lines were affected?  We can use the -n option to suppress the automatic printing, and then the p flag after the last delimiter in the substitute command.  See what effect this has by typing:
+
+$ sed -n 's/the/our/p' BSD
+
+There are other options in the substitute command for the position of the last delimiter, such as 'g' for global changes, ÔiÕ for case insensitive changes and Ô1Õ, Ô2Õ for the first or second occurrence. What do you see when you type:
+
+$ sed -n 's/the/our/1p' BSD
+
+
+Exercise I:
+What is the sed command to substitute ÔtheÕ with ÔnonÕ in a case-insensitive manner.  Write the code in the box below:
+
+
+
+
+   
+A final point is that I would look very carefully at the way this substitution works, e.g. with the line that starts Ò3. NeitherÉÓ.  Have a think about how you could modify your statement to prevent this behaviour from happening.
+#
 
 
 
