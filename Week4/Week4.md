@@ -54,6 +54,7 @@ Note that below, we will refer to any DNA sequence data from and NGS platform as
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). We will see that these characteristics provide different advantages.
 
+Oxford Nanopore and Illumina differ in some other ways, but we will not discuss those in detail today.
 <img src="graphics/ont-ill.png" width="500"/>
 
 ### Software Management
@@ -85,7 +86,7 @@ Next, I need to post a **reminder** you **must never forget** tab-complete. Also
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or .docx.
+This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`.
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -179,7 +180,7 @@ Are all three files present?
 
 Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
 
-What does `.gz` indicate?
+What does the `.gz` at the end of the file name indicate?
 
 ##### Organization
 Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `Tree`. Let's intall `tree`:
@@ -216,7 +217,7 @@ zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 Once we have the data, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
 ```bash
-# below we use conda (of course) and 
+# Below we use conda (of course) and 
 # tell conda which *channel* to look in
 # for the recipe using the -c option
 conda install -c bioconda seqkit
@@ -227,7 +228,7 @@ If your command does not work, let a lecturer, demonstrator, or classmate know.
 We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install:
 
 ```bash
-# once more we look in bioconda
+# Once more we look in bioconda
 # but now I won't tell you what to type
 # because you know how to install things 
 # using conda by looking in a specific channel
@@ -241,31 +242,49 @@ seqkit stats *fastq.gz
 ```
 
 #### QUESTIONS
-What does `*fastq.gz` mean?
+What does `*fastq.gz` mean in the above command?
 What is the `*` doing?
 
 ```bash
-# some much prettier stats about your sequences
-# first let's get a new package called csvtk
-# install with conda (of course)
+# Some much prettier stats about your sequences.
+# First let's get a new package called csvtk.
+# Install with conda (of course)
 conda install -c bioconda csvtk
 
-# then some nicer looking stats but no commas
-# all the -T -t are *options*. I can explain
+# Then some nicer looking stats but no commas.
+# All the -T -t are *options*. I can explain
 # those too. Here we also see the magical | pipe again.
 seqkit stats *.fastq.gz -T | csvtk csv2md -t
 ```
+#### QUESTION
+How do the average read lengths differ between your sequencing files?
 
 ```bash
-# even fancier, a histogram of read lengths
-# we use the --bins option to clean up the 
+# Even fancier, a histogram of read lengths.
+# We use the --bins option to clean up the 
 # histograms a tiny bit.
 seqkit watch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
+Use this command for all of your sequencing files.
 
-Oops the histrograms are still a bit messy :grimacing:
+#### QUESTION
+How do the sequencing files differ in the *distributions* of read lengths?
 
+It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is incorrect. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here was also use `seqkit` to plot the mean quality of all base pairs in a read (for all reads):
 
+```bash
+# below we add a new argument, --fields, to specicy which 
+# read aspect we would like to plot.
+seqkit watch --fields MeanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
+```
+
+Do this for both the Oxford Nanopore and Illumina reads.
+
+#### QUESTIONS
+If a base has a quality score of 10, what is the likelihood that it is the correct base?
+What if a base has a quality score of 25?
+How do the sequencing files differ in the distributions of quality scores?
+What are the *highest* average read qualities for the Oxford Nanopore reads? For a read with that average quality, what fraction of bases do you expect to be correct?
 
 ### Choosing A Plot Type
 
