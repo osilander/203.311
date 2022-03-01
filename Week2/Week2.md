@@ -5,6 +5,26 @@
 
 [Purpose](#purpose)<br>
 [Introduction](#introduction)<br>
+[Lecture overview]<br>
+[Conventions used for this Linux practical]<br>
+[Accessing the resources needed]<br>
+[Exploring our folder]<br>
+[Making and moving around directories]<br>
+[Pathnames]<br>
+[Copying and moving files, and removing files and directories]<br>
+[Working with files]<br>
+[Searching files]<br>
+[Redirection and pipes]<br>
+[Wildcards and naming files]<br>
+[Getting help]<br>
+[File security]<br>
+[Looking at processes]<br>
+[Other useful commands]<br>
+[The environment]<br>
+[A small exercise with the stream editor sed]<br>
+[Conclusion of the practical]<br>
+[Assessment]<br>
+[Contact]<br>
 
 
 
@@ -1192,8 +1212,8 @@ School of Natural Sciences
 
 <p.biggs@massey.ac.nz>
 
-[^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.ee.surrey.ac.uk/Teaching/Unix/index.html> 
-[^2]:
+[^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.ee.surrey.ac.uk/Teaching/Unix/index.html>
+[^2]: http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
 [^3]: https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
 
 <!--- ## Practical sections start here
