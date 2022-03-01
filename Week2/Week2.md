@@ -96,7 +96,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2022" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
 
-# add in image of terminal
+<img src="graphics/terminal4.PNG" width="200"/>
 
 The line that says `rstudio-user@application-2573314-deployment-6685328-mjnjr:/cloud/project$` is the current line that can accept input for you to do things with.  There are three things of note here:
 
@@ -109,7 +109,7 @@ I have used a testing environment for developing these resources, so my command 
 
 On the right-hand side we have "window #4", which again needs to be switched to be in the "Files" tab, as in the below.  Folders of use for today give us the following view:
 
-# add in image of folder structure
+<img src="graphics/window4.PNG" width="200"/>
 
 This is the base folder for your work today, and all files for this practical have been loaded into the project for you.
 
@@ -1129,12 +1129,11 @@ One last question: if you take the following characters from the first lines of 
 
 The italicised lines define the words.
 
-That is today's practical completed.
+That is today’s practical completed.
 
-Please remember to go to the apple Menu and click on 'Log Out Student' to log out of the system.
+For those of you on the iMacs, please remember to go to the Apple Menu on your iMac and click on “Log Out Student” to log out of the system.
 
-# add in image etc.
-
+<img src="graphics/image4.png" width="200"/>
 
 
 ## Assessment
