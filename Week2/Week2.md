@@ -96,7 +96,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2022" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
 
-<img src="graphics/terminal4.PNG" width="200"/>
+<img src="graphics/terminal.PNG" width="600"/>
 
 The line that says `rstudio-user@application-2573314-deployment-6685328-mjnjr:/cloud/project$` is the current line that can accept input for you to do things with.  There are three things of note here:
 
@@ -109,7 +109,7 @@ I have used a testing environment for developing these resources, so my command 
 
 On the right-hand side we have "window #4", which again needs to be switched to be in the "Files" tab, as in the below.  Folders of use for today give us the following view:
 
-<img src="graphics/window4.PNG" width="200"/>
+<img src="graphics/window4.PNG" width="600"/>
 
 This is the base folder for your work today, and all files for this practical have been loaded into the project for you.
 
@@ -140,7 +140,7 @@ starting.txt
 NB: Because this location name is so long, for the sake of clarity, I will abbreviate the prompt to the end of our name and location only, thus the below is exactly the same: --->
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR$ ls
+/cloud/project/Lab2UnixAndR$ ls
 starting.txt
 ```
 
@@ -151,7 +151,7 @@ $ ls -a
 ```
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR$ ls -a
+/cloud/project/Lab2UnixAndR$ ls -a
 .  ..  .hiddenfile.txt  starting.txt    
 ```
 
@@ -188,7 +188,7 @@ $ ls -a
 To see its full contents.  What else do we see?  
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls -a
+/cloud/project/Lab2UnixAndR/FridayFolder$ ls -a
 .  ..               
 ```
 
@@ -217,8 +217,8 @@ $ pwd
 With these two commands, the full pathname will look something like this - 
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ cd ..
-766qp:/cloud/project/Lab2UnixAndR$ pwd
+/cloud/project/Lab2UnixAndR/FridayFolder$ cd ..
+/cloud/project/Lab2UnixAndR$ pwd
 /cloud/project/Lab2UnixAndR
 ```
 
@@ -249,7 +249,7 @@ $ ls backups
 You will get a message like this -
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls backups
+/cloud/project/Lab2UnixAndR/FridayFolder$ ls backups
 ls: cannot access 'backups': No such file or directory
 ```
 
@@ -314,7 +314,7 @@ $ mv science.bak backups/
 The last backslash is important.  You get an error, like the below.
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ mv science.bak backups/
+/cloud/project/Lab2UnixAndR/FridayFolder$ mv science.bak backups/
 mv: failed to access 'backups/': Not a directory
 ```
   
@@ -695,7 +695,7 @@ $ ls -l
 you will something similar to the below:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ls -l
+/cloud/project/Lab2UnixAndR/FridayFolder$ ls -l
 total 28
 drwxrwxr-x 2 rstudio-user rstudio-user 4096 Jul 18 03:11 backups
 -rw-rw-r-- 1 rstudio-user rstudio-user   65 Jul 18 05:11 bigList
@@ -707,7 +707,7 @@ drwxrwxr-x 2 rstudio-user rstudio-user 4096 Jul 18 03:11 backups
 
 Below is the figure from the lecture to remind you of what the columns mean.  Each file (and directory) has associated security access rights, which may be found by typing `ls -l`. In the left-hand column is a 10 symbol string consisting of the symbols d, r, w, x, -, and, occasionally, s or S. If d is present, it will be at the left-hand end of the string, and indicates a directory: otherwise - will be the starting symbol of the string.
 
-# add in image
+<img src="graphics/image3.gif" width="600"/>
 
 The 9 remaining symbols indicate the permissions, or access rights, and are taken as three groups of 3.
 
@@ -773,7 +773,7 @@ A process is an executing program identified by a unique PID (process identifier
 you should see something like:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ps
+/cloud/project/Lab2UnixAndR/FridayFolder$ ps
   PID TTY          TIME CMD
   518 pts/0    00:00:00 bash
   578 pts/0    00:00:00 ps
@@ -798,7 +798,7 @@ $ sleep 10 &
 you should see something like:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 10 &
+/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 10 &
 [1] 588
 ```
 
@@ -825,7 +825,7 @@ $ jobs
 you should see something like:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ jobs
+/cloud/project/Lab2UnixAndR/FridayFolder$ jobs
 [1]+  Running                 sleep 1000 &
 ```
 
@@ -857,9 +857,9 @@ $ ps
 you should see something like:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 1000 &
+/cloud/project/Lab2UnixAndR/FridayFolder$ sleep 1000 &
 [1] 595
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ ps
+/cloud/project/Lab2UnixAndR/FridayFolder$ ps
   PID TTY          TIME CMD
   518 pts/0    00:00:00 bash
   595 pts/0    00:00:00 sleep
@@ -947,7 +947,7 @@ $ file *
 you should see something like:
 
 ```bash
-766qp:/cloud/project/Lab2UnixAndR/FridayFolder$ file *
+/cloud/project/Lab2UnixAndR/FridayFolder$ file *
 backups:        directory
 bigList:        ASCII text
 list1:          ASCII text
@@ -1034,80 +1034,98 @@ Remember to use the space bar to see the full output as we are using the less co
 
 
 
-#
 ## A small exercise with the stream editor sed
 
-Making a new file
-As mentioned in the lecture, the command line is very powerful and there are programs and utilities like sed that can do many things for us.  We are going to explore this in a small exercise3.
+### Making a new file
+
+As mentioned in the lecture, the command line is very powerful and there are programs and utilities like `sed` that can do many things for us.  We are going to explore this in a small exercise [^3].
 
 First of all we will head back to our starting location, and then we need a new text file, so we will use one of the licence agreements that are part of Linux:
 
+```bash
 $ cd /cloud/project
 $ cp /usr/share/common-licenses/BSD .
+```
 
-LetÕs use sed to view the contents of the BSD license file.
+Let's use `sed` to view the contents of the BSD license file.
 
+```bash
 $ sed '' BSD
+```
 
-YouÕll see the BSD license displayed to the screen.
+You'll see the BSD license displayed to the screen.
 
-Printing Lines
-In the previous example, you saw that input passed into sed without any operations would print the results directly to STDOUT.  LetÕs explore sedÕs explicit print command, which you specify by using the p character within single quotes, so type:
+### Printing Lines
 
+In the previous example, you saw that input passed into `sed` without any operations would print the results directly to STDOUT.  Let's explore sed's explicit print command, which you specify by using the p character within single quotes, so type:
+
+```bash
 $ sed 'p' BSD
+```
 
-YouÕll see each line of the BSD file is printed twice due to the way that sed works, a line at a time.  This is not all that useful, so let's suppress this automatic activity with the -n option.
+You'll see each line of the BSD file is printed twice due to the way that `sed` works, a line at a time.  This is not all that useful, so let's suppress this automatic activity with the -n option.
 
+```bash
 $ sed -n 'p' BSD
+```
 
+### Ranges of Output
 
-Ranges of Output
 Taking the idea of targeting parts of this text stream, we can specify a range.  So to print out the first line only, type:
 
+```bash
 $ sed -n '1p' BSD
+```
 
 This is called an address range, even though it is only one line.  We can also print ranges, such as:
 
+```bash
 $ sed -n '1,5p' BSD
+```
 
-which will print out the first 5 lines.  Do you think this is more powerful than the commands head or tail?
+which will print out the first 5 lines.  Do you think this is more powerful than the commands `head` or `tail`?
 
-We can print every other line, specify the interval after the ~ character. The following command prints every other line in the BSD file, starting with line 1:
+We can print every other line, specify the interval after the `~` character. The following command prints every other line in the BSD file, starting with line 1:
 
+```bash
 $ sed -n '1~2p' BSD
+```
 
+### Substituting Text
 
-Substituting Text
-Perhaps the most well-known use for sed is substituting text.  sed can search for text patterns using regular expressions, and then replace the found text with something else.  Regular expressions are beyond the scope of this course, but we will look at a few simple examples to illustrate the principles.  From the lecture we saw that in its most basic form, you can change one word to another word using the following syntax, as in this example:
+Perhaps the most well-known use for `sed` is substituting text.  `sed` can search for text patterns using regular expressions, and then replace the found text with something else.  Regular expressions are beyond the scope of this course, but we will look at a few simple examples to illustrate the principles.  From the lecture we saw that in its most basic form, you can change one word to another word using the following syntax, as in this example:
 
+```bash
 << 's/old_word/new_word/' >>
+```
 
-The s is the substitute command. The three slashes (/) are used to separate the different text fields, this is called a delimiter. You can use other characters to delimit the fields if it would be more helpful, but that is not for now.  So how does this work in practice? 
+The `s` is the substitute command. The three slashes (/) are used to separate the different text fields, this is called a delimiter. You can use other characters to delimit the fields if it would be more helpful, but that is not for now.  So how does this work in practice? 
 
  Let's replace or substitute the word "the" with the word "our", so type:
 
+```bash
 $ sed 's/the/our/' BSD
+```
 
-You see the updated BSD output printed to screen.  This is great but how do we find out which lines were affected?  We can use the -n option to suppress the automatic printing, and then the p flag after the last delimiter in the substitute command.  See what effect this has by typing:
+You see the updated BSD output printed to screen.  This is great but how do we find out which lines were affected?  We can use the `-n` option to suppress the automatic printing, and then the `p` flag after the last delimiter in the substitute command.  See what effect this has by typing:
 
+```bash
 $ sed -n 's/the/our/p' BSD
+```
 
-There are other options in the substitute command for the position of the last delimiter, such as 'g' for global changes, ÔiÕ for case insensitive changes and Ô1Õ, Ô2Õ for the first or second occurrence. What do you see when you type:
+There are other options in the substitute command for the position of the last delimiter, such as `'g'` for global changes, `'i'` for case insensitive changes and `'1'` and `'2'` for the first or second occurrence respectively. What do you see when you type:
 
+```bash
 $ sed -n 's/the/our/1p' BSD
+```
+>**Exercise I:**
+>
+> What is the sed command to substitute 'the' with 'non' in a case-insensitive manner.  Write the code in the box below:
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
 
-
-Exercise I:
-What is the sed command to substitute ÔtheÕ with ÔnonÕ in a case-insensitive manner.  Write the code in the box below:
-
-
-
-
-   
-A final point is that I would look very carefully at the way this substitution works, e.g. with the line that starts Ò3. NeitherÉÓ.  Have a think about how you could modify your statement to prevent this behaviour from happening.
-#
-
-
+A final point is that I would look very carefully at the way this substitution works, e.g. with the line that starts "3. Neither...".  Have a think about how you could modify your statement to prevent this behaviour from happening.
 
 
 ## Conclusion of the practical
@@ -1167,7 +1185,8 @@ School of Natural Sciences
 <p.biggs@massey.ac.nz>
 
 [^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.ee.surrey.ac.uk/Teaching/Unix/index.html> 
-
+[^2]:
+[^3]: https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
 
 <!--- ## Practical sections start here
 
