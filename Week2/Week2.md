@@ -5,26 +5,26 @@
 
 [Purpose](#purpose)<br>
 [Introduction](#introduction)<br>
-[Lecture overview]<br>
-[Conventions used for this Linux practical]<br>
-[Accessing the resources needed]<br>
-[Exploring our folder]<br>
-[Making and moving around directories]<br>
-[Pathnames]<br>
-[Copying and moving files, and removing files and directories]<br>
-[Working with files]<br>
-[Searching files]<br>
-[Redirection and pipes]<br>
-[Wildcards and naming files]<br>
-[Getting help]<br>
-[File security]<br>
-[Looking at processes]<br>
-[Other useful commands]<br>
-[The environment]<br>
-[A small exercise with the stream editor sed]<br>
-[Conclusion of the practical]<br>
-[Assessment]<br>
-[Contact]<br>
+[Lecture Overview](#lecture-overview)<br>
+[Conventions used for this Linux practical](#conventions-used-for-this-linux-practical)<br>
+[Accessing the resources needed](#accessing-the-resources-needed)<br>
+[Exploring our folder](#exploring-our-folder)<br>
+[Making and moving around directories](#making-and-moving-around-directories)<br>
+[Pathnames](#pathnames)<br>
+[Copying and moving files, and removing files and directories](#copying-and-moving-files-and-removing-files-and-directories)<br>
+[Working with files](#working-with-files)<br>
+[Searching files](#searching-files)<br>
+[Redirection and pipes](#redirection-and-pipes)<br>
+[Wildcards and naming files](#wildcards-and-naming-files)<br>
+[Getting help](#getting-help)<br>
+[File security](#file-security)<br>
+[Looking at processes](#looking-at-processes)<br>
+[Other useful commands](#other-useful-commands)<br>
+[The environment](#the-environment)<br>
+[A small exercise with the stream editor sed](#a-small-exercise-with-the-stream-editor-sed)<br>
+[Conclusion of the Practical](#conclusion-of-the-practical)<br>
+[Assessment](#assessment)<br>
+[Contact](#contact)<br>
 
 
 
