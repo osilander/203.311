@@ -75,13 +75,21 @@ Don't forget to press the [Enter] key: commands are not sent to the computer unt
 
 ### Computing
 
+#### general
+
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in. We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
-check with Olin tomorrow
+The machines are Windows PC's so logging into them should be the same as any other Massey Windows PC.
+
+#### outside Massey 
+
+Most likely this is your own machine, so this should not be an issue.
 
 
 ### Use of RStudio Cloud for this Linux practical
