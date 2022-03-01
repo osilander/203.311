@@ -102,7 +102,6 @@ The line that says `rstudio-user@application-2573314-deployment-6685328-mjnjr:/c
 
 | Part of the command  |  The response |
 | ------------- | ------------- |
-| Our username in the environment:  | `studio-user@application-2571986-deployment-6682510-766qp:` |
 | Our location in our environment:  | `/cloud/project`  |
 | The command prompt:               | `$`  |
    
@@ -133,12 +132,12 @@ $ ls
 ```
 The `ls` command (lowercase 'L' and lowercase 'S') lists the contents of your current working directory, which in this case is:
 
-```bash
+<!--- ```bash
 rstudio-user@application-2571986-deployment-6682510 766qp:/cloud/project/Lab2UnixAndR$ ls
 starting.txt
 ```
 
-NB: Because this location name is so long, for the sake of clarity, I will abbreviate the prompt to the end of our name and location only, thus the below is exactly the same:
+NB: Because this location name is so long, for the sake of clarity, I will abbreviate the prompt to the end of our name and location only, thus the below is exactly the same: --->
 
 ```bash
 766qp:/cloud/project/Lab2UnixAndR$ ls
