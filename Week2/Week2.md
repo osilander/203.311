@@ -813,7 +813,7 @@ $ sleep 1000
 You can suspend the process running in the foreground by typing ^Z, i.e. hold down the [Ctrl] key and type [z]. Then to put it in the background, type
 
 ```bash
-bg
+$ bg
 ```
 
 When a process is running, backgrounded or suspended, it will be entered onto a list along with a job number. To examine this list, type
@@ -868,7 +868,8 @@ you should see something like:
 
 So to kill off the process sleep 1000, type
 
-```bash$ kill 595 {your number of course will be different}
+```bash
+$ kill 595 {your number of course will be different}
 ```
 
 and then type `ps` again to see if it has been removed from the list.  If a process refuses to be killed, uses the `-9` option, i.e. type
@@ -1133,12 +1134,19 @@ A final point is that I would look very carefully at the way this substitution w
 One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphanumeric characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
 
 > Exercise A:	character 3
+>
 > Exercise B:	character 8
+> 
 > Exercise D:	character 3
+> 
 > Exercise C:	character 7
+> 
 > Exercise A: _character 7, character 1, character 6_
+> 
 > Exercise F:	character 10, character 1
+> 
 > Exercise F:	_character 2, character 5_ 
+> 
 > Exercise H:	characters 1 to 5
 >
 > <table><tr><td>
