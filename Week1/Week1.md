@@ -985,7 +985,7 @@ If this has worked, you have changed code on your own, and exported your first d
 
 As a little final exercise, we will look at the answers we have generated today, to do a numbers-based question.  This is a purely numbers-based answer so hopefully this one will work (all being well), as it has in previous years.  
 
-One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the `[1]` line count from the R console.  Write your answer in the box below:
+One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the `[1]` line count from the R console.  Some answers involve simple addition or subtraction e.g. '+1' on the 4th line.  Write your answer in the box below:
 
 > Exercise A:	character 1
 > 
@@ -993,7 +993,7 @@ One last question: if you take the following numbers from your answers returned 
 >
 > Exercise D:	character 1
 > 
-> Exercise E: character 4
+> Exercise D:	character 1 (+1)
 > 
 > Exercise F:	character 1 of your returned numeric answer
 > 
@@ -1001,9 +1001,9 @@ One last question: if you take the following numbers from your answers returned 
 > 
 > Exercise H:	your numeric answer
 > 
-> Exercise K:	character 1, character 4
+> Exercise K:	character 1 (-1), character 4
 > 
-> Exercise E: character 4, character 1
+> Exercise L: character 2, character 3
 > 
 
 This is the series called:
