@@ -988,14 +988,23 @@ As a little final exercise, we will look at the answers we have generated today,
 One last question: if you take the following numbers from your answers returned to the console from the short exercises, and place a comma between each answer what famous series of numbers do you get?  Count only numeric characters from the first to the last, ignore spaces and the `[1]` line count from the R console.  Write your answer in the box below:
 
 > Exercise A:	character 1
+> 
 > Exercise C:	character 1
+>
 > Exercise D:	character 1
+> 
 > Exercise E: character 4
+> 
 > Exercise F:	character 1 of your returned numeric answer
+> 
 > Exercise G:	character 1 of your returned numeric answer
+> 
 > Exercise H:	your numeric answer
+> 
 > Exercise K:	character 1, character 4
+> 
 > Exercise E: character 4, character 1
+> 
 
 This is the series called:
 <table><tr><td>
