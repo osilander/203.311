@@ -118,7 +118,7 @@ To start off with log into your RStudio Cloud account, and go to the `week1and2`
 
 <img src="graphics/terminal.PNG" width="600"/>
 
-The line that says `rstudio-user@application-2573314-deployment-6685328-mjnjr:/cloud/project$` is the current line that can accept input for you to do things with.  There are three things of note here:
+The line that says `:/cloud/project$` is the current line that can accept input for you to do things with.  There are three things of note here:
 
 | Part of the command  |  The response |
 | ------------- | ------------- |
