@@ -187,7 +187,7 @@ where `"XXXXXX"` is the package name you want to install. This requires an activ
 
 >**Exercise A:**
 >
->Install the package called `alluvial` into your current R session. Write the version column from your package window (lower right quadrant: window #4 for the lectures) in the box below (or in a notebook, text file etc.)
+>Install the package called `alluvial` into your current R session. Write the version number from the column called "Version" from your package window (lower right quadrant: window #4 for the lectures) in the box below (or in a notebook, text file etc.)
 >
 > <table><tr><td>
 > ____________________
@@ -305,7 +305,7 @@ We can also coerce both numeric value and decimal values into an integer with th
 
 ```R
 > as.integer(3.14)    ### coerce a numeric value
-[1]
+[1] 3
 > as.integer("5.27")  ### coerce a decimal string
 [1] 5
 ```
