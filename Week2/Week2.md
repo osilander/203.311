@@ -1163,9 +1163,9 @@ One last question: if you take the following characters from the first lines of 
 > 
 > Exercise A: _character 7, character 1, character 6_
 > 
-> Exercise F:	character 10, character 1
+> Exercise I:	character 10, character 1
 > 
-> Exercise F:	_character 2, character 5_ 
+> Exercise I:	_character 2, character 5_ 
 > 
 > Exercise H:	characters 1 to 5
 >
