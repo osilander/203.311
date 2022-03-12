@@ -55,6 +55,7 @@ Note that below, we will refer to any DNA sequence data from and NGS platform as
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). We will see that these characteristics provide different advantages.
 
 Oxford Nanopore and Illumina differ in some other ways, but we will not discuss those in detail today.
+
 <img src="graphics/ont-ill.png" width="500"/>
 
 ### Software Management
@@ -183,7 +184,7 @@ Are you sure they all sitting in the `/data` directory that is sitting within yo
 What does the `.gz` at the end of the file name indicate?
 
 ##### Organization
-Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `Tree`. Let's intall `tree`:
+Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's intall `tree`:
 
 ```bash
 # here we actually change our channel
@@ -195,24 +196,29 @@ Now we can use our tree command to see what is where and how it's organised:
 
 ```bash
 # only look two *levels* deep
+# using the -L *option*
+# first head back to your /home directory
 cd
+# then run tree
 tree -L 2 
 ```
 
-Wow. Nice.
+Nice.
 
 
-Finally, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command. You may have encountered it previously
+Finally, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered it previously:
 ```bash
-# here we have to use zcat as the files are zipped. 
-# We then pipe | the result to head (this is the command used to 
+# here we first have to use zcat, not cat, as the files are zipped. 
+# We then pipe | the result to head (remember, this is the command used to 
 # look at the first few lines of a file - by default, ten lines).
-# If you're interested in what a pipe does I can explain it.
+# You've encountered the pipe before - it takes the output of one command
+# and feeds it to another.
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
 
+### Critically Evaluating Your Data
 
-### Making Good Use of Summary Statistics
+#### Making Good Use of Summary Statistics
 
 Once we have the data, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
@@ -225,16 +231,18 @@ conda install -c bioconda seqkit
 
 If your command does not work, let a lecturer, demonstrator, or classmate know.
 
-We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install:
+We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install using conda:
 
 ```bash
-# Once more we look in bioconda
+# Once more we look in the bioconda channel
 # but now I won't tell you what to type
 # because you know how to install things 
 # using conda by looking in a specific channel
 ```
 
-Let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help.
+#### Summary Stats with seqkit
+
+Let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. Next, some simple statistics about your read files:
 
 ```bash
 # some simple statistics about your files
@@ -243,7 +251,10 @@ seqkit stats *fastq.gz
 
 #### QUESTIONS
 What does `*fastq.gz` mean in the above command?
+
 What is the `*` doing?
+
+Let's get the same stats but slightly fancier.
 
 ```bash
 # Some much prettier stats about your sequences.
@@ -252,43 +263,77 @@ What is the `*` doing?
 conda install -c bioconda csvtk
 
 # Then some nicer looking stats but no commas.
-# All the -T -t are *options*. I can explain
-# those too. Here we also see the magical | pipe again.
+# We use the stats subcommand the -T -t are *options*.
+# I can explain those if you like. Here we also see the magical | pipe again.
+# If you want you can paste this line, it's a bit long.
+# We take the output of seqkit stats and format it with csvtk
 seqkit stats *.fastq.gz -T | csvtk csv2md -t
 ```
 #### QUESTION
 How do the average read lengths differ between your sequencing files?
 
+Let's look at whole distributions of read lengths instead of just the *average* read length for all read:
+
 ```bash
 # Even fancier, a histogram of read lengths.
-# We use the --bins option to clean up the 
-# histograms a tiny bit.
+# We use the watch subcommand and the --bins option to clean up the 
+# histograms a tiny bit. The --bins options tells the program
+# how many different histogram bins you want (here, 15)
+# If you want, you can leave the --bins 15 part of the command out.
+# Note that the fastq.gz file name below is not correct.
 seqkit watch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-Use this command for all of your sequencing files.
+Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want
 
 #### QUESTION
 How do the sequencing files differ in the *distributions* of read lengths?
 
-It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is incorrect. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here was also use `seqkit` to plot the mean quality of all base pairs in a read (for all reads):
+It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is incorrect. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here we also use `seqkit` to plot the mean quality of all base pairs in a read (for all reads):
 
 ```bash
-# below we add a new argument, --fields, to specicy which 
-# read aspect we would like to plot.
+# below we add a new argument, --fields, to specify which 
+# read aspect we would like to plot. Above it was MeanLength
+# Now it's MeanQual. We leave the --bins option in (you don't have to))
+# When you leave in --bins you need to specify a number (I chose 15)
 seqkit watch --fields MeanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
 
 Do this for both the Oxford Nanopore and Illumina reads.
 
 #### QUESTIONS
-If a base has a quality score of 10, what is the likelihood that it is the correct base?
-What if a base has a quality score of 25?
-How do the sequencing files differ in the distributions of quality scores?
-What are the *highest* average read qualities for the Oxford Nanopore reads? For a read with that average quality, what fraction of bases do you expect to be correct?
+1. If a base has a quality score of 10, what is the likelihood that it is the correct base?
+2. What if a base has a quality score of 25?
+3. How do the sequencing files differ in the distributions of quality scores?
+4. What are the *highest* average read qualities for the Oxford Nanopore reads?
+5. For a read with that average quality, what fraction of bases do you expect to be correct?
+
+#### Summary Stats with fastp
+
+Let's use `fastp` next. You should have installed it above, check if it's properly installed:
+
+```bash
+# as usual, we use the --help option to see if the
+# install worked.
+fastp --help
+```
+```bash
+# use the fastp --help to see the options. There are four important 
+# parameters, the input files (-i), output (-o), and the names of the 
+# html and json files (where the summary information goes). We have to
+# specify all of those.
+fastp -AQL -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h montana.html -j montana.json
+```
+
+```bash
+# repeat for the Illumina data
+fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
+-I kwazulu-natal-2020-06-02_R2_sub.fastq.gz \
+-o kwazulu-natal-2020-06-02_R1_sub.trim.fastq.gz \
+-O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz
+```
 
 ### Choosing A Plot Type
 
-### Critically Evaluating Your Data
 
 ### Take Home Messages
 
