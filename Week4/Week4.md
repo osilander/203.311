@@ -332,8 +332,41 @@ fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
 -O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz
 ```
 
-### Choosing A Plot Type
+Unfortunately, the results of the fastp analysis do not display properly in your browser. However, I think it is important that you see them. For this reason, do the following:
+1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For windows users, this could be Notepad.
+2. Open a new document in the editor.
+3. In your RStudio _files_, find the files that you just made using fastp (e.g. montana.html and montana.json). open the `.html` _in the RStudio editor window_.
+4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with a .html suffix.
+5. Repeat this for the `.json` file and save it with _the same name as the html file but with a `.json` suffix_.
+6. Open the `.html` file now on your desktop by double clicking on it. This shoudl bring you to a web page displaying the `fastp` results.
 
+#### QUESTIONS
+
+### Getting Tabulated Data to Plot in R
+
+In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. However, the plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting package, `R`.
+
+To begin, we make some files with the new data we would like. In this case, we will use `seqkit` again. First, some data on the distribution of lengths and quality _per sequence_ (rather than per position). Do this for your untrimmed and trimmed Oxford Nanopore data (Montana):
+
+```bash
+# -q and -l options give the length and quality for each sequence.
+# -n supresses the output of the sequences and qualities of *each bp* 
+# of each read
+seqkit fx2tab -qln myseqs.fastq.gz
+```
+
+Oops. Did you forget that `seqkit` outputs to standard out? You have to use the redirect `>` to put it into a file.
+
+```bash
+# -q and -l options give the length and quality for each sequence.
+seqkit fx2tab -qln myseqs.fastq.gz > mydata.txt
+```
+
+#### QUESTION
+Why have I used `.txt` at the end of the example file above?
+
+### Plotting the Data more Deliberately in R
+Now we have to think. What types of plots are we interested in? What sort of information would we like to see? What sort of information is it possible for us to see? **What sort of story would we like our plots to tell**?
 
 ### Take Home Messages
 
