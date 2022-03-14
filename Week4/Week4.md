@@ -366,7 +366,15 @@ seqkit fx2tab -qln myseqs.fastq.gz > mydata.txt
 Why have I used `.txt` at the end of the example file above?
 
 ### Plotting the Data more Deliberately in R
-Now we have to think. What types of plots are we interested in? What sort of information would we like to see? What sort of information is it possible for us to see? **What sort of story would we like our plots to tell**?
+Now we have to think.
+
+What types of plots are we interested in?
+
+What sort of information would we like to see?
+
+What sort of information *is it possible for us to see*?
+
+**What sort of story would we like our plots to tell**?
 
 ### Take Home Messages
 
