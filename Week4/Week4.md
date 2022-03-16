@@ -10,7 +10,7 @@
 [Illumina](#illumina)<br>
 [PacBio](#pacbio)<br>
 [Oxford Nanopore](#oxford-nanopore)<br>
-[Software Managment](#software)<br>
+[Software Managment](#software-management)<br>
 [The Data](#data)<br>
 [Making Good Use of Summary Statistics](#making-good-use-of-summary-statistics)<br>
 [Choosing A Plot Type](#choosing-a-plot-type)<br>
