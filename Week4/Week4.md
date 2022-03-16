@@ -10,6 +10,7 @@
 [Illumina](#illumina)<br>
 [PacBio](#pacbio)<br>
 [Oxford Nanopore](#oxford-nanopore)<br>
+[Software Managment](#software)<br>
 [The Data](#data)<br>
 [Making Good Use of Summary Statistics](#making-good-use-of-summary-statistics)<br>
 [Choosing A Plot Type](#choosing-a-plot-type)<br>
@@ -87,7 +88,7 @@ Next, I need to post a **reminder** you **must never forget** tab-complete. Also
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
-This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. Noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`.
+This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`.
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -188,6 +189,7 @@ Things are starting to get a little crazy. New directories, new files, lousy `ls
 
 ```bash
 # here we actually change our channel
+# i.e. it's no longer bioconda
 
 conda install -c conda-forge tree
 ```
@@ -206,7 +208,7 @@ tree -L 2
 Nice.
 
 
-Finally, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered it previously:
+Finally, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered them previously):
 ```bash
 # here we first have to use zcat, not cat, as the files are zipped. 
 # We then pipe | the result to head (remember, this is the command used to 
@@ -236,7 +238,8 @@ We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "f
 ```bash
 # Once more we look in the bioconda channel
 # but now I won't tell you what to type
-# because you know how to install things 
+# because you know how to install things with
+# simple names like "fastp" by
 # using conda by looking in a specific channel
 ```
 
@@ -252,7 +255,7 @@ seqkit stats *fastq.gz
 #### QUESTIONS
 What does `*fastq.gz` mean in the above command?
 
-What is the `*` doing?
+i.e. what is the `*` doing?
 
 Let's get the same stats but slightly fancier.
 
@@ -283,7 +286,7 @@ Let's look at whole distributions of read lengths instead of just the *average* 
 # Note that the fastq.gz file name below is not correct.
 seqkit watch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want
+Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?).
 
 #### QUESTION
 How do the sequencing files differ in the *distributions* of read lengths?
@@ -304,24 +307,27 @@ Do this for both the Oxford Nanopore and Illumina reads.
 1. If a base has a quality score of 10, what is the likelihood that it is the correct base?
 2. What if a base has a quality score of 25?
 3. How do the sequencing files differ in the distributions of quality scores?
-4. What are the *highest* average read qualities for the Oxford Nanopore reads?
-5. For a read with that average quality, what fraction of bases do you expect to be correct?
+4. What are the *highest* average read qualities for the Oxford Nanopore reads (approximately)?
+5. For an Oxford Nanopore read with a "high" average quality, what fraction of bases do you expect to be correct?
 
 #### Summary Stats with fastp
 
-Let's use `fastp` next. You should have installed it above, check if it's properly installed:
+Let's use the somewhat aesthetically more pleasing `fastp` program next. You should have installed it above, check if it's properly installed:
 
 ```bash
 # as usual, we use the --help option to see if the
 # install worked.
 fastp --help
 ```
+
 ```bash
-# use the fastp --help to see the options. There are four important 
+# Also use the fastp --help to see the options. There are four important 
 # parameters, the input files (-i), output (-o), and the names of the 
 # html and json files (where the summary information goes). We have to
-# specify all of those.
-fastp -AQL -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h montana.html -j montana.json
+# specify all of those. You probably know what a .html file is. You may not 
+# know what a .json file is. Do not worry about it, I barely do but look it 
+# up if you want. I add the -A options below (please do as well). What does it do?
+fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h montana.html -j montana.json
 ```
 
 ```bash
