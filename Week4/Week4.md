@@ -61,7 +61,7 @@ Oxford Nanopore and Illumina differ in some other ways, but we will not discuss 
 
 ### Software Management
 
-We need software to be able to process all of this data. Until now, you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data. However, rather than just "softare", we will refer talk about "software **packages**", as one piece of "software" often *actually* contain several pieces of related software, hence *software packages* (you have seen this word before when installing new software in `R`).
+We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data. Here, rather than just "software", we will refer to these computer programs as "software **packages**", as one piece of "software" contains several pieces of related software, hence *software packages* (you have seen the word _packages_ before when installing new peograms in `R`).
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, software is simply a group of instructions used to perform a specific task. In bioinformatics, for example, this could be a set of instructions telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
