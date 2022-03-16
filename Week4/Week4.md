@@ -67,26 +67,27 @@ We need software to be able to process all of this data. Until now (other than L
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, a software package is simply a group of computer programs used to perform a specific task. In bioinformatics, for example, this could be a set of programs (individual computer programs written in a language such as `python`) telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
-<img src="graphics/File_dependency.png" title="About to crumble" width="300"/>
+<img src="graphics/File_dependency.png" title="About to crumble" width="300"/> </br>
+**Software dependencies are real** </br>
 
-*However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check that such camera-controlling software exists, and if it does not, may try to install it.
+*However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check whether such camera-controlling software exists, and if it does not, may try to install it.
 
-Despite the existence of dependencies, many bioinformatics software programs, most of which is written by inexperienced computer scientists (or worse, biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing dependencies. To make sure that we resolve all these dependency issues when we install new software, we will use a **package managment** system. This management system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
+Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics.
 
 <img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/>
 
-As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
+As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
 First, navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window.
 
-Next, I need to post a **reminder** you **must never forget** tab-complete. Also, never forget the up arrow. Good. Now, we download `conda`.
+Next, I need to post a **reminder** -- you **must never forget** tab-complete. Also, never forget the up arrow. Good. Now, we download `conda`.
 
 ```bash
-    # download the latest conda installer
+    # Download the latest conda installer
     # we cry because we can't use tab-complete here as 
     # the file does not yet exist on our computers.
-    # you should be able to copy this line and paste 
-    # the whole thing on the command line
+    # you should be able to copy the line below and  
+    # paste it on the command line
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
@@ -94,13 +95,15 @@ This file (with the extension `.sh`) is a bash file, which is usually run using 
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
-**Warning** Be careful when using `rm` in the following command. (Why? What does `rm` do?)
+**Warning**: Be careful when using `rm` in the following command. (Why? What does `rm` do?)
 
 ```bash
-    # run the installer
-    # note: now you can use tab-complete
-    # you will need to press enter and spacebar several
-    # times, and type "yes" twice 
+    # Run the installer
+    # Note: now you can use tab-complete
+    # During installation ou will need to 
+    # press enter and the spacebar several
+    # times, and type "yes" twice. It should
+    # be readily apparent where to do this. 
     bash Miniconda3-latest-Linux-x86_64.sh
     
     # delete the installer after successful run
@@ -108,7 +111,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```
 
 **IMPORTANT**
-Conda does not behave *quite* as it should in this cloud-based platform. For that reason, *every* time we use `conda` we will need to addjust our `$PATH` variable[^1]. You do this by typing the following at the terminal (simply copy-paste):
+Conda does not behave *quite* as it should in this cloud-based platform. For that reason, to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste):
 
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
@@ -186,8 +189,8 @@ Are you sure they all sitting in the `/data` directory that is sitting within yo
 
 What does the `.gz` at the end of the file name indicate?
 
-##### Organization
-Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's intall `tree`:
+##### Organization (optional)
+Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
 
 ```bash
 # here we actually change our channel
@@ -209,10 +212,13 @@ tree -L 2
 
 Nice.
 
+### Critically Evaluating Your Data
 
-Finally, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered them previously):
+#### Making Good Use of Summary Statistics
+
+First, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered them previously):
 ```bash
-# here we first have to use zcat, not cat, as the files are zipped. 
+# Here we first have to use zcat, not cat, as the files are zipped. 
 # We then pipe | the result to head (remember, this is the command used to 
 # look at the first few lines of a file - by default, ten lines).
 # You've encountered the pipe before - it takes the output of one command
@@ -220,11 +226,7 @@ Finally, let's next look quickly inside the files. However, we don't want to ope
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
 
-### Critically Evaluating Your Data
-
-#### Making Good Use of Summary Statistics
-
-Once we have the data, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
+Once we have the data and have decided that it looks as we expect, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
 ```bash
 # Below we use conda (of course) and 
@@ -387,11 +389,10 @@ What sort of information *is it possible for us to see*?
 ### Take Home Messages
 
 ### Notes
-Besides now having |conda| available as your package manager, one additional thing has changed - your `$PATH` variable. |conda| has put the directory `~/miniconda3/bin` first on your `$PATH` variable. (The little `~` (tilde) at the start is short-hand for your home directory.) What is your `$PATH` variable and **why** do we need to prepend it with `~/miniconda3/bin`? Read on:
 
-[^1]The `$PATH` variable contains places (directories) in which your computer looks for  programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
+[^1]: The `$PATH` variable contains places (directories) in which your computer looks for programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
 
-The installation of `conda` shaould have told the computer to also look in `~/miniconda3/bin` - so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
+    After installation, `conda` would usually adjust your `$PATH` variable by adding the directory `~/miniconda3/bin` to your `$PATH` variable -- so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first because the computer will look in this directory first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
 
 
 ##### scratch below
