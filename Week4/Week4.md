@@ -37,17 +37,17 @@ These three technologies differ considerably in their methodologies. For all thr
 
 
 ### Illumina
-<img src="graphics/Illumina.gif" width="300"/>
+<img src="graphics/Illumina.gif" title="It's bridge PCR!" width="300"/>
 
 Illumina sequencing relies on sequencing-by-synthesis in which millions of single DNA molecules are multiplied into millions "clusters", and each cluster is sequenced by the incorporating fluorescent nucleotides and imaging the cluster. [Review the method here](https://www.illumina.com/science/technology/next-generation-sequencing/sequencing-technology.html "Illumina movie"). Read lengths for Illumina range between 75 bp and 300 bp, and are of very high quality (i.e. the sequence of base pairs is almost certainly correct, with an error rate of approximately 1 in 10,000).
 
 ### PacBio
-<img src="graphics/pacbio.gif" width="300"/>
+<img src="graphics/pacbio.gif" title="The world's smallest microscope" width="300"/>
 
 PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides into single DNA molecules using zero-mode-waveguides ("the worlds smallest microscope"). [Review the method here](https://www.pacb.com/smrt-science/smrt-sequencing/ "PacBio movie"). Read lengths for PacBio range up to 30 kilobase pairs, and range in quality from very low (15% error rate) to very high (1 in 100,000 or lower error rate).
 
 ### Oxford Nanopore
-<img src="graphics/ont.gif" width="300"/>
+<img src="graphics/ont.gif" title="So many pores" width="300"/>
 
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
@@ -73,7 +73,7 @@ As you are probably aware, software **packages** are sets of tools that have bee
 
 Despite the existence of dependencies, many bioinformatics software programs, most of which is written by inexperienced computer scientists (or worse, biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing dependencies. To make sure that we resolve all these dependency issues when we install new software, we will use a **package managment** system. This management system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
 
-<img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency hell" width="600"/>
+<img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/>
 
 As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
