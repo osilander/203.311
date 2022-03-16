@@ -10,7 +10,7 @@
 [Illumina](#illumina)<br>
 [PacBio](#pacbio)<br>
 [Oxford Nanopore](#oxford-nanopore)<br>
-[Software Managment](#software-management)<br>
+[Software Management](#software-management)<br>
 [The Data](#data)<br>
 [Making Good Use of Summary Statistics](#making-good-use-of-summary-statistics)<br>
 [Choosing A Plot Type](#choosing-a-plot-type)<br>
@@ -61,11 +61,13 @@ Oxford Nanopore and Illumina differ in some other ways, but we will not discuss 
 
 ### Software Management
 
-We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data. Here, rather than just "software", we will refer to these computer programs as "software **packages**", as one piece of "software" contains several pieces of related software, hence *software packages* (you have seen the word *packages* before when installing new programs in `R`).
+We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data.\*
+
+\* *Here, rather than just "software", we will refer to these computer programs as "software packages", as one piece of "software" contains several pieces of related software, hence software package (you have seen the word packages before when installing new programs in `R`).*
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, a software package is simply a group of computer programs used to perform a specific task. In bioinformatics, for example, this could be a set of programs (individual computer pgorams written in a language such as `python`) telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
-<img src="graphics/File_dependency.png" alt="About to crumble" width="200"/>
+<img src="graphics/File_dependency.png" alt="About to crumble" width="400"/>
 
 *However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check that such camera-controlling software exists, and if it does not, may try to install it.
 
