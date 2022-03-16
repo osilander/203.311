@@ -65,13 +65,13 @@ We need software to be able to process all of this data. Until now (other than L
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, a software package is simply a group of computer programs used to perform a specific task. In bioinformatics, for example, this could be a set of programs (individual computer pgorams written in a language such as `python`) telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
-<img src="graphics/File-dependency.png" width="500"/>
+<img src="graphics/File_dependency.png" width="500"/>
 
 *However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check that such camera-controlling software exists, and if it does not, may try to install it.
 
 Despite the existence of dependencies, many bioinformatics software programs, most of which is written by inexperienced computer scientists (or worse, biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing dependencies. To make sure that we resolve all these dependency issues when we install new software, we will use a **package managment** system. This management system is called `conda`, and it is perhaps the most common package manager used in bioinformatics.
 
-<img src="graphics/File_dependency.jpg" width="600"/>
+<img src="graphics/dependencies.jpg" width="600"/>
 
 As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself. However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
 
