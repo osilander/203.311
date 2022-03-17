@@ -1187,7 +1187,7 @@ For those of you on the iMacs, please remember to go to the Apple Menu on your i
 
 To reiterate, for this, the second lab of this course, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for two things:
 
-1. For the mastery test which accounts for 15% of the course.  This will take place on Friday 18-Mar-2022.
+1. For the mastery test which accounts for 15% of the course.  This will take place between Thursday 24-Mar-2022 and Friday 25-Mar-2022 online.
 2. For a part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats (e.g. sequences files in say fasta format) and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
