@@ -89,7 +89,7 @@ Second, try to follow the instructions exactly today. If you get an error or war
 
 Good. Now, we download `conda`.
 
-Next, navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window. **Make sure you are in your `/cloud/project/` directory.**
+Navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window. **Make sure you are in your `/Cloud/project/` directory.**
 
 
 ```bash
@@ -104,6 +104,27 @@ Next, navigate to the command line tab on your RStudio window ("Terminal"). This
 
 The file you have downloaded (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`. *And* if you do find a file with the suffix `.sh` you can guess it's a `bash` file and use `bash` to run it.
 
+### Aside: Naming Conventions
+
+One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc. I usually use camel case, but not always - note that kebab case requires one less key to type. And use a `.` means that your file names will only ever have one type of non-word character. Last, you should almost **never** begin a file with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
+
+<img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/>
+
+**Please be consistent with your file names**
+
+As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. There are some well-known exceptions of course - `.html`, `.docx`, `.xlsx`, and others. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`, `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
+
+Also: if you are ever writing the date, use the format `YYYYMMDD`. That way, when you sort files by name, they will *also* be sorted by date (e.g. if you know that you made one set of data before another, it will be easier to find).
+
+While we are the topic of [naming conventions](https://en.wikipedia.org/wiki/Naming_convention_(programming) "Wiki naminbg conventions"), there are certain characters that you should **always** avoid when naming files and folders. Besides spaces, these are (not necessarily exhaustive):
+
+
+```bash
+   : ; ` " ' \ / ! @ # $ % ^ & * ( ) + , ? [ ] { } | > <
+```
+
+### Back to the Topic at Hand
+
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
 **Warning**: Be careful when using `rm` in the following command. (Why? What does `rm` do?)
@@ -113,7 +134,8 @@ Let's now actually install `conda` (in our case we install a miniature version o
     # Note: now you can use tab-complete
     # During installation. You will need to 
     # press enter and the spacebar several
-    # times, and type "yes" twice. It should
+    # times at the --More-- prompt, and 
+    # type "yes" three times. It should
     # be readily apparent where to do this. 
     bash Miniconda3-latest-Linux-x86_64.sh
     
@@ -122,14 +144,14 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```
 
 **IMPORTANT**
-Conda does not behave *quite* as it should in this cloud-based platform. For that reason, to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste):
+Conda may not behave *quite* as it should in this cloud-based platform. Try typing `conda --help`. If there is an error, then to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste) the *entire* line below:
 
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
 ``` 
 **If you keep your terminal session active (i.e. don't close it) then you should be able to use `conda` for the rest of the Semester in the terminal. If you do close the terminal, repeat the above step**.
 
-Now, you should be able to use the `conda` command. One useful way to check that `conda` (*or most other command line programs*) is working is to ask the program for help. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
+Now, you should be able to use the `conda` command. Again, one useful way to check that `conda` (*or most other command line programs*) is working is to ask the program for help. This is **almost always** done by typing `--help` or `-h` after the command. For example try:
 
 ```bash
 conda --help
@@ -139,9 +161,9 @@ This should bring up a list of sub-commands that `conda` can do (assuming you ha
 
 ### Software Installation
 
-The process of installing a software package via `conda` is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda") channel, which currently has recipes for more than 7000 software packages.
+The process of installing a software package via `conda` is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda github") channel, which currently has recipes for more than 7000 software packages.
 
-Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper"). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
+Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" sequence reads). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
 
 ```bash
 # Below we specify which channel we would like conda
@@ -154,7 +176,7 @@ conda install -c bioconda minimap2
 `conda` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`. Let's now get to the task at hand for today: analyzing DNA sequences from SARS-CoV-2.
 
 ### SARS-CoV-2 Genome Sequencing
-In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with close to ten million whole genome sequences available. SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is (until recently) the primarily application used in New Zealand, in constrast to most other countries (again, until recently with the emergence of the Omicron variant).
+In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with close to [ten million whole genome sequences available](https://www.nature.com/articles/d41586-021-03698-7 "Nature article on Omicron"), and two million sequence [by the UK alone](https://www.gov.uk/government/news/uk-completes-over-2-million-sars-cov-2-whole-genome-sequences "gov.uk press release"). SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is (until recently) the primarily application used in New Zealand, in constrast to most other countries (again, until recently with the emergence of the Omicron variant).
 
 #### QUESTION
 1. Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
@@ -163,29 +185,22 @@ Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on
 
 ## Today's Data
 
-There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
+There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
 
 The sequence data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paired end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
-To download the data, click on one of the links above to reach a page linking to the data. It should look like this:
-
-<img src="graphics/fastq_download.png" width="600"/>
-
-Right click the "Download" button and scroll to *copy link address*. Then navigate back to the `Terminal`, and change into your home directory (how?).
-
-Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse.
-
-Once you have changed into your home directory, make a new directory called `data` (how?). Finally, change into that directory and download the data using *wget*:
+To download the data, first make sure you are in your `/Cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
 ```bash
-wget https://the_data_file_address_you_just_copied
+wget link_address_you_just_copied.fastq.gz
 ```
-
 You should see a rapid animated arrow tracking the download.
 
-Repeat this process for all three of the files above. Now you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present and whether they contain anything. Note that the command looks specifically for *fastq.gz* files using a *wildcard* (the asterisk) to *list* (`ls`) only those files that match that pattern. There are two additional options in the command below, `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
+Repeat this for *all three sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a ` data/` directory above, you could make a directory called `sequence_data`. Feel free to change the name now if you like.
+
+After downloading all three files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present in the directory, and whether they contain anything. Note that the command looks specifically for *fastq.gz* files using a *wildcard* (the asterisk) to *list* (`ls`) only those files that match that pattern. There are two additional options in the command below: `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
 
 ```bash
 ls -lh *fastq.gz
@@ -194,12 +209,12 @@ ls -lh *fastq.gz
 #### QUESTIONS
 Are all three files present?
 
-Are you sure they all sitting in the `/data` directory that is sitting within your `/home` directory?
+Are you sure they all sitting in the `/data` directory that is sitting within your `/Cloud/project/` directory?
 
 What does the `.gz` at the end of the file name indicate?
 
-##### Organization (optional)
-Things are starting to get a little crazy. New directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
+#### Organization (optional)
+Things will start to get a little crazy as we get more data - new directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
 
 ```bash
 # here we actually change our channel
@@ -213,11 +228,13 @@ Now we can use our tree command to see what is where and how it's organised:
 ```bash
 # only look two *levels* deep
 # using the -L *option*
-# first head back to your /home directory
-cd
+# first head back up a directory
+cd ..
 # then run tree
 tree -L 2 
 ```
+
+Check out the `tree` command using the `--help subcommand`. What does the `-L` option do?
 
 Nice.
 
@@ -225,12 +242,12 @@ Nice.
 
 #### Making Good Use of Summary Statistics
 
-First, let's next look quickly inside the files. However, we don't want to open them up - they're quite large. Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered them previously):
+First, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (okay, they're not *that* large). Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
 ```bash
 # Here we first have to use zcat, not cat, as the files are zipped. 
 # We then pipe | the result to head (remember, this is the command used to 
 # look at the first few lines of a file - by default, ten lines).
-# You've encountered the pipe before - it takes the output of one command
+# You've also encountered the pipe before - it takes the output of one command
 # and feeds it to another.
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
