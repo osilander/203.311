@@ -86,7 +86,7 @@ As with any software, the first thing we need to do is install the package manag
 First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete. Also, never forget the up arrow.
 
 
-<img src="graphics/uparrow.jpg" title="Not just for begginers" width="600"/>
+<img src="graphics/uparrow.png" title="Not just for begginers" width="600"/>
 
 **Even seasoned bioinformaticians use it.**
 
