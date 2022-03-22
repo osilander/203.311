@@ -85,6 +85,11 @@ As with any software, the first thing we need to do is install the package manag
 
 First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete. Also, never forget the up arrow.
 
+
+<img src="graphics/uparrow.jpg" title="Not just for begginers" width="600"/>
+
+**Even seasoned bioinformaticians use it.**
+
 Second, try to follow the instructions exactly today. If you get an error or warning of any sort, go back *and make sure you have followed the instructions.* If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
