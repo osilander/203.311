@@ -90,11 +90,11 @@ First, I need to post a **reminder** -- as we will be operating mostly on the co
 
 **Even seasoned bioinformaticians use it.**
 
-Second, try to follow the instructions exactly today. If you get an error or warning of any sort, go back and make sure you have followed the instructions. For example: [(please don't click here it will delete all your files)](graphics/instructions.jpeg "DON'T CLICK HERE"). If you continue to get the error, then it *could* be my fault.
+Second, try to follow the instructions exactly today. For example: [please don't click here it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
 
-Navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window. **Make sure you are in your `/Cloud/project/` directory.**
+Navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window. **Make sure you are in your `/cloud/project/` directory.**
 
 
 ```bash
@@ -109,26 +109,27 @@ Navigate to the command line tab on your RStudio window ("Terminal"). This is on
 
 The file you have downloaded (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`. *And* if you do find a file with the suffix `.sh` you can guess it's a `bash` file and use `bash` to run it.
 
-### Aside: Naming Conventions
+### An Aside: Naming Conventions
 
-One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc. I usually use camel case, but not always - note that kebab case requires one less key to type. And use a `.` means that your file names will only ever have one type of non-word character. Last, you should almost **never** begin a file with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
+One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
 
 <img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/>
 
 **Please be consistent with your file names**
 
-As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. There are some well-known exceptions of course - `.html`, `.docx`, `.xlsx`, and others. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`, `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
+As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhpas not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`, `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
 
 Also: if you are ever writing the date, use the format `YYYYMMDD`. That way, when you sort files by name, they will *also* be sorted by date (e.g. if you know that you made one set of data before another, it will be easier to find).
 
-While we are the topic of [naming conventions](https://en.wikipedia.org/wiki/Naming_convention_(programming) "Wiki naminbg conventions"), there are certain characters that you should **always** avoid when naming files and folders. Besides spaces, these are (not necessarily exhaustive):
-
+Finally, there are certain characters that you should **always** avoid when naming files and folders. Besides spaces, these are (not necessarily exhaustive):
 
 ```bash
    : ; ` " ' \ / ! @ # $ % ^ & * ( ) + , ? [ ] { } | > <
 ```
+Look closely above and you will note the ";" is red - that's because the `bash` interpreter thinks it's a special character.
 
-### Back to the Topic at Hand
+
+### Back to the Topic at Hand - Conda
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -166,13 +167,13 @@ This should bring up a list of sub-commands that `conda` can do (assuming you ha
 
 ### Software Installation
 
-The process of installing a software package via `conda` is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda github") channel, which currently has recipes for more than 7000 software packages.
+`conda` installs software packages using what is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda docs") channel, which currently has recipes for more than 7000 software packages.
 
-Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" sequence reads). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
+Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" one sequence of DNA to another sequence of DNA). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
 
 ```bash
 # Below we specify which channel we would like conda
-# to look in to find the recipe to install minimap2.
+# to look in to find the minimap2 recipe.
 # This is done using the -c option
 
 conda install -c bioconda minimap2
@@ -186,39 +187,34 @@ In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become o
 #### QUESTION
 1. Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
 
-Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on a plane"), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf "COVID outbreaks in NZ") (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand.
+Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on a plane"), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf "COVID outbreaks in NZ") (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand. **Both of these papers are required reading and may appear in your tests.**
 
 ## Today's Data
 
-There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
+There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Specifically explore the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
 
-The sequence data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+The sequence data that we will be using today was generated using both Illumina and Oxford Nanopore reads, and are from two different SARS-CoV-2 genomes. The format of the data is *fastq*. `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paired end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
+The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
-To download the data, first make sure you are in your `/Cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
+To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
 ```bash
-wget link_address_you_just_copied.fastq.gz
+wget link_address_you_just_copied
 ```
 You should see a rapid animated arrow tracking the download.
 
-Repeat this for *all three sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a ` data/` directory above, you could make a directory called `sequence_data`. Feel free to change the name now if you like.
+Repeat this for *both of the other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a ` data/` directory above, you could make a directory called `sequence_data/`. Feel free to change the name now if you like.
 
-After downloading all three files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. The following command should give information on which files are present in the directory, and whether they contain anything. Note that the command looks specifically for *fastq.gz* files using a *wildcard* (the asterisk) to *list* (`ls`) only those files that match that pattern. There are two additional options in the command below: `-h`, which lists file sizes in human readable format, and `-l`, which lists in long format. Here we combine them into `-lh`:
-
-```bash
-ls -lh *fastq.gz
-```
+After downloading all three files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this, but note that not only is it important to whether there are files in the directory, you need to know *whether there is anything in the files*, and preferably how much data is in the files. If you are not familiar with how to do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
 
 #### QUESTIONS
-Are all three files present?
+1. Are all three files present?
+2. How big are they?
+3. Are you sure they all sitting in the `/data` directory that is sitting within your `/cloud/project/` directory?
+4. What does the `.gz` at the end of the file name indicate?
 
-Are you sure they all sitting in the `/data` directory that is sitting within your `/Cloud/project/` directory?
-
-What does the `.gz` at the end of the file name indicate?
-
-#### Organization (optional)
+#### Organization (optional but useful and easy)
 Things will start to get a little crazy as we get more data - new directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
 
 ```bash
