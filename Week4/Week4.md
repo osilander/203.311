@@ -51,11 +51,13 @@ PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides
 
 Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
 
-Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".
+**Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".**
+
+#### Today
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). We will see that these characteristics provide different advantages.
 
-Oxford Nanopore and Illumina differ in some other ways, but we will not discuss those in detail today.
+Oxford Nanopore and Illumina differ in some other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their varied modifications, whereas Illumia sequences *copies* of DNA only.
  
 <img src="graphics/ont-ill.png" title="Scary car ride" width="500"/>
 
@@ -63,24 +65,32 @@ Oxford Nanopore and Illumina differ in some other ways, but we will not discuss 
 
 We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data.\*
 
-\* *Here, rather than just "software", we will refer to these computer programs as "software packages", as one piece of "software" contains several pieces of related software, hence software package (you have seen the word packages before when installing new programs in `R`).*
+\* *Here, rather than just "software", we will refer to these computer programs as "software packages", as one piece of "software" contains several pieces of related software, hence software package (you have seen the phrase software packages before when installing new programs in `R`).*
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, a software package is simply a group of computer programs used to perform a specific task. In bioinformatics, for example, this could be a set of programs (individual computer programs written in a language such as `python`) telling the computer how to interpret and display the quality scores from a `.fastq` file.
+
+*However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check whether such camera-controlling software exists, and if it does not, may try to install it.
 
 <img src="graphics/File_dependency.png" title="About to crumble" width="300"/> <br>
 **Software dependencies are real** (credit: *xkcd*) <br>
 
-*However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check whether such camera-controlling software exists, and if it does not, may try to install it.
 
-Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics.
+Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics. It considerably simplifies the process of installing software, negating the need to find websites, download multiple files, unzip files, find compatible files for your operating system, etc.
 
 <img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/>
 
-As with any software, the first thing we need to do is install it. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie").
+### Conda Installation
 
-First, navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window.
+As with any software, the first thing we need to do is install the package manager itself. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie podcast").
 
-Next, I need to post a **reminder** -- you **must never forget** tab-complete. Also, never forget the up arrow. Good. Now, we download `conda`.
+First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete. Also, never forget the up arrow.
+
+Second, try to follow the instructions exactly today. If you get an error or warning of any sort, go back *and make sure you have followed the instructions.* If you continue to get the error, then it *could* be my fault.
+
+Good. Now, we download `conda`.
+
+Next, navigate to the command line tab on your RStudio window ("Terminal"). This is on the top of the `R` window. **Make sure you are in your `/cloud/project/` directory.**
+
 
 ```bash
     # Download the latest conda installer
@@ -90,9 +100,9 @@ Next, I need to post a **reminder** -- you **must never forget** tab-complete. A
     # paste it on the command line
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
-**Explanation**: `wget` is a program that is used to transfer data to or from a server. Thus, this command is simply using this program to find the file at the location indicated and then download it.
+**Explanation**: `wget` is a program that is used to transfer data to or from a server. Thus, this command is simply using `wget` program to find the file at the location indicated and then download it.
 
-This file (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`.
+The file you have downloaded (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`. *And* if you do find a file with the suffix `.sh` you can guess it's a `bash` file and use `bash` to run it.
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -101,7 +111,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```bash
     # Run the installer
     # Note: now you can use tab-complete
-    # During installation ou will need to 
+    # During installation. You will need to 
     # press enter and the spacebar several
     # times, and type "yes" twice. It should
     # be readily apparent where to do this. 
@@ -155,7 +165,7 @@ Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common are via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome, which is then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Note, specifically, the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
 
-The data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+The sequence data that we will be using today are Illumina and Oxford Nanopore reads from two SARS-CoV-2 genomes. The format of the data is *fastq*, which specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are *paired end*, so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
 
