@@ -90,7 +90,7 @@ First, I need to post a **reminder** -- as we will be operating mostly on the co
 
 **Even seasoned bioinformaticians use it.**
 
-Second, try to follow the instructions exactly today. If you get an error or warning of any sort, go back and make sure you have followed the instructions. [(please don't click here)](graphics/instructions.jpeg "DON'T CLICK HERE"). If you continue to get the error, then it *could* be my fault.
+Second, try to follow the instructions exactly today. If you get an error or warning of any sort, go back and make sure you have followed the instructions. For example: [(please don't click here it will delete all your files)](graphics/instructions.jpeg "DON'T CLICK HERE"). If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
 
