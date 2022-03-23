@@ -59,8 +59,7 @@ Today we will deal with DNA sequence data from two of the most widely-available 
 
 Oxford Nanopore and Illumina also differ in other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their varied modifications, whereas Illumia sequences *copies* of DNA only.
  
-<img src="graphics/ont-ill.png" title="Scary car ride" width="500"/>
-
+<img src="graphics/ont-ill.png" title="Scary car ride" width="500"/><br>
 **Oxford Nanopore - not just boring old DNA**
 
 ### Software Management
@@ -79,8 +78,7 @@ As you are probably aware, software **packages** are sets of tools that have bee
 
 Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics. It considerably simplifies the process of installing software, negating the need to find websites, download multiple files, unzip files, find compatible files for your operating system, etc.
 
-<img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/>
-
+<img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/><br>
 **You will never escape them** <br>
 
 ### Conda Installation
@@ -90,11 +88,10 @@ As with any software, the first thing we need to do is install the package manag
 First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete. Also, never forget the up arrow.
 
 
-<img src="graphics/uparrow.png" title="Not just for begginers" width="600"/>
-
+<img src="graphics/uparrow.png" title="Not just for begginers" width="600"/><br>
 **Even seasoned bioinformaticians use it.** <br>
 
-Second, try to follow the instructions exactly today,[and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
+Second, try to follow the instructions exactly today, [and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
 
