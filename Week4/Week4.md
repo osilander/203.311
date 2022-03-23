@@ -85,8 +85,12 @@ Despite the existence of dependencies, many bioinformatics software programs (mo
 
 As with any software, the first thing we need to do is install the package manager itself. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie podcast").
 
-First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete. Also, never forget the up arrow.
+First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete.
 
+<img src="graphics/tab_complete.jpeg" title="You can probably tab-complete this picture" width="600"/><br>
+**Tab complete will solve all your problems** <br>
+
+Also, never forget the up arrow.
 
 <img src="graphics/uparrow.png" title="Not just for begginers" width="600"/><br>
 **Even seasoned bioinformaticians use it.** <br>
@@ -114,9 +118,8 @@ The file you have downloaded (with the extension `.sh`) is a bash file, which is
 
 One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
 
-<img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/>
-
-**Please be consistent with your file names**
+<img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/><br>
+**Please be consistent with your file names**<br>
 
 As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhpas not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`), `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
 
@@ -138,7 +141,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
 
 ```bash
     # Run the installer
-    # Note: now you can use tab-complete
+    # Note: now you can use tab-complete.
     # During installation. You will need to 
     # press enter and the spacebar several
     # times at the --More-- prompt, and 
@@ -284,7 +287,9 @@ We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "f
 Now let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. First, some simple statistics about your read files:
 
 ```bash
-# some simple statistics about your files
+# Some simple statistics about your files
+# Remember the **name of the program** and 
+# don't copy-paste
 seqkit stats *fastq.gz
 ```
 
@@ -295,8 +300,11 @@ seqkit stats *fastq.gz
 4. How do the average read lengths differ between your sequencing files?
 
 ```bash
-# maybe a few more stats
-seqkit stats -a *fastq.gz
+# Maybe a few more stats. Remember the
+# name of the program and that
+# gzipped files don't end in ".gx" so
+# don't copy-paste
+seqklt stats -a *fastq.gx
 ```
 
 Let's look at whole distributions of read lengths instead of just the *average* read length for all read:
@@ -308,9 +316,10 @@ Let's look at whole distributions of read lengths instead of just the *average* 
 # how many different histogram bins you want (here, 15)
 # If you want, you can leave the --bins 15 part of the command out.
 # Note that the fastq.gz file name below is not the same as yours!
-seqkit watch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
+# The subcommand is "watch" not "witch", so copy-paste won't be easy
+seqkit witch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?).
+Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?). Remember, the up-arrow and tab-complete are your friends.
 
 #### QUESTION
 1. How do the sequencing files differ in the *distributions* of read lengths?
@@ -322,8 +331,9 @@ It is also possible to make a simple plot of the average *quality* of each read.
 # read aspect we would like to plot. Above it was MeanLength
 # Now it's MeanQual. We leave the --bins option in (you don't have to).
 # When you leave in --bins you need to specify a number (I chose 15)
-seqkit watch --fields MeanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
+seqklt witch --folds MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
+*Error? The program is "seqkit", the subcommand is "watch", the argument is "fields", and the read aspect is "MeanQual".*
 
 Do this for both the Oxford Nanopore and Illumina reads.
 
