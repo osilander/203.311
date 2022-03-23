@@ -117,7 +117,7 @@ One important aspect of organising files and directories (folders) is [naming co
 
 **Please be consistent with your file names**
 
-As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhpas not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`, `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
+As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhpas not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`), `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
 
 Also: if you are ever writing the date, use the format `YYYYMMDD`. That way, when you sort files by name, they will *also* be sorted by date (e.g. if you know that you made one set of data before another, it will be easier to find).
 
@@ -126,7 +126,7 @@ Finally, there are certain characters that you should **always** avoid when nami
 ```bash
    : ; ` " ' \ / ! @ # $ % ^ & * ( ) + , ? [ ] { } | > <
 ```
-Look closely above and you will note the ";" is red - that's because the `bash` interpreter thinks it's a special character.
+Look closely above and you will note that several characters above are a different colour (e.g. ";") - that's because the `bash` interpreter thinks it's a special character.
 
 
 ### Back to the Topic at Hand - Conda
@@ -169,7 +169,7 @@ This should bring up a list of sub-commands that `conda` can do (assuming you ha
 
 `conda` installs software packages using what is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda docs") channel, which currently has recipes for more than 7000 software packages.
 
-Let's try to install some software now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" one sequence of DNA to another sequence of DNA). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
+Let's try to install some software packages now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" one sequence of DNA to another sequence of DNA). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
 
 ```bash
 # Below we specify which channel we would like conda
@@ -195,7 +195,7 @@ There are several methods used to sequence SARS-CoV-2, but perhaps the most comm
 
 The sequence data that we will be using today was generated using both Illumina and Oxford Nanopore reads, and are from two different SARS-CoV-2 genomes. The format of the data is *fastq*. `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz) and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz) (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files). The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz).
+The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](/data/missouri-2022-29-10.fastq.gz "ONT 2").
 
 To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
@@ -204,54 +204,57 @@ wget link_address_you_just_copied
 ```
 You should see a rapid animated arrow tracking the download.
 
-Repeat this for *both of the other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as "myfile.txt" or "mydir/". This does not mean that you should use this name, or that this file or directory even exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a ` data/` directory above, you could make a directory called `sequence_data/`. Feel free to change the name now if you like.
+Repeat this for *all three other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `data/` directory above, you could make a directory called `sequence_data/`. Feel free to change the name now if you like.
 
-After downloading all three files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this, but note that not only is it important to whether there are files in the directory, you need to know *whether there is anything in the files*, and preferably how much data is in the files. If you are not familiar with how to do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
+After downloading all four files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this, but note that not only is it important to whether there are files in the directory, you need to know *whether there is anything in the files*, and preferably how much data is in the files. If you are not familiar with how to do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
 
 #### QUESTIONS
 1. Are all three files present?
 2. How big are they?
 3. Are you sure they all sitting in the `/data` directory that is sitting within your `/cloud/project/` directory?
-4. What does the `.gz` at the end of the file name indicate?
+4. What does the `.gz` at the end of the file names indicate about the type fo file it is?
+5. How can you view the contents of files that have a `.gz` suffix (for example, what do you need to do first before viewing)?
 
 #### Organization (optional but useful and easy)
-Things will start to get a little crazy as we get more data - new directories, new files, lousy `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
+Things will start to get a little crazy as we get more data - new directories, new files, too many `ls` commands. Let's see if we can look inside this maze of files in a more accessible way. How? `tree`. Let's install `tree`:
 
 ```bash
 # here we actually change our channel
 # i.e. it's no longer bioconda
-
+# But we still use the -c option to
+# specify another channel
 conda install -c conda-forge tree
 ```
 
 Now we can use our tree command to see what is where and how it's organised:
 
 ```bash
-# only look two *levels* deep
-# using the -L *option*
-# first head back up a directory
+# We use the -L option
+# First head back up a directory
 cd ..
-# then run tree
+# Then run tree
 tree -L 2 
 ```
 
-Check out the `tree` command using the `--help subcommand`. What does the `-L` option do?
-
 Nice.
+
+Check out the `tree` command using the `--help` subcommand. What does the `-L` option do?
 
 ### Critically Evaluating Your Data
 
 #### Making Good Use of Summary Statistics
 
-First, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (okay, they're not *that* large). Instead, we use a simple terminal command, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
+Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (okay, they're not *that* large). Even so, we use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
 ```bash
-# Here we first have to use zcat, not cat, as the files are zipped. 
-# We then pipe | the result to head (remember, this is the command used to 
+# Here we first have to use zcat, not head directly, or cat,
+# as the files are zipped. 
+# We then pipe | the result to head (remember, head is the command used to 
 # look at the first few lines of a file - by default, ten lines).
 # You've also encountered the pipe before - it takes the output of one command
 # and feeds it to another.
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
+**For completeness and carefulness, we do it for all four files**.
 
 Once we have the data and have decided that it looks as we expect, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
@@ -272,11 +275,12 @@ We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "f
 # because you know how to install things with
 # simple names like "fastp" by
 # using conda by looking in a specific channel
+# and installing the software by name
 ```
 
 #### Summary Stats with seqkit
 
-Let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. Next, some simple statistics about your read files:
+Now let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. First, some simple statistics about your read files:
 
 ```bash
 # some simple statistics about your files
@@ -284,50 +288,38 @@ seqkit stats *fastq.gz
 ```
 
 #### QUESTIONS
-What does `*fastq.gz` mean in the above command?
-
-i.e. what is the `*` doing?
-
-Let's get the same stats but slightly fancier.
+1. What does `*fastq.gz` mean in the above command (i.e. what is the `*` doing)?
+2. How many reads are in each file?
+3. How many total base pairs of data are in each file?
+4. How do the average read lengths differ between your sequencing files?
 
 ```bash
-# Some much prettier stats about your sequences.
-# First let's get a new package called csvtk.
-# Install with conda (of course)
-conda install -c bioconda csvtk
-
-# Then some nicer looking stats but no commas.
-# We use the stats subcommand the -T -t are *options*.
-# I can explain those if you like. Here we also see the magical | pipe again.
-# If you want you can paste this line, it's a bit long.
-# We take the output of seqkit stats and format it with csvtk
-seqkit stats *.fastq.gz -T | csvtk csv2md -t
+# maybe a few more stats
+seqkit stats -a *fastq.gz
 ```
-#### QUESTION
-How do the average read lengths differ between your sequencing files?
 
 Let's look at whole distributions of read lengths instead of just the *average* read length for all read:
 
 ```bash
-# Even fancier, a histogram of read lengths.
+# A histogram of read lengths.
 # We use the watch subcommand and the --bins option to clean up the 
 # histograms a tiny bit. The --bins options tells the program
 # how many different histogram bins you want (here, 15)
 # If you want, you can leave the --bins 15 part of the command out.
-# Note that the fastq.gz file name below is not correct.
+# Note that the fastq.gz file name below is not the same as yours!
 seqkit watch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
 Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?).
 
 #### QUESTION
-How do the sequencing files differ in the *distributions* of read lengths?
+1. How do the sequencing files differ in the *distributions* of read lengths?
 
-It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is incorrect. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here we also use `seqkit` to plot the mean quality of all base pairs in a read (for all reads):
+It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is correct. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here we also use `seqkit`.
 
 ```bash
 # below we add a new argument, --fields, to specify which 
 # read aspect we would like to plot. Above it was MeanLength
-# Now it's MeanQual. We leave the --bins option in (you don't have to))
+# Now it's MeanQual. We leave the --bins option in (you don't have to).
 # When you leave in --bins you need to specify a number (I chose 15)
 seqkit watch --fields MeanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
@@ -343,47 +335,53 @@ Do this for both the Oxford Nanopore and Illumina reads.
 
 #### Summary Stats with fastp
 
-Let's use the somewhat aesthetically more pleasing `fastp` program next. You should have installed it above, check if it's properly installed:
+Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences if you would like. You should have installed it above, check if it's properly installed:
 
 ```bash
-# as usual, we use the --help option to see if the
+# As usual, we use the --help option to see if the
 # install worked.
 fastp --help
 ```
 
 ```bash
-# Also use the fastp --help to see the options. There are four important 
-# parameters, the input files (-i), output (-o), and the names of the 
+# fastp --help shows many options, with four critical ones: 
+# the input files (-i), output (-o), and the names of the 
 # html and json files (where the summary information goes). We have to
-# specify all of those. You probably know what a .html file is. You may not 
-# know what a .json file is. Do not worry about it, I barely do but look it 
+# specify all of those. You probably know what an .html file is. You may not 
+# know what a .json file is. Do not worry about it, I barely do -- but look it 
 # up if you want. I add the -A options below (please do as well). What does it do?
 fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h montana.html -j montana.json
 ```
 
 ```bash
 # repeat for the Illumina data
+# We now have two inputs, -i and -I
+# and two outputs -o and -O
+# but still onlyl one html and json
+# Note that the "\" below indicates
+# that the command extends over multiple lines.
 fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
 -I kwazulu-natal-2020-06-02_R2_sub.fastq.gz \
 -o kwazulu-natal-2020-06-02_R1_sub.trim.fastq.gz \
--O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz
+-O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz \
+-h kwazulu-natal-2020-06-02.html -j kwazulu-natal-2020-06-02.json
 ```
 
 Unfortunately, the results of the fastp analysis do not display properly in your browser. However, I think it is important that you see them. For this reason, do the following:
 1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For windows users, this could be Notepad.
 2. Open a new document in the editor.
 3. In your RStudio _files_, find the files that you just made using fastp (e.g. montana.html and montana.json). open the `.html` _in the RStudio editor window_.
-4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with a .html suffix.
+4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with an .html suffix.
 5. Repeat this for the `.json` file and save it with _the same name as the html file but with a `.json` suffix_.
-6. Open the `.html` file now on your desktop by double clicking on it. This shoudl bring you to a web page displaying the `fastp` results.
+6. Open the `.html` file now on your desktop by double clicking on it. This should bring you to a web page displaying the `fastp` results.
 
 #### QUESTIONS
 
 ### Getting Tabulated Data to Plot in R
 
-In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. However, the plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting package, `R`.
+In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. *But*, these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
 
-To begin, we make some files with the new data we would like. In this case, we will use `seqkit` again. First, some data on the distribution of lengths and quality _per sequence_ (rather than per position). Do this for your untrimmed and trimmed Oxford Nanopore data (Montana):
+To begin, we make some files with the new data we would like. In this case, we will use `seqkit` again. First, some data on the distribution of lengths and quality *per sequence* (rather than per position). Do this for your untrimmed and trimmed Oxford Nanopore data (Montana):
 
 ```bash
 # -q and -l options give the length and quality for each sequence.
@@ -395,7 +393,7 @@ seqkit fx2tab -qln myseqs.fastq.gz
 Oops. Did you forget that `seqkit` outputs to standard out? You have to use the redirect `>` to put it into a file.
 
 ```bash
-# -q and -l options give the length and quality for each sequence.
+# Please do not redirect this into mydata.txt
 seqkit fx2tab -qln myseqs.fastq.gz > mydata.txt
 ```
 
@@ -405,13 +403,10 @@ Why have I used `.txt` at the end of the example file above?
 ### Plotting the Data more Deliberately in R
 Now we have to think.
 
-What types of plots are we interested in?
-
-What sort of information would we like to see?
-
-What sort of information *is it possible for us to see*?
-
-**What sort of story would we like our plots to tell**?
+1. What types of plots are we interested in?
+2. What sort of information would we like to see?
+3. What sort of information *is it possible for us to see*?
+4. **What sort of story would we like our plots to tell**?
 
 ### Take Home Messages
 
@@ -421,15 +416,4 @@ What sort of information *is it possible for us to see*?
 
     After installation, `conda` would usually adjust your `$PATH` variable by adding the directory `~/miniconda3/bin` to your `$PATH` variable -- so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first because the computer will look in this directory first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
 
-
-##### scratch below
-each of which are more oriented toward a specific sequencing platform. The first of these is [NanoPlot](https://github.com/wdecoster/NanoPlot "NanoPlot github").
-
-First things first, install `Nanoplot`:
-
-```bash
-# again we use conda and look in the bioconda channel
-conda install -c bioconda nanoplot
-```
-
-We will also use a program called [pycoqc](https://github.com/a-slide/pycoQC "pycoqc github")
+[^2]: Paired end Illumina `.fastq` files are often named with an internal "R1" and "R2". This refers the "Read 1" and "Read 2" and indicates, for convencience, that the files are paired.
