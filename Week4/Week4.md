@@ -39,12 +39,12 @@ These three technologies differ considerably in their methodologies. For all thr
 ### Illumina
 <img src="graphics/Illumina.gif" title="It's bridge PCR!" width="300"/>
 
-Illumina sequencing relies on sequencing-by-synthesis in which millions of single DNA molecules are multiplied into millions "clusters", and each cluster is sequenced by the incorporating fluorescent nucleotides and imaging the cluster. [Review the method here](https://www.illumina.com/science/technology/next-generation-sequencing/sequencing-technology.html "Illumina movie"). Read lengths for Illumina range between 75 bp and 300 bp, and are of very high quality (i.e. the sequence of base pairs is almost certainly correct, with an error rate of approximately 1 in 10,000).
+Illumina sequencing relies on sequencing-by-synthesis in which millions of single DNA molecules are multiplied into millions of "clusters", each consisting of thousands of clonal molecules. Each cluster is sequenced by the incorporating fluorescent nucleotides, exciting the fluorescence, and imaging the cluster. [Review the method here](https://www.illumina.com/science/technology/next-generation-sequencing/sequencing-technology.html "Illumina movie"). Read lengths for Illumina range between 75 bp and 300 bp, and are of very high quality (i.e. the sequence of base pairs is almost certainly correct, with an error rate of approximately 1 in 10,000).
 
 ### PacBio
 <img src="graphics/pacbio.gif" title="The world's smallest microscope" width="300"/>
 
-PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides into single DNA molecules using zero-mode-waveguides ("the worlds smallest microscope"). [Review the method here](https://www.pacb.com/smrt-science/smrt-sequencing/ "PacBio movie"). Read lengths for PacBio range up to 30 kilobase pairs, and range in quality from very low (15% error rate) to very high (1 in 100,000 or lower error rate).
+PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides into single DNA molecules using zero-mode-waveguides ("the worlds smallest microscope"). [Review the method here](https://www.pacb.com/smrt-science/smrt-sequencing/ "PacBio movie"). Read lengths for PacBio range from 1000 bp to 30 kilobase pairs, and range in quality from very low (15% error rate) to very high (1 in 100,000 or lower error rate).
 
 ### Oxford Nanopore
 <img src="graphics/ont.gif" title="So many pores" width="300"/>
@@ -55,11 +55,13 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA 
 
 #### Today
 
-Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). We will see that these characteristics provide different advantages.
+Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). As you can imagine, these characteristics provide different advantages.
 
-Oxford Nanopore and Illumina differ in some other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their varied modifications, whereas Illumia sequences *copies* of DNA only.
+Oxford Nanopore and Illumina also differ in other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their varied modifications, whereas Illumia sequences *copies* of DNA only.
  
 <img src="graphics/ont-ill.png" title="Scary car ride" width="500"/>
+
+**Oxford Nanopore - not just boring old DNA**
 
 ### Software Management
 
@@ -72,12 +74,14 @@ As you are probably aware, software **packages** are sets of tools that have bee
 *However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check whether such camera-controlling software exists, and if it does not, may try to install it.
 
 <img src="graphics/File_dependency.png" title="About to crumble" width="300"/> <br>
-**Software dependencies are real** (credit: *xkcd*) <br>
+**Software dependencies are real** (credit: [xkcd](https://xkcd.com/2347/ "XKCD homepage")) <br>
 
 
 Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics. It considerably simplifies the process of installing software, negating the need to find websites, download multiple files, unzip files, find compatible files for your operating system, etc.
 
 <img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/>
+
+**You will never escape them** <br>
 
 ### Conda Installation
 
@@ -88,9 +92,9 @@ First, I need to post a **reminder** -- as we will be operating mostly on the co
 
 <img src="graphics/uparrow.png" title="Not just for begginers" width="600"/>
 
-**Even seasoned bioinformaticians use it.**
+**Even seasoned bioinformaticians use it.** <br>
 
-Second, try to follow the instructions exactly today. For example: [please don't click here it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
+Second, try to follow the instructions exactly today,[and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
 
@@ -408,9 +412,7 @@ Now we have to think.
 3. What sort of information *is it possible for us to see*?
 4. **What sort of story would we like our plots to tell**?
 
-### Take Home Messages
-
-### Notes
+### Footnotes
 
 [^1]: The `$PATH` variable contains places (directories) in which your computer looks for programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
 
