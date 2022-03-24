@@ -1,5 +1,7 @@
 **[Return to the Course Home Page](../index.html)**
 
+**There is no project to clone for this week; you can do all work in your own project**
+
 # Sequencing and Mapping
 **Dr Olin Silander**
 
@@ -11,8 +13,12 @@
 [PacBio](#pacbio)<br>
 [Oxford Nanopore](#oxford-nanopore)<br>
 [Software Management](#software-management)<br>
-[The Data](#data)<br>
-[Making Good Use of Summary Statistics](#making-good-use-of-summary-statistics)<br>
+[Conda Installation](#conda-installation)<br>
+[Naming Conventions](#naming-conventions)<br>
+[Software Installation](#software-installation)<br>
+[SARS-CoV-2 Genome Sequencing](#SARS-CoV-2-Genome-Sequencing)<br>
+[Today’s Data](#Today-s-Data)<br>
+[Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
 [Choosing A Plot Type](#choosing-a-plot-type)<br>
 [Critically Evaluating Your Data](#critically-evaluating-your-data)<br>
 [Take Home Messages](#take-home-messages)<br>
@@ -87,13 +93,13 @@ As with any software, the first thing we need to do is install the package manag
 
 First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete.
 
-<img src="graphics/tab_complete.jpeg" title="You can probably tab-complete this picture" width="600"/><br>
-**Tab complete will solve all your problems** <br>
+<img src="graphics/tab_complete.jpeg" title="You can probably tab-complete this picture" width="400"/><br>
+**Tab complete will solve all your problems** <br><br>
 
-Also, never forget the up arrow.
+You must also never forget the up arrow.
 
 <img src="graphics/uparrow.png" title="Not just for begginers" width="600"/><br>
-**Even seasoned bioinformaticians use it.** <br>
+**Every seasoned bioinformatician uses it.** <br>
 
 Second, try to follow the instructions exactly today, [and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
 
@@ -103,8 +109,8 @@ Navigate to the command line tab on your RStudio window ("Terminal"). This is on
 
 
 ```bash
-    # Download the latest conda installer
-    # we cry because we can't use tab-complete here as 
+    # Download the latest conda installer.
+    # We cry because we can't use tab-complete here as 
     # the file does not yet exist on our computers.
     # you should be able to copy the line below and  
     # paste it on the command line
@@ -199,7 +205,7 @@ There are several methods used to sequence SARS-CoV-2, but perhaps the most comm
 
 The sequence data that we will be using today was generated using both Illumina and Oxford Nanopore reads, and are from two different SARS-CoV-2 genomes. The format of the data is *fastq*. `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](/data/missouri-2022-29-10.fastq.gz "ONT 2").
+The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](./data/missouri-2022-29-10.fastq.gz "ONT 2").
 
 To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
@@ -288,8 +294,6 @@ Now let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No
 
 ```bash
 # Some simple statistics about your files
-# Remember the **name of the program** and 
-# don't copy-paste
 seqkit stats *fastq.gz
 ```
 
@@ -301,7 +305,7 @@ seqkit stats *fastq.gz
 
 ```bash
 # Maybe a few more stats. Remember the
-# name of the program and that
+# *name* of the program and that
 # gzipped files don't end in ".gx" so
 # don't copy-paste
 seqklt stats -a *fastq.gx
@@ -313,7 +317,7 @@ Let's look at whole distributions of read lengths instead of just the *average* 
 # A histogram of read lengths.
 # We use the watch subcommand and the --bins option to clean up the 
 # histograms a tiny bit. The --bins options tells the program
-# how many different histogram bins you want (here, 15)
+# how many different histogram bins you want (here, I chose 15)
 # If you want, you can leave the --bins 15 part of the command out.
 # Note that the fastq.gz file name below is not the same as yours!
 # The subcommand is "watch" not "witch", so copy-paste won't be easy
@@ -368,7 +372,7 @@ fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h m
 # repeat for the Illumina data
 # We now have two inputs, -i and -I
 # and two outputs -o and -O
-# but still onlyl one html and json
+# but still only one html and json
 # Note that the "\" below indicates
 # that the command extends over multiple lines.
 fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
