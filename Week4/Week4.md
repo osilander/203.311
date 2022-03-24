@@ -304,7 +304,7 @@ seqkit stats *fastq.gz
 
 ```bash
 # Maybe a few more stats. Remember the
-# *name* of the program and that
+# *name* of the program and you know that
 # gzipped files don't end in ".gx" so
 # don't copy-paste
 seqklt stats -a *fastq.gx
@@ -341,8 +341,8 @@ seqklt witch --folds MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 Do this for both the Oxford Nanopore and Illumina reads.
 
 #### QUESTIONS
-1. If a base has a quality score of 10, what is the likelihood that it is the correct base?
-2. What if a base has a quality score of 25?
+1. If a base has a quality score of 10, what is the likelihood that it is the correct base? See if you can find this out using Google, or calculate it.
+2. What if a base has a quality score of 25? Again, see if you can search for this answer or calculate it.
 3. How do the sequencing files differ in the distributions of quality scores?
 4. What are the *highest* average read qualities for the Oxford Nanopore reads (approximately)?
 5. For an Oxford Nanopore read with a "high" average quality, what fraction of bases do you expect to be correct?
