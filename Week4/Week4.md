@@ -100,7 +100,7 @@ You must also never forget the up arrow.
 <img src="graphics/uparrow.png" title="Not just for begginers" width="600"/><br>
 **Every seasoned bioinformatician uses it.** <br>
 
-Second, try to follow the instructions exactly today, [and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T CLICK HERE"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
+Second, try to follow the instructions exactly today, [and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T EVEN THINK ABOUT IT"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
 
 Good. Now, we download `conda`.
 
