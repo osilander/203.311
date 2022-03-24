@@ -265,7 +265,7 @@ zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
 **For completeness and carefulness, we do it for all four files**.
 
-Once we have the data and have decided that it looks as we expect, the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
+Once we have the data and have decided that it looks as we expect (*or does it?* &#129300;), the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
 ```bash
 # Below we use conda (of course) and 
