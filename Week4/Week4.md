@@ -20,7 +20,7 @@
 [Our Data](#Our-Data)<br>
 [Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
 [Plotting the Data more Deliberately in R](#Plotting-the-Data-more-Deliberately-in-R)<br>
-[Portfolio Analysis](Portfolio-Analysis)<br>
+[Portfolio Analysis](#Portfolio-Analysis)<br>
 
 
 ## Purpose
