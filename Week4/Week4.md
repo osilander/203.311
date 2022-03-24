@@ -383,11 +383,11 @@ fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
 ```
 
 Unfortunately, the results of the fastp analysis do not display properly in your browser. However, I think it is important that you see them. For this reason, do the following:
-1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For windows users, this could be Notepad.
+1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For Windows users, this could be Notepad.
 2. Open a new document in the editor.
 3. In your RStudio _files_, find the files that you just made using fastp (e.g. montana.html and montana.json). open the `.html` _in the RStudio editor window_.
-4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with an .html suffix.
-5. Repeat this for the `.json` file and save it with _the same name as the html file but with a `.json` suffix_.
+4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with an `.html` suffix.
+5. Repeat this for the `.json` file and save it with *the same name as the html file but with a `.json` suffix*.
 6. Open the `.html` file now on your desktop by double clicking on it. This should bring you to a web page displaying the `fastp` results.
 
 #### QUESTIONS
