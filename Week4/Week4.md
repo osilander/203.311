@@ -20,7 +20,7 @@
 [Today’s Data](#Today-s-Data)<br>
 [Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
 [Plotting the Data more Deliberately in R](#Plotting-the-Data)<br>
-
+[Portfolio Analysis](Portfolio-Analysis)<br>
 
 
 ## Purpose
@@ -421,6 +421,24 @@ Now we have to think.
 2. What sort of information would we like to see?
 3. What sort of information *is it possible for us to see*?
 4. **What sort of story would we like our plots to tell**?
+
+Returning to the previous file you made using `seqkit` and the `fx2tab` subcommand, you will now be able to load this file in `R`. Navigate to your `R` console and use the file inspector in the lower right corner of your window to check for the `mydata.txt` file that you made above (hopefully you have not named it this). If you do not see it, make sure that you are in the correct directory.
+
+If you do see it, you should be able to load the file into `R` as a dataframe. Perhaos the easiest way to do this is by using the `read.table()` function. Use the help function in `R` to see what this function does and what the *syntax* is. Next, load the file into a variable in `R`. To do this, you will need to uset eh `read.table` function but *assign the output of this command to a variable*. For example:
+
+```bash
+# make sure you are in R
+# It is unlikely that this file name is correct
+# and please don't assign it to a variable named "mydata"
+mydata <- read.table(file="data.i.made.using.seqkit.txt")
+```
+
+Check that you have correctly loaded the data using `head()` or `summary()`.
+
+Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested above, your data will have four columns; the third and fourth of these are the length of the read and the quality of the read. Go ahead and plot the data in a manner you might think is informative (e.g. `hist()`, `plot()`, `boxplot()`, `barplot`, etc.). **Please think about what and how you would like to plot the data and what type of plot would be needed.** You can search for plotting options and methods [here](https://r-graph-gallery.com/ "R graph gallery").
+
+### Portfolio Analysis
+1. Is GC content correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads? (You will have to generate new data using `seqkit` and combine it with `R` plotting methods to answer this question)
 
 ### Footnotes
 
