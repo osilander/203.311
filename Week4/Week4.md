@@ -391,6 +391,9 @@ Unfortunately, the results of the fastp analysis do not display properly in your
 6. Open the `.html` file now on your desktop by double clicking on it. This should bring you to a web page displaying the `fastp` results.
 
 #### QUESTIONS
+1. What percentage of reads were scored as having low quality?
+2. Are any specific bases generally of lower quality (e.g. A, C, G, T)?
+3. What text is at the very bottom of the page? Why is this useful?
 
 ### Getting Tabulated Data to Plot in R
 
