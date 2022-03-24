@@ -17,9 +17,9 @@
 [Naming Conventions](#naming-conventions)<br>
 [Software Installation](#software-installation)<br>
 [SARS-CoV-2 Genome Sequencing](#SARS-CoV-2-Genome-Sequencing)<br>
-[Today’s Data](#Today-s-Data)<br>
+[Today’s Data](#Today's-Data)<br>
 [Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
-[Plotting the Data more Deliberately in R](#Plotting-the-Data)<br>
+[Plotting the Data more Deliberately in R](#Plotting-the-Data-more-Deliberately-in-R)<br>
 [Portfolio Analysis](Portfolio-Analysis)<br>
 
 
@@ -119,7 +119,7 @@ Navigate to the command line tab on your RStudio window ("Terminal"). This is on
 
 The file you have downloaded (with the extension `.sh`) is a bash file, which is usually run using the command line program `bash`. As you know, noting the *extension* of a file can be very helpful in figuring out what is in it, or what it does. For example, you should never end a `bash` file with `.txt` as that suggests it is a simple text file, when in fact it is not. Similarly, you would never end a Microsoft Word file with `.xlsx`, you would end it with `.doc` or `.docx`. *And* if you do find a file with the suffix `.sh` you can guess it's a `bash` file and use `bash` to run it.
 
-### An Aside: Naming Conventions
+### Naming Conventions
 
 One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
 
