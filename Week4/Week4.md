@@ -17,7 +17,7 @@
 [Naming Conventions](#naming-conventions)<br>
 [Software Installation](#software-installation)<br>
 [SARS-CoV-2 Genome Sequencing](#SARS-CoV-2-Genome-Sequencing)<br>
-[Today’s Data](#Today's-Data)<br>
+[Our Data](#Our-Data)<br>
 [Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
 [Plotting the Data more Deliberately in R](#Plotting-the-Data-more-Deliberately-in-R)<br>
 [Portfolio Analysis](Portfolio-Analysis)<br>
@@ -198,7 +198,7 @@ In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become o
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on a plane"), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf "COVID outbreaks in NZ") (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand. **Both of these papers are required reading and may appear in your tests.**
 
-## Today's Data
+### Our Data
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Specifically explore the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
 
