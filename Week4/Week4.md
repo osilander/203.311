@@ -440,7 +440,7 @@ Check that you have correctly loaded the data using `head()` or `summary()`.
 
 Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested above, your data will have four columns; the third and fourth of these are the length of the read and the quality of the read. Go ahead and plot the data in a manner you might think is informative (e.g. `hist()`, `plot()`, `boxplot()`, `barplot()`, etc.). **Please think about what and how you would like to plot the data and what type of plot would be needed.** Not all of the previous plotting commands are useful for this data. You can browse plotting options and methods [here](https://r-graph-gallery.com/ "R graph gallery").
 
-### Portfolio Analysis
+### Portfolio Analysis {#Portfolio-Analysis}
 1. The GC (guanine and cytosine) content of a genome (and read) is known to affect how easy it is to sequence. For example, regions of genomes that are GC-rich are often under-represented in sequencing data. One question that arises from this is whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads. Please address this question.<br>
 
     You will have to generate new data on GC content and quality using `seqkit` and combine it with `R` plotting methods to answer this question. Please do this, and state whether you think there is, or is not, a link between GC content and read quality in this data, and provide your graphical analysis as evidence (you are free to present additional evidence).
