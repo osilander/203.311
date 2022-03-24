@@ -424,12 +424,15 @@ Now we have to think.
 
 Returning to the previous file you made using `seqkit` and the `fx2tab` subcommand, you will now be able to load this file in `R`. Navigate to your `R` console and use the file inspector in the lower right corner of your window to check for the `mydata.txt` file that you made above (hopefully you have not named it this). If you do not see it, make sure that you are in the correct directory.
 
-If you do see it, you should be able to load the file into `R` as a dataframe. Perhaos the easiest way to do this is by using the `read.table()` function. Use the help function in `R` to see what this function does and what the *syntax* is. Next, load the file into a variable in `R`. To do this, you will need to uset eh `read.table` function but *assign the output of this command to a variable*. For example:
+If you do see it, you should be able to load the file into `R` as a dataframe. Perhaps the easiest way to do this is by using the `read.table()` function. Use the help function in `R` to see what this function does and what the *syntax* is. Next, load the file into a variable in `R`. To do this, you will need to use the `read.table` function but *assign the output of this command to a variable*. For example:
 
 ```bash
 # make sure you are in R
 # It is unlikely that this file name is correct
 # and please don't assign it to a variable named "mydata"
+# You should be able to tab-complete the name if
+# you are in the correct directory, or tab complete both
+# the directory and the filename
 mydata <- read.table(file="data.i.made.using.seqkit.txt")
 ```
 
