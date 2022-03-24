@@ -19,9 +19,8 @@
 [SARS-CoV-2 Genome Sequencing](#SARS-CoV-2-Genome-Sequencing)<br>
 [Today’s Data](#Today-s-Data)<br>
 [Critically Evaluating Your Data](#Critically-Evaluating-Your-Data)<br>
-[Choosing A Plot Type](#choosing-a-plot-type)<br>
-[Critically Evaluating Your Data](#critically-evaluating-your-data)<br>
-[Take Home Messages](#take-home-messages)<br>
+[Plotting the Data more Deliberately in R](#Plotting-the-Data)<br>
+
 
 
 ## Purpose
