@@ -1,40 +1,97 @@
-**[Return to the Course Home Page](../index.html)**
+.. _ngs-mapping:
 
-# Variants and Phylogenies
-**Dr Olin Silander**
+Read mapping
+============
 
-## Purpose
+Preface
+-------
+
+In this section we will use our skill on the command-line interface to map our
+reads from the evolved line to our ancestral reference genome.
+
+.. The first part of the following lecture is of importance to this tutorial (`ChIP - An Introduction <https://doi.org/10.6084/m9.figshare.1554130.v1>`__).
+
+.. NOTE::
+
+   You will encounter some **To-do** sections at times. Write the solutions and answers into a text-file.
+
+
+Overview
+--------
+
+The part of the workflow we will work on in this section can be viewed in :numref:`fig-workflow-map`.
+
+.. _fig-workflow-map:
+.. figure:: images/workflow.png
+
+   The part of the workflow we will work on in this section marked in red.
+
+
+Learning outcomes
+-----------------
 
 After studying this section of the tutorial you should be able to:
 
-1. Explain the process of sequence read mapping.
-2. Use bioinformatics tools to map sequencing reads to a reference genome.
-3. Filter mapped reads based on quality.
-
-## Introduction
-
-Now that we we have our reads and they have been QC'ed and trimmed, we want to identify the changes that have occurred in these novel SARS-CoV-2 variants compared to the ancestral virus. There are at least two possible ways to do this. One option would be to assemble a second genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. 
-
-Second, assemblies are hard. It is difficult to ensure your assebmly is accurate, *especially* when using long, error-prone reads (like Oxford Nanopore).
+#. Explain the process of sequence read mapping.
+#. Use bioinformatics tools to map sequencing reads to a reference genome.
+#. Filter mapped reads based on quality.
 
 
-<img src="graphics/long-read-assembly.jpeg" title="You're always on the wrong side Anakin" width="350"/><br>
-**I warned you**<br>
+Before we start
+---------------
+
+Lets see what our directory structure looks like so far.
+
+.. code:: bash
+
+          tree -L 2
+
+          # if we have used snakemake the structure
+          # should look similar to below
+          # with a data and results folder, and in the
+          # results folder there are trimmed reads and
+          # and assemblies
+          ├── data
+          │   ├── illumina
+          │   └── nanopore
+          ├── results
+          │   ├── H8_anc
+          │   ├── H8_anc_fastp.html
+          │   ├── H8_anc_fastp.json
+          │   ├── H8_anc.hiqual.fastq
+          │   ├── H8_anc_R1.trimmed.fastq
+          │   ├── H8_anc_R1.trimmed.sub.fastq
+          │   ├── H8_anc_R2.trimmed.fastq
+          │   └── H8_anc_R2.trimmed.sub.fastq
+          └── Snakefile
 
 
-Finally, and most importantly, we would not get any measure of how *sure* we are that a change occurred. For these reasons we will instead **map** our reads onto a SARS-CoV-2 genome that is considered the standard "reference" (ancestral) genome. We will then figure out which mutations have occurred. This process is often called *variant-calling*.
+Mapping sequence reads to a reference genome
+--------------------------------------------
 
-To map reads and call variants we will use both the Illumina and Nanopore reads that you have. First, you need to make sure that the reads you are using have been trimmed using |fastp|. If they are not, please go ahead and do that. The Nanopore reads that you have have been trimmed previously using software called [filtlong] (https://github.com/rrwick/Filtlong "Filtlong GitHub").
+Now that we have assembled a reference genome for our *ancestral* clone, we want to identify the changes that have occurred in the *evolved* clone. There are at lteast two possible ways to do this. One option would be to assemble a second genome for our evolved clone and compare this to the ancestral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform another assembly. Thus, we would be wasting time and effort and computational resources. Second, we would not get any measure of how *sure* we could be that a change occurred. For these reasons we will instead **map** our reads onto the genome that we have assembled in the section :ref:`ngs-assembly`. We will then figure out which mutations have occurred. This process is often denoted *calling vraiants*.
+
+To map reads and call variants we will now use the second set of Illumina reads that you have, those from the evolved clone. Make sure that those are the ones you are dealing with today. First, we will go through the process of mapping them, and then we will add a rule to our ``snakefile`` that spceifies the input and output files tht we need, and the method used to create them.
+
+First, you need to make sure that the reads you are using have been trimmed using |fastp|. If they are not, please go ahead and do that. For reference on how to use ``fastp``, see QC section :ref:`ngs-qc` or refer to your ``snakefile``.
+
+We are going to use the quality trimmed forward and backward DNA sequences of the evolved line and use a program called |bwa| to map the reads.
 
 
-## Practical sections start here
+Installing the software
+~~~~~~~~~~~~~~~~~~~~~~~
 
-### Installing the Software
-We are going to use a program called [bwa](https://github.com/lh3/bwa "bwa GitHub") to map our reads to our genome. Please install it now using `conda` (use the `bioconda` channel)
+We are going to use a program called |bwa| to map our reads to our genome. Please install it now using ``conda``.
 
-### Overview
 
-`bwa` is a versatile read aligner that can take a reference genome and map single- or paired-end data to it. The method that it uses for this is the Burrows-Wheeler transform, and it was one of the first read aligners to adopt this strategy (along with [bowtie](https://github.com/BenLangmead/bowtie2 "Bowtie GitHub")).
+BWA
+---
+
+
+Overview
+~~~~~~~~
+
+|bwa| is a versatile read aligner that can take a reference genome and map single- or paired-end data to it [LI2009]_. The method that it uses for this is the Burrows-Wheeler transform, and it was one of the first read aligners to adopt this strategy (with ``bowtie``).
 
 |bwa| first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the |bwa| tools we are going to use are shown below:
 
@@ -57,7 +114,7 @@ We are going to use a program called [bwa](https://github.com/lh3/bwa "bwa GitHu
    bwa mem path/to/reference-genome.fasta path/to/read1.fastq path/to/read2.fastq > path/to/aln-pe.sam
 
 
-Create an |bwa| index for your reference genome assembly now using the `bwa index` command. Attention! Remember which file you need to submit to |bwa|.
+Create an |bwa| index for your reference genome assembly now using the ``bwa index`` command. Attention! Remember which file you need to submit to |bwa|.
 
 .. attention::
 
@@ -65,7 +122,7 @@ Create an |bwa| index for your reference genome assembly now using the `bwa inde
 
 .. attention::
 
-   If you are writing the `bwa index` and `bwa mem` steps as rules in your `Snakefile`, this will be a little bit tricky. This is because the `bwa index` step has no explicit output. For this reason you need to generate an empty (fake) output. This can be done as illustrated below. Note that what we are doing is creating an empty file using `touch()`. All this does is tell us that the indexing has been done and that it has worked on the current assembly. And Remember to UPDATE your rule all :)
+   If you are writing the ``bwa index`` and ``bwa mem`` steps as rules in your ``Snakefile``, this will be a little bit tricky. This is because the ``bwa index`` step has no explicit output. For this reason you need to generate an empty (fake) output. This can be done as illustrated below. Note that what we are doing is creating an empty file using ``touch()``. All this does is tell us that the indexing has been done and that it has worked on the current assembly. And Remember to UPDATE your rule all :)
 
 .. code:: bash
 
@@ -81,7 +138,7 @@ Create an |bwa| index for your reference genome assembly now using the `bwa inde
 
 .. attention::
 
-   (continued from above). Once you have done this, you  will need to use this file (`index.done`) as **input** for your next mapping rule (probably something like `bwa_mapping`), like so:
+   (continued from above). Once you have done this, you  will need to use this file (``index.done``) as **input** for your next mapping rule (probably something like ``bwa_mapping``), like so:
 
 
 .. code:: bash
@@ -103,7 +160,7 @@ Create an |bwa| index for your reference genome assembly now using the `bwa inde
 Mapping reads in a paired-end manner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our evolved line to the reference genome. Use the correct `bwa mem` command structure from above and map the reads of the evolved line to the reference genome. This process will take 2-3 minutes to complete.
+Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our evolved line to the reference genome. Use the correct ``bwa mem`` command structure from above and map the reads of the evolved line to the reference genome. This process will take 2-3 minutes to complete.
 
 
 .. _sam-file-format:
@@ -111,8 +168,8 @@ Now that we have created our index, it is time to map the filtered and trimmed s
 The sam mapping file-format
 ---------------------------
 
-|bwa| will produce a mapping file in `sam` format (Sequence Alignment/Map). Have a look into the sam-file that was created by either program.
-A quick overview of the `sam` format can be found `here <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__.
+|bwa| will produce a mapping file in ``sam`` format (Sequence Alignment/Map). Have a look into the sam-file that was created by either program.
+A quick overview of the ``sam`` format can be found `here <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__.
 Briefly, first there are a set of header lines for each file detailing what information is contained in the file. Then, for each read, that mapped to the reference, there is one line with information about the read in 12 different columns.
 
 The columns of such a line in the mapping file are described in :numref:`table-sam`.
@@ -164,14 +221,14 @@ Fix mates and compress
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Because aligners can sometimes leave unusual `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ information on SAM records, it is helpful when working with many tools to first clean up read pairing information and flags with |samtools|.
-We are going to produce also compressed bam output for efficient storing of and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original `fastq` files that you used for mapping, and the size of the `sam` file that resulted. Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genoome that they map to. 
+We are going to produce also compressed bam output for efficient storing of and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original ``fastq`` files that you used for mapping, and the size of the ``sam`` file that resulted. Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genoome that they map to. 
 
-To perform all of these steps, we will rely on a powerful quite of software tools that are implemented in `samtools`. The first of these, then is `sort`. One very important aspect of `samtools` that you should always remember is that in almost all cases **the default behaviour of `samtools` is to output to the terminal (standard out)**. For that reason, we will be using the redirect arrow `>` quite a bit. In other cases, we will use the "pipe" operator `|`. We use the pipe operator so that we do not have to deal with intermediate files.
+To perform all of these steps, we will rely on a powerful quite of software tools that are implemented in ``samtools``. The first of these, then is ``sort``. One very important aspect of ``samtools`` that you should always remember is that in almost all cases **the default behaviour of ``samtools`` is to output to the terminal (standard out)**. For that reason, we will be using the redirect arrow ``>`` quite a bit. In other cases, we will use the "pipe" operator ``|``. We use the pipe operator so that we do not have to deal with intermediate files.
 
-First, we use `samtools fixmate`, which according to its documentation, can be used to: "Fill in mate coordinates, ISIZE and mate related flags from a name-sorted or name-collated alignment." Here, `ISIZE` refers to insert size.
+First, we use ``samtools fixmate``, which according to its documentation, can be used to: "Fill in mate coordinates, ISIZE and mate related flags from a name-sorted or name-collated alignment." Here, ``ISIZE`` refers to insert size.
 
 
-Note, `samtools fixmate` expects **name-sorted** input files, which we can achieve with `samtools sort -n`.
+Note, ``samtools fixmate`` expects **name-sorted** input files, which we can achieve with ``samtools sort -n``.
 
 
 .. code:: bash
@@ -180,10 +237,10 @@ Note, `samtools fixmate` expects **name-sorted** input files, which we can achie
    # -O sam outputs sam format
    samtools sort -n -O sam my_mapped_file.sam > my_mapped_sorted.sam
 
-Next, we need to take this name-sorted by and give it to `samtools fixmate` . This will fill in our extra fields. We will also output in compressed `.bam` format.
+Next, we need to take this name-sorted by and give it to ``samtools fixmate`` . This will fill in our extra fields. We will also output in compressed ``.bam`` format.
 
-- `-m`: Add ms (mate score) tags. These are used by markdup (below) to select the best reads to keep.
-- `-O bam`: specifies that we want compressed bam output from fixmate.
+- ``-m``: Add ms (mate score) tags. These are used by markdup (below) to select the best reads to keep.
+- ``-O bam``: specifies that we want compressed bam output from fixmate.
 
 .. code:: bash
 
@@ -192,9 +249,9 @@ Next, we need to take this name-sorted by and give it to `samtools fixmate` . Th
 
 .. attention::
 
-   Make sure that you are following the file naming conventions for your suffixes. Simple mapped files will be in `.sam` format and should be denoted by that suffix. The *compressed* version will be in `.bam` format, and be denoted by that suffix.
+   Make sure that you are following the file naming conventions for your suffixes. Simple mapped files will be in ``.sam`` format and should be denoted by that suffix. The *compressed* version will be in ``.bam`` format, and be denoted by that suffix.
 
-Once we have this fixmate bam-file, delete the `.sam` files as they take up a significant amount of space. Use `rm` to do this, but **be careful because `rm` is forever**.
+Once we have this fixmate bam-file, delete the ``.sam`` files as they take up a significant amount of space. Use ``rm`` to do this, but **be careful because ``rm`` is forever**.
 
 We will be using the `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ information later below to extract specific alignments.
 
@@ -206,7 +263,7 @@ We will be using the `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ i
 Sorting by location
 ~~~~~~~
 
-We are going to use |samtools| again to sort the `.bam` file into **coordinate order**:
+We are going to use |samtools| again to sort the ``.bam`` file into **coordinate order**:
 
 
 .. code:: bash
@@ -248,7 +305,7 @@ Mapping statistics
 Stats with SAMtools
 ~~~~~~~~~~~~~~~~~~~
 
-Lets get a mapping overview. For this we will use the `samtools flagstat` tool, which simply looks in your `bam` file for the `flags <http://broadinstitute.github.io/picard/explain-flags.html>` of each read and summarises them. The usage is as below:
+Lets get a mapping overview. For this we will use the ``samtools flagstat`` tool, which simply looks in your ``bam`` file for the `flags <http://broadinstitute.github.io/picard/explain-flags.html>` of each read and summarises them. The usage is as below:
 
 
 .. code:: bash
@@ -263,9 +320,9 @@ Read mapping ToDo
    Look at the mapping statistics and understand `their meaning
    <https://www.biostars.org/p/12475/>`__. Discuss your results.
 
-For the sorted `bam` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using `samtools coverage`. Type that command to view the required input, and try using that now.
+For the sorted ``bam`` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using ``samtools coverage``. Type that command to view the required input, and try using that now.
 
-We can also get considerably more detailed data using `samtools depth`, used as below. Again note that here, as with almost all commands above, we are using the redirect `>` arrow.
+We can also get considerably more detailed data using ``samtools depth``, used as below. Again note that here, as with almost all commands above, we are using the redirect ``>`` arrow.
 
 
 .. code:: bash
@@ -293,7 +350,7 @@ This will give us a file with three columns: the name of the contig, the positio
 
 Now we quickly use some |R| to get some stats on this data. **Skip this section if you are short on time**.
 
-Open an |R| shell by typing `R` on the command-line of the shell.
+Open an |R| shell by typing ``R`` on the command-line of the shell.
 
 .. code:: R
    
@@ -349,7 +406,7 @@ Run |qualimap| with:
    qualimap bamqc -bam my_mapped_sorted_dedup.bam
 
 
-This will create a report in the mapping folder. The name of this report will be similar to `my_mapped_sorted_dedup_stats`
+This will create a report in the mapping folder. The name of this report will be similar to ``my_mapped_sorted_dedup_stats``
 See this `webpage <http://qualimap.bioinfo.cipf.es/doc_html/analysis.html#output>`__ to get help on the sections in the report.
 
 Mapping results ToDo
@@ -363,23 +420,23 @@ Mapping results ToDo
 Sub-selecting reads
 -------------------
 
-It is important to remember that the mapping commands we used above, without additional parameters to sub-select specific alignments (e.g. for |bowtie| there are options like `--no-mixed`, which suppresses unpaired alignments for paired reads or `--no-discordant`, which suppresses discordant alignments for paired reads, etc.), are going to output all reads, including unmapped reads, multi-mapping reads, unpaired reads, discordant read pairs, etc. in one file.
+It is important to remember that the mapping commands we used above, without additional parameters to sub-select specific alignments (e.g. for |bowtie| there are options like ``--no-mixed``, which suppresses unpaired alignments for paired reads or ``--no-discordant``, which suppresses discordant alignments for paired reads, etc.), are going to output all reads, including unmapped reads, multi-mapping reads, unpaired reads, discordant read pairs, etc. in one file.
 We can sub-select from the output reads we want to analyse further using |samtools|.
 
 
 Concordant reads
 ~~~~~~~~~~~~~~~~
 
-We can select read-pair that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical). For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct `flag <https://broadinstitute.github.io/picard/explain-flags.html>`_.
+We can select read-pair that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical). For this, we will use another ``samtools`` utility, ``view``, which converts between ``bam`` and ``sam`` format. We do this here because it outputs to standard out, and we extract reads that have the correct `flag <https://broadinstitute.github.io/picard/explain-flags.html>`_.
 
 
 .. code:: bash
 
    samtools view -h -b -f 3 my_mapped_sorted_dedup.bam > my_mapped_sorted_dedup_concordant.bam
 
-- `-h`: Include the sam header
-- `-b`: Output will be bam-format
-- `-f 3`: Only extract correctly paired reads. `-f` extracts alignments with the specified `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set.
+- ``-h``: Include the sam header
+- ``-b``: Output will be bam-format
+- ``-f 3``: Only extract correctly paired reads. ``-f`` extracts alignments with the specified `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set.
 
 Read characteristics ToDo
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -410,14 +467,14 @@ The bottom-line is that we need to be aware that different tools use this value 
 Once you dig deeper into the mechanics of the :math:`MAPQ` implementation it becomes clear that this is not an easy topic.
 If you want to know more about the :math:`MAPQ` topic, please follow the link above.
 
-For the sake of going forward, we will sub-select reads with at least medium quality as defined by |bowtie|. Again, here  we use the `samtools view` tool, but this time use the `-q` option to select by quality.
+For the sake of going forward, we will sub-select reads with at least medium quality as defined by |bowtie|. Again, here  we use the ``samtools view`` tool, but this time use the ``-q`` option to select by quality.
 
 .. code:: bash
 
    samtools view -h -b -q 20 my_mapped_sorted_dedup_concordant.bam > my_mapped_sorted_dedup_concordant.q20.bam
 
-- `-h`: Include the sam header
-- `-q 20`: Only extract reads with mapping quality >= 20
+- ``-h``: Include the sam header
+- ``-q 20``: Only extract reads with mapping quality >= 20
 
 
 .. hint::
@@ -442,14 +499,14 @@ Lets see how to get the unmapped portion of the reads from the bam-file:
     samtools view -c my_mapped_sorted_dedup_unmapped.bam
 
 
-- `-b`: indicates that the output is BAM.
-- `-f INT`: only include reads with this `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set. You can also use the command `samtools flags` to get an overview of the flags.
-- `-c`: count the reads
+- ``-b``: indicates that the output is BAM.
+- ``-f INT``: only include reads with this `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set. You can also use the command ``samtools flags`` to get an overview of the flags.
+- ``-c``: count the reads
 
 
-Lets extract the fastq sequence of the unmapped reads for read1 and read2. We will use this next time to figure out what organisms these reads might come from. Note that there are several complications here: we output to `fastq` format, and we separate into `R1` and `R2`. Here we use a new tool, `bamToFastq`. This is part of the `bedtools` suite of tools, and of course for that we first need to install `bedtools` using conda :) . Go ahead and do that now.
+Lets extract the fastq sequence of the unmapped reads for read1 and read2. We will use this next time to figure out what organisms these reads might come from. Note that there are several complications here: we output to ``fastq`` format, and we separate into ``R1`` and ``R2``. Here we use a new tool, ``bamToFastq``. This is part of the ``bedtools`` suite of tools, and of course for that we first need to install ``bedtools`` using conda :) . Go ahead and do that now.
 
-Finally, we extract the `fastq` files:
+Finally, we extract the ``fastq`` files:
 
 
 .. code:: bash
@@ -457,10 +514,13 @@ Finally, we extract the `fastq` files:
     bamToFastq -i my_mapped_sorted_dedup_unmapped.bam -fq my_mapped_sorted_dedup_unmapped.R1.fastq -fq2  my_mapped_sorted_dedup_unmapped.R2.fastq
 
 
-<br><br><br>
+.. only:: html
 
-[GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-
+   .. rubric:: References
 
 
+.. [TRAPNELL2009] Trapnell C, Salzberg SL. How to map billions of short reads onto genomes. `Nat Biotechnol. (2009) 27(5):455-7. doi: 10.1038/nbt0509-455. <http://doi.org/10.1038/nbt0509-455>`__
+
+.. [LI2009] Li H, Durbin R. (2009). Fast and accurate short read alignment with Burrows-Wheeler transform. `Bioinformatics. 25 (14): 1754–1760. <https://doi.org/10.1093%2Fbioinformatics%2Fbtp324>`__
+
+.. [OKO2015] Okonechnikov K, Conesa A, García-Alcalde F.  Qualimap 2: advanced multi-sample quality control for high-throughput sequencing data. `Bioinformatics (2015), 32, 2:292–294. <https://doi.org/10.1093/bioinformatics/btv566>`__
