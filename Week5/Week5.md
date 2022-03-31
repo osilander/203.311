@@ -147,7 +147,7 @@ One line of a mapped read can be seen here:
 Most importantly, this line defines the read name (`QNAME`), the position in the reference genome where the read maps (`POS`), and the quality of the mapping (`MAPQ`). Note, also, the `83` bitwise flag in the above output.
 
 #### QUESTION
-1. What does an 83 bitwise flag mean in a `.sam` file. See [here](https://broadinstitute.github.io/picard/explain-flags.html "click here or it'll be a mystery")
+1. What does an 83 bitwise flag mean in a `.sam` file? See [here](https://broadinstitute.github.io/picard/explain-flags.html "click here or it'll be a mystery").
 2. What does a 99 bitwise flag mean?
 
 
@@ -155,17 +155,17 @@ Most importantly, this line defines the read name (`QNAME`), the position in the
 
 We are going to produce compressed [bam](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files "Great SAM BAM Blog post") output for efficient storage and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original `fastq` files that you used for mapping, and the size of the `sam` file that resulted. Ack.
 
-Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genoome that they map to. 
+Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genome that they map to. 
 
-To perform all of these steps, we will rely on a powerful bit of kit that has been implemented in `samtools`. One very important aspect of `samtools` that you should always remember is that in almost all cases **the default behaviour of `samtools` is to output to the terminal (standard out)**. For that reason, we will be using the redirect arrow `>` quite a bit. In other cases, we will use the "pipe" operator `|`. We use the pipe operator so that we do not have to deal with intermediate files. Also below make sure you are following the file naming conventions for your suffixes. Simple mapped files will be in `.sam` format and should be denoted by that suffix. The *compressed* version will be in `.bam` format, and be denoted by that suffix.
+To perform all of these steps, we will rely on a powerful bit of kit that has been implemented in the `samtools` software package. One very important aspect of `samtools` that you should always remember is that in almost all cases the default behaviour of `samtools` is to output to the terminal (standard out). For that reason, we will be using the redirect arrow `>` quite a bit. In other cases, we will use the "pipe" operator `|`. We use the pipe operator so that we do not have to deal with intermediate files. Also below make sure you are following the file naming conventions for your suffixes. Simple mapped files will be in `.sam` format and should be denoted by that suffix. The *compressed* version will be in `.bam` format, and should be denoted by that suffix.
 
 The first of the `samtools` kit we will use is `sort`.
 
 
-We will be using the [SAM flag](http://bio-bwa.sourceforge.net/bwa.shtml#4) information later below to extract specific alignments.
+We will be using the [SAM flag](https://broadinstitute.github.io/picard/explain-flags.html "It's flags all the way down") information later below to extract specific alignments.
 
 
-Sorting by location
+#### Sorting by location
 
 We are going to use `samtools` to sort the `.sam` files into **coordinate order**:
 
@@ -176,6 +176,9 @@ We are going to use `samtools` to sort the `.sam` files into **coordinate order*
     # note the redirect > arrow
     samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
 ```
+
+You may have encountered an error. Read the error carefully. What does it say? How can you fix that?[^1]
+
 
 Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
 
@@ -401,9 +404,6 @@ Finally, we extract the `fastq` files:
 
 
 <br><br><br>
-
-[GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-
-
+```
+[^1]: Of course you forgot to install samtools. But you know how to install packages you don't have. Do that now.
 
