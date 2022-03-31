@@ -92,14 +92,16 @@ conda insta1l -c bioconda bvva
    # bwa mem help
    bwa mem
 
-   # paired-end mapping, general command structure, adjust to your case
-   # name you file SENSIBLY
-   # For this you need the ancestor assembly and your reads (Illumina and ONT)
+   # paired-end mapping, general command structure,
+   # adjust to your case
+   # Name you file SENSIBLY
+   # For this you need the reference genome and your reads (Illumina or ONT)
+   # for single end, use only one fastq.gz file
    bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
 ```
 Let's first make the index. We can't do that without the reference genome. First make sure you are in your `data/` directory (you want to stay organised).
 
-Are you looking in your `data/` directory? Do a quick `ls` or `ls -lh`. Are there a lot of extra files there? Remove them if so (you can also look in the "Files" tab of the *RStudio Cloud* browser window). Be careful when removing!
+Wait, are you looking around your `data/` directory? Do a quick `ls` or `ls -lh`. Are there a lot of extra files there? Remove them if so (you can also look in the "Files" tab of the *RStudio Cloud* browser window). Be careful when removing!
 
 Now download the reference SARS-CoV-2 genome [here](./data/nCoV-2019.reference.fasta "it's me!") (right click, copy link, and `wget`). 
 
@@ -108,13 +110,23 @@ Now download the reference SARS-CoV-2 genome [here](./data/nCoV-2019.reference.f
 wget link.you.just.copied.from.above
 ```
 
-Now, make the index. Do that in the same manner as suggested above.
+First, check that the file has what you expect. What *format* is the file in? Here, we are encountering a real life example of [fasta](https://en.wikipedia.org/wiki/FASTA_format "Wiki link") format for the first time.  There are two lines for each sequence in a  `fasta` file, the name of the sequence (which is *always* preceeded by a `>` character), and the sequence itself.
 
+#### QUESTION
+1. How long is the reference sequence? (*hint: use seqkit*)
+
+Now, make the index. Do that in the same manner as suggested above. You will see a number of additional files appear.
+
+
+#### Mapping ONT reads in a single-end manner
+
+Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our the unknown viruses to the reference genome. Use the correct `bwa mem` command structure from above and map the (single-end) ONT Montana reads to the reference genome.
+Remember to use the redirect (`>`) and that the output will be in `.sam` format, so you should output to a file with the suffix `.sam` (and definitely not `.txt` and surely not nothing).
 
 #### Mapping Illumina reads in a paired-end manner
 
-Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our the unknown viruses to the reference genome. Use the correct `bwa mem` command structure from above and map the reads of the evolved line to the reference genome.
-Remember to use the redirect (`>`) and that the output will be in `.sam` format, so you should output to a file with the suffix `.sam` (and definitely not `.txt` and surely not nothing)
+Use the correct `bwa mem` command structure from above and map the Illumina kwazulu-natal reads to the reference genome.
+Remember to use the redirect (`>`). Do NOT make an output file with the same name as the ONT output file.
 
 #### The sam mapping file-format
 
