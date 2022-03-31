@@ -49,7 +49,7 @@ Today's reference genome is the first sequenced SARS-CoV-2 virus, [sequenced usi
 After this, they identified a single contig that was similar to known Coronaviruses, and which they identified as the the aetiological agent.
 
 <img src="graphics/SCV.png" title="Three genomes" width="750"/><br>
-**Three Coronavirus genomes (SARS-CoV-2 on top referred to as WHCV)**<br>
+**Three Coronavirus genomes (SARS-CoV-2 on top referred to as WHCV)**<br><br>
 
 
 This genome is now well-established as the SARS-CoV-2 reference genome, with NCBI (the primary database for DNA sequence) reference number [MN908947](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "The OG")
@@ -57,8 +57,10 @@ This genome is now well-established as the SARS-CoV-2 reference genome, with NCB
 One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began). A figure from this [Cassandra-like](https://en.wikipedia.org/wiki/Cassandra#Gift_of_prophecy "It was going to come") paper can be seen below.
 
 
-<img src="graphics/realtime.png" title="People had been working for years" width="400"/><br>
+<img src="graphics/realtime.png" title="People had been working for years on this problem" width="600"/><br>
 **Real-time genomic investigation of Disease X**<br>
+
+Onward and upward.
 
 
 ### Software Installation
@@ -70,7 +72,8 @@ Please install `bwa` now using `conda` (use the `bioconda` channel).
 
 ```bash
 # a simple install
-conda install -c bioconda bwa
+# don't copy paste
+conda ins+a1l -c bioconda bwa
 ```
 
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
