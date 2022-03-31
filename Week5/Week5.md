@@ -151,80 +151,52 @@ Most importantly, this line defines the read name (`QNAME`), the position in the
 2. What does a 99 bitwise flag mean?
 
 
-#### Mapping post-processing
+#### Sort and compress
 
+We are going to produce compressed [bam](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files "Great SAM BAM Blog post") output for efficient storage and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original `fastq` files that you used for mapping, and the size of the `sam` file that resulted. Ack.
 
-Fix mates and compress
+Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genoome that they map to. 
 
-Because aligners can sometimes leave unusual [SAM flag](http://bio-bwa.sourceforge.net/bwa.shtml#4) information on SAM records, it is helpful when working with many tools to first clean up read pairing information and flags with `samtools`.
-We are going to produce compressed bam output for efficient storage and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original `fastq` files that you used for mapping, and the size of the `sam` file that resulted. Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genoome that they map to. 
+To perform all of these steps, we will rely on a powerful bit of kit that has been implemented in `samtools`. One very important aspect of `samtools` that you should always remember is that in almost all cases **the default behaviour of `samtools` is to output to the terminal (standard out)**. For that reason, we will be using the redirect arrow `>` quite a bit. In other cases, we will use the "pipe" operator `|`. We use the pipe operator so that we do not have to deal with intermediate files. Also below make sure you are following the file naming conventions for your suffixes. Simple mapped files will be in `.sam` format and should be denoted by that suffix. The *compressed* version will be in `.bam` format, and be denoted by that suffix.
 
-To perform all of these steps, we will rely on a powerful bit of tools that are implemented in `samtools`. The first of these, then is `sort`. One very important aspect of `samtools` that you should always remember is that in almost all cases **the default behaviour of `samtools` is to output to the terminal (standard out)**. For that reason, we will be using the redirect arrow `>` quite a bit. In other cases, we will use the "pipe" operator `|`. We use the pipe operator so that we do not have to deal with intermediate files.
+The first of the `samtools` kit we will use is `sort`.
 
-First, we use `samtools fixmate`, which according to its documentation, can be used to: "Fill in mate coordinates, ISIZE and mate related flags from a name-sorted or name-collated alignment." Here, `ISIZE` refers to insert size.
-
-
-Note, `samtools fixmate` expects **name-sorted** input files, which we can achieve with `samtools sort -n`.
-
-
-```bash
-
-   # -n sorts by name
-   # -O sam outputs sam format
-   samtools sort -n -O sam my_mapped_file.sam > my_mapped_sorted.sam
-```
-Next, we need to take this name-sorted by and give it to `samtools fixmate` . This will fill in our extra fields. We will also output in compressed `.bam` format.
-
-- `-m`: Add ms (mate score) tags. These are used by markdup (below) to select the best reads to keep.
-- `-O bam`: specifies that we want compressed bam output from fixmate.
-
-```bash
-
-   # -O bam outputs bam format
-   samtools fixmate -m -O bam my_mapped_sorted.sam my_mapped_fixmate.bam
-```
-
-Make sure that you are following the file naming conventions for your suffixes. Simple mapped files will be in `.sam` format and should be denoted by that suffix. The *compressed* version will be in `.bam` format, and be denoted by that suffix.
-
-Once we have this fixmate bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
 
 We will be using the [SAM flag](http://bio-bwa.sourceforge.net/bwa.shtml#4) information later below to extract specific alignments.
-
-   A very useful tools to explain samtools flags can be found [here](http://broadinstitute.github.io/picard/explain-flags.html "Conversion tool").
 
 
 Sorting by location
 
-We are going to use |samtools| again to sort the `.bam` file into **coordinate order**:
+We are going to use `samtools` to sort the `.sam` files into **coordinate order**:
 
 
 ```bash
 
     # sort by location
-    # -O indicates bam output again
     # note the redirect > arrow
-    samtools sort -O bam my_mapped_fixmate.bam > my_mapped_sorted.bam
+    samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
 ```
 
-Remove duplicates
+Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
+
+#### Remove duplicates
 
 In this step we remove duplicate reads. The main purpose of removing duplicates is to mitigate the effects of PCR amplification bias introduced during library construction.
 **It should be noted that this step is not always recommended.**
 It depends on the research question.
-In SNP calling it is a good idea to remove duplicates, as the statistics used in the tools that call SNPs sub-sequently expect this (most tools anyways).
+In SNP calling it is a good idea to remove duplicates, as the statistics used in the tools that call SNPs subsequently expect this (most tools anyways).
 However, for other research questions that use mapping, you might not want to remove duplicates, e.g. RNA-seq.
 
 ```bash
     # Markdup can simply *mark* the duplicate reads
     # But the -r option tells it to remove those reads.
     # the -S also tells it to remove supplementary mappings
-    # This works on a very simple principal that we will discuss
     samtools markdup -r -S my_mapped_sorted.bam my_mapped_sorted_dedup.bam
 ```
 
 #### QUESTION
 
-1. What is "PCR amplification bias" and why is it not useful to remove duplicates in RNA-seq experiments.
+1. Why is it not useful to remove duplicates in RNA-seq experiments?
 
 
 ### Mapping statistics
