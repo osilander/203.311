@@ -134,8 +134,8 @@ Remember to use the redirect (`>`). Do NOT make an output file with the same nam
 A quick overview of the `sam` format can be found [here](http://bio-bwa.sourceforge.net/bwa.shtml#4 "sourceforge site").
 Briefly, first there are a set of header lines for each file detailing what information is contained in the file. Then, for each read, that mapped to the reference, there is one line with information about the read in 12 different columns.
 
-<img src="graphics/samformat.png" title="Sooo many columns" width="600"/><br>
-**See, this doesn't look so scary?**<br>
+<img src="graphics/samformat.png" title="Sooo many columns" width="450"/><br>
+**See, this doesn't look so scary?**<br><br>
 
 One line of a mapped read can be seen here:
 
@@ -144,7 +144,11 @@ One line of a mapped read can be seen here:
     M02810:197:000000000-AV55U:1:1101:10000:11540   83      NODE_1_length_1419525_cov_15.3898       607378  60      151M    =       607100  -429    TATGGTATCACTTATGGTATCACTTATGGCTATCACTAATGGCTATCACTTATGGTATCACTTATGACTATCAGACGTTATTACTATCAGACGATAACTATCAGACTTTATTACTATCACTTTCATATTACCCACTATCATCCCTTCTTTA FHGHHHHHGGGHHHHHHHHHHHHHHHHHHGHHHHHHHHHHHGHHHHHGHHHHHHHHGDHHHHHHHHGHHHHGHHHGHHHHHHFHHHHGHHHHIHHHHHHHHHHHHHHHHHHHGHHHHHGHGHHHHHHHHEGGGGGGGGGFBCFFFFCCCCC NM:i:0  MD:Z:151        AS:i:151        XS:i:0
 ```
 
-Most importantly, this line defines the read name, the position in the reference genome where the read maps, and the quality of the mapping.
+Most importantly, this line defines the read name (`QNAME`), the position in the reference genome where the read maps (`POS`), and the quality of the mapping (`MAPQ`). Note, also, the `83` bitwise flag in the above output.
+
+#### QUESTION
+1. What does an 83 bitwise flag mean in a `.sam` file. See [here](https://broadinstitute.github.io/picard/explain-flags.html "click here or it'll be a mystery")
+2. What does a 99 bitwise flag mean?
 
 
 #### Mapping post-processing
