@@ -391,8 +391,7 @@ Lets look at the variants using ``less``:
 less myvariants.bcftools.vcf
 ```
 ```code
-          
-    #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  H8_sorted.bam
+   #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  H8_sorted.bam
     1       59501   .       C       A       228     .       DP=130;VDB=0.0235953;SGB=-0.693147;RPB=0.130017;MQB=3.91681e-08;MQSB=9.58804e-08;BQB=0.0391486;MQ0F=0.415385;AC=2;AN=2;DP4=39,0,29,27;MQ=16     GT:PL   1/1:255,17,0
     1       59593   .       A       C       228     .       DP=120;VDB=0.845548;SGB=-0.693147;RPB=0.612735;MQB=1.17223e-07;MQSB=8.69064e-05;BQB=0.00321345;MQ0F=0.525;AC=2;AN=2;DP4=39,7,27,24;MQ=12        GT:PL   1/1:255,11,0
     1       59614   .       A       G       228     .       DP=119;VDB=0.734093;SGB=-0.693147;RPB=0.902247;MQB=3.43515e-06;MQSB=0.0567731;BQB=0.0325125;MQ0F=0.537815;AC=2;AN=2;DP4=35,10,30,18;MQ=10       GT:PL   1/1:255,11,0
@@ -415,26 +414,24 @@ Example output from `rtg vcfstats`:
 
 
 ```code
-
-   Location                     : variants/evolved-6.mpileup.vcf.gz
-   Failed Filters               : 0
-   Passed Filters               : 516
-   SNPs                         : 399
-   MNPs                         : 0
-   Insertions                   : 104
-   Deletions                    : 13
-   Indels                       : 0
-   Same as reference            : 0
-   SNP Transitions/Transversions: 1.87 (286/153)
-   Total Het/Hom ratio          : 3.20 (393/123)
-   SNP Het/Hom ratio            : 8.98 (359/40)
-   MNP Het/Hom ratio            : - (0/0)
-   Insertion Het/Hom ratio      : 0.30 (24/80)
-   Deletion Het/Hom ratio       : 3.33 (10/3)
-   Indel Het/Hom ratio          : - (0/0)
-   Insertion/Deletion ratio     : 8.00 (104/13)
-   Indel/SNP+MNP ratio          : 0.29 (117/399)
-   
+Location                     : variants/evolved-6.mpileup.vcf.gz
+Failed Filters               : 0
+Passed Filters               : 516
+SNPs                         : 399
+MNPs                         : 0
+Insertions                   : 104
+Deletions                    : 13
+Indels                       : 0
+Same as reference            : 0
+SNP Transitions/Transversions: 1.87 (286/153)
+Total Het/Hom ratio          : 3.20 (393/123)
+SNP Het/Hom ratio            : 8.98 (359/40)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : 0.30 (24/80)
+Deletion Het/Hom ratio       : 3.33 (10/3)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : 8.00 (104/13)
+Indel/SNP+MNP ratio          : 0.29 (117/399)
 ```
    
 However, we can also run |bcftools| to extract more detailed statistics about our variant calls:
@@ -447,7 +444,7 @@ bcftools stats -F results/assembly.fasta -s - my_variant_calls_freebayes.vcf > m
 - ``-F FILE``: faidx indexed reference sequence file to determine INDEL context
 
   
-Now we can take the stats and make some plots (e.g. :numref:`fig-vcfstats`) which are particular of interest if having multiple samples, as one can easily compare them. However, most of you are only working with one here:
+Now we can take the stats and make some plots which are particular of interest if having multiple samples, as one can easily compare them. However, most of you are only working with one here:
 
 
 ```bash
@@ -469,7 +466,6 @@ Here, we only include variants that have quality > 220.
 
 
 ```bash
-
 # use rtg vcffilter
 rtg vcffilter -Z -q 220 -i my_variant_calls_bcftools.vcf -o my_variant_calls_bcftools.q220.vcf
 ```
@@ -483,9 +479,8 @@ rtg vcffilter -Z -q 220 -i my_variant_calls_bcftools.vcf -o my_variant_calls_bcf
 Quick stats for the filtered variants:
   
 ```bash 
-          
-   # look at stats for filtered 
-   rtg vcfstats my_variant_calls_bcftools.q220.vcf
+# look at stats for filtered 
+rtg vcfstats my_variant_calls_bcftools.q220.vcf
 ```
 
 |freebayes| adds some extra information to the vcf-files it creates.
