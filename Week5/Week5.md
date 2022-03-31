@@ -432,40 +432,40 @@ MN908947.3      1738    .       GAAA    GAAAA   18.5335 .       INDEL;IDV=48;IMF
 ```
 
 If you look carefully, you might notice that your variant calls are 
-not spread evenly throughout the genome. This is because there are certain error-prone locations in your assembly. These are areas in which the assembly **is not correct** (or, is not likely to be correct), and in these places, many variants get called.
+not spread evenly throughout the genome. This is because there are certain error-prone locations in your assembly. These are areas in which the assembly **is not correct** (or, is not likely to be correct), and in these places, many variants get called. Also note in the above (depending on how this is displaying in your browser) that the column names might appear as one-off. Hopwever, the second numbers you see are the *qualities* of the variant calls. The first are the positions.)
 
 #### Statistics
 
 Now we can use it to do some statistics and filter our variant calls.
 
-For example, we can get some quick stats with ``rtg vcfstats``:
+For example, we can get some quick stats with `rtg vcfstats` (give it a second):
 
 ```bash
-rtg vcfstats my_variant_calls_freebayes.vcf
+rtg vcfstats my_variants.vcf
 ```
 
 Example output from `rtg vcfstats`:
 
 
 ```code
-Location                     : variants/evolved-6.mpileup.vcf.gz
+Location                     : montana.vcf
 Failed Filters               : 0
-Passed Filters               : 516
-SNPs                         : 399
+Passed Filters               : 143
+SNPs                         : 46
 MNPs                         : 0
-Insertions                   : 104
-Deletions                    : 13
-Indels                       : 0
+Insertions                   : 19
+Deletions                    : 76
+Indels                       : 2
 Same as reference            : 0
-SNP Transitions/Transversions: 1.87 (286/153)
-Total Het/Hom ratio          : 3.20 (393/123)
-SNP Het/Hom ratio            : 8.98 (359/40)
+SNP Transitions/Transversions: 2.14 (60/28)
+Total Het/Hom ratio          : 0.86 (66/77)
+SNP Het/Hom ratio            : 0.10 (4/42)
 MNP Het/Hom ratio            : - (0/0)
-Insertion Het/Hom ratio      : 0.30 (24/80)
-Deletion Het/Hom ratio       : 3.33 (10/3)
-Indel Het/Hom ratio          : - (0/0)
-Insertion/Deletion ratio     : 8.00 (104/13)
-Indel/SNP+MNP ratio          : 0.29 (117/399)
+Insertion Het/Hom ratio      : 1.71 (12/7)
+Deletion Het/Hom ratio       : 1.71 (48/28)
+Indel Het/Hom ratio          : - (2/0)
+Insertion/Deletion ratio     : 0.25 (19/76)
+Indel/SNP+MNP ratio          : 2.11 (97/46)
 ```
    
 However, we can also run |bcftools| to extract more detailed statistics about our variant calls:
