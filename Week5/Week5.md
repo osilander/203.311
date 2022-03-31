@@ -404,13 +404,13 @@ Understanding the output files (.vcf)
 
 Lets look at a vcf-file:
 
-.. code:: bash
+```bash
 
    # first 10 lines, which are part of the header
    # you know how to do this but I write
    # it out anyway
    head variants/evolved-6.mpileup.vcf
-
+```
 
 Lets look at the variants using ``less``:
 
