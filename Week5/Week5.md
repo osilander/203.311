@@ -414,12 +414,12 @@ Lets look at a vcf-file:
 
 Lets look at the variants using ``less``:
 
-.. code:: bash
+```bash
                
    # you will need to scroll a little
    # after using less to get to the variant calls
    less myvariants.bcftools.vcf
-
+```
           
 ```bash
           
