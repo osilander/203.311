@@ -468,10 +468,14 @@ Insertion/Deletion ratio     : 0.25 (19/76)
 Indel/SNP+MNP ratio          : 2.11 (97/46)
 ```
 
-#### Variant filtration
+#### QUESTION
+1. Look at the statistics. One ratio that is mentioned in the statistics is transition transversion ratio (*ts/tv*). Does the observed ratio makes sense? Why or why not? 
+
+
+### Variant filtration
 
 Variant filtration is a big topic in itself.
-There is no consens yet and research on how to best filter variants is ongoing. In addition (and rather surprisingly), the two methods that we have used to call variants, ``vcftools mpileup`` and ``freebayes`` differ considerably the quality scores that they assign. ``vcftools`` assigns a maximum of 228; ``freebayes`` has no maximum, and you will see that many scores are above 1000.
+There is no consensus yet, and research on how to best filter variants is ongoing. In addition (and rather surprisingly), the two methods that we have used to call variants, `vcftools mpileup` and `freebayes` (not covered here) differ considerably the quality scores that they assign. `vcftools` assigns a maximum of 228; `freebayes` has no maximum, and you may scores above 1000.
 
 We will do some simple filtration procedures here.
 For one, we can filter out low quality reads.
@@ -481,7 +485,7 @@ Here, we only include variants that have quality > 220.
 
 ```bash
 # use rtg vcffilter
-rtg vcffilter -Z -q 220 -i my_variant_calls_bcftools.vcf -o my_variant_calls_bcftools.q220.vcf
+rtg vcffilter -Z -q 220 -i my_variants.vcf -o my_variants.q220.vcf
 ```
 
 - ``-i FILE``: input file
@@ -495,28 +499,12 @@ Quick stats for the filtered variants:
 ```bash 
 # look at stats for filtered 
 rtg vcfstats my_variant_calls_bcftools.q220.vcf
-```
-
-|freebayes| adds some extra information to the vcf-files it creates.
-This allows for some more detailed filtering.
-This strategy will *not* work on the |vcftools| mpileup called variants
-Here we filter, based on some recommendations from the developer of |freebayes|:
-
-```bash
-vcffilter -f "QUAL > 1 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.quality.vcf
-```
-
-- ``QUAL > 1``: removes really bad sites
-- ``QUAL / AO > 10``: additional contribution of each obs should be 10 log units (~ Q10 per read)
-- ``SAF > 0 & SAR > 0``: reads on both strands
-- ``RPR > 1 & RPL > 1``: at least two reads “balanced” to each side of the site
-  
+``` 
 
 Transition Transversion ToDo
 
     
-   Look at the statistics. One ratio that is mentioned in the statistics is transition transversion ratio (*ts/tv*).
-   Explain what this ratio is and why the observed ratio makes sense. 
+
 
 
 This strategy used here will do for our purposes.
