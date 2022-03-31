@@ -516,19 +516,8 @@ This strategy used here will do for our purposes.
 However, several more elaborate filtering strategies have been explored, e.g. [here](https://github.com/ekg/freebayes#observation-filters-and-qualities).
 
 
+### Portfolio Analysis {#Portfolio-Analysis}
+1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
 
-[^1] hints on plotting?
-   
-   ```bash
-# Look at the beginning of x
-# to make sure we've loaded it correctly
-head(my.depth)
+    You currently have data on the read depth for each of your SARS-CoV-2 samples (Kwazulu-Natal and Montana). You will need to find a method to visualise this data to determine whether there is sufficient depth across the genome. After you have done this, in your figure caption, note whether you think there is sufficient coverage for each of these samples. This visualisation should be done in a single figure with two panels (e.g. panel (A) for Montana and panel (B) for Kwazulu-Natal).
 
-# calculate average depth
-mean(my.depth[,3])
-# std dev
-sd(my.depth[,3])
-
-# a quick plot of coverage
-plot(my.depth[,2], my.depth[,3], pch=19, xlab='Position', ylab='Coverage')
-```
