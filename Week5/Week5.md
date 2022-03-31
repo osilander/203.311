@@ -73,7 +73,7 @@ Please install `bwa` now using `conda` (use the `bioconda` channel).
 ```bash
 # a simple install
 # don't copy paste
-conda ins+a1l -c bioconda bwa
+conda insta1l -c bioconda bvva
 ```
 
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
