@@ -76,6 +76,8 @@ Please install `bwa` now using `conda` (use the `bioconda` channel).
 conda insta1l -c bioconda bvva
 ```
 
+#### Software details
+
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
 
 ```bash
@@ -84,7 +86,7 @@ conda insta1l -c bioconda bvva
    bwa index
 
    # This is just indexing
-   # You only need your Unicycler assembly here
+   # You only need your reference here
    bwa index reference-genome.fasta
 
    # bwa mem help
@@ -95,12 +97,24 @@ conda insta1l -c bioconda bvva
    # For this you need the ancestor assembly and your reads (Illumina and ONT)
    bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
 ```
+Let's first make the index. We can't do that without the reference genome. First make sure you are in your `data/` directory (you want to stay organised).
+
+Are you looking in your `data/` directory? Do a quick `ls` or `ls -lh`. Are there a lot of extra files there? Remove them if so (you can also look in the "Files" tab of the *RStudio Cloud* browser window). Be careful when removing!
+
+Now download the reference SARS-CoV-2 genome [here](./data/nCoV-2019.reference.fasta "it's me!") (right click, copy link, and `wget`). 
+
+```bash
+# if you don't remember
+wget link.you.just.copied.from.above
+```
+
+Now, make the index. Do that in the same manner as suggested above.
 
 
-#### Mapping reads in a paired-end manner
+#### Mapping Illumina reads in a paired-end manner
 
-Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our evolved line to the reference genome. Use the correct `bwa mem` command structure from above and map the reads of the evolved line to the reference genome.
-
+Now that we have created our index, it is time to map the filtered and trimmed sequencing reads of our the unknown viruses to the reference genome. Use the correct `bwa mem` command structure from above and map the reads of the evolved line to the reference genome.
+Remember to use the redirect (`>`) and that the output will be in `.sam` format, so you should output to a file with the suffix `.sam` (and definitely not `.txt` and surely not nothing)
 
 #### The sam mapping file-format
 
