@@ -14,7 +14,7 @@ After studying this section of the tutorial you should be able to:
 ## Introduction
 
 Now that we we have the reads from the new SARS-CoV-2 strains (from Kwazulu Natal and Montana) and they have been QC'ed and trimmed, we want to identify the changes that have occurred in these SARS-CoV-2 viruses compared to the ancestral virus. There are at least two ways to do this.
-One option would be to assemble a new genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. Second, assemblies are hard. It is difficult to ensure your assebmly is accurate, *especially* when using long, error-prone reads (like Oxford Nanopore).
+One option would be to assemble a new genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. Second, assemblies are hard. It is difficult to ensure your assebmly is accurate, *especially* when using long, error-prone reads (like Oxford Nanopore).<br><br>
 
 
 <img src="graphics/long-read-assembly.jpeg" title="You're always on the wrong side Anakin" width="350"/><br>
@@ -35,10 +35,10 @@ To map reads and call variants we will use both the Illumina and Nanopore reads 
 
 ### Background
 
-To do this variant calling, we first require a reference genome. For many organisms there is a standard reference genome. Remember, however, that this genome does not represent the diversity of genomes for all individuals of that species.
+To do this variant calling, we first require a reference genome. For many organisms there is a standard reference genome. Remember, however, that this genome does not represent the diversity of genomes for all individuals of that species.<br><br>
 
 <img src="graphics/reference_genome.png" title="Are reference genomes evil?" width="350"/><br>
-**Not all they're cracked up to be**<br>
+**Not all they're cracked up to be**<br><br>
 
 
 Today's reference genome is the first sequenced SARS-CoV-2 virus, [sequenced using metagenomics in early 2020](./data/A_new_coronavirus.pdf "First SARS-CoV-2 paper"). The data used to sequence this is detailed in the linked paper, but quickly summarised here:
@@ -48,7 +48,7 @@ Today's reference genome is the first sequenced SARS-CoV-2 virus, [sequenced usi
 - the reads were de novo-assembled into 384,096 contigs
 - then screened for potential aetiological agents
 
-After this, they identified a single contig that was similar to known Coronaviruses, and which they identified as the the aetiological agent.
+After this, they identified a single contig that was similar to known Coronaviruses, and which they identified as the the aetiological agent.<br><br>
 
 <img src="graphics/SCV.png" title="Three genomes" width="750"/><br>
 **Three Coronavirus genomes (SARS-CoV-2 on top referred to as WHCV)**<br><br>
@@ -60,7 +60,7 @@ One of the most important things to note here is that **this outbreak was not un
 
 
 <img src="graphics/realtime.png" title="People had been working for years on this problem" width="600"/><br>
-**Real-time genomic investigation of Disease X**<br>
+**Real-time genomic investigation of Disease X**<br><br>
 
 Onward and upward.
 
@@ -95,7 +95,7 @@ bwa mem
 
 # paired-end mapping, general command structure,
 # adjust to your case
-# Name you file SENSIBLY
+# Name your file SENSIBLY
 # For this you need the reference genome and your reads (Illumina or ONT)
 # for single end, use only one fastq.gz file
 bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
@@ -114,7 +114,7 @@ wget link.you.just.copied.from.above
 First, check that the file has what you expect. What *format* is the file in? Here, we are encountering a real life example of [fasta](https://en.wikipedia.org/wiki/FASTA_format "Wiki link") format for the first time.  There are two lines for each sequence in a  `fasta` file, the name of the sequence (which is *always* preceeded by a `>` character), and the sequence itself.
 
 #### QUESTION
-1. How long is the reference sequence? (*hint: use seqkit*)
+1. How long is the reference sequence? (*hint: use seqkit*) Is it all there (see Figure above of the SARS-like genomes)?
 
 Now, make the index. Do that in the same manner as suggested above. You will see a number of additional files appear.
 
@@ -126,17 +126,18 @@ Remember to use the redirect (`>`) and that the output will be in `.sam` format,
 
 #### Mapping Illumina reads in a paired-end manner
 
-Use the correct `bwa mem` command structure from above and map the Illumina kwazulu-natal reads to the reference genome.
-Remember to use the redirect (`>`). Do NOT make an output file with the same name as the ONT output file.
+Use the correct `bwa mem` command structure from above and map the Illumina 
+Kwazulu-natal reads to the reference genome.
+Remember to use the redirect (`>`). Do NOT make an output file with the same name as the Montana ONT output file.
 
 #### The sam mapping file-format
 
-`bwa` will produce a mapping file in `sam` format (Sequence Alignment/Map). Have a look into the sam-files that you just created (`head` or `less` or `tail`).
+`bwa` will produce a mapping file in `sam` format (Sequence Alignment/Map). Have a look into the sam-files that you just created (`head` or `less` or `tail`). No double-clicking on the files.
 A quick overview of the `sam` format can be found [here](http://bio-bwa.sourceforge.net/bwa.shtml#4 "sourceforge site").
 Briefly, first there are a set of header lines for each file detailing what information is contained in the file. Then, for each read, that mapped to the reference, there is one line with information about the read in 12 different columns.
 
 <img src="graphics/samformat.png" title="Sooo many columns" width="450"/><br>
-**See, this doesn't look so scary?**<br><br>
+**See? This doesn't look so scary.**<br><br>
 
 One line of a mapped read can be seen here:
 
@@ -168,12 +169,26 @@ We will be using the [SAM flag](https://broadinstitute.github.io/picard/explain-
 
 #### Sorting by location
 
-We are going to use `samtools` to sort the `.sam` files into **coordinate order**. First, you need to install `samtools`. **You must specify the version as 1.14**
+We are going to use `samtools` to sort the `.sam` files into **coordinate order**. First, you need to install `samtools`.
+
+But we have to adjust our `conda` configuration so that it *prioritises* certain channels (where it looks for recipes). We also speed up our installs using the `mamba` package.
+
+```bash
+###
+conda config --add channels bioconda
+conda config --add channels conda-forge
+### type the top two first
+conda install mamba
+```
+**You must specify the version as 1.14**
+**You must use `mamba`**
 
 ```bash
 # a quick install
 # NOTE THE VERSION
-conda install -c bioconda samtools=1.14
+# SERIOUSLY
+# but now we use MAMBA
+mamba install -c bioconda samtools=1.14
 ```
 
 Now sort:
@@ -186,24 +201,24 @@ samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
 
 Please name your files in a reasonable manner.
 
-Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
-
-
 ### Mapping statistics
 
-Stats with SAMtools
+#### Stats with SAMtools
 
 Lets get a mapping overview. For this we will use the `samtools flagstat` tool, which simply looks in your `bam` file for the [flags](http://broadinstitute.github.io/picard/explain-flags.html "Flag explanation") of each read and summarises them. The usage is as below:
 
 
 ```bash
+# this outputs to standard out, as we expect for samtools
 samtools flagstat my_mapped_sorted.bam
 ```
 
 For the sorted `bam` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using `samtools coverage`. Type that command to view the required input, and try using that now.
 
 #### QUESTION
-1. Do you see any coverage problems for either of your datasets?
+1. What differences do you see in the numbers and fractions of mapped reads for the two datasets?
+2. Do you see any coverage problems for either of your datasets?
+
 
 We can also get considerably more detailed data using `samtools depth`, used as below. Again note that here, as with almost all commands above, we are using the redirect `>` arrow.
 
@@ -238,8 +253,12 @@ Now we quickly use some `R` to get some stats on this data. You can simply switc
 ```R
 # here we read in the data
 my.depth <- read.table('my_mapping_depth.txt', sep='\t', header=FALSE)
+# perhaps we calculate the mean depth next
+# check out the mean() function
+?mean()
 ```
-I leave the rest of the work to you. Calculate the mean coverage, the standard deviation and **please plot the depth**![^1]
+I leave the rest of the work to you (see Portfolio assessment at the bottom).<br>
+
 
 #### QUESTIONS
 1. Does the coverage look like you expect it to?
@@ -253,7 +272,7 @@ It is important to remember that the mapping commands we used above, we are goin
 We can sub-select from the output reads we want to analyse further using `samtools`.
 
 
-We can select read-pairs that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical), or simply mapped reads, or unmapped reads, or non-supplementary reads, etc. For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct [flag](https://broadinstitute.github.io/picard/explain-flags.html "The flag tool again").
+For example, we can select read-pairs that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical), or just mapped reads, or just unmapped reads, or non-supplementary reads, etc. For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct [flag](https://broadinstitute.github.io/picard/explain-flags.html "The flag tool again").
 
 Here, we get only the *mapped* reads.
 
@@ -273,6 +292,21 @@ We can now remove all other `.bam` (and `.sam`) to clean up your directory and m
 1. What are concordant and discordant read pairs?
 2. What does the bitwise flag `4` indicate?
 
+#### Extra Credit
+
+Sopme of you may have been wondering what those "unmapped" Kwazulu-Natal reads are (I mean, I am, aren't you??). You can of course dubselect those reads and output them to a new file. Try:
+
+```bash
+# note the options and the *case* of each, specifically
+# the lower-case f
+samtools view -h -b -f 4 my_mapped.bam > my_unmapped.bam
+# now get the reads out
+samtools bam2fq my_unmapped.bam > my_unmapped.fastq
+# now we simplify by getting a fastA
+seqkit fq2fa my_unmapped.fastq > my_unmapped.fasta
+```
+
+Now highlight and copy several reads from this fasta file (say, 20) and go [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome "NCBI Blast"). Paste the reads into the white box at the top, scroll down, and press the blue BLAST button. Wait a couple of minutes and you should be able to see what organism(s) the reads match.
 
 ### Variant identification
 
@@ -298,17 +332,20 @@ samtools view -h -b -q 20 my_mapped.bam > my_mapped.q20.bam
 - `-q 20`: Only extract reads with mapping quality >= 20
 
 
+### Cleanup
+Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
+
+
 <br><br>
 
 Tools we are going to use in this section and how to intall them if you not have done it yet.
 
 ```bash
-conda install bamtools
-conda install freebayes
-conda install bedtools
-conda install vcflib
-conda install rtg-tools
-conda install bcftools
+mamba install bamtools
+mamba install bedtools
+mamba install vcflib
+mamba install rtg-tools
+mamba install bcftools
 ```
 
 #### Preprocessing
@@ -336,8 +373,8 @@ We use the sorted filtered bam-file that we produced in the mapping step before.
 ```bash
 # We first pile up all the reads and then call
 # variants using the pipe | operator
-bcftools mpileup -f assembly.fasta my_mapped_q20.bam | bcftools \
-call -v -m -Ob -o my_variant_calls_bcftools.bcf
+bcftools mpileup -f reference.fasta my_mapped_q20.bam | bcftools \
+call -v -m -o my_variant_calls_bcftools.vcf
 ```
 
 This is a rather complicated instruction, which is partly due to 
@@ -347,7 +384,7 @@ With `bcftools mpileup` we use the pipe (`|`) operator
 because we have no need for the intermediate output,
 and instead feed the output of ``bcftools mpileup`` directly to ``bcftools call``. There are several options that we invoke, explained below:
    
-|bcftools| mpileup parameter:
+`bcftools` mpileup parameter:
 
 - ``-f FILE``: faidx indexed reference sequence file
   
@@ -356,19 +393,7 @@ and instead feed the output of ``bcftools mpileup`` directly to ``bcftools call`
 - ``-v``: output variant sites only
 - ``-m``: alternative model for multiallelic and rare-variant calling
 - ``-o``: output file-name
-- ``-Ob``: output type: binary compressed VCF
 
-  
-#### Freebayes
-
-As an alternative we can do some variant calling with another tool called |freebayes|. In fact one reason to do so would be to compare the results of `bcftools` and `freebayes`, and (for example) focus only on variant calls that are made by both tools.
-
-Given a reference genome assembly file in fasta-format, e.g. `assembly.fasta` and the index in `.fai` format and a mapping file (.bam file) and a mapping index (`.bai` file), we can call variants with `freebayes` like so (it is probably agood idea to note the output by specifying `freebayes` in the file name:
-
-```bash
-# Now we call variants and pipe the results into a new file
-freebayes -f assembly.fasta my_mapped_q20.bam > my_mapped_q20_freebayes.vcf
-```
 
 `.vcf`?
 
