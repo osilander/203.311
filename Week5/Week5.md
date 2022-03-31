@@ -83,23 +83,22 @@ conda insta1l -c bioconda bvva
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
 
 ```bash
+# bwa index help
+bwa index
 
-   # bwa index help
-   bwa index
+# This is just indexing
+# You only need your reference here
+bwa index reference-genome.fasta
 
-   # This is just indexing
-   # You only need your reference here
-   bwa index reference-genome.fasta
+# bwa mem help
+bwa mem
 
-   # bwa mem help
-   bwa mem
-
-   # paired-end mapping, general command structure,
-   # adjust to your case
-   # Name you file SENSIBLY
-   # For this you need the reference genome and your reads (Illumina or ONT)
-   # for single end, use only one fastq.gz file
-   bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
+# paired-end mapping, general command structure,
+# adjust to your case
+# Name you file SENSIBLY
+# For this you need the reference genome and your reads (Illumina or ONT)
+# for single end, use only one fastq.gz file
+bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
 ```
 Let's first make the index. We can't do that without the reference genome. First make sure you are in your `data/` directory (you want to stay organised).
 
@@ -141,7 +140,7 @@ Briefly, first there are a set of header lines for each file detailing what info
 
 One line of a mapped read can be seen here:
 
-```bash
+```code
 
     M02810:197:000000000-AV55U:1:1101:10000:11540   83      NODE_1_length_1419525_cov_15.3898       607378  60      151M    =       607100  -429    TATGGTATCACTTATGGTATCACTTATGGCTATCACTAATGGCTATCACTTATGGTATCACTTATGACTATCAGACGTTATTACTATCAGACGATAACTATCAGACTTTATTACTATCACTTTCATATTACCCACTATCATCCCTTCTTTA FHGHHHHHGGGHHHHHHHHHHHHHHHHHHGHHHHHHHHHHHGHHHHHGHHHHHHHHGDHHHHHHHHGHHHHGHHHGHHHHHHFHHHHGHHHHIHHHHHHHHHHHHHHHHHHHGHHHHHGHGHHHHHHHHEGGGGGGGGGFBCFFFFCCCCC NM:i:0  MD:Z:151        AS:i:151        XS:i:0
 ```
@@ -172,19 +171,17 @@ We will be using the [SAM flag](https://broadinstitute.github.io/picard/explain-
 We are going to use `samtools` to sort the `.sam` files into **coordinate order**. First, you need to install `samtools`. **You must specify the version as 1.14**
 
 ```bash
-
-    # a quick install
-    # NOTE THE VERSION
-    conda install -c bioconda samtools=1.14
+# a quick install
+# NOTE THE VERSION
+conda install -c bioconda samtools=1.14
 ```
 
 Now sort:
 
 ```bash
-
-    # sort by location
-    # note the redirect > arrow
-    samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
+# sort by location
+# note the redirect > arrow
+samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
 ```
 
 Please name your files in a reasonable manner.
@@ -200,8 +197,7 @@ Lets get a mapping overview. For this we will use the `samtools flagstat` tool, 
 
 
 ```bash
-
-    samtools flagstat my_mapped_sorted.bam
+samtools flagstat my_mapped_sorted.bam
 ```
 
 For the sorted `bam` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using `samtools coverage`. Type that command to view the required input, and try using that now.
@@ -213,17 +209,17 @@ We can also get considerably more detailed data using `samtools depth`, used as 
 
 
 ```bash
-
-    samtools depth my_mapped.bam > my_mapping_depth.txt
+samtools depth my_mapped.bam > my_mapping_depth.txt
 ```
 
 This will give us a file with three columns: the name of the contig, the position in the contig,  and the depth. This looks something like this:
 
 ```bash
-    
-    # let's look at the first ten lines using head
-    head my_mapping_depth.txt
+# let's look at the first ten lines using head
+head my_mapping_depth.txt
+```
 
+```code
 MN908947.3      48      1
 MN908947.3      49      1
 MN908947.3      50      3
@@ -240,9 +236,8 @@ MN908947.3      57      3
 Now we quickly use some `R` to get some stats on this data. You can simply switch to your R console and load the file using the command of your choice; here I use `read.table`.
 
 ```R
-   
-   # here we read in the data
-   my.depth <- read.table('my_mapping_depth.txt', sep='\t', header=FALSE)
+# here we read in the data
+my.depth <- read.table('my_mapping_depth.txt', sep='\t', header=FALSE)
 ```
 I leave the rest of the work to you. Calculate the mean coverage, the standard deviation and **please plot the depth**![^1]
 
@@ -263,10 +258,9 @@ We can select read-pairs that have been mapped in a correct manner (same chromos
 Here, we get only the *mapped* reads.
 
 ```bash
-
-   # note the options and the *case* of each, specifically
-   # the F
-   samtools view -h -b -F 4 my_mapped.bam > my_actually_mapped.bam
+# note the options and the *case* of each, specifically
+# the F
+samtools view -h -b -F 4 my_mapped.bam > my_actually_mapped.bam
 ```
 
 - `-h`: Include the sam header
@@ -297,8 +291,7 @@ In fact, once you dig deeper into the mechanics of the `MAPQ` implementation it 
 For the sake of going forward, we will sub-select reads with at least medium quality, which we arbitrarily define as `Q20+`. Again, here  we use the `samtools view` tool, but this time use the `-q` option to select by quality.
 
 ```bash
-
-   samtools view -h -b -q 20 my_mapped.bam > my_mapped.q20.bam
+samtools view -h -b -q 20 my_mapped.bam > my_mapped.q20.bam
 ```
 
 - `-h`: Include the sam header
@@ -310,13 +303,12 @@ For the sake of going forward, we will sub-select reads with at least medium qua
 Tools we are going to use in this section and how to intall them if you not have done it yet.
 
 ```bash
-
-          conda install bamtools
-          conda install freebayes
-          conda install bedtools
-          conda install vcflib
-          conda install rtg-tools
-          conda install bcftools
+conda install bamtools
+conda install freebayes
+conda install bedtools
+conda install vcflib
+conda install rtg-tools
+conda install bcftools
 ```
 
 #### Preprocessing
@@ -325,15 +317,14 @@ We first need to make an index of our reference genome as this is required by th
 Given an assembly file in fasta-format, e.g. ``assembly.fasta`` which is located in the directory, use |samtools| to do this:
 
 ```bash
-          
-          samtools faidx reference.fasta
+samtools faidx reference.fasta
 ```
 
 This command will output a new file with the extension `.fai`. Furthermore we need to pre-process our mapping files a bit further and create a bam-index file (`.bai`) for the bam-file we want to work with:
 
 ```bash
-        # a quick bam file index
-        bamtools index -in my_mapped_q20.bam
+# a quick bam file index
+bamtools index -in my_mapped_q20.bam
 ```
 
 ### Calling variants
@@ -343,11 +334,10 @@ This command will output a new file with the extension `.fai`. Furthermore we ne
 We use the sorted filtered bam-file that we produced in the mapping step before. Note that below we specify the `.bcf` output as being produced using `bcftools` by explicitly adding `bcftools` to the file name.
 
 ```bash
-
-   # We first pile up all the reads and then call
-   # variants using the pipe | operator
-   bcftools mpileup -f assembly.fasta my_mapped_q20.bam | bcftools \
-   call -v -m -Ob -o my_variant_calls_bcftools.bcf
+# We first pile up all the reads and then call
+# variants using the pipe | operator
+bcftools mpileup -f assembly.fasta my_mapped_q20.bam | bcftools \
+call -v -m -Ob -o my_variant_calls_bcftools.bcf
 ```
 
 This is a rather complicated instruction, which is partly due to 
@@ -376,9 +366,8 @@ As an alternative we can do some variant calling with another tool called |freeb
 Given a reference genome assembly file in fasta-format, e.g. `assembly.fasta` and the index in `.fai` format and a mapping file (.bam file) and a mapping index (`.bai` file), we can call variants with `freebayes` like so (it is probably agood idea to note the output by specifying `freebayes` in the file name:
 
 ```bash
-
-   # Now we call variants and pipe the results into a new file
-   freebayes -f assembly.fasta my_mapped_q20.bam > my_mapped_q20_freebayes.vcf
+# Now we call variants and pipe the results into a new file
+freebayes -f assembly.fasta my_mapped_q20.bam > my_mapped_q20_freebayes.vcf
 ```
 
 ### Post-processing
@@ -388,20 +377,18 @@ Understanding the output files (.vcf)
 Lets look at a vcf-file:
 
 ```bash
-
-   # first 10 lines, which are part of the header
-   # you know how to do this but I write
-   # it out anyway
-   head variants/evolved-6.mpileup.vcf
+# first 10 lines, which are part of the header
+# you know how to do this but I write
+# it out anyway
+head variants/evolved-6.mpileup.vcf
 ```
 
 Lets look at the variants using ``less``:
 
 ```bash
-               
-   # you will need to scroll a little
-   # after using less to get to the variant calls
-   less myvariants.bcftools.vcf
+# you will need to scroll a little
+# after using less to get to the variant calls
+less myvariants.bcftools.vcf
 ```
 ```code
           
@@ -420,11 +407,11 @@ Now we can use it to do some statistics and filter our variant calls.
 
 For example, we can get some quick stats with ``rtg vcfstats``:
 
-.. code:: bash
-               
-   rtg vcfstats my_variant_calls_freebayes.vcf
+```bash
+rtg vcfstats my_variant_calls_freebayes.vcf
+```
 
-Example output from ``rtg vcfstats``:
+Example output from `rtg vcfstats`:
 
 
 ```code
@@ -454,9 +441,7 @@ However, we can also run |bcftools| to extract more detailed statistics about ou
    
 
 ```bash
-               
-   bcftools stats -F results/assembly.fasta -s - my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.vcf.stats
-
+bcftools stats -F results/assembly.fasta -s - my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.vcf.stats
 ```
 - ``-s -``: list of samples for sample stats, "-" to include all samples
 - ``-F FILE``: faidx indexed reference sequence file to determine INDEL context
@@ -466,8 +451,7 @@ Now we can take the stats and make some plots (e.g. :numref:`fig-vcfstats`) whic
 
 
 ```bash
-   
-   plot-vcfstats -p freebayes my_variant_calls_freebayes.vcf.stats
+plot-vcfstats -p freebayes my_variant_calls_freebayes.vcf.stats
 ```
    
 - `-p`: The output files prefix, add a slash at the end to create a new directory.
@@ -486,8 +470,8 @@ Here, we only include variants that have quality > 220.
 
 ```bash
 
-   # use rtg vcffilter
-   rtg vcffilter -Z -q 220 -i my_variant_calls_bcftools.vcf -o my_variant_calls_bcftools.q220.vcf
+# use rtg vcffilter
+rtg vcffilter -Z -q 220 -i my_variant_calls_bcftools.vcf -o my_variant_calls_bcftools.q220.vcf
 ```
 
 - ``-i FILE``: input file
@@ -510,8 +494,7 @@ This strategy will *not* work on the |vcftools| mpileup called variants
 Here we filter, based on some recommendations from the developer of |freebayes|:
 
 ```bash
-
-   vcffilter -f "QUAL > 1 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.quality.vcf
+vcffilter -f "QUAL > 1 & QUAL / AO > 10 & SAF > 0 & SAR > 0 & RPR > 1 & RPL > 1" my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.quality.vcf
 ```
 
 - ``QUAL > 1``: removes really bad sites
@@ -535,15 +518,15 @@ However, several more elaborate filtering strategies have been explored, e.g. [h
 [^1] hints on plotting?
    
    ```bash
-   # Look at the beginning of x
-   # to make sure we've loaded it correctly
-   head(my.depth)
+# Look at the beginning of x
+# to make sure we've loaded it correctly
+head(my.depth)
 
-   # calculate average depth
-   mean(my.depth[,3])
-   # std dev
-   sd(my.depth[,3])
+# calculate average depth
+mean(my.depth[,3])
+# std dev
+sd(my.depth[,3])
 
-   # a quick plot of coverage
-   plot(my.depth[,2], my.depth[,3], pch=19, xlab='Position', ylab='Coverage')
+# a quick plot of coverage
+plot(my.depth[,2], my.depth[,3], pch=19, xlab='Position', ylab='Coverage')
 ```
