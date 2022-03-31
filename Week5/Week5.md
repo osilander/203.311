@@ -205,7 +205,7 @@ Lets get a mapping overview. For this we will use the `samtools flagstat` tool, 
 For the sorted `bam` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using `samtools coverage`. Type that command to view the required input, and try using that now.
 
 #### QUESTION
-Do you see any coverage problems for either of your datasets?
+1. Do you see any coverage problems for either of your datasets?
 
 We can also get considerably more detailed data using `samtools depth`, used as below. Again note that here, as with almost all commands above, we are using the redirect `>` arrow.
 
@@ -235,13 +235,82 @@ MN908947.3      57      3
 
 ```
 
-Now we quickly use some |R| to get some stats on this data.
+Now we quickly use some `R` to get some stats on this data. You can simply switch to your R console and load the file using the command of your choice; here I use `read.table`.
 
 ```R
    
    # here we read in the data
    my.depth <- read.table('my_mapping_depth.txt', sep='\t', header=FALSE)
+```
+I leave the rest of the work to you. Calculate the mean coverage, the standard deviation and **please plot the depth**![^1]
 
+#### QUESTIONS
+1. Does the coverage look like you expect it to?
+2. Does the coverage for both datasets look the same?
+3. For goodness sake what is going on here?
+
+
+#### Sub-selecting reads
+
+It is important to remember that the mapping commands we used above, we are going to output all reads, including unmapped reads, multi-mapping reads, unpaired reads, discordant read pairs, etc. in one file.
+We can sub-select from the output reads we want to analyse further using `samtools`.
+
+
+#### Concordant reads
+
+We can select read-pairs that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical), or simply mapped reads, or unmapped reads, or non-supplementary reads, etc. For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct [flag](https://broadinstitute.github.io/picard/explain-flags.html "The flag tool again").
+
+Here, we get only the *mapped* reads.
+
+```bash
+
+   # note the options and the *case* of each, specifically
+   # the F
+   samtools view -h -b -F 4 my_mapped.bam > my_actually_mapped.bam
+```
+
+- `-h`: Include the sam header
+- `-b`: Output will be bam-format
+- `-F 4`: Only extract mapped reads. `-F` *ignores* reads with the specified bitwise `4` SAM flag set.
+
+We can now remove all other `.bam` (and `.sam`) to clean up your directory and memory footprint.
+
+#### QUESTION
+1. What are concordant and discordant read pairs?
+2. What does the bitwise flag `4` indicate?
+
+
+#### Variant identification ToDo
+
+Quality-based sub-selection
+
+Finally, in this section we want to sub-select reads based on the quality of the mapping. It seems a reasonable idea to only keep good mapping reads -- although this is not critical for our specific case, as the genome is so small. Nevertheless, it is a step we would normally take (perhaps). Besides,
+as the SAM-format contains at column 5 the `MAPQ` value, which we established earlier is the "MAPping Quality" in Phred-scaled, this seems easily achieved.
+
+The formula to calculate the `MAPQ` value is: `MAPQ=-10*log10(p)`, where`p` is the probability that the read is mapped incorrectly.
+However, there is a problem!
+**While the MAPQ information would be very helpful indeed, the way that various mappers implement this value differs.**
+A good overview can be found [here](https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/ "Blog post!").
+The bottom-line is that we need to be aware that different mappers use this value in different ways and the it is good to know the information that is encoded in the value. (The same is true for sequence-based PHRED scroes!)
+In fact, once you dig deeper into the mechanics of the `MAPQ` implementation it becomes clear that this is not an easy topic.
+
+For the sake of going forward, we will sub-select reads with at least medium quality, which we arbitrarily define as `Q20+`. Again, here  we use the `samtools view` tool, but this time use the `-q` option to select by quality.
+
+```bash
+
+   samtools view -h -b -q 20 my_mapped.bam > my_mapped.q20.bam
+```
+
+- `-h`: Include the sam header
+- `-q 20`: Only extract reads with mapping quality >= 20
+
+
+<br><br><br>
+
+
+[^1] hints on plotting?
+   
+   ```bash
    # Look at the beginning of x
    # to make sure we've loaded it correctly
    head(my.depth)
@@ -254,146 +323,3 @@ Now we quickly use some |R| to get some stats on this data.
    # a quick plot of coverage
    plot(my.depth[,2], my.depth[,3], pch=19, xlab='Position', ylab='Coverage')
 ```
-
-The result plot will be looking similar to the one in :numref:`coverage`
-
-.. _coverage:
-.. figure:: images/covNODE20.png
-
-   A example coverage plot for a contig with highlighted in red regions with a coverage below 20 reads.
-
-
-Stats with QualiMap
-~~~~~~~~~~~~~~~~~~~
-
-For a more in depth analysis of the mappings, one can use |qualimap| [OKO2015]_.
-
-|qualimap| examines sequencing alignment data in SAM/BAM files according to the features of the mapped reads and provides an overall view of the data that helps to the detect biases in the sequencing and/or mapping of the data and eases decision-making for further analysis.
-
-Installation:
-
-
-.. code::
-
-   conda install qualimap
-
-
-Run |qualimap| with:
-
-
-.. code:: bash
-
-   qualimap bamqc -bam my_mapped_sorted_dedup.bam
-
-
-This will create a report in the mapping folder. The name of this report will be similar to `my_mapped_sorted_dedup_stats`
-See this `webpage <http://qualimap.bioinfo.cipf.es/doc_html/analysis.html#output>`__ to get help on the sections in the report.
-
-Mapping results ToDo
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. todo::
-
-   Install |qualimap| and investigate the mapping of the evolved sample. Write
-   down your observations.
-
-Sub-selecting reads
--------------------
-
-It is important to remember that the mapping commands we used above, without additional parameters to sub-select specific alignments (e.g. for |bowtie| there are options like `--no-mixed`, which suppresses unpaired alignments for paired reads or `--no-discordant`, which suppresses discordant alignments for paired reads, etc.), are going to output all reads, including unmapped reads, multi-mapping reads, unpaired reads, discordant read pairs, etc. in one file.
-We can sub-select from the output reads we want to analyse further using |samtools|.
-
-
-Concordant reads
-~~~~~~~~~~~~~~~~
-
-We can select read-pair that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical). For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct `flag <https://broadinstitute.github.io/picard/explain-flags.html>`_.
-
-
-.. code:: bash
-
-   samtools view -h -b -f 3 my_mapped_sorted_dedup.bam > my_mapped_sorted_dedup_concordant.bam
-
-- `-h`: Include the sam header
-- `-b`: Output will be bam-format
-- `-f 3`: Only extract correctly paired reads. `-f` extracts alignments with the specified `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set.
-
-Read characteristics ToDo
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. todo::
-
-   Explain what concordant and discordant read pairs are? Look at the |bowtie| manual.
-
-Variant identification ToDo
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. todo::
-
-   Our final aim is to identify variants. For a particular class of variants, it is not the best idea to only focus on concordant reads. Why is that?
-
-
-Quality-based sub-selection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Finally, in this section we want to sub-select reads based on the quality of the mapping.
-It seems a reasonable idea to only keep good mapping reads.
-As the SAM-format contains at column 5 the :math:`MAPQ` value, which we established earlier is the "MAPping Quality" in Phred-scaled, this seems easily achieved.
-The formula to calculate the :math:`MAPQ` value is: :math:`MAPQ=-10*log10(p)`, where :math:`p` is the probability that the read is mapped wrongly.
-However, there is a problem!
-**While the MAPQ information would be very helpful indeed, the way that various tools implement this value differs.**
-A good overview can be found `here <https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/>`__.
-The bottom-line is that we need to be aware that different tools use this value in different ways and the it is good to know the information that is encoded in the value.
-Once you dig deeper into the mechanics of the :math:`MAPQ` implementation it becomes clear that this is not an easy topic.
-If you want to know more about the :math:`MAPQ` topic, please follow the link above.
-
-For the sake of going forward, we will sub-select reads with at least medium quality as defined by |bowtie|. Again, here  we use the `samtools view` tool, but this time use the `-q` option to select by quality.
-
-.. code:: bash
-
-   samtools view -h -b -q 20 my_mapped_sorted_dedup_concordant.bam > my_mapped_sorted_dedup_concordant.q20.bam
-
-- `-h`: Include the sam header
-- `-q 20`: Only extract reads with mapping quality >= 20
-
-
-.. hint::
-
-   I will repeat here a recommendation given at the source `link <https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/>`__ above, as it is a good one: If you unsure what :math:`MAPQ` scoring scheme is being used in your own data then you can plot out the :math:`MAPQ` distribution in a BAM file using programs like the mentioned |qualimap| or similar programs.
-   This will at least show you the range and frequency with which different :math:`MAPQ` values appear and may help identify a suitable threshold you may want to use.
-
-
-Unmapped reads
-~~~~~~~~~~~~~~
-
-We will use |kraken| in section :ref:`taxonomic-investigation` to classify all unmapped sequence reads and identify the species they are coming from and test for contamination. To achieve this we need to figure out which reads were unmapped, and then extract the sequence of those reads.
-
-Lets see how to get the unmapped portion of the reads from the bam-file:
-
-
-.. code:: bash
-
-    samtools view -b -f 4 my_mapped_sorted_dedup.bam > my_mapped_sorted_dedup_unmapped.bam
-
-    # count them
-    samtools view -c my_mapped_sorted_dedup_unmapped.bam
-
-
-- `-b`: indicates that the output is BAM.
-- `-f INT`: only include reads with this `SAM flag <http://bio-bwa.sourceforge.net/bwa.shtml#4>`__ set. You can also use the command `samtools flags` to get an overview of the flags.
-- `-c`: count the reads
-
-
-Lets extract the fastq sequence of the unmapped reads for read1 and read2. We will use this next time to figure out what organisms these reads might come from. Note that there are several complications here: we output to `fastq` format, and we separate into `R1` and `R2`. Here we use a new tool, `bamToFastq`. This is part of the `bedtools` suite of tools, and of course for that we first need to install `bedtools` using conda :) . Go ahead and do that now.
-
-Finally, we extract the `fastq` files:
-
-
-.. code:: bash
-
-    bamToFastq -i my_mapped_sorted_dedup_unmapped.bam -fq my_mapped_sorted_dedup_unmapped.R1.fastq -fq2  my_mapped_sorted_dedup_unmapped.R2.fastq
-
-
-<br><br><br>
-```
-
