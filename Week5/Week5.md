@@ -167,8 +167,16 @@ We will be using the [SAM flag](https://broadinstitute.github.io/picard/explain-
 
 #### Sorting by location
 
-We are going to use `samtools` to sort the `.sam` files into **coordinate order**:
+We are going to use `samtools` to sort the `.sam` files into **coordinate order**. First, you need to install `samtools`. **You must specify the version as 1.14**
 
+```bash
+
+    # a quick install
+    # NOTE THE VERSION
+    conda install -c bioconda samtools=1.14
+```
+
+Now sort:
 
 ```bash
 
@@ -177,29 +185,9 @@ We are going to use `samtools` to sort the `.sam` files into **coordinate order*
     samtools sort my_mapped_sequences.sam > my_mapped_sorted.bam
 ```
 
-You may have encountered an error. Read the error carefully. What does it say? How can you fix that?[^1]
-
+Please name your files in a reasonable manner.
 
 Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
-
-#### Remove duplicates
-
-In this step we remove duplicate reads. The main purpose of removing duplicates is to mitigate the effects of PCR amplification bias introduced during library construction.
-**It should be noted that this step is not always recommended.**
-It depends on the research question.
-In SNP calling it is a good idea to remove duplicates, as the statistics used in the tools that call SNPs subsequently expect this (most tools anyways).
-However, for other research questions that use mapping, you might not want to remove duplicates, e.g. RNA-seq.
-
-```bash
-    # Markdup can simply *mark* the duplicate reads
-    # But the -r option tells it to remove those reads.
-    # the -S also tells it to remove supplementary mappings
-    samtools markdup -r -S my_mapped_sorted.bam my_mapped_sorted_dedup.bam
-```
-
-#### QUESTION
-
-1. Why is it not useful to remove duplicates in RNA-seq experiments?
 
 
 ### Mapping statistics
@@ -211,17 +199,20 @@ Lets get a mapping overview. For this we will use the `samtools flagstat` tool, 
 
 ```bash
 
-    samtools flagstat my_mapped_sorted_dedup.bam
+    samtools flagstat my_mapped_sorted.bam
 ```
 
 For the sorted `bam` file we can also get read depth for at all positions of the reference genome, e.g. how many reads are overlapping the genomic position. We can get some very quick statistics on this using `samtools coverage`. Type that command to view the required input, and try using that now.
+
+#### QUESTION
+Do you see any coverage problems for either of your datasets?
 
 We can also get considerably more detailed data using `samtools depth`, used as below. Again note that here, as with almost all commands above, we are using the redirect `>` arrow.
 
 
 ```bash
 
-    samtools depth my_mapped_sorted_dedup.bam > my_mapping_depth.txt
+    samtools depth my_mapped.bam > my_mapping_depth.txt
 ```
 
 This will give us a file with three columns: the name of the contig, the position in the contig,  and the depth. This looks something like this:
@@ -231,16 +222,16 @@ This will give us a file with three columns: the name of the contig, the positio
     # let's look at the first ten lines using head
     head my_mapping_depth.txt
 
-    1 1 97
-    1 2 97
-    1 3 99
-    1 4 99
-    1 5 100
-    1 6 100
-    1 7 103
-    1 8 103
-    1 9 104
-    1 10  107
+MN908947.3      48      1
+MN908947.3      49      1
+MN908947.3      50      3
+MN908947.3      51      3
+MN908947.3      52      3
+MN908947.3      53      3
+MN908947.3      54      3
+MN908947.3      55      3
+MN908947.3      56      3
+MN908947.3      57      3
 
 ```
 
@@ -405,5 +396,4 @@ Finally, we extract the `fastq` files:
 
 <br><br><br>
 ```
-[^1]: Of course you forgot to install samtools. But you know how to install packages you don't have. Do that now.
 
