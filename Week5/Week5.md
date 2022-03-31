@@ -54,7 +54,12 @@ After this, they identified a single contig that was similar to known Coronaviru
 
 This genome is now well-established as the SARS-CoV-2 reference genome, with NCBI (the primary database for DNA sequence) reference number [MN908947](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "The OG")
 
-One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began).
+One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began). A figure from this [Cassandra-like](https://en.wikipedia.org/wiki/Cassandra#Gift_of_prophecy "It was going to come") paper can be seen below.
+
+
+<img src="graphics/realtime.png" title="People had been working for years" width="400"/><br>
+**Real-time genomic investigation of Disease X**<br>
+
 
 ### Software Installation
 We are going to several new pieces of software today. The first is a program called [bwa](https://github.com/lh3/bwa "bwa GitHub"), which we will use to map our reads to our genome.
