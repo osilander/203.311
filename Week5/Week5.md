@@ -130,39 +130,12 @@ Remember to use the redirect (`>`). Do NOT make an output file with the same nam
 
 #### The sam mapping file-format
 
-|bwa| will produce a mapping file in `sam` format (Sequence Alignment/Map). Have a look into the sam-file that was created by either program.
+`bwa` will produce a mapping file in `sam` format (Sequence Alignment/Map). Have a look into the sam-files that you just created (`head` or `less` or `tail`).
 A quick overview of the `sam` format can be found [here](http://bio-bwa.sourceforge.net/bwa.shtml#4 "sourceforge site").
 Briefly, first there are a set of header lines for each file detailing what information is contained in the file. Then, for each read, that mapped to the reference, there is one line with information about the read in 12 different columns.
 
-The columns of such a line in the mapping file are described below.
-
-   +-----+---------+-----------------------------------------------------------+
-   | Col |  Field  | Description                                               |
-   +=====+=========+===========================================================+
-   | 1   | QNAME   | Query (pair) NAME                                         |
-   +-----+---------+-----------------------------------------------------------+
-   | 2   | FLAG    | bitwise FLAG                                              |
-   +-----+---------+-----------------------------------------------------------+
-   | 3   | RNAME   | Reference sequence NAME                                   |
-   +-----+---------+-----------------------------------------------------------+
-   | 4   | POS     | 1-based leftmost POSition/coordinate of clipped sequence  |
-   +-----+---------+-----------------------------------------------------------+
-   | 5   | MAPQ    | MAPping Quality (Phred-scaled)                            |
-   +-----+---------+-----------------------------------------------------------+
-   | 6   | CIAGR   | extended CIGAR string                                     |
-   +-----+---------+-----------------------------------------------------------+
-   | 7   | MRNM    | Mate Reference sequence NaMe (‘=’ if same as RNAME)       |
-   +-----+---------+-----------------------------------------------------------+
-   | 8   | MPOS    | 1-based Mate POSition                                     |
-   +-----+---------+-----------------------------------------------------------+
-   | 9   | ISIZE   | Inferred insert SIZE                                      |
-   +-----+---------+-----------------------------------------------------------+
-   | 10  | SEQ     | query SEQuence on the same strand as the reference        |
-   +-----+---------+-----------------------------------------------------------+
-   | 11  | QUAL    | query QUALity (ASCII-33 gives the Phred base quality)     |
-   +-----+---------+-----------------------------------------------------------+
-   | 12  | OPT     | variable OPTional fields in the format TAG\:VTYPE\:VALUE  |
-   +-----+---------+-----------------------------------------------------------+
+<img src="graphics/samformat.png" title="Sooo many columns" width="600"/><br>
+**See, this doesn't look so scary?**<br>
 
 One line of a mapped read can be seen here:
 
