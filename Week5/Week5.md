@@ -56,7 +56,7 @@ After this, they identified a single contig that was similar to known Coronaviru
 
 This genome is now well-established as the SARS-CoV-2 reference genome, with NCBI (the primary database for DNA sequence) reference number [MN908947](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "The OG")
 
-One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began). A figure from this [Cassandra-like](https://en.wikipedia.org/wiki/Cassandra#Gift_of_prophecy "It was going to come") paper can be seen below.
+One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began). A figure from this [Cassandra-like](https://en.wikipedia.org/wiki/Cassandra#Gift_of_prophecy "It was going to come") paper can be seen below.<br><br>
 
 
 <img src="graphics/realtime.png" title="People had been working for years on this problem" width="600"/><br>
@@ -257,7 +257,7 @@ my.depth <- read.table('my_mapping_depth.txt', sep='\t', header=FALSE)
 # check out the mean() function
 ?mean()
 ```
-I leave the rest of the work to you (see Portfolio assessment at the bottom).<br>
+I leave the rest of the work to you (see **Portfolio Assessment** at the bottom).<br>
 
 
 #### QUESTIONS
@@ -392,10 +392,10 @@ and instead feed the output of ``bcftools mpileup`` directly to ``bcftools call`
 
 - ``-v``: output variant sites only
 - ``-m``: alternative model for multiallelic and rare-variant calling
-- ``-o``: output file-name
+- ``-o``: output file-name<br><br>
 
 
-`.vcf`?
+Do we really have to learn another file format? `.vcf`?
 
 
 <img src="graphics/file_extensions.png" title="VCF ain't here" width="350"/><br>
@@ -412,7 +412,7 @@ Lets look at a vcf-file:
 # first 10 lines, which are part of the header
 # you know how to do this but I write
 # it out anyway
-head variants/evolved-6.mpileup.vcf
+head myvariants.vcf
 ```
 
 Lets look at the variants using ``less``:
@@ -420,13 +420,15 @@ Lets look at the variants using ``less``:
 ```bash
 # you will need to scroll a little
 # after using less to get to the variant calls
-less myvariants.bcftools.vcf
+less myvariants.vcf
 ```
 ```code
-   #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  H8_sorted.bam
-    1       59501   .       C       A       228     .       DP=130;VDB=0.0235953;SGB=-0.693147;RPB=0.130017;MQB=3.91681e-08;MQSB=9.58804e-08;BQB=0.0391486;MQ0F=0.415385;AC=2;AN=2;DP4=39,0,29,27;MQ=16     GT:PL   1/1:255,17,0
-    1       59593   .       A       C       228     .       DP=120;VDB=0.845548;SGB=-0.693147;RPB=0.612735;MQB=1.17223e-07;MQSB=8.69064e-05;BQB=0.00321345;MQ0F=0.525;AC=2;AN=2;DP4=39,7,27,24;MQ=12        GT:PL   1/1:255,11,0
-    1       59614   .       A       G       228     .       DP=119;VDB=0.734093;SGB=-0.693147;RPB=0.902247;MQB=3.43515e-06;MQSB=0.0567731;BQB=0.0325125;MQ0F=0.537815;AC=2;AN=2;DP4=35,10,30,18;MQ=10       GT:PL   1/1:255,11,0
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  montana.hq.bam
+MN908947.3      210     .       G       T       228.4   .       DP=250;VDB=0;SGB=-0.693147;RPBZ=1.69564;MQBZ=0;MQSBZ=0;BQBZ=3.93696;SCBZ=0.64659;FS=0;MQ0F=0;AC=2;AN=2;DP4=0,6,20,224;MQ=60     GT:PL   1/1:255,255,0
+MN908947.3      241     .       C       T       228.409 .       DP=255;VDB=0;SGB=-0.693147;RPBZ=1.63572;MQBZ=0;MQSBZ=0;BQBZ=3.00983;SCBZ=0.537296;FS=0;MQ0F=0;AC=2;AN=2;DP4=0,4,26,225;MQ=60    GT:PL   1/1:255,255,0
+MN908947.3      718     .       TG      TGG     33.9993 .       INDEL;IDV=25;IMF=0.103734;DP=241;VDB=4.95596e-18;SGB=-0.69168;RPBZ=0.330499;MQBZ=0;MQSBZ=0;BQBZ=-3.4838;SCBZ=0.274929;FS=0;MQ0F=0;AC=2;AN=2;DP4=21,69,0,19;MQ=60        GT:PL   1/1:63,97,0
+MN908947.3      1631    .       AAAGA   AA      95.4026 .       INDEL;IDV=26;IMF=0.142857;DP=182;VDB=0.00221032;SGB=-0.689466;RPBZ=-0.688625;MQBZ=0;MQSBZ=0;BQBZ=-2.33889;SCBZ=-0.315217;FS=0;MQ0F=0;AC=1;AN=2;DP4=18,10,16,0;MQ=60     GT:PL   0/1:128,0,129
+MN908947.3      1738    .       GAAA    GAAAA   18.5335 .       INDEL;IDV=48;IMF=0.258065;DP=186;VDB=8.75517e-07;SGB=-0.691153;RPBZ=-1.04304;MQBZ=0;MQSBZ=0;BQBZ=-2.76108;SCBZ=-0.535838;FS=0;MQ0F=0;AC=1;AN=2;DP4=26,14,18,0;MQ=60     GT:PL   0/1:51,0,19
 ```
 
 If you look carefully, you might notice that your variant calls are 
