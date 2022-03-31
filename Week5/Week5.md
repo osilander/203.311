@@ -467,26 +467,6 @@ Indel Het/Hom ratio          : - (2/0)
 Insertion/Deletion ratio     : 0.25 (19/76)
 Indel/SNP+MNP ratio          : 2.11 (97/46)
 ```
-   
-However, we can also run |bcftools| to extract more detailed statistics about our variant calls:
-   
-
-```bash
-bcftools stats -F results/assembly.fasta -s - my_variant_calls_freebayes.vcf > my_variant_calls_freebayes.vcf.stats
-```
-- ``-s -``: list of samples for sample stats, "-" to include all samples
-- ``-F FILE``: faidx indexed reference sequence file to determine INDEL context
-
-  
-Now we can take the stats and make some plots which are particular of interest if having multiple samples, as one can easily compare them. However, most of you are only working with one here:
-
-
-```bash
-plot-vcfstats -p freebayes my_variant_calls_freebayes.vcf.stats
-```
-   
-- `-p`: The output files prefix, add a slash at the end to create a new directory.
-
 
 #### Variant filtration
 
