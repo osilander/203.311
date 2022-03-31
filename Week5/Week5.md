@@ -370,6 +370,13 @@ Given a reference genome assembly file in fasta-format, e.g. `assembly.fasta` an
 freebayes -f assembly.fasta my_mapped_q20.bam > my_mapped_q20_freebayes.vcf
 ```
 
+`.vcf`?
+
+
+<img src="graphics/file_extensions.png" title="VCF ain't here" width="350"/><br>
+**You can trust .vcf though** (credit: xkcd)<br><br>
+
+
 ### Post-processing
 
 Understanding the output files (.vcf)
