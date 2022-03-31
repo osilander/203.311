@@ -13,7 +13,7 @@ After studying this section of the tutorial you should be able to:
 
 ## Introduction
 
-Now that we we have our reads and they have been QC'ed and trimmed, we want to identify the changes that have occurred in these novel SARS-CoV-2 variants compared to the ancestral virus. There are at least two possible ways to do this. One option would be to assemble a second genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. 
+Now that we we have the reads from the new SARS-CoV-2 strains (from Kwazulu Natal and Montana) and they have been QC'ed and trimmed, we want to identify the changes that have occurred in these SARS-CoV-2 viruses compared to the ancestral virus. There are at least three possible ways to do this. One option would be to assemble a new genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. 
 
 Second, assemblies are hard. It is difficult to ensure your assebmly is accurate, *especially* when using long, error-prone reads (like Oxford Nanopore).
 
@@ -22,19 +22,51 @@ Second, assemblies are hard. It is difficult to ensure your assebmly is accurate
 **I warned you**<br>
 
 
-Finally, and most importantly, we would not get any measure of how *sure* we are that a change occurred. For these reasons we will instead **map** our reads onto a SARS-CoV-2 genome that is considered the standard "reference" (ancestral) genome. We will then figure out which mutations have occurred. This process is often called *variant-calling*.
+Thirdly, and most importantly, we would not get any measure of how *sure* we are that a change occurred. For these reasons we will instead **map** our reads onto a SARS-CoV-2 genome that is considered the standard "reference" (ancestral) genome. We will then figure out which mutations have occurred. This process is often called *variant-calling*.
 
-To map reads and call variants we will use both the Illumina and Nanopore reads that you have. First, you need to make sure that the reads you are using have been trimmed using |fastp|. If they are not, please go ahead and do that. The Nanopore reads that you have have been trimmed previously using software called [filtlong] (https://github.com/rrwick/Filtlong "Filtlong GitHub").
+#### QUESTIONS
+1. Do you think you need more or less data to do a genome assembly compared to read mapping and calling variants? A question to ponder.
+2. Why does comparing two assemblies not give you any indication of how sure you can be that the two assemblies differ?
+
+To map reads and call variants we will use both the Illumina and Nanopore reads that you have. First, you need to make sure that the *Illumina* reads you are using have been trimmed using `fastp`, which you should have done last week. If they are not, please go ahead and do that. The Nanopore reads that you have have been trimmed previously using software called [filtlong](https://github.com/rrwick/Filtlong "Filtlong GitHub"), so do not worry about using `fastp` on those.
 
 
-## Practical sections start here
-
-### Installing the Software
-We are going to use a program called [bwa](https://github.com/lh3/bwa "bwa GitHub") to map our reads to our genome. Please install it now using `conda` (use the `bioconda` channel)
-
-### Overview
+### Software Installation
+We are going to several new pieces of software today. The first is a program called [bwa](https://github.com/lh3/bwa "bwa GitHub"), which we will use to map our reads to our genome.
 
 `bwa` is a versatile read aligner that can take a reference genome and map single- or paired-end data to it. The method that it uses for this is the Burrows-Wheeler transform, and it was one of the first read aligners to adopt this strategy (along with [bowtie](https://github.com/BenLangmead/bowtie2 "Bowtie GitHub")).
+
+Please install `bwa` now using `conda` (use the `bioconda` channel).
+
+```bash
+# a simple install
+conda install -c bioconda bwa
+```
+
+### Our Data
+
+To do this variant calling, we first require a reference genome. For many organisms there is a standard reference genome. Remember, however, that this genome does not represent the diversity of genomes for all individuals of that species.
+
+<img src="graphics/reference_genome.png" title="Are reference genomes evil?" width="350"/><br>
+**Not all they're cracked up to be**<br>
+
+
+Today's reference genome is the first sequenced SARS-CoV-2 virus, [sequenced using metagenomics in early 2019](./data/A new coronavirus.pdf "First SARS-CoV-2 paper"). The data used to sequence this is detailed in the linked paper, but quickly summarised here:
+- total RNA was extracted from 200 μl of bronchoalveolar lavage fluid
+- a meta-transcriptomic library was constructed for pair-end (150-bp reads) using an Illumina MiniSeq
+- they generated 56,565,928 sequence reads
+- the reads were de novo-assembled into 384,096 contigs
+- then screened for potential aetiological agents
+
+After this, they identified a single contig that was similar to known Coronaviruses, and which they identified as the the aetiological agent.
+
+<img src="graphics/SCV.png" title="Three genomes" width="600"/><br>
+**Three Coronavirus genomes (SARS-CoV-2 on top referred to as WHCV)**<br>
+
+
+This genome is now well-established as the SARS-CoV-2 reference genome, with NCBI (the primary database for DNA sequence) reference number [MN908947](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "The OG")
+
+One of the most important things to note here is that **this outbreak was not unexpected**, and the methods used to find and sequence this genome **had been worked on for years**. Please see [this perspective paper](./data/tracking.pdf "Pandemic preparedness") for some insight into this problem, and *note the date that the paper was written* (for emphasis, that is *January 2019*, 12 months before the COVID19 pandemic began). 
 
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
 
