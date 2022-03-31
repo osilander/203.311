@@ -155,6 +155,8 @@ Most importantly, this line defines the read name (`QNAME`), the position in the
 
 #### Sort and compress
 
+**All of the below sorting, compressing, and variant calling steps should be done for both readsets.**
+
 We are going to produce compressed [bam](https://www.zymoresearch.com/blogs/blog/what-are-sam-and-bam-files "Great SAM BAM Blog post") output for efficient storage and access to the mapped reads. To understand why we are going to compress the file, take a look at the size of your original `fastq` files that you used for mapping, and the size of the `sam` file that resulted. Ack.
 
 Along the way toward compressing, we will also sort our reads for easier access. This simply means we will order the reads by the position in the genome that they map to. 
@@ -480,12 +482,14 @@ There is no consensus yet, and research on how to best filter variants is ongoin
 We will do some simple filtration procedures here.
 For one, we can filter out low quality reads.
 
-Here, we only include variants that have quality > 220.
+Here, we only include variants that have quality > 160.
 
 
 ```bash
 # use rtg vcffilter
-rtg vcffilter -Z -q 220 -i my_variants.vcf -o my_variants.q220.vcf
+# Change yoiur file name accordingly
+# although the one below is *slightly* informative :)
+rtg vcffilter -Z -q 220 -i my_variants.vcf -o my_variants.q160.vcf
 ```
 
 - ``-i FILE``: input file
