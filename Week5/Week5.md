@@ -252,13 +252,11 @@ I leave the rest of the work to you. Calculate the mean coverage, the standard d
 3. For goodness sake what is going on here?
 
 
-#### Sub-selecting reads
+#### Sub-selecting mapped reads
 
 It is important to remember that the mapping commands we used above, we are going to output all reads, including unmapped reads, multi-mapping reads, unpaired reads, discordant read pairs, etc. in one file.
 We can sub-select from the output reads we want to analyse further using `samtools`.
 
-
-#### Concordant reads
 
 We can select read-pairs that have been mapped in a correct manner (same chromosome/contig, correct orientation to each other, distance between reads is not non-sensical), or simply mapped reads, or unmapped reads, or non-supplementary reads, etc. For this, we will use another `samtools` utility, `view`, which converts between `bam` and `sam` format. We do this here because it outputs to standard out, and we extract reads that have the correct [flag](https://broadinstitute.github.io/picard/explain-flags.html "The flag tool again").
 
@@ -282,18 +280,18 @@ We can now remove all other `.bam` (and `.sam`) to clean up your directory and m
 2. What does the bitwise flag `4` indicate?
 
 
-#### Variant identification ToDo
+### Variant identification
 
-Quality-based sub-selection
+#### Quality-based sub-selection
 
 Finally, in this section we want to sub-select reads based on the quality of the mapping. It seems a reasonable idea to only keep good mapping reads -- although this is not critical for our specific case, as the genome is so small. Nevertheless, it is a step we would normally take (perhaps). Besides,
-as the SAM-format contains at column 5 the `MAPQ` value, which we established earlier is the "MAPping Quality" in Phred-scaled, this seems easily achieved.
+as the SAM-format contains at column 5 the `MAPQ` value, which we established earlier is the "MAPping Quality" in Phred-scaled. Thus, filtering on mapping quality seems easily achieved.
 
 The formula to calculate the `MAPQ` value is: `MAPQ=-10*log10(p)`, where`p` is the probability that the read is mapped incorrectly.
 However, there is a problem!
 **While the MAPQ information would be very helpful indeed, the way that various mappers implement this value differs.**
 A good overview can be found [here](https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/ "Blog post!").
-The bottom-line is that we need to be aware that different mappers use this value in different ways and the it is good to know the information that is encoded in the value. (The same is true for sequence-based PHRED scroes!)
+The bottom-line is that we need to be aware that different mappers use this value in different ways and the it is good to know the information that is encoded in the value. (The same is true for sequence-based PHRED scores!)
 In fact, once you dig deeper into the mechanics of the `MAPQ` implementation it becomes clear that this is not an easy topic.
 
 For the sake of going forward, we will sub-select reads with at least medium quality, which we arbitrarily define as `Q20+`. Again, here  we use the `samtools view` tool, but this time use the `-q` option to select by quality.
@@ -313,12 +311,6 @@ Tools we are going to use in this section and how to intall them if you not have
 
 ```bash
 
-          # activate the env
-          conda activate ngs
-          
-          # Install these tools into the conda environment
-          # if not already installed
-          conda install samtools
           conda install bamtools
           conda install freebayes
           conda install bedtools
@@ -326,51 +318,43 @@ Tools we are going to use in this section and how to intall them if you not have
           conda install rtg-tools
           conda install bcftools
 ```
-          
-Preprocessing
+
+#### Preprocessing
 
 We first need to make an index of our reference genome as this is required by the SNP caller.
 Given an assembly file in fasta-format, e.g. ``assembly.fasta`` which is located in the directory, use |samtools| to do this:
 
 ```bash
           
-          samtools faidx results/assembly.fasta
+          samtools faidx reference.fasta
 ```
 
-This command will output a new file with the extension ``.fai``. However, this output is not used within the command itself. Thus, while you should specify this file as output for this rule, you should *not* use it when typing the actual commands in the command section. In addition, you will need to specify this ``.fai`` output file as *input* for ``bcftools`` and ``freebayes`` rules, but again, you will not actually use the input in the command section.
-
-Furthermore we need to pre-process our mapping files a bit further and create a bam-index file (``.bai``) for the bam-file we want to work with:
-
+This command will output a new file with the extension `.fai`. Furthermore we need to pre-process our mapping files a bit further and create a bam-index file (`.bai`) for the bam-file we want to work with:
 
 ```bash
-               
-          bamtools index -in results/my_mapped_sorted_dedup_concordant.q20.bam
+        # a quick bam file index
+        bamtools index -in my_mapped_q20.bam
 ```
-As above for the ``faidx`` command, there is an output for this command, which is a ``.bai`` file. However, this file is never specified in the actual command, but needs to be specified in the output for your rule. And again, as above, this file needs to specificed as input for your ``bcftools`` or ``freebayes`` rules.
 
+### Calling variants
 
-If you would like you can also create a new directory for the variants (e.g. ``variants``).
+#### bcftools mpileup
 
-
-Calling variants
-
-bcftools mpileup
-
-
-We use the sorted filtered bam-file that we produced in the mapping step before. Note that below we specify the ``.bcf`` output as being produced using ``bcftools`` by explicitly adding ``bcftools`` to the file name.
+We use the sorted filtered bam-file that we produced in the mapping step before. Note that below we specify the `.bcf` output as being produced using `bcftools` by explicitly adding `bcftools` to the file name.
 
 ```bash
 
    # We first pile up all the reads and then call
    # variants using the pipe | operator
-   bcftools mpileup -f results/assembly.fasta my_sorted_dedup_q20.bam | bcftools call -v -m -Ob -o my_variant_calls_bcftools.bcf
+   bcftools mpileup -f assembly.fasta my_mapped_q20.bam | bcftools \
+   call -v -m -Ob -o my_variant_calls_bcftools.bcf
 ```
 
 This is a rather complicated instruction, which is partly due to 
-the fact that there has been a very 
-recent change from the tool used previously for this step, ``samtools mpileup``. 
-With ``bcftools mpileup`` we use the pipe (``|``) operator
-because we have no need ever for the intermediate output,
+the fact that there has been a relatively 
+recent change from the tool used previously for this step, [samtools mpileup](http://www.htslib.org/doc/1.11/samtools-mpileup.html "Why'd they throw you out?").
+With `bcftools mpileup` we use the pipe (`|`) operator
+because we have no need for the intermediate output,
 and instead feed the output of ``bcftools mpileup`` directly to ``bcftools call``. There are several options that we invoke, explained below:
    
 |bcftools| mpileup parameter:
@@ -385,20 +369,19 @@ and instead feed the output of ``bcftools mpileup`` directly to ``bcftools call`
 - ``-Ob``: output type: binary compressed VCF
 
   
-Freebayes
+#### Freebayes
 
 As an alternative we can do some variant calling with another tool called |freebayes|. In fact one reason to do so would be to compare the results of `bcftools` and `freebayes`, and (for example) focus only on variant calls that are made by both tools.
 
-Given a reference genome assembly file in fasta-format, e.g. `assembly.fasta` and the index in `.fai` format and a mapping file (.bam file) and a mapping index (.bai file), we can call variants with |freebayes| like so (it  is probably agood idea to note the output by specifying `freebayes` in the file name:
+Given a reference genome assembly file in fasta-format, e.g. `assembly.fasta` and the index in `.fai` format and a mapping file (.bam file) and a mapping index (`.bai` file), we can call variants with `freebayes` like so (it is probably agood idea to note the output by specifying `freebayes` in the file name:
 
 ```bash
 
    # Now we call variants and pipe the results into a new file
-   freebayes -f results/assembly.fasta my_sorted_dedup_q20.bam > my_sorted_dedup_q20_freebayes.vcf
+   freebayes -f assembly.fasta my_mapped_q20.bam > my_mapped_q20_freebayes.vcf
 ```
-         
-Post-processing
----------------
+
+### Post-processing
 
 Understanding the output files (.vcf)
 
@@ -420,8 +403,7 @@ Lets look at the variants using ``less``:
    # after using less to get to the variant calls
    less myvariants.bcftools.vcf
 ```
-          
-```bash
+```code
           
     #CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  H8_sorted.bam
     1       59501   .       C       A       228     .       DP=130;VDB=0.0235953;SGB=-0.693147;RPB=0.130017;MQB=3.91681e-08;MQSB=9.58804e-08;BQB=0.0391486;MQ0F=0.415385;AC=2;AN=2;DP4=39,0,29,27;MQ=16     GT:PL   1/1:255,17,0
@@ -431,21 +413,17 @@ Lets look at the variants using ``less``:
 
 If you look carefully, you might notice that your variant calls are 
 not spread evenly throughout the genome. This is because there are certain error-prone locations in your assembly. These are areas in which the assembly **is not correct** (or, is not likely to be correct), and in these places, many variants get called.
-The fields in a vcf-file are described in the table below:
 
-Statistics
-
+#### Statistics
 
 Now we can use it to do some statistics and filter our variant calls.
 
 For example, we can get some quick stats with ``rtg vcfstats``:
 
-
 .. code:: bash
                
    rtg vcfstats my_variant_calls_freebayes.vcf
 
-   
 Example output from ``rtg vcfstats``:
 
 
@@ -495,7 +473,7 @@ Now we can take the stats and make some plots (e.g. :numref:`fig-vcfstats`) whic
 - `-p`: The output files prefix, add a slash at the end to create a new directory.
 
 
-Variant filtration
+#### Variant filtration
 
 Variant filtration is a big topic in itself.
 There is no consens yet and research on how to best filter variants is ongoing. In addition (and rather surprisingly), the two methods that we have used to call variants, ``vcftools mpileup`` and ``freebayes`` differ considerably the quality scores that they assign. ``vcftools`` assigns a maximum of 228; ``freebayes`` has no maximum, and you will see that many scores are above 1000.
