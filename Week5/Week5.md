@@ -553,6 +553,8 @@ And we're there, one more step!
 snipit both_genomes.aln
 ```
 
+Check your file list in the `RStudio Cloud` bottom right corener window. There should be a new file there called `snp_plot.png`. Click on it, and it should open a new tab in the browser. Marvel at the beauty (what is this thing plotting?).
+
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
 
