@@ -523,19 +523,18 @@ First we make a *new* genome using our variant calls.
 cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
 ```
 
-This has also done 
-Now a quick alignment cat of the two genomes (we won't even align them! Amazing!)
+Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file.
 
 ```bash
-# a sneaky ".aln" (alignment) suffix
-# even though strictly speakinbg we haven't aligned them
-cat reference.fasta consensus.fasta > sars-cov-2.aln
+cat reference.fasta consensus.fasta > both_genomes.fasta
 ```
 
-One last install (phew!)
+Two last installs (phew!)
 ```bash
 # a beautiful visualisation program
 mamba install snipit
+# muscle-y alignment program
+mamba install muscle
 ```
 
 ### Portfolio Analysis {#Portfolio-Analysis}
