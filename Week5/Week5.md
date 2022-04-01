@@ -511,7 +511,32 @@ Which types of variants were filtered out?
 
 
 ### Brief Visualization
+First we make a *new* genome using our variant calls.
 
+```bash
+# Use our old reference
+# cat it to bcftools
+# and use the new filtered variant calls to make a new "consensus"
+# Don't call it "consensus"
+# DO include the -p argument, which places a prefix on your new sequence
+# so that it doesn't have the same name as the reference.
+cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
+```
+
+This has also done 
+Now a quick alignment cat of the two genomes (we won't even align them! Amazing!)
+
+```bash
+# a sneaky ".aln" (alignment) suffix
+# even though strictly speakinbg we haven't aligned them
+cat reference.fasta consensus.fasta > sars-cov-2.aln
+```
+
+One last install (phew!)
+```bash
+# a beautiful visualisation program
+mamba install snipit
+```
 
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
