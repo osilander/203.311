@@ -510,7 +510,7 @@ rtg vcfstats my_variant_calls_bcftools.q150.vcf.gz
 Which types of variants were filtered out?
 
 
-### Brief Visualization
+### Brief Beautiful Visualization (if you do not have time, skip this)
 First we make a *new* genome using our variant calls.
 
 ```bash
@@ -523,7 +523,7 @@ First we make a *new* genome using our variant calls.
 cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
 ```
 
-Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file.
+Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file. This becomes a multi-fasta file now.
 
 ```bash
 cat reference.fasta consensus.fasta > both_genomes.fasta
@@ -534,8 +534,11 @@ Two last installs (phew!)
 # a beautiful visualisation program
 mamba install snipit
 # muscle-y alignment program
-mamba install muscle
+mamba install mafft
 ```
+
+
+To do the alignment you will need 
 
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
