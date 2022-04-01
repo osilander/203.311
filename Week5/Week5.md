@@ -482,19 +482,20 @@ There is no consensus yet, and research on how to best filter variants is ongoin
 We will do some simple filtration procedures here.
 For one, we can filter out low quality reads.
 
-Here, we only include variants that have quality > 160.
+Here, we only include variants that have quality > 150.
 
 
 ```bash
 # use rtg vcffilter
 # Change yoiur file name accordingly
 # although the one below is *slightly* informative :)
-rtg vcffilter -Z -q 220 -i my_variants.vcf -o my_variants.q160.vcf
+# note we leave off the extension of the output, this is made automatically
+# it also makes a tab index for us, how nice (.tbi)
+rtg vcffilter -q 150 -i my_variants.vcf -o my_variants.q150
 ```
 
 - ``-i FILE``: input file
 - ``-o FILE``: output file
-- ``-Z``: do not compress the output
 - ``-q FLOAT``: minimal allowed quality in output.
 
 
@@ -502,17 +503,14 @@ Quick stats for the filtered variants:
   
 ```bash 
 # look at stats for filtered 
-rtg vcfstats my_variant_calls_bcftools.q220.vcf
+rtg vcfstats my_variant_calls_bcftools.q150.vcf.gz
 ``` 
 
-Transition Transversion ToDo
-
-    
-
+#### QUESTION
+Which types of variants were filtered out?
 
 
-This strategy used here will do for our purposes.
-However, several more elaborate filtering strategies have been explored, e.g. [here](https://github.com/ekg/freebayes#observation-filters-and-qualities).
+### Brief Visualization
 
 
 ### Portfolio Analysis {#Portfolio-Analysis}
