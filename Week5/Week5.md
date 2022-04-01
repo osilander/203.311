@@ -551,6 +551,7 @@ And we're there, one more step!
 ```bash
 # Use our amazing Snipit program
 snipit both_genomes.aln
+```
 
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
