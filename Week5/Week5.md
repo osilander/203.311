@@ -538,7 +538,19 @@ mamba install mafft
 ```
 
 
-To do the alignment you will need 
+To do the alignment you will need to simply type `mafft` at the command line. This will open a semi-gui program. You will need to know the name of your multi-fasta you made above. You will enter this name first (and press *enter*). You will then need an output file name. This *should* end in `.aln` as it will be an alignment (in fasta format). Next, you will need to choose the output format. Choose `3. Fasta`. Last, you will need to specify the strategy. Choose `1. --auto`. Press *enter* at the additional arguments question.
+
+**Alternatively** you can do this all on the command line (perhaps easier). For this, type:
+
+```bash
+mafft --auto --reorder both_genomes.fasta > both_genomes.aln
+```
+
+And we're there, one more step!
+
+```bash
+# Use our amazing Snipit program
+snipit both_genomes.aln
 
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
