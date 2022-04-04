@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-# Evolutionary Visualization
+# Phylogenetics and Evolutionary Visualization
 **Dr Olin Silander**
 
 ## Purpose
