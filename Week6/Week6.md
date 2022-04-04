@@ -53,7 +53,7 @@ We will use this file to look at the Spike Protein (annotated in most SARS-CoV-2
 
 Align homologous nucleotide sequences. This program is `mafft`,  installable using `mamba`.
 
-Second, we will install `raxml`, a phylogenetic tree inference tool, which uses
+Second, we will install `iqtree`, a phylogenetic tree inference tool, which uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
 
 
@@ -116,7 +116,7 @@ The arguments are:
 
   
 ```bash
-raxmlHPC -s your_alignment.aln -m GTRGAMMA -n sars_tree -p 12345
+iqtree 
 ```
 
 ### Visualizing the phylogeny
