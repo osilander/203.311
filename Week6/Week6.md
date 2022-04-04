@@ -8,9 +8,12 @@
 
 ### Preface
 
-In this section you will use some software to do phylogenetic reconstruction and visualisation using single genes or whole genomes of SARS-CoV-2
+In this section you will use some software to do phylogenetic reconstruction and visualisation using single genes or whole genomes of SARS-CoV-2.
 
 ### Introduction
+
+
+
 [August outbreak](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story")
 
 
@@ -22,35 +25,29 @@ After studying this tutorial you should be able to:
 2. Use bioinformatics software to perform sequence alignment.
 3. Use bioinformatics software to perform phylogenetic reconstructions.
 
-### Installing the software
 
 Today we will be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar to perform alignments of different open reading frames and infer phylogenies.
 
 There are a large number of ways to approach this. A standard method would be through `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
-
-The first program we need is one that will annotate our genome. Although we have not discussed annotation in this class, it forms a key part of many bioinfomratic pipelines. Here, we will use a standard annotation method for bacterial genomes, `prokka`. Be careful, installation here may redline your RAM.
-
-```R
-# Put in some fancy bioinformatics software
-install.packages("ape")
-getAnnotationsGenBank(c("MN908947.3"))
-```
 
 First we must admit that we have done something terrible
 ```bash
 bedtools genomecov -ibam kwazulu-natal.bam -bg | awk '$4 < 12'
 ```
 
-Now you can annotate your reference `.fasta` file using this program.
 
-```bash
-# very simple command structure
-prokka reference.fasta
-# then an immediate uninstall, bye bye prokka
-mamba uninstall prokka
+### Installing the software
+
+The steps below should be done in the `R` console.
+
+```R
+# Put in some fancy bioinformatics software
+install.packages("ape")
+# an example of ehat it can do for us.
+getAnnotationsGenBank(c("MN908947.3"))
 ```
 
-The output of prokka will be a directory with a large number of files, several of which will be useful for us. One of these is the `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Go ahead and navigate into the Prokka directory and use `less` to take a look into the `gbk` file. There are several standard pieces of information in this file type, and it is a far more complicated strucutre than the simpler `fasta`, `fastq`, `sam`, or `vcf` format files. We will not discuss this structure in detail, but note which pieces of information are given.
+The output of the above command is a list of the annotations of the ancestral SRAS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
 
 We will use this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*).
 
