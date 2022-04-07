@@ -24,7 +24,13 @@ Now that we have obtained reads, QC'ed and trimmed them, aligned them to our ref
 
 There are a large number of ways to approach these steps. A standard method to obtain similar genomes to the ones that you have, for example, one possibility would be to use command-line `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
 
-First we must admit that we have done something terrible
+### We have misbehaved
+
+First we must admit that we have done something terrible.<br><br>
+
+<img src="graphics/should_not.png" title="Jeff says WHY?" width="400"/>
+Yes, I did tell you to follow instructions but I never said they were correct.<br><br>
+
 ```bash
 bedtools genomecov -ibam kwazulu-natal.bam -bg | awk '$4 < 12'
 ```
