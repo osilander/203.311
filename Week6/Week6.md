@@ -163,16 +163,3 @@ Navigate to this homepage. Once you have done that, open the file containing you
 
 You should then be able to zoom in and out to see stuff.
 
-### Selecting a single gene to build a phylogeny with the software
-
-The first thing we need to do is select a gene that we will 
-use to build a *gene tree* to infer the phylogenetic relatedness
-of different *SARS-CoV-2* isolates. Today, we will use the *spike* protein. First, we will get this gene (and only this gene) from your annotation. Take a quick look at the location of your genes in your annotation.
-
-Now to get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
-
-```bash
-# Find the location of the spike protein above, the surface glycoprotein
-seqkit subseq -r 21563:25384 nCoV-2019.reference.fasta > nCov_spike.fasta 
-
-```
