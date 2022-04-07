@@ -82,7 +82,7 @@ bedtools maskfasta -fi kwazulu-natal.fasta -bed low_cov.bed -fo kwazulu-natal-ma
 - ``-bed``: bed file to mask with
 - ``-fo`` output file
 
-Do this for both of your new genomes.
+Do this for both of your new genomes. Last, we **must rename our sequences so that they are unique**. To do this, simply click on your masked file and edit the name of the sequence in the top left window of the RStudio browser window. I recommend simply renaming the fasta sequence as the name of the location, so for example replace `MN908947.3` with `montana`.
 
 Now we can begin our phylogenetic analysis. We will do this in two ways. First, we will perform it for a specific gene (the spike); then we will do it for the whole genome.
 
@@ -108,7 +108,14 @@ We will use the information from this file to look at the Spike Protein (annotat
 <img src="graphics/gisaid.png" title="Where all data goes" width="300"/><br>
 **More than 10 million sequences.**<br><br>
 
-As a first step, we will get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
+
+### Selecting a single gene to build a phylogeny with the software
+
+The first thing we need to do is select a gene that we will 
+use to build a *gene tree* to infer the phylogenetic relatedness
+of different *SARS-CoV-2* isolates. Today, we will use the *spike* protein. First, we will get this gene (and only this gene) from your annotation. Take a quick look at the location of your genes in your annotation.
+
+Now to get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
 
 ```bash
 # Find the location of the spike protein above, the surface glycoprotein
@@ -116,27 +123,18 @@ seqkit subseq -r 21563:25384 nCoV-2019.reference.fasta > nCov_spike.fasta
 
 ```
 
-Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. First, we must add our own sequences. We will use `cat` to do this.
+Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. First, we must add our own sequences to this file. We will use `cat` to do this.
 
 ```bash
 # We need to put our sequences at the bottom of the list.
-cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta > all_your_sequences_belong_to_us.fasta
+cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta nCov_spike.fasta > all_your_sequences_belong_to_us.fasta
 ```
 
- This program is `mafft`,  installable using `mamba`.
+Now we can do an alignment. To do this we will use `mafft` [see here](https://mafft.cbrc.jp/alignment/software/ "mafft homepage"). It is installable using `mamba`.
 
-Second, we will install `iqtree`, a phylogenetic tree inference tool, which uses
+Let's also install `iqtree`, a phylogenetic tree inference tool, that uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
 
-
-### Selecting a gene to build a phylogeny with the software
-
-The first thing we need to do is select a gene that we will 
-use to build a *gene tree* to infer the phylogenetic relatedness
-of different *SARS-CoV-2* isolates. Today, we will use the *spike* protein. First, we will get this gene (and only this gene) from your annotation. Let's take a quick look at the location of your genes in your annotation.
-
-This should yield a list of the coding regions. The first two are the long polyproteins in SARS-CoV-2. The third is the Spike protein itself.
-We can now use the location of this gene `seqkit` to make a new `fasta` file consisting only of the nucleotide sequence of this gene. We can do this in the following way:
 
 ```bash
 # make a text file with the name
