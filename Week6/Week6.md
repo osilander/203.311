@@ -66,7 +66,7 @@ We will next make a `.bed format file` that we will use to *mask* the new fasta 
 # here we mask all regions with coverage less than 12 - we assume that 
 # regions with coverage more than 12 have successully called variants
 # we make a new .bed format file
-bedtools genomecov -ibam kwazulu-natal.bam -bg | awk '$4 < 12' > low_cov.bed
+bedtools genomecov -ibam kwazulu-natal-mapped.bam -bg | awk '$4 < 12' > low_cov.bed
 ```
 
 - ``-ibam FILE``: input file
@@ -103,14 +103,20 @@ getAnnotationsGenBank(c("MN908947.3"))
 
 The output of the above command is a list of the annotations of the ancestral SaRS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
 
-We will use this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). First, I have downloaded a number of genomes from the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage").<br><br>
+We will use the information from this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). I have downloaded a number of genomes for you to use. Note that the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage"). Please download them from [here](data/should_not.png) (`wget`).<br><br>
 
 <img src="graphics/gisaid.png" title="Where all data goes" width="300"/><br>
 **More than 10 million sequences.**<br><br>
 
+As a first tep, we will get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
 
+```bash
+# Find the location of the spike protein above, the surface glycoprotein
+seqkit subseq -r 21563:25384 nCoV-2019.reference.fasta > nCov_spike.fasta 
 
-Align homologous nucleotide sequences. This program is `mafft`,  installable using `mamba`.
+```
+
+Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. This program is `mafft`,  installable using `mamba`.
 
 Second, we will install `iqtree`, a phylogenetic tree inference tool, which uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
@@ -121,12 +127,6 @@ maximum-likelihood (ML) optimality criterion. This program can also be installed
 The first thing we need to do is select a gene that we will 
 use to build a *gene tree* to infer the phylogenetic relatedness
 of different *SARS-CoV-2* isolates. Today, we will use the *spike* protein. First, we will get this gene (and only this gene) from your annotation. Let's take a quick look at the location of your genes in your annotation.
-
-```bash
-# find all coding sequence locations
-# CDS stand for "coding sequence" (some may disagree)
-grep "CDS" my_prokka_annotation.gbk
-```
 
 This should yield a list of the coding regions. The first two are the long polyproteins in SARS-CoV-2. The third is the Spike protein itself.
 We can now use the location of this gene `seqkit` to make a new `fasta` file consisting only of the nucleotide sequence of this gene. We can do this in the following way:
