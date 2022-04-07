@@ -101,9 +101,14 @@ library("ape")
 getAnnotationsGenBank(c("MN908947.3"))
 ```
 
-The output of the above command is a list of the annotations of the ancestral SRAS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
+The output of the above command is a list of the annotations of the ancestral SaRS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
 
-We will use this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*).
+We will use this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). First, I have downloaded a number of genomes from the primary sequence repository for SARS-CoV-2 sequences, GISAID.<br><br>
+
+<img src="graphics/gisaid.png" title="Where all data goes" width="300"/><br>
+**More than 10 million sequences.**<br><br>
+
+
 
 Align homologous nucleotide sequences. This program is `mafft`,  installable using `mamba`.
 
