@@ -20,16 +20,41 @@ Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outco
 One example of this process and result is outlined [here](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story") - the details of the 2020 outbreak in Auckland. Please read this now. At the second slide, please briefly interact with the phylogeny on the right side of the screen to understand what it is visualising. Once you have done this, we will pause the lab to discuss some of the details in this visualisation.
 
 
+### Approach in today's lab
+
 Now that we have obtained reads, QC'ed and trimmed them, aligned them to our reference genome, and called variants, today we will reconstruct be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar genomes and open reading frames, perform alignments, and infer phylogenies.
 
 There are a large number of ways to approach these steps. A standard method to obtain similar genomes to the ones that you have, for example, one possibility would be to use command-line `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
 
-### We have misbehaved
+### Reconstruction
+In order to build phylogenies, we require **alignments** and not just variants. The primary reason for this is that we will be using maximum likelihood methods to build the phylogenies, and maximum likelihood requires us to have a *model* of character state evolution. If we were using distance-based methods (e.g. UPGMA or neighbor joining), then having only variants would be fine, as that is all we need to calculate distance. However,, with maximum likelihood, if we were to use variants only to infer relatedness, our model would think that *all* sites evolve very quickly (after all, variants are necessarily sites that have changed); this would be clearly incorrect, and our model would be doomed to fail.
 
-First we must admit that we have done something terrible.<br><br>
+Thus, we must reconstruct genomes. Some of you have already done this by completing the last *If you have time* section of last week's lab. For those of you that have done this, you can skip to the next section (**Wait are we forgetting something?**).
 
-<img src="graphics/should_not.png" title="Jeff says WHY?" width="400"/>
-Yes, I did tell you to follow instructions but I never said they were correct.<br><br>
+To reconstruct new genomes, we will simply use of old reference, and input our called **filtered** variants to make two new genomes, one for Montana, and one for Kwazulu-Natal.
+
+```bash
+# Use our old reference
+# cat it to bcftools
+# and use the new filtered variant calls to make a new "consensus"
+# Don't call it "consensus"
+# DO include the -p argument, which places a prefix on your new sequence
+# so that it doesn't have the same name as the reference. Note the 
+# underscore I have used. This puts a space between the prefix and 
+# the sequence name ("snakecase")
+cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
+```
+
+Now we can align these genomes and perform phylogentic inference.
+
+### Wait are we forgetting something?
+
+First we must think twice about what we are about to do.<br><br>
+
+<img src="graphics/should_not.png" title="Jeff says WHY?" width="500"/>
+**Yes, I did tell you to follow instructions but I never said they were correct.**<br><br>
+
+Right now we have a list of filtered variants. However, we may not have successfully called all variants in our new genomes. Perhaps the major reason for this is a lack of read coverage in certain regions. Last week, we used `samtools depth` to calculate the coverage (also part of your **Assessment portfolio** assignment). Below we will use another tool, `bedtools` to calculate coverage and *mask* the regions of the genome with low coverage. Why? Well, otherwise we would be reconstructing genomes that don't refelct our data - *we would be assigning ancestral genome sequence to new genomes, and we can't be sure that they actually have that sequence.* Please discuss this if you are not clear why this is important. And do not worry, this is actually and truly a problem that many sequencing centres and bioinformatics pipelines had with SARS-CoV-2 variant calling - *relative experienced bioinformaticians assigned ancestral sequences when they should not have*.
 
 ```bash
 bedtools genomecov -ibam kwazulu-natal.bam -bg | awk '$4 < 12'
