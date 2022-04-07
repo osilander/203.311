@@ -44,6 +44,8 @@ To reconstruct new genomes, we will simply use of old reference, and input our c
 cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > mylocation.fasta
 ```
 
+Do this for both of your variant call files to create two new genomes.
+
 Now we can align these genomes and perform phylogentic inference.
 
 ### Wait are we forgetting something?
@@ -80,13 +82,22 @@ bedtools maskfasta -fi kwazulu-natal.fasta -bed low_cov.bed -fo kwazulu-natal-ma
 - ``-bed``: bed file to mask with
 - ``-fo`` output file
 
+Do this for both of your new genomes.
+
+Now we can begin our phylogenetic analysis. We will do this in two ways. First, we will perform it for a specific gene (the spike); then we will do it for the whole genome.
+
+### Finding the open reading frame
+
+If we want to find a specific gene (or region), we must first figure out where in the genome that gene is. While there are several ways to do this (e.g. you could freshly annotate your new genome), we will rely on the data that already exists in [Genbank](https://www.ncbi.nlm.nih.gov/genbank/ "The real deal"), which has been carefully vetted.
 
 The steps below should be done in the `R` console.
 
 ```R
 # Put in some fancy bioinformatics software
 install.packages("ape")
-# an example of ehat it can do for us.
+# Ooh don't forget to load the library
+library("ape")
+# an example of what it can do for us.
 getAnnotationsGenBank(c("MN908947.3"))
 ```
 
