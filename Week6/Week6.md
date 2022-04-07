@@ -162,8 +162,10 @@ We will use `mafft` to perform our alignment on all the sequences in the |blast|
 This syntax is very simple (change the filenames accordingly):
 
 ```bash
-mafft
+mafft --auto --reorder all_genomes.fasta > all_genomes.aln 
 ```
+
+The suffix here is `.aln` ("alignment"). Some people may have different opinions on the proper name for an alignment file.
 
 ### Building a phylogeny
 
