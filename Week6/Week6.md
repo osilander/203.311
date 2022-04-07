@@ -60,7 +60,7 @@ Right now we have a list of filtered variants and some new genomes. However, we 
 ### Installing the software
 If you have not already, please install `bedtools` using `mamba` (or `conda`) and the `bioconda` channel.
 
-We will next make a `.bed format file` that we will use to *mask* the new fasta files that we have made from the variant calls. Please see the `.bed` format [here](https://bedtools.readthedocs.io/en/latest/index.html "Nice log, bedtools")
+We will next make a `.bed format file` that we will use to *mask* the new fasta files that we have made from the variant calls. Please see the `.bed` format [here](https://bedtools.readthedocs.io/en/latest/index.html "Nice logo, bedtools")
 
 ```bash
 # here we mask all regions with coverage less than 12 - we assume that 
@@ -103,12 +103,12 @@ getAnnotationsGenBank(c("MN908947.3"))
 
 The output of the above command is a list of the annotations of the ancestral SaRS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
 
-We will use the information from this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). I have downloaded a number of genomes for you to use. Note that the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage"). Please download them from [here](data/should_not.png) (`wget`).<br><br>
+We will use the information from this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). I have downloaded a number of genomes for you to use. Note that the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage"). Please download them from [here](data/hcov-19_2022_04_07_22.fasta.gz) (`wget` and `gunzip`). This file is a *multi-fasta* (i.e. it has multiple fasta sequences in it).<br><br>
 
 <img src="graphics/gisaid.png" title="Where all data goes" width="300"/><br>
 **More than 10 million sequences.**<br><br>
 
-As a first tep, we will get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
+As a first step, we will get the *spike* sequence only from the ancestral genome and make a new fasta file. How should we do this? Our trusty pal `seqkit`.
 
 ```bash
 # Find the location of the spike protein above, the surface glycoprotein
@@ -116,7 +116,14 @@ seqkit subseq -r 21563:25384 nCoV-2019.reference.fasta > nCov_spike.fasta
 
 ```
 
-Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. This program is `mafft`,  installable using `mamba`.
+Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. First, we must add our own sequences. We will use `cat` to do this.
+
+```bash
+# We need to put our sequences at the bottom of the list.
+cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta > all_your_sequences_belong_to_us.fasta
+```
+
+ This program is `mafft`,  installable using `mamba`.
 
 Second, we will install `iqtree`, a phylogenetic tree inference tool, which uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
