@@ -51,7 +51,7 @@ Now we can align these genomes and perform phylogentic inference.
 
 First we must think twice about what we are about to do.<br><br>
 
-<img src="graphics/should_not.png" title="Jeff says WHY?" width="500"/>
+<img src="graphics/should_not.png" title="Jeff says WHY?" width="500"/><br>
 **Yes, I did tell you to follow instructions but I never said they were correct.**<br><br>
 
 Right now we have a list of filtered variants. However, we may not have successfully called all variants in our new genomes. Perhaps the major reason for this is a lack of read coverage in certain regions. Last week, we used `samtools depth` to calculate the coverage (also part of your **Assessment portfolio** assignment). Below we will use another tool, `bedtools` to calculate coverage and *mask* the regions of the genome with low coverage. Why? Well, otherwise we would be reconstructing genomes that don't refelct our data - *we would be assigning ancestral genome sequence to new genomes, and we can't be sure that they actually have that sequence.* Please discuss this if you are not clear why this is important. And do not worry, this is actually and truly a problem that many sequencing centres and bioinformatics pipelines had with SARS-CoV-2 variant calling - *relative experienced bioinformaticians assigned ancestral sequences when they should not have*.
