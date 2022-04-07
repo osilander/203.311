@@ -123,17 +123,6 @@ Let's also install `iqtree`, a phylogenetic tree inference tool, that uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
 
 
-```bash
-# make a text file with the name
-# of the spike gene
-echo "spike"  > spikes.txt
-# use seqkit to get the sequence of this gene
-seqtk subseq -r 12:13 my_prokka_annotation.ffn > spikes.fasta
-```
-
-This should yield a `fasta` file containing your gnd sequence only. Check that the file does contain the expected sequence use `cat`.
-
-
 ### Finding orthologues using BLAST
 
 We would usually use |blast| to find matches to your sequence in the NCBI database by requesting a `remote` search using the *spike* gene as the query. However, the remote |blast| service is not currently available. Instead, I have made a `fasta` file of spike sequences available in the `data` directory. You will need to copy this file into your own directory.
