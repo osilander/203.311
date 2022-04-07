@@ -5,13 +5,18 @@
 
 ## Purpose
 
+After studying this section of the tutorial you should be able to:
+
+1. Explain the steps necessary to produce a phylogeny.
+2. Use bioinformatic tools to produce new genomes containing called variants.
+3. Use bioinformatic tools to align sequences and infer a phylogeny.
+4. Identify different ways of visualising phylogenies and the advantages and disadvantages of each.
 
 ### Preface
 
-In this section you will use some software to do phylogenetic reconstruction and visualisation using single genes or whole genomes of SARS-CoV-2.
+In this section you will use some software to reconstruct genomes from the variants you called in the last lab, perform alignemnts for single genes and whole genomes, do phylogenetic reconstruction, and perform phylogenetic visualisation.
 
 ### Introduction
-
 
 
 [August outbreak](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story")
@@ -107,16 +112,13 @@ We will use `iqtree` to build our phylogeny.
 This uses a maximum likelihood method to infer parameters of evolution and the topology of the tree.
 Again, the syntax of the command is fairly simple.
 
-The arguments are:
+The arguments are (for now):
 
 - ``-s``: an alignment file
-- ``-m``: a model of evolution. In this case we will use a general time reversible model with gamma distributed rates (GTR+GAMMA)
-- ``-n``: outfile-name
-- ``-p``: specify a random number seed for the parsimony inferences
 
   
 ```bash
-iqtree 
+iqtree -s example.phy -m MF 
 ```
 
 ### Visualizing the phylogeny
