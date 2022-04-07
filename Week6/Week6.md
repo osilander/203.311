@@ -123,8 +123,7 @@ maximum-likelihood (ML) optimality criterion. This program can also be installed
 
 ### Performing an alignment
 
-
-We will use `mafft` to perform our alignment on all the sequences in the downlioaded and appended multifasta file of genomes.
+We will use `mafft` to perform our alignment on all the sequences in the downloaded and appended multifasta file of genomes.
 This syntax is very simple (change the filenames accordingly):
 
 ```bash
@@ -133,8 +132,6 @@ mafft --auto --reorder all_genomes.fasta > all_genomes.aln
 
 The suffix here is `.aln` ("alignment"). Some people may have different opinions on the proper name for an alignment file. Now we will trim the gaps here so that we only ahve the spike region.
 
-```bash
-seqkit seq -g all_genomes.aln > spike_only.aln
 
 ### Building a phylogeny
 
@@ -148,8 +145,16 @@ The arguments are (for now):
 
   
 ```bash
-iqtree -s example.phy -m MF 
+# note that there is no need to pipe this into a file.
+iqtree -s my_genomes.aln -m MF 
 ```
+- `-m MF` use modelfinder to find the "best model" of evolution
+
+`iqtree` has *automatically* selected the best model. How, you ask? It has found the tree with the highest likelihood that has the *simplest model*. Let's see what that is. use `grep` to locate the following phrase in the `.log` file:
+
+*Best-fit model*
+
+You should see a single line stating the best model. What is it? Go [here](http://www.iqtree.org/doc/Substitution-Models "yikes so many models") to see what model this is.
 
 ### Visualizing the phylogeny
 
