@@ -84,11 +84,11 @@ bedtools maskfasta -fi kwazulu-natal.fasta -bed low_cov.bed -fo kwazulu-natal-ma
 
 Do this for both of your new genomes. Last, we **must rename our sequences so that they are unique**. To do this, simply click on your masked file and edit the name of the sequence in the top left window of the RStudio browser window. I recommend simply renaming the fasta sequence as the name of the location, so for example replace `MN908947.3` with `montana`. **Make sure to also save it** (ctrl-s).
 
-Now we can begin our phylogenetic analysis. We will do this in two ways. First, we will perform it for a specific gene (the spike); then we will do it for the whole genome.
+Now we can begin our phylogenetic analysis. We will perform for the whole genome. First, however, let's take a look at what is in our genome.
 
-### Finding the open reading frame
+### Finding annotations
 
-If we want to find a specific gene (or region), we must first figure out where in the genome that gene is. While there are several ways to do this (e.g. you could freshly annotate your new genome), we will rely on the data that already exists in [Genbank](https://www.ncbi.nlm.nih.gov/genbank/ "The real deal"), which has been carefully vetted.
+If we wanted to find a specific gene (or region), we must first figure out where in the genome that gene is. While there are several ways to do this (e.g. you could freshly annotate your new genome), we will rely on the data that already exists in [Genbank](https://www.ncbi.nlm.nih.gov/genbank/ "The real deal"), which has been carefully vetted.
 
 The steps below should be done in the `R` console.
 
@@ -101,16 +101,14 @@ library("ape")
 getAnnotationsGenBank(c("MN908947.3"))
 ```
 
-The output of the above command is a list of the annotations of the ancestral SaRS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
+The output of the above command is a list of the annotations of the ancestral SARS-CoV-2 genome. Most often, annotated genomes are given in Genbank format, usually suffixed with `.gbk` file, which is in *genbank* format. This file lists all the annotated reading frames (as well as tRNA, rRNA, exons, introns, etc. if this were a more complicated genome). Click on this link [here](https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3 "Ancestral Genbank") to see what this format looks like. Note that it is considerably more complicated than any other format we have seen so far (`.sam`, `.fastq`, `.fasta`, `.vcf`, `.sh`, and the associated `.fai`, `.bam`, `.bai`, `.bcf`)
 
-We will use the information from this file to look at the Spike Protein (annotated in most SARS-CoV-2 genomes as the *surface glycoprotein*). I have downloaded a number of genomes for you to use. Note that the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage"). Please download them from [here](data/hcov-19_2022_04_07_22.fasta.gz) (`wget` and `gunzip`). This file is a *multi-fasta* (i.e. it has multiple fasta sequences in it).<br><br>
+While we would usually use `blast` to find matches to your sequence in the NCBI database by requesting a `remote` search, the remote `blast` service is not currently available. I have instead downloaded a number of genomes for you to use. Note that the primary sequence repository for SARS-CoV-2 sequences, [GISAID](https://www.gisaid.org/ "GISAID homepage"). Please download them from [here](data/hcov-19_2022_04_07_22.fasta.gz) (`wget` and `gunzip`). This file is a *multi-fasta* (i.e. it has multiple fasta sequences in it).<br><br>
 
 <img src="graphics/gisaid.png" title="Where all data goes" width="300"/><br>
 **More than 10 million sequences.**<br><br>
 
-### Finding other SARS-CoV-2 genomes
-
-Now we can use this to find and align homologous nucleotide sequences from the other SARS-CoV-2 viruses. First, we must add our own sequences to this file. We will use `cat` to do this.
+Now we can use this to align all nucleotide sequences from the other SARS-CoV-2 viruses. First, we must add our own sequences to this file. We will use `cat` to do this.
 
 ```bash
 # We need to put our sequences at the bottom of the list.
@@ -123,18 +121,10 @@ Let's also install `iqtree`, a phylogenetic tree inference tool, that uses
 maximum-likelihood (ML) optimality criterion. This program can also be installed using`mamba`.
 
 
-### Finding orthologues using BLAST
-
-We would usually use |blast| to find matches to your sequence in the NCBI database by requesting a `remote` search using the *spike* gene as the query. However, the remote |blast| service is not currently available. Instead, I have made a `fasta` file of spike sequences available in the `data` directory. You will need to copy this file into your own directory.
-
-
-You next need to append the sequence of the *gnd* from your own *E. coli* strain to this file, using whatever set of commands you wish/know. Most likely, this will be `cat` and the redirect `>>` (do *not* use `>` as it will overwrite the whole file).
-
-
 ### Performing an alignment
 
 
-We will use `mafft` to perform our alignment on all the sequences in the |blast| fasta file.
+We will use `mafft` to perform our alignment on all the sequences in the downlioaded and appended multifasta file of genomes.
 This syntax is very simple (change the filenames accordingly):
 
 ```bash
