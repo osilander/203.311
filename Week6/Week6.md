@@ -112,7 +112,7 @@ Now we can use this to align all nucleotide sequences from the other SARS-CoV-2 
 
 ```bash
 # We need to put our sequences at the bottom of the list.
-cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta nCov_spike.fasta > all_your_sequences_belong_to_us.fasta
+cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta > all_your_sequences_belong_to_us.fasta
 ```
 
 Now we can do an alignment. To do this we will use `mafft` [see here](https://mafft.cbrc.jp/alignment/software/ "mafft homepage"). It is installable using `mamba`.
