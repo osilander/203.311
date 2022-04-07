@@ -15,16 +15,14 @@ After studying this section of the tutorial you should be able to:
 
 ### Introduction
 
-Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outcome of sequencing genomes. The first is that it has resulted in our being able to both trace clusters of outbreaks by inferring the related of indivudals' infections. The second is that it has enabled us to track the frequency of viruses within certain *clades* (groups of viruses that have descended from a single ancestor are more related to each other than to other viruses).
+Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outcomes of sequencing genomes. The first is that it has resulted in our being able to both trace clusters of outbreaks by inferring the related of indivudals' infections. The second is that it has enabled us to track the frequency of viruses within certain *clades* (groups of viruses that have descended from a single ancestor are more related to each other than to other viruses).
 
-One example of this process and result is out lined [here](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story") - the details of the 2020 outbreak in Auckland. Please read this now.
+One example of this process and result is outlined [here](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story") - the details of the 2020 outbreak in Auckland. Please read this now. At the second slide, please briefly interact with the phylogeny on the right side of the screen to understand what it is visualising. Once you have done this, we will pause the lab to discuss some of the details in this visualisation.
 
 
-Now that we have obtained reads, QC'ed and trimmed them, aligned them to our reference genome, and called variants, today we will reconstruct be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar to perform alignments of different open reading frames and infer phylogenies.
+Now that we have obtained reads, QC'ed and trimmed them, aligned them to our reference genome, and called variants, today we will reconstruct be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar genomes and open reading frames, perform alignments, and infer phylogenies.
 
-There are a large number of ways to approach this. A standard method would be through `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
-
-In the sections you will use some software to reconstruct genomes from the variants you called in the last lab, perform alignemnts for single genes from these genomes and for whole genomes, do phylogenetic reconstruction, and perform phylogenetic visualisation.
+There are a large number of ways to approach these steps. A standard method to obtain similar genomes to the ones that you have, for example, one possibility would be to use command-line `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
 
 First we must admit that we have done something terrible
 ```bash
