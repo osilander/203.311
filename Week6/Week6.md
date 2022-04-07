@@ -12,28 +12,19 @@ After studying this section of the tutorial you should be able to:
 3. Use bioinformatic tools to align sequences and infer a phylogeny.
 4. Identify different ways of visualising phylogenies and the advantages and disadvantages of each.
 
-### Preface
-
-In this section you will use some software to reconstruct genomes from the variants you called in the last lab, perform alignemnts for single genes and whole genomes, do phylogenetic reconstruction, and perform phylogenetic visualisation.
 
 ### Introduction
 
+Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outcome of sequencing genomes. The first is that it has resulted in our being able to both trace clusters of outbreaks by inferring the related of indivudals' infections. The second is that it has enabled us to track the frequency of viruses within certain *clades* (groups of viruses that have descended from a single ancestor are more related to each other than to other viruses).
 
-[August outbreak](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story")
-
-
-### Learning outcomes
-
-After studying this tutorial you should be able to:
-
-1. Use bioinformatics software to find orthologues in the NCBI database.
-2. Use bioinformatics software to perform sequence alignment.
-3. Use bioinformatics software to perform phylogenetic reconstructions.
+One example of this process and result is out lined [here](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story") - the details of the 2020 outbreak in Auckland. Please read this now.
 
 
-Today we will be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar to perform alignments of different open reading frames and infer phylogenies.
+Now that we have obtained reads, QC'ed and trimmed them, aligned them to our reference genome, and called variants, today we will reconstruct be building an alignment and phylogeny. We will use several pieces of software today to get information on the open reading frames of SARS-CoV-2, and to find some other similar to perform alignments of different open reading frames and infer phylogenies.
 
 There are a large number of ways to approach this. A standard method would be through `blast`; however, this is disabled on your RStudio system. Instead, we will explore it briefly using the web portal.
+
+In the sections you will use some software to reconstruct genomes from the variants you called in the last lab, perform alignemnts for single genes from these genomes and for whole genomes, do phylogenetic reconstruction, and perform phylogenetic visualisation.
 
 First we must admit that we have done something terrible
 ```bash
