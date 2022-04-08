@@ -73,7 +73,10 @@ bedtools genomecov -ibam kwazulu-natal-mapped.bam -bg | awk '$4 < 12' > low_cov.
 - ``-bg``: report depth in BedGraph format
 - ``awk`` command: look at the fourth column (containing the coverage), and only output lines with coverage less than 12.
 
-Now we can mask the low coverage regions:
+Go ahead and `cat` the `low_cov.bed` to the screen. You should see four columns: the name of the reference, the start coordinate, end coordinate, and coverage.
+
+
+Now we can mask the low coverage regions using this `.bed` format file:
 
 ```bash
 bedtools maskfasta -fi kwazulu-natal.fasta -bed low_cov.bed -fo kwazulu-natal-mask.fasta
