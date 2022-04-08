@@ -71,7 +71,7 @@ bedtools genomecov -ibam kwazulu-natal-mapped.bam -bg | awk '$4 < 12' > low_cov.
 
 - ``-ibam FILE``: input file
 - ``-bg``: report depth in BedGraph format
-- ``awk`` command: only report lines with coverage less than 12.
+- ``awk`` command: look at the fourth column (containing the coverage), and only output lines with coverage less than 12.
 
 Now we can mask the low coverage regions:
 
