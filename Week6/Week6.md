@@ -119,6 +119,8 @@ Now we can use this to align all nucleotide sequences from the other SARS-CoV-2 
 
 ```bash
 # We need to put our sequences at the bottom of the list.
+# note the first fasta below is not the original reference, but the 
+# (now unzipped) file you downloded above
 cat hcov-19_2022_04_07_22.fasta montana-mask.fasta kwazulu-mask.fasta > all_your_sequences_belong_to_us.fasta
 ```
 
