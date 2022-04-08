@@ -41,7 +41,7 @@ To reconstruct new genomes, we will simply use of old reference, and input our c
 # montana files differently)
 # This time, DO NOT include the -p argument, which places a prefix 
 # on your new sequence 
-cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > mylocation.fasta
+cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > kwazulu-natalfasta
 ```
 
 Do this for both of your variant call files to create two new genomes.
