@@ -154,12 +154,37 @@ iqtree -s my_genomes.aln -m MF
 
 *Best-fit model*
 
-You should see a single line stating the best model. What is it? Go [here](http://www.iqtree.org/doc/Substitution-Models "yikes so many models") to see what model this is.
+You should see a single line stating the best model. What is it? Go [here](http://www.iqtree.org/doc/Substitution-Models "yikes so many models") to see what model this is. Make sure you investigate *all* the parameter specifications (the +I, etc.)
+
+Let's first see what the tree looks like. `cat` your `.treefile` onto the screen. You will see a lot of brackets, number, and names. This format is *Newick*, which was invented [in a restaurant on a napkin](https://en.wikipedia.org/wiki/Newick_format "Yummy").
+
+It looks (simplified) something like this (here we do not use distances for simplicity): `(A,B,(C,D)E)F`, where C and D are most closely related, followed by E, etc. You can copy this text and load it into `R` below.
 
 ### Visualizing the phylogeny
 
-We will first use the online software [Interactive Tree of Life (iTOL)](http://itol.embl.de/upload.cgi "just tree it") to visualize the tree.
-Navigate to this homepage. Once you have done that, open the file containing your tree, copy the contents, and paste into the web page (in the Tree text box).
+We will use `R` to visualise our tree. Return to the `R` console and make sure you have the `ape` library loaded. Next, paste in your simplified Newick from above:
 
-You should then be able to zoom in and out to see stuff.
+```R
+# simple tree time
+my.tree <- read.tree(text='(A,B,(C,D)E)F;')
+```
+
+Extra taxa can be added simply by using more commas or parentheses, for example:
+
+`my.tree <- read.tree(text='(A,((X,B),Y),(C,D)E)F;')`
+
+
+Next, load your tree using the `read.tree` command. Again, the tree is in the `treefile`.
+
+```R
+library(ape)
+# get the tree
+my.tree <- read.tree(file="tree.i.made.with.iqtree.treefile")
+# do we have it?
+summary(my.tree)
+# let's take a look
+plot.phylo(my.tree)
+```
+
+Fiunally, take a look at the `ape` `plot.phylo` function. How can you change the appearance of the tree? Can you make a prettier tree?
 
