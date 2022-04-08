@@ -41,7 +41,8 @@ To reconstruct new genomes, we will simply use of old reference, and input our c
 # montana .fasta files differently)
 # This time, DO NOT include the -p argument, which places a prefix 
 # on your new sequence 
-cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > kwazulu-natalfasta
+cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > kwazulu-natal.fasta
+# or montana.fasta
 ```
 
 Do this for both of your variant call files to create two new genomes.
@@ -79,6 +80,7 @@ Go ahead and `cat` the `low_cov.bed` to the screen. You should see four columns:
 Now we can mask the low coverage regions using this `.bed` format file:
 
 ```bash
+# the fasta below is the one you made using bcftools and consensus above
 bedtools maskfasta -fi kwazulu-natal.fasta -bed low_cov.bed -fo kwazulu-natal-mask.fasta
 ```
 - ``-fi FILE``: input file
