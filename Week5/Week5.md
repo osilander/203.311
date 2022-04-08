@@ -296,7 +296,7 @@ We can now remove all other `.bam` (and `.sam`) to clean up your directory and m
 
 #### Extra Credit
 
-Sopme of you may have been wondering what those "unmapped" Kwazulu-Natal reads are (I mean, I am, aren't you??). You can of course dubselect those reads and output them to a new file. Try:
+Sopme of you may have been wondering what those "unmapped" Kwazulu-Natal reads are (I mean, I am, aren't you??). You can of course subselect those reads and output them to a new file. Try:
 
 ```bash
 # note the options and the *case* of each, specifically
@@ -378,6 +378,12 @@ We use the sorted filtered bam-file that we produced in the mapping step before.
 bcftools mpileup -f reference.fasta my_mapped_q20.bam | bcftools \
 call -v -m -o my_variant_calls_bcftools.vcf
 ```
+
+- `-f` input fasta reference
+- `-o` output .vcf file
+- `-m` alternative multi-allelic caller
+- `-v` output variant sites only
+
 
 This is a rather complicated instruction, which is partly due to 
 the fact that there has been a relatively 
@@ -553,7 +559,7 @@ And we're there, one more step!
 snipit both_genomes.aln
 ```
 
-Check your file list in the `RStudio Cloud` bottom right corener window. There should be a new file there called `snp_plot.png`. Click on it, and it should open a new tab in the browser. Marvel at the beauty (what is this thing plotting?).
+Check your file list in the `RStudio Cloud` bottom right corner window. There should be a new file there called `snp_plot.png`. Click on it, and it should open a new tab in the browser. Marvel at the beauty (what is this thing plotting?).
 
 ### Portfolio Analysis {#Portfolio-Analysis}
 1. Sample coverage (read depth) is a critical determinant of how well you can call variants. The samples here differ in their coverage. It is critical to assess this coverage and whether this will affect downstream analyses.<br>
