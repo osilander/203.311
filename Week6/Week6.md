@@ -15,7 +15,7 @@ After studying this section of the tutorial you should be able to:
 
 ### Introduction
 
-Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outcomes of sequencing genomes. The first is that it has resulted in our being able to both trace clusters of outbreaks by inferring the related of indivudals' infections. The second is that it has enabled us to track the frequency of viruses within certain *clades* (groups of viruses that have descended from a single ancestor are more related to each other than to other viruses).
+Over the course of the SARS-CoV-2 pandemic, there have been two invaluable outcomes of sequencing genomes. The first is that it has resulted in our being able to trace clusters of outbreaks by inferring the related of indivudals' infections. The second is that it has enabled us to track the frequency of viruses within certain *clades* (groups of viruses that have descended from a single ancestor are more related to each other than to other viruses).
 
 One example of this process and result is outlined [here](https://nextstrain.org/community/narratives/ESR-NZ/GenomicsNarrativeSARSCoV2/2020-10-01 "The Story") - the details of the 2020 outbreak in Auckland. Please read this now. At the second slide, please briefly interact with the phylogeny on the right side of the screen to understand what it is visualising. Once you have done this, we will pause the lab to discuss some of the details in this visualisation.
 
@@ -195,4 +195,13 @@ plot.phylo(my.tree)
 ```
 
 Finally, take a look at the `ape` `plot.phylo` function. How can you change the appearance of the tree? Can you make a prettier tree?
+
+### Portfolio Assessment
+
+Above, you have inferred a phylogeny, but have not calculated any level of *certainty* in your tree. For this portion of your assessment, I will make a new multifasta file available with a larger number of sequences. You will need to align these sequences, infer a phylogeny, **perform bootstraps on that phylogeny**, and plot the phylogeny **with the bootstrapped values appearing on it**. You can plot the phylogeny in any way you see fit.[^1]
+
+[^1] In order to find bootstrap values and to change to plotting appearance, you will need to look carefully at the `iqtree` program options and `plot.phylo` function in `R`.
+
+
+
 
