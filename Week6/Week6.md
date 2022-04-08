@@ -38,7 +38,7 @@ To reconstruct new genomes, we will simply use of old reference, and input our c
 # cat it to bcftools
 # and use the new filtered variant calls to make a new "consensus"
 # Don't call it "consensus" (you MUST name your kwazulu and
-# montana files differently)
+# montana .fasta files differently)
 # This time, DO NOT include the -p argument, which places a prefix 
 # on your new sequence 
 cat nCoV-2019.reference.fasta | bcftools consensus my_variants.q150.vcf.gz > kwazulu-natalfasta
