@@ -186,5 +186,5 @@ summary(my.tree)
 plot.phylo(my.tree)
 ```
 
-Fiunally, take a look at the `ape` `plot.phylo` function. How can you change the appearance of the tree? Can you make a prettier tree?
+Finally, take a look at the `ape` `plot.phylo` function. How can you change the appearance of the tree? Can you make a prettier tree?
 
