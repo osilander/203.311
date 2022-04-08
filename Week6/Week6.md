@@ -67,6 +67,8 @@ We will next make a `.bed format file` that we will use to *mask* the new fasta 
 # here we mask all regions with coverage less than 12 - we assume that 
 # regions with coverage more than 12 have successully called variants
 # we make a new .bed format file
+# "genomecov" is part of the bedtools command
+# try bedtools genomecov -h to see how it works
 bedtools genomecov -ibam kwazulu-natal-mapped.bam -bg | awk '$4 < 12' > low_cov.bed
 ```
 
