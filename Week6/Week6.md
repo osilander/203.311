@@ -156,7 +156,7 @@ iqtree -s my_genomes.aln -m MF
 
 You should see a single line stating the best model. What is it? Go [here](http://www.iqtree.org/doc/Substitution-Models "yikes so many models") to see what model this is. Make sure you investigate *all* the parameter specifications (the +I, etc.)
 
-Let's first see what the tree looks like. `cat` your `.treefile` onto the screen. You will see a lot of brackets, number, and names. This format is *Newick*, which was invented [in a restaurant on a napkin](https://en.wikipedia.org/wiki/Newick_format "Yummy").
+Let's first see what the tree looks like. `cat` your `.treefile` onto the screen. You will see a lot of brackets (specifying the relationships), number (specifying branch lengths, or relatedness), and names (the taxa). This format is *Newick*, which was invented [in a restaurant on a napkin](https://en.wikipedia.org/wiki/Newick_format "Yummy").
 
 It looks (simplified) something like this (here we do not use distances for simplicity): `(A,B,(C,D)E)F`, where C and D are most closely related, followed by E, etc. You can copy this text and load it into `R` below.
 
@@ -173,6 +173,14 @@ Extra taxa can be added simply by using more commas or parentheses, for example:
 
 `my.tree <- read.tree(text='(A,((X,B),Y),(C,D)E)F;')`
 
+Or perhaps you've recently sequenced a tiny dragon that you found in your back garden. Let's add that:
+
+```R
+# new tree
+my.tree <- read.tree(text='(tiny.dragon,A,((X,B),Y),(C,D)E)F;')
+# plot differently
+plot.phlyo(my.tree, type="radial")
+```
 
 Next, load your tree using the `read.tree` command. Again, the tree is in the `treefile`.
 
