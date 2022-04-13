@@ -566,3 +566,11 @@ Check your file list in the `RStudio Cloud` bottom right corner window. There sh
 
     You currently have data on the read depth for each of your SARS-CoV-2 samples (Kwazulu-Natal and Montana). You will need to find a method to visualise this data to determine whether there is sufficient depth across the genome. After you have done this, in your figure caption, note whether you think there is sufficient coverage for each of these samples. This visualisation should be done in a single figure with two panels (e.g. panel (A) for Montana and panel (B) for Kwazulu-Natal).
 
+     You *may* need to access specific columns of your matrix to do this analysis. If you want to do this, there are different methods. **However, in this example you do not have column names**. For this reason, you cannot access using some of the methods shown in `R bootcamp`. Intead, you can *only* use the number of the column. To figure out which column that is, see the `samtools depth` help section (command: `samtools dapth --help`). To specifically access that column in your matrix, I would recommend:
+
+     ```R
+     # if you read the data in like this
+     my.depth <- read.table(file="my.depth.txt")
+     # then you can find column two like this:
+     my.depth[,2]
+
