@@ -162,7 +162,11 @@ iqtree -s my_genomes.aln -m MF
 
 `iqtree` has *automatically* selected the best model. How, you ask? It has found the tree with the highest likelihood that has the *simplest model*. Let's see what that is. use `grep` to locate the following phrase in the `.log` file:
 
-*Best-fit model*
+
+```bash
+# grep these words, change the my.log so it's correct
+grep "Best-fit model" my.log
+```
 
 You should see a single line stating the best model. What is it? Go [here](http://www.iqtree.org/doc/Substitution-Models "yikes so many models") to see what model this is. Make sure you investigate *all* the parameter specifications (the +I, etc.)
 
