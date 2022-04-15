@@ -140,7 +140,7 @@ This syntax is very simple (change the filenames accordingly):
 mafft --auto --reorder all_genomes.fasta > all_genomes.aln 
 ```
 
-The suffix here is `.aln` ("alignment"). Some people may have different opinions on the proper name for an alignment file. Now we will trim the gaps here so that we only ahve the spike region.
+The suffix here is `.aln` ("alignment"). Some people may have different opinions on the proper name for an alignment file.
 
 
 ### Building a phylogeny
