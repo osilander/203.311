@@ -97,7 +97,7 @@ bwa mem
 # adjust to your case
 # Name your file SENSIBLY
 # For this you need the reference genome and your reads (Illumina or ONT)
-# for single end, use only one fastq.gz file
+# for single end, use only one fastq file
 bwa mem reference-genome.fasta read1.fastq read2.fastq > mappedreads.sam
 ```
 Let's first make the index. We can't do that without the reference genome. First make sure you are in your `data/` directory (you want to stay organised).
