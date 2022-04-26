@@ -193,7 +193,7 @@ Or perhaps you've recently sequenced a tiny dragon that you found in your back g
 # new tree
 my.tree <- read.tree(text='(tiny.dragon,A,((X,B),Y),(C,D)E)F;')
 # plot differently
-plot.phlyo(my.tree, type="radial")
+plot.phylo(my.tree, type="radial")
 ```
 
 Next, load your tree using the `read.tree` command. Again, the tree is in the `treefile`.
