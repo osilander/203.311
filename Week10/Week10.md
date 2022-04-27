@@ -12,21 +12,19 @@ xxxx
 
 xxx
 
+<img src="graphics/edger-deseq2.jpeg" width="300"/>
+**So many choices**
+source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-population-samples/
 
 ## Practical sections start here
 
 New material goes here...
 
 
+<img src="graphics/single-cell.jpeg" width="300"/>
+**Problem solved.**
+
+
 <br><br><br>
-
-[GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-
-This is how you put in an image file:
-```
-<img src="graphics/giphy.gif" width="300"/>
-```
-<img src="graphics/giphy.gif" width="300"/>
 
 
