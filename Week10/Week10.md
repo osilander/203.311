@@ -12,8 +12,8 @@ xxxx
 
 xxx
 
-<img src="graphics/edger-deseq2.jpeg" width="300"/>
-**So many choices**
+<img src="graphics/edger-deseq2.jpeg" width="500"/><br>
+**So many choices**<br>
 source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-population-samples/
 
 ## Practical sections start here
@@ -21,8 +21,8 @@ source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-po
 New material goes here...
 
 
-<img src="graphics/single-cell.jpeg" width="300"/>
-**Problem solved.**
+<img src="graphics/single-cell.jpeg" width="500"/><br>
+**Problem solved.**<br><br>
 
 
 <br><br><br>
