@@ -60,12 +60,15 @@ First thing, you have an electronic copy of this practical -- which you will see
 ## Conventions used for this RStudio practical
 
 As a reminder, in what follows, we shall use the following typographical conventions for working with `R`:
--   Characters written in `this programming style` are commands to be typed into the computer as they stand.
--   Characters written in **this programming style`** are parameters and options on `R` commands.
--   Characters written in _`this programming style`_ are objects and file names.
--   Characters written after something like `###` indicate comments within the code that will help you.  They do not run code. 
--   Characters written in without `>` at the start of the line **(e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too. 
--   Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
+* Characters written in `this programming style` are commands to be typed into the computer as they stand.
+
+* Characters written in _`this programming style`_ are objects and file names.
+
+* Characters written after something like `###` indicate comments within the code that will help you.  They do not run code.
+
+* Characters written in without `>` at the start of the line **(e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too.
+ 
+* Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
 
 So, for example,
 
@@ -114,13 +117,21 @@ The investigation of environmental microbial communities and microbiomes has bee
 However, the process of amplicon sequencing introduces errors into the DNA sequences being analysed, and these errors severely complicate the interpretation of the results.  DADA2 implements a novel algorithm that models the errors introduced during amplicon sequencing and uses that error model to infer the true sample composition.  DADA2 takes the place of the ubiquitous “OTU-picking” step in amplicon sequencing workflows.  As demonstrated in the paper and in further benchmarking, the DADA2 method provides both better sensitivity and specificity than OTU methods: DADA2 detects real biological variation missed by OTU methods while outputting fewer spurious sequences.
 
 The starting point for the DADA2 pipeline is a set of demultiplexed Fastq files corresponding to the samples an amplicon sequencing study. That is, DADA2 expects there to be an individual Fastq file for each sample (or two Fastq files, one forward and one reverse, for each sample).   Once demultiplexed Fastq files are in hand, the DADA2 pipeline proceeds as follows:
+
 - Filter and Trim: `filterAndTrim()` 
+
 - Dereplicate: `derepFastq()`
+
 - Learn error rates: `learnErrors()`
+
 - Infer sample composition: `dada()`
+
 - Merge paired reads: `mergePairs()`
+
 - Make sequence table: `makeSequenceTable()`
+
 - Remove chimeras: `isBimeraDenovo()` or `removeBimeraDenovo()`
+
 - Assign taxonomy: `assignTaxonomy()`
 
 The output of the DADA2 pipeline is a sample-by-sequence matrix – a so-called **sequence table** – with each entry corresponding to the number of times that inferred sample sequence was observed in that sample.  This table is analogous to a common OTU table, except at higher resolution (exact sample sequences rather than 97% OTUs).  We also assign taxonomies to the output sequences using a small reference database.  In this practical we are working with a small set of Fastq reads from the 16S rRNA gene – one of the main taxonomic identifiers in prokaryotes.
