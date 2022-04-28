@@ -315,10 +315,10 @@ Ideally the code to run this same command would be the following, but please **d
 
 ```R
 ### Perform the trimming and filtering
-out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(240,160), 
-       maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE,
-       compress=TRUE, multithread=TRUE)
-head(out) 
+> out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(240,160), 
+         maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE,
+         compress=TRUE, multithread=TRUE)
+> head(out) 
 
 ### Please do not run this code, it is for completeness and so you can see the code as it should be run
 ### You could be tested on the code in this box
@@ -557,6 +557,7 @@ We can do a quick check of how our samples have performed over the process to ge
 
 > colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged",
                        "nonchim")
+                       
 > rownames(track) <- sample.names
 
 > head(track)
@@ -639,10 +640,10 @@ We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ t
 > library(msa)
 > library(seqLogo)
  
-> ### make a fasta file from the nochim dataframe
+### make a fasta file from the nochim dataframe
 > uniquesToFasta(seqtab.nochim, "nochimSeqs232.fa")
 
-> ### make a random subsample of say 100 sequences
+### make a random subsample of say 100 sequences
 > fasta.sample(infile = "nochimSeqs232.fa", nseq = 100, file.out = "sub100_nochimSeqs.fa")
 ```
 
@@ -651,10 +652,10 @@ As we are randomly pulling sequences in this seection, the output will look slig
 To illustrate the path from fasta sequence file to aligned sequence to a sequence logo, we will use the fasta file _`sub100_nochimSeqs.fa`_ as an example of the workflow.
 
 ```R
-> ### import the sequences to work with them
-seqs16S <- readDNAStringSet("sub100_nochimSeqs.fa")
+### import the sequences to work with them
+> seqs16S <- readDNAStringSet("sub100_nochimSeqs.fa")
 
-> ### run the sequence alignment and view in the console
+### run the sequence alignment and view in the console
 > my16SAlignment <- msa(seqs16S) 
 use default substitution matrix
 
@@ -686,7 +687,7 @@ MsaDNAMultipleAlignment with 100 rows and 258 columns
 [100] AACGCCAAAAGCGAAGGCAGCTCTCTGGGTCCCT-ACCGACGCTGGG-GTGCGAAAGCATGGGGAGCGAACAGG sq107;size=117;
   Con AACACCAGTGGCGAAGGCGGCTT?CTGGAC?GTA-ACTGACGCTGAG-GCTCGAAAGCGTGGGGAGCAAACAGG Consensus 
 
-> ## print out the alignment
+### print out the alignment
 > msaPrettyPrint(my16SAlignment, output="pdf", showNames="left", file = "ourSet.pdf",
 +                showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
 ```
