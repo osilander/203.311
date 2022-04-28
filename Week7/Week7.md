@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-# 27-Apr 2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED
+# 28-Apr 2022 - PLEASE DO NOT MAKE A PHYSICAL COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED
 
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
@@ -61,13 +61,9 @@ First thing, you have an electronic copy of this practical -- which you will see
 
 As a reminder, in what follows, we shall use the following typographical conventions for working with `R`:
 * Characters written in `this programming style` are commands to be typed into the computer as they stand.
-
 * Characters written in _`this programming style`_ are objects and file names.
-
 * Characters written after something like `###` indicate comments within the code that will help you.  They do not run code.
-
 * Characters written in without `>` at the start of the line **(e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too.
- 
 * Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
 
 So, for example,
@@ -119,19 +115,12 @@ However, the process of amplicon sequencing introduces errors into the DNA seque
 The starting point for the DADA2 pipeline is a set of demultiplexed Fastq files corresponding to the samples an amplicon sequencing study. That is, DADA2 expects there to be an individual Fastq file for each sample (or two Fastq files, one forward and one reverse, for each sample).   Once demultiplexed Fastq files are in hand, the DADA2 pipeline proceeds as follows:
 
 - Filter and Trim: `filterAndTrim()` 
-
 - Dereplicate: `derepFastq()`
-
 - Learn error rates: `learnErrors()`
-
 - Infer sample composition: `dada()`
-
 - Merge paired reads: `mergePairs()`
-
 - Make sequence table: `makeSequenceTable()`
-
 - Remove chimeras: `isBimeraDenovo()` or `removeBimeraDenovo()`
-
 - Assign taxonomy: `assignTaxonomy()`
 
 The output of the DADA2 pipeline is a sample-by-sequence matrix – a so-called **sequence table** – with each entry corresponding to the number of times that inferred sample sequence was observed in that sample.  This table is analogous to a common OTU table, except at higher resolution (exact sample sequences rather than 97% OTUs).  We also assign taxonomies to the output sequences using a small reference database.  In this practical we are working with a small set of Fastq reads from the 16S rRNA gene – one of the main taxonomic identifiers in prokaryotes.
