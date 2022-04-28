@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-# 28-Apr 2022 - PLEASE DO NOT MAKE A PHYSICAL COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED
+# 28-Apr-2022 - PLEASE DO NOT MAKE A PHYSICAL COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED
 
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
@@ -646,11 +646,14 @@ We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ t
 > fasta.sample(infile = "nochimSeqs232.fa", nseq = 100, file.out = "sub100_nochimSeqs.fa")
 ```
 
-As we are randomly pulling sequences in this seection, the output will look slightly different fro mone attempt to the other.
+As we are randomly pulling sequences in this seection, the output will look slightly different from one attempt to the other in the below.
 
 To illustrate the path from fasta sequence file to aligned sequence to a sequence logo, we will use the fasta file _`sub100_nochimSeqs.fa`_ as an example of the workflow.
 
-```R 
+```R
+> ### import the sequences to work with them
+seqs16S <- readDNAStringSet("sub100_nochimSeqs.fa")
+
 > ### run the sequence alignment and view in the console
 > my16SAlignment <- msa(seqs16S) 
 use default substitution matrix
