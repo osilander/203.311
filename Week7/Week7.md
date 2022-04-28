@@ -146,11 +146,11 @@ We will check we have all we need to do the analysis first.  The commands below 
 ### check on packages being there and their versions ###
 > library(dada2)
 > packageVersion("dada2")
-[1] ‘1.22.0’
+[1] ‘1.24.0’
 
 > library(ShortRead)
 > packageVersion("ShortRead")
-[1] ‘1.52.0’
+[1] ‘1.54.0’
 
 > library(ggplot2)
 > packageVersion("ggplot2")
