@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-## 29-Apr-2022 - There is a compact physical copy of this practical on the "Week | Wiki 7" Stream page.
+### **29-Apr-2022 There is a compact physical copy of this practical on the "Week | Wiki 7" Stream page.**
 
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
