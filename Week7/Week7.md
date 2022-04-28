@@ -627,8 +627,7 @@ Of those, 20 were exact matches to the expected reference sequences.
 
 This mock community dataset contained 20 bacterial strains. DADA2 found 20 unique sequences all of which exactly match the reference genomes of the expected community members. The residual error rate after the DADA2 pipeline for this sample is 0%.  In comparison, the tutorial records that the mothur pipeline finds 34 OTUs in this Mock community sample. DADA2 infers sequence variants exactly instead of fuzzy 97% OTUs, and outputs fewer false positives than the OTU methods!
 
-> **We are now at the end of the DADA2 tutorial, but we are going to do something else with our sequencing data.  This will be picked up again in Week 9.**
-
+> **We are now at the end of the DADA2 tutorial, and further work will be picked up again in Week 9.  However to complete today's practical, we are going to do something else with our sequencing data.**
 
 
 ## Exercise 13: Working with fasta files to generate a sequence logo
