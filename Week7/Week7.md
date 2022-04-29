@@ -582,7 +582,7 @@ The DADA2 package provides a native implementation of the RDP’s naive Bayesian
 ### use a reference data set to assign taxonomy to the reads
 > training <- ("/cloud/project/silva_nr_v132_train_set.fa.gz")
 > training
-[1] "/cloud/project/silva_nr_v132_train_set.fa.gz”
+[1] "/cloud/project/silva_nr_v132_train_set.fa.gz"
 
 > taxa <- assignTaxonomy(seqtab.nochim, training, multithread=TRUE)
 
