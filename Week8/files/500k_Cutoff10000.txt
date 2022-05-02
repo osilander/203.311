@@ -1,0 +1,4 @@
+Greedy_RefOnly	Greedy_Nr	Greedy_NrEuk	MEM_RefOnly	MEM_Nr	MEM_NrEuk	averVal	COV	taxonomy
+295661	237556	228718	290577	237556	189767	246639	0.16273	Unclassified
+0	0	0	11029	0	19961	5165	1.64288	root__cellular__organisms__Bacteria
+0	0	0	0	0	14372	2395.33	2.44949	root__cellular__organisms__Bacteria__FCB__group__Bacteroidetes/Chlorobi__group__Bacteroidetes
