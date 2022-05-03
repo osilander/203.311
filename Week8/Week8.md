@@ -6,6 +6,17 @@
 
 **Professor Patrick Biggs**
 
+[Purpose](#purpose)<br>
+[Introduction](#introduction)<br>
+[Lecture Overview](#lecture-overview)<br>
+[Conventions used for this RStudio practical](#conventions-used-for-this-rstudio-practical)<br>
+[Accessing the resources needed](#accessing-the-resources-needed)<br>
+
+[Portfolio analysis](#portfolio-analysis)<br>
+[Assessment](#assessment)<br>
+[Contact](#contact)<br>
+
+
 ## Purpose
 
 xxxxx
@@ -27,13 +38,9 @@ xxxxx
 As a reminder, in what follows, we shall use the following typographical conventions for working with `R`:
 
 -   Characters written in `this programming style` are commands to be typed into the computer as they stand.
-
 -   Characters written in _`this programming style`_ are objects and file names.
-
 -   Characters written after something like `###` indicate comments within the code that will help you.  They do not run code. 
-
 -   Characters written in without `>` at the start of the line **(e.g. lines starting with "\[1\]")** indicate responses back from the R console inside RStudio that will help you too. 
-
 -   Words inserted within square brackets **\[Enter\]** indicate keys to be pressed.
 
 So, for example,
@@ -94,7 +101,7 @@ In this, the second practical session of this Microbial Diversity Module, we wil
 
 The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called sampleA_500k_R1.fq.gz and sampleA_500k_R2.fq.gz – to the Kaiju webserver and perform a taxonomic analysis on the reads.  These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the “kaiju” folder.  The are other files in there too, but more on those later. 
 
-# INSERT THE KAIJU LOGO
+<img src="graphics/kaijuLogo.png" width="400"/>
 
 We have 3 set of analyses to perform so, your job name for each analysis will vary according to what we are going to run.  The combinations of names for the jobs is shown in the table below:
 
@@ -148,15 +155,23 @@ Now let’s go to the website, and start the uploading process:
 
 3.  Enter your name for the job, and then your email address, so you will know when the job is complete by getting an email.
 
+<img src="graphics/image3.png" width="400"/>
+
 4.  Now we can upload the reads, one at a time. Select the “Select file” box, and it will open up a window for the first read.  Select sampleA_500k_R1.fq.gz from the dialogue box and click on “Start upload”.  As soon as you have done this, click on “Upload a second file for paired end sequencing”.
+
+<img src="graphics/image4.png" width="400"/>
 
 5.  In the same way, you can upload sampleA_500k_R2.fq.gz as well.   Click on “Start upload” again.
 
+<img src="graphics/image5.png" width="400"/>
+
 6.  When both reads are completely uploaded, you see the following.
+
+<img src="graphics/image6.png" width="400"/>
 
 _NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
 
-7.  Now you can choose the database for the job name, as in the table on page 4, and you are ready to click on “Submit” at the bottom of the page.
+7.  Now you can choose the database for the job name, as in the table above, and you are ready to click on “Submit” at the bottom of the page.
 
 NB2: There is a bit of waiting for this first part of the process, so I suggest whilst you are waiting, you read the “Behind the Paper” feature on the Nature Microbiology website for the Kaiju publication.  The link is below:
 
@@ -189,6 +204,7 @@ After a little while, you should have been emailed three times from the Kaiju we
 
 The next thing we are going to do is download the results from the 3 runs.  We are going to download the compressed output file for the RefSeq Genomes run (your ID for this will be different, but we are all using the same data) as well.  
 
+<img src="graphics/image7.png" width="600"/>
 
 1.  Right click on the “download taxon path counts” and save the file with a new name – your jobname would be a good choice – including the database you ran the reads against.  
 2.  Repeat this procedure for the other two files.  
@@ -200,7 +216,7 @@ We are going to have a look at the now uncompressed kaiju.out file quickly just 
 
 >**Question 2:**
 >
->What is the name of the accession number for the sequence in column B called “M00933:6:000000000-A1D0H:1:1101:12995:9348”?
+>What is the name of the accession number for the sequence in column B called `M00933:6:000000000-A1D0H:1:1101:12995:9348`?
 >
 > <table><tr><td>
 > ____________________
@@ -250,7 +266,7 @@ Let’s investigate the data a little further.  Looking at the first tab - _`Cut
 
 We have to go to the next two tabs - _`Cutoff100`_ and _`Cutoff10`_ – to really explore the data.  We will leave the last tab - _`Cutoff1`_ – for today, as there are too many taxa to deal with.  We shall look at _`Cutoff100`_ first.  Go to that tab now if you are not there.  
 
-NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry and you will make incorrect inferences.  If that happens, download the file again, and start sorting again. 
+**NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry, and you will make incorrect inferences.  If that happens, download the file again, and start sorting again. **
 
 The data are sorted by the descending average value (column G).  If we sort on the coefficient of variation (COV; column H), we are looking at the most equal counts.
  
@@ -285,13 +301,26 @@ Ok, so now we can look at visualising these data with Krona.
 
 ## Data visualisation with Krona
 
-For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - https://github.com/marbl/Krona/wiki - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  To do this, click on the “view classification as Krona chart” towards the bottom of the results page.  This should open up a new webpage showing our results.  You should see something like the following:
+For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - https://github.com/marbl/Krona/wiki - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  
 
-We are going to explore the data as this is a fully interactive plot.  Let’s get rid of our unclassified data, as that is of no interest to us right now.  To do that, click on the area that says “root” so the segment goes grey, and then click again to get arrows, like in the picture opposite.
+<img src="graphics/image9.png" width="400"/>
+
+To do this, click on the “view classification as Krona chart” towards the bottom of the results page.  This should open up a new webpage showing our results.  You should see something like the following:
+
+<img src="graphics/image10.png" width="500"/>
+
+We are going to explore the data as this is a fully interactive plot.  Let’s get rid of our unclassified data, as that is of no interest to us right now.  To do that, click on the area that says “root” so the segment goes grey, and then click again to get arrows, like in the picture below.
+
+<img src="graphics/image11.png" width="500"/>
 
 If you now double click, the ‘unclassified’s disappear, and we now see our classified data.  The plot should have dramatically changed, and look something like the below:
 
+<img src="graphics/image12.png" width="500"/>
+
 We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  Click on the blue section at the bottom to expand this section out.  When your arrow looks like the below, double click on it to generate the new view, as per the images below.
+
+<img src="graphics/image13.png" width="400"/>
+<img src="graphics/image14.png" width="400"/>
 
 >**Question 10:**
 >
@@ -300,9 +329,16 @@ We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  
 >
 > <table>tr><th>Number of viral reads:</th><th></th></tr><tbody><tr><td>Number of reads assigned to Gokushovirinae GAIR4:</td><td></td></tr></tbody></table>
 
-Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  Right, on to the microbial world.  
+Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  
+
+<img src="graphics/image15.png" width="100"/>
+
+Right, on to the microbial world.  
 
 We can also search for taxonomic classifications across the bacterial tree of life.  Searching on a name shows where they are located in the plot.  For example, let’s find where “_Paracoccus_” is on the plot.  We can then double click to zoom in to the _Paracoccus_ genus.  This is probably too close in, so if you click on say Rhodobacteraceae we can see what proportion of the Rhodobacteraceae are members of the _Paracoccus_ genus.
+
+<img src="graphics/image16.png" width="400"/>
+
 
 >**Question 11:**
 >
