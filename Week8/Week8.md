@@ -168,7 +168,7 @@ This is not super-long but gives you a chance to see the motivation for the pape
 >
 > On looking at Kaiju webserver, on the left are listed the reference databases.  Have a look at the quick database descriptions and write down in the box below what you think might happen in terms of the potential results we might get back when our results are notified to us.
 >
-> <table><thead><tr><th> </th></tr></thead><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
+> <table><tr><th> </th></tr><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
 
 
 
@@ -206,19 +206,19 @@ We are going to have a look at the now uncompressed kaiju.out file quickly just 
 > ____________________
 > </td></tr></table>
 
+
 ### Exercise 3: Data analysis
 
 We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
 
 >**Question 3:**
 >
->Using your spreadsheet for the file of the results against the RefSeq Genomes, how many taxa are present at over 1000 counts?  What is the number of counts we would use as a cutoff for 0.1%?  How many taxa are there above this threshold?  Finally, what is the species of bacteria with a count of 916?
+>Using your spreadsheet for the file of the results against the RefSeq Genomes, how many taxa are present at over 1000 counts?  
+>What is the number of counts we would use as a cutoff for 0.1%?  
+>How many taxa are there above this threshold?  
+>Finally, what is the species of bacteria with a count of 916?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
-
-# MAKE AN ANSWER TABLE
+> <table><tr><th>Over 1000 counts:</th><th></th></tr><tbody><tr><td> Counts for 0.1% cutoff:</td><td></td></tr><tr><td> Taxa present at more than 0.1%:</td><td></td></tr><tr><td> Taxon at count of 916:</td><td></td></tr></tbody></table>
 
 Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
 
@@ -230,21 +230,13 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 >
 >Given how many counts there are in the original input test file, what percentages do these cutoffs represent?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
-
-# MAKE AN ANSWER TABLE
+> <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 >**Question 5:**
 >
 >How many taxa are represented for each of the 5 cutoff levels?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
-
-# MAKE AN ANSWER TABLE
+> <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 Let’s investigate the data a little further.  Looking at the first tab - _`Cutoff10000`_ – does not show much, so we move on to the next one - _`Cutoff1000`_ – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
 
@@ -255,8 +247,6 @@ Let’s investigate the data a little further.  Looking at the first tab - _`Cut
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
-
-# MAKE AN ANSWER TABLE
 
 We have to go to the next two tabs - _`Cutoff100`_ and _`Cutoff10`_ – to really explore the data.  We will leave the last tab - _`Cutoff1`_ – for today, as there are too many taxa to deal with.  We shall look at _`Cutoff100`_ first.  Go to that tab now if you are not there.  
 
@@ -272,37 +262,28 @@ The data are sorted by the descending average value (column G).  If we sort on t
 > ____________________
 > </td></tr></table>
 
-# MAKE AN ANSWER TABLE
-
 Now sort _`Cutoff100`_ on column A.  Remember what databases you have been working with, and their constituents (from the Kaiju webpage).
 
 >**Question 8:**
 >
 >When you compare columns A and D with columns B, C, E and F, what do you notice in the first 300 or so rows?  Why do you think this is?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
-
-# MAKE AN ANSWER TABLE
+> <table><tr><th> </th></tr><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
 
 For our final look at the data, we will move to the _`Cutoff10`_ tab.  Sort this sheet on Taxonomy (column I) in the Z to A direction, i.e., making sure that "Unclassified" is at the top of the sheet.  Scroll down until you get to the Eukaryotes section of the taxonomy.  There are \~500 entries for the eukaryotes.
 
 >**Question 9:**
 >
->In column C, what is the eukaryote with the highest count? Why do you think there is a difference between columns C and F in terms of counts for a given taxon?
+>In column C, what is the eukaryote with the highest count? 
+> Why do you think there is a difference between columns C and F in terms of counts for a given taxon?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
-
-# MAKE AN ANSWER TABLE
+> <table><tr><th>Highest count:</th><th></th></tr><tbody><tr><td>Reason for differences in columns C and F:</td><td></td></tr></tbody></table>
 
 Ok, so now we can look at visualising these data with Krona.
 
 
 
-### Exercise 4: Data visualisation with Krona
+## Data visualisation with Krona
 
 For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - https://github.com/marbl/Krona/wiki - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  To do this, click on the “view classification as Krona chart” towards the bottom of the results page.  This should open up a new webpage showing our results.  You should see something like the following:
 
@@ -314,11 +295,10 @@ We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  
 
 >**Question 10:**
 >
->How many viral sequences are there in this dataset (Hint: top right of the page)?  Given this value, approximately how many reads were assigned to Gokushovirinae GAIR4?
+>How many viral sequences are there in this dataset (Hint: top right of the page)?  
+>Given this value, approximately how many reads were assigned to Gokushovirinae GAIR4?
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
+> <table>tr><th>Number of viral reads:</th><th></th></tr><tbody><tr><td>Number of reads assigned to Gokushovirinae GAIR4:</td><td></td></tr></tbody></table>
 
 Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  Right, on to the microbial world.  
 
@@ -338,9 +318,7 @@ A group of bacteria of interest – to me anyway! – are the Proteobacteria, so
 >
 >Use the search function to find members of the _Klebsiella_ genus.  Can you use the rings of the plot to work out the full taxonomic path for the _Klebsiella_ genus?  Use a format like “Bacteria – Proteobacteria - XXXXX”.  The full taxonomic path is quite long.
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
+> <table><tr><th> </th></tr><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
 
 Within the Gammaproteobacteria is the order Legionellales (one member of which is responsible for Legionnaire’s disease).  This order is made up of two families – Legionellaceae and Coxillaceae – at different proportions.
 
@@ -348,13 +326,11 @@ Within the Gammaproteobacteria is the order Legionellales (one member of which i
 >
 >Using the chart, and by clicking in various parts of the Krona image, what are the proportions of each of the two families? 
 >
-> <table><tr><td>
-> ____________________
-> </td></tr></table>
+> <table><tr><th>Legionellaceae:</th><th></th></tr><tbody><tr><td>Coxillaceae:</td><td></td></tr></tbody></table>
 
 ---
 
-
+## Further analysis of Kaiju output in `R`
 
 
 ---
