@@ -164,7 +164,8 @@ https://naturemicrobiologycommunity.nature.com/users/10226-peter-menzel/posts/62
 
 This is not super-long but gives you a chance to see the motivation for the paper from the authors.  It is also important to note that we are relying on the Internet here, so this is a little risky.  If the worst happens, and things do not go to plan, please let a demonstrator know, and magically a set of results can be made to appear for you.
 
->**Question 1:**
+>**Question 0:**
+>
 > On looking at Kaiju webserver, on the left are listed the reference databases.  Have a look at the quick database descriptions and write down in the box below what you think might happen in terms of the potential results we might get back when our results are notified to us.
 >
 > <table><thead><tr><th> </th></tr></thead><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
@@ -181,6 +182,7 @@ After a little while, you should have been emailed three times from the Kaiju we
 4.  Krona output
 
 >**Question 1:**
+>
 >Fill in the following table for your results to record the parameter values for the 3 results you have generated (any order of results is fine):
 >
 > <table><thead><tr><th>Job</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Job name</td><td></td><td></td><td></td></tr><tr><td>Reference database</td><td></td><td></td><td></td></tr><tr><td>Database date</td><td></td><td></td><td></td></tr><tr><td>Run mode</td><td></td><td></td><td></td></tr><tr><td>Number of classified reads</td><td></td><td></td><td></td></tr><tr><td>% classified</td><td></td><td></td><td></td></tr></tbody></table>
@@ -197,6 +199,7 @@ The next thing we are going to do is download the results from the 3 runs.  We a
 We are going to have a look at the now uncompressed kaiju.out file quickly just to get a hint of what the data looks like.  Open this file up in a spreadsheet program such as Excel.  If you are not sure how to do this, click on the magnifying glass in the top right of the screen -   - and then type “Excel” in the search window.  Double click on the application to start it.  You will see the 7 columns as listed in the screenshot above.  
 
 >**Question 2:**
+>
 >What is the name of the accession number for the sequence in column B called “M00933:6:000000000-A1D0H:1:1101:12995:9348”?
 >
 > <table><tr><td>
@@ -208,6 +211,7 @@ We are going to have a look at the now uncompressed kaiju.out file quickly just 
 We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
 
 >**Question 3:**
+>
 >Using your spreadsheet for the file of the results against the RefSeq Genomes, how many taxa are present at over 1000 counts?  What is the number of counts we would use as a cutoff for 0.1%?  How many taxa are there above this threshold?  Finally, what is the species of bacteria with a count of 916?
 >
 > <table><tr><td>
@@ -223,6 +227,7 @@ I have performed the same 3 analyses (against the same 3 databases), but with th
 Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called Cutoff1, Cutoff10, Cutoff100, Cutoff1000 and Cutoff10000 respectively.
 
 >**Question 4:** 
+>
 >Given how many counts there are in the original input test file, what percentages do these cutoffs represent?
 >
 > <table><tr><td>
@@ -232,6 +237,7 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 # MAKE AN ANSWER TABLE
 
 >**Question 5:**
+>
 >How many taxa are represented for each of the 5 cutoff levels?
 >
 > <table><tr><td>
@@ -243,6 +249,7 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 Let’s investigate the data a little further.  Looking at the first tab - Cutoff10000 – does not show much, so we move on to the next one - Cutoff1000 – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
 
 >**Question 6:**
+>
 >How many taxa in the Cutoff1000 are eukaryotes (Hint: sort the data, or use find)?
 >
 > <table><tr><td>
@@ -258,6 +265,7 @@ NB: Any sorting you are going to do shortly on the sheets needs to be across the
 The data are sorted by the descending average value (column G).  If we sort on the coefficient of variation (COV; column H), we are looking at the most equal counts.
  
 >**Question 7:**
+>
 >What do you notice about the location of the “Unclassfied” taxa?
 >
 > <table><tr><td>
@@ -269,6 +277,7 @@ The data are sorted by the descending average value (column G).  If we sort on t
 Now sort Cutoff100 on column A.  Remember what databases you have been working with, and their constituents (from the Kaiju webpage).
 
 >**Question 8:**
+>
 >When you compare columns A and D with columns B, C, E and F, what do you notice in the first 300 or so rows?  Why do you think this is?
 >
 > <table><tr><td>
@@ -280,6 +289,7 @@ Now sort Cutoff100 on column A.  Remember what databases you have been working w
 For our final look at the data, we will move to the Cutoff10 tab.  Sort this sheet on Taxonomy (column I) in the Z to A direction, i.e., making sure that "Unclassified" is at the top of the sheet.  Scroll down until you get to the Eukaryotes section of the taxonomy.  There are \~500 entries for the eukaryotes.
 
 >**Question 9:**
+>
 >In column C, what is the eukaryote with the highest count? Why do you think there is a difference between columns C and F in terms of counts for a given taxon?
 >
 > <table><tr><td>
@@ -303,6 +313,7 @@ If you now double click, the ‘unclassified’s disappear, and we now see our c
 We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  Click on the blue section at the bottom to expand this section out.  When your arrow looks like the below, double click on it to generate the new view, as per the images below.
 
 >**Question 10:**
+>
 >How many viral sequences are there in this dataset (Hint: top right of the page)?  Given this value, approximately how many reads were assigned to Gokushovirinae GAIR4?
 >
 > <table><tr><td>
@@ -314,6 +325,7 @@ Have a click and explore the data for a couple of minutes.  Use the back arrow (
 We can also search for taxonomic classifications across the bacterial tree of life.  Searching on a name shows where they are located in the plot.  For example, let’s find where “Paracoccus” is on the plot.  We can then double click to zoom in to the Paracoccus genus.  This is probably too close in, so if you click on say Rhodobacteraceae we can see what proportion of the Rhodobacteraceae are members of the Paracoccus genus.
 
 >**Question 11:**
+>
 >What approximate proportion of the Rhodobacteraceae family are members of the Paracoccus genus (Hint: adding up the percentages is fine for today)?
 >
 > <table><tr><td>
@@ -323,6 +335,7 @@ We can also search for taxonomic classifications across the bacterial tree of li
 A group of bacteria of interest – to me anyway! – are the Proteobacteria, so as we did before, let’s click on that ring (found at about 9:30pm on the clock face) to show all the members of this taxonomic class.  Within the Proteobacteria is the genus Klebsiella (a human pathogen).
 
 >**Question 12:**
+>
 >Use the search function to find members of the Klebsiella genus.  Can you use the rings of the plot to work out the full taxonomic path for the Klebsiella genus?  Use a format like “Bacteria – Proteobacteria - XXXXX”.  The full taxonomic path is quite long.
 >
 > <table><tr><td>
@@ -332,6 +345,7 @@ A group of bacteria of interest – to me anyway! – are the Proteobacteria, so
 Within the Gammaproteobacteria is the order Legionellales (one member of which is responsible for Legionnaire’s disease).  This order is made up of two families – Legionellaceae and Coxillaceae – at different proportions.
 
 >**Question 13:**
+>
 >Using the chart, and by clicking in various parts of the Krona image, what are the proportions of each of the two families? 
 >
 > <table><tr><td>
