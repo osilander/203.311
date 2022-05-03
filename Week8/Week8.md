@@ -18,6 +18,9 @@ xxxxx
 
 ## Lecture Overview
 
+xxxxx
+
+
 
 ## Conventions used for this RStudio practical
 
@@ -42,7 +45,7 @@ means \"at the `R` console prompt `>`, type the code as written to make a vector
 
 Don\'t forget to press the **\[Enter\]** key: commands are not sent to the `R` console until this is done. There will not be **\[Enter\]** at the end of any of the lines of code in this practical, it is taken that this is to be typed at the end of the line _unless otherwise stated_. It is also assumed that the first `>` is the `R` console prompt.
 
-
+---
 
 ## Accessing the resources needed
 
@@ -75,6 +78,272 @@ xxxxx
 
 
 
+
+
+
+
+
+---
+
+## Taxonomic classification with the Kaiju webserver
+
+In this, the second practical session of this Microbial Diversity Module, we will be working with the Kaiju webserver to classify a small set of reads (500,000) under a couple of different algorithm conditions, and against three different reference databases supplied by the website to get an understanding of the fact that the way you perform these analyses has an impact on the results you get out.  In other words, writing down the results, and information about what you have done precisely to get them is important.  We are going to upload the reads to the server, download the results, and analyse them.  We are also going to use the Krona interactive viewer to explore our data in a little more depth.
+
+
+### Exercise 1: Data uploading and generation
+
+The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called sampleA_500k_R1.fq.gz and sampleA_500k_R2.fq.gz – to the Kaiju webserver and perform a taxonomic analysis on the reads.  These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the “kaiju” folder.  The are other files in there too, but more on those later. 
+
+# INSERT THE KAIJU LOGO
+
+We have 3 set of analyses to perform so, your job name for each analysis will vary according to what we are going to run.  The combinations of names for the jobs is shown in the table below:
+
+<table>
+<thead>
+  <tr>
+    <th>Database to use:</th>
+    <th>Run mode (no need to change):</th>
+    <th>Job name:</th>
+    <th>Performed by:</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>RefSeq Genomes</td>
+    <td rowspan="3">Default (greedy)</td>
+    <td>XXX_Gr500k_ref</td>
+    <td rowspan="3">student</td>
+  </tr>
+  <tr>
+    <td>NCBI BLAST nr</td>
+    <td>XXX_Gr500k_nr</td>
+  </tr>
+  <tr>
+    <td>NCBI BLAST nr + euk</td>
+    <td>XXX_Gr500k_nreuk</td>
+  </tr>
+  <tr>
+    <td>RefSeq Genomes</td>
+    <td rowspan="3">MEM</td>
+    <td>XXX_MEM500k_ref</td>
+    <td rowspan="3">P. Biggs (for you to work with)</td>
+  </tr>
+  <tr>
+    <td>NCBI BLAST nr</td>
+    <td>XXX_MEM500k_nr</td>
+  </tr>
+  <tr>
+    <td>NCBI BLAST nr + euk</td>
+    <td>XXX_MEM500k_nreuk</td>
+  </tr>
+</tbody>
+</table>
+
+
+Now let’s go to the website, and start the uploading process:
+
+1.  Go to http://kaiju.binf.ku.dk/
+
+2.  Click on the webserver icon at the top of the page.
+
+3.  Enter your name for the job, and then your email address, so you will know when the job is complete by getting an email.
+
+4.  Now we can upload the reads, one at a time. Select the “Select file” box, and it will open up a window for the first read.  Select sampleA_500k_R1.fq.gz from the dialogue box and click on “Start upload”.  As soon as you have done this, click on “Upload a second file for paired end sequencing”.
+
+5.  In the same way, you can upload sampleA_500k_R2.fq.gz as well.   Click on “Start upload” again.
+
+6.  When both reads are completely uploaded, you see the following.
+
+_NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
+
+7.  Now you can choose the database for the job name, as in the table on page 4, and you are ready to click on “Submit” at the bottom of the page.
+
+NB2: There is a bit of waiting for this first part of the process, so I suggest whilst you are waiting, you read the “Behind the Paper” feature on the Nature Microbiology website for the Kaiju publication.  The link is below:
+
+https://naturemicrobiologycommunity.nature.com/users/10226-peter-menzel/posts/6200-from-metagenomics-of-hot-springs-to-bioinformatics-software-development 
+
+This is not super-long but gives you a chance to see the motivation for the paper from the authors.  It is also important to note that we are relying on the Internet here, so this is a little risky.  If the worst happens, and things do not go to plan, please let a demonstrator know, and magically a set of results can be made to appear for you.
+
+>**Question 1:**
+> On looking at Kaiju webserver, on the left are listed the reference databases.  Have a look at the quick database descriptions and write down in the box below what you think might happen in terms of the potential results we might get back when our results are notified to us.
+>
+> <table><thead><tr><th> </th></tr></thead><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
+
+
+
+
+### Exercise 2: Data downloading
+
+After a little while, you should have been emailed three times from the Kaiju webserver with your results.  We now have to download these to analyse them.  Using your email link, click on the link to open up the results page.  It lists 4 things:
+1.  A summary of the results, and the parameters used for the run
+2.  A metagenomics overview with an interactive bubble plot.
+3.  Two output files to potentially download
+4.  Krona output
+
+>**Question 1:**
+>Fill in the following table for your results to record the parameter values for the 3 results you have generated (any order of results is fine):
+>
+> <table><thead><tr><th>Job</th><th>1</th><th>2</th><th>3</th></tr></thead><tbody><tr><td>Job name</td><td></td><td></td><td></td></tr><tr><td>Reference database</td><td></td><td></td><td></td></tr><tr><td>Database date</td><td></td><td></td><td></td></tr><tr><td>Run mode</td><td></td><td></td><td></td></tr><tr><td>Number of classified reads</td><td></td><td></td><td></td></tr><tr><td>% classified</td><td></td><td></td><td></td></tr></tbody></table>
+
+The next thing we are going to do is download the results from the 3 runs.  We are going to download the compressed output file for the RefSeq Genomes run (your ID for this will be different, but we are all using the same data) as well.  
+
+
+1.  Right click on the “download taxon path counts” and save the file with a new name – your jobname would be a good choice – including the database you ran the reads against.  
+2.  Repeat this procedure for the other two files.  
+3.  In addition, for one of the jobs, in a similar manner, download the compressed output file for the run against the RefSeq Genomes.  
+4.  The file is always called kaiju.out.gz.  
+5.  Go to your downloads folder and uncompress this file (double click on it) to make a file called kaiju.out.
+
+We are going to have a look at the now uncompressed kaiju.out file quickly just to get a hint of what the data looks like.  Open this file up in a spreadsheet program such as Excel.  If you are not sure how to do this, click on the magnifying glass in the top right of the screen -   - and then type “Excel” in the search window.  Double click on the application to start it.  You will see the 7 columns as listed in the screenshot above.  
+
+>**Question 2:**
+>What is the name of the accession number for the sequence in column B called “M00933:6:000000000-A1D0H:1:1101:12995:9348”?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+### Exercise 3: Data analysis
+
+We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
+
+>**Question 3:**
+>Using your spreadsheet for the file of the results against the RefSeq Genomes, how many taxa are present at over 1000 counts?  What is the number of counts we would use as a cutoff for 0.1%?  How many taxa are there above this threshold?  Finally, what is the species of bacteria with a count of 916?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
+
+I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – 500k_cutoffs.xlsx – in the Kaiju folder for today’s practical.
+
+Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called Cutoff1, Cutoff10, Cutoff100, Cutoff1000 and Cutoff10000 respectively.
+
+>**Question 4:** 
+>Given how many counts there are in the original input test file, what percentages do these cutoffs represent?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+>**Question 5:**
+>How many taxa are represented for each of the 5 cutoff levels?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+Let’s investigate the data a little further.  Looking at the first tab - Cutoff10000 – does not show much, so we move on to the next one - Cutoff1000 – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
+
+>**Question 6:**
+>How many taxa in the Cutoff1000 are eukaryotes (Hint: sort the data, or use find)?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+We have to go to the next two tabs - Cutoff100 and Cutoff10 – to really explore the data.  We will leave the last tab - Cutoff1 – for today, as there are too many taxa to deal with.  We shall look at Cutoff100 first.  Go to that tab now if you are not there.  
+
+NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry and you will make incorrect inferences .  If that happens, download the file again, and start sorting again. 
+
+The data are sorted by the descending average value (column G).  If we sort on the coefficient of variation (COV; column H), we are looking at the most equal counts.
+ 
+>**Question 7:**
+>What do you notice about the location of the “Unclassfied” taxa?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+Now sort Cutoff100 on column A.  Remember what databases you have been working with, and their constituents (from the Kaiju webpage).
+
+>**Question 8:**
+>When you compare columns A and D with columns B, C, E and F, what do you notice in the first 300 or so rows?  Why do you think this is?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+For our final look at the data, we will move to the Cutoff10 tab.  Sort this sheet on Taxonomy (column I) in the Z to A direction, i.e., making sure that "Unclassified" is at the top of the sheet.  Scroll down until you get to the Eukaryotes section of the taxonomy.  There are \~500 entries for the eukaryotes.
+
+>**Question 9:**
+>In column C, what is the eukaryote with the highest count? Why do you think there is a difference between columns C and F in terms of counts for a given taxon?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+# MAKE AN ANSWER TABLE
+
+Ok, so now we can look at visualising these data with Krona.
+
+
+
+### Exercise 4: Data visualisation with Krona
+
+For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - https://github.com/marbl/Krona/wiki - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  To do this, click on the “view classification as Krona chart” towards the bottom of the results page.  This should open up a new webpage showing our results.  You should see something like the following:
+
+We are going to explore the data as this is a fully interactive plot.  Let’s get rid of our unclassified data, as that is of no interest to us right now.  To do that, click on the area that says “root” so the segment goes grey, and then click again to get arrows, like in the picture opposite.
+
+If you now double click, the ‘unclassified’s disappear, and we now see our classified data.  The plot should have dramatically changed, and look something like the below:
+
+We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  Click on the blue section at the bottom to expand this section out.  When your arrow looks like the below, double click on it to generate the new view, as per the images below.
+
+>**Question 10:**
+>How many viral sequences are there in this dataset (Hint: top right of the page)?  Given this value, approximately how many reads were assigned to Gokushovirinae GAIR4?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  Right, on to the microbial world.  
+
+We can also search for taxonomic classifications across the bacterial tree of life.  Searching on a name shows where they are located in the plot.  For example, let’s find where “Paracoccus” is on the plot.  We can then double click to zoom in to the Paracoccus genus.  This is probably too close in, so if you click on say Rhodobacteraceae we can see what proportion of the Rhodobacteraceae are members of the Paracoccus genus.
+
+>**Question 11:**
+>What approximate proportion of the Rhodobacteraceae family are members of the Paracoccus genus (Hint: adding up the percentages is fine for today)?
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+A group of bacteria of interest – to me anyway! – are the Proteobacteria, so as we did before, let’s click on that ring (found at about 9:30pm on the clock face) to show all the members of this taxonomic class.  Within the Proteobacteria is the genus Klebsiella (a human pathogen).
+
+>**Question 12:**
+>Use the search function to find members of the Klebsiella genus.  Can you use the rings of the plot to work out the full taxonomic path for the Klebsiella genus?  Use a format like “Bacteria – Proteobacteria - XXXXX”.  The full taxonomic path is quite long.
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+Within the Gammaproteobacteria is the order Legionellales (one member of which is responsible for Legionnaire’s disease).  This order is made up of two families – Legionellaceae and Coxillaceae – at different proportions.
+
+>**Question 13:**
+>Using the chart, and by clicking in various parts of the Krona image, what are the proportions of each of the two families? 
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+---
+
+
+
+
+---
 
 ## Assessment
 
