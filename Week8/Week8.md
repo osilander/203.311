@@ -193,8 +193,8 @@ The next thing we are going to do is download the results from the 3 runs.  We a
 1.  Right click on the “download taxon path counts” and save the file with a new name – your jobname would be a good choice – including the database you ran the reads against.  
 2.  Repeat this procedure for the other two files.  
 3.  In addition, for one of the jobs, in a similar manner, download the compressed output file for the run against the RefSeq Genomes.  
-4.  The file is always called kaiju.out.gz.  
-5.  Go to your downloads folder and uncompress this file (double click on it) to make a file called kaiju.out.
+4.  The file is always called _`kaiju.out.gz`_.  
+5.  Go to your downloads folder and uncompress this file (double click on it) to make a file called _`kaiju.out`_.
 
 We are going to have a look at the now uncompressed kaiju.out file quickly just to get a hint of what the data looks like.  Open this file up in a spreadsheet program such as Excel.  If you are not sure how to do this, click on the magnifying glass in the top right of the screen -   - and then type “Excel” in the search window.  Double click on the application to start it.  You will see the 7 columns as listed in the screenshot above.  
 
@@ -222,9 +222,9 @@ We are interested in the file for the taxon path counts.  In a similar way, let�
 
 Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
 
-I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – 500k_cutoffs.xlsx – in the Kaiju folder for today’s practical.
+I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – _`500k_cutoffs.xlsx`_ – in the Kaiju folder for today’s practical.
 
-Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called Cutoff1, Cutoff10, Cutoff100, Cutoff1000 and Cutoff10000 respectively.
+Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called _`Cutoff1`_, _`Cutoff10`_, _`Cutoff100`_, _`Cutoff1000`_ and _`Cutoff10000`_ respectively.
 
 >**Question 4:** 
 >
@@ -246,11 +246,11 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 
 # MAKE AN ANSWER TABLE
 
-Let’s investigate the data a little further.  Looking at the first tab - Cutoff10000 – does not show much, so we move on to the next one - Cutoff1000 – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
+Let’s investigate the data a little further.  Looking at the first tab - _`Cutoff10000`_ – does not show much, so we move on to the next one - _`Cutoff1000`_ – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
 
 >**Question 6:**
 >
->How many taxa in the Cutoff1000 are eukaryotes (Hint: sort the data, or use find)?
+>How many taxa in the _`Cutoff1000`_ are eukaryotes (Hint: sort the data, or use find)?
 >
 > <table><tr><td>
 > ____________________
@@ -258,9 +258,9 @@ Let’s investigate the data a little further.  Looking at the first tab - Cutof
 
 # MAKE AN ANSWER TABLE
 
-We have to go to the next two tabs - Cutoff100 and Cutoff10 – to really explore the data.  We will leave the last tab - Cutoff1 – for today, as there are too many taxa to deal with.  We shall look at Cutoff100 first.  Go to that tab now if you are not there.  
+We have to go to the next two tabs - _`Cutoff100`_ and _`Cutoff10`_ – to really explore the data.  We will leave the last tab - _`Cutoff1`_ – for today, as there are too many taxa to deal with.  We shall look at _`Cutoff100`_ first.  Go to that tab now if you are not there.  
 
-NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry and you will make incorrect inferences .  If that happens, download the file again, and start sorting again. 
+NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry and you will make incorrect inferences.  If that happens, download the file again, and start sorting again. 
 
 The data are sorted by the descending average value (column G).  If we sort on the coefficient of variation (COV; column H), we are looking at the most equal counts.
  
@@ -274,7 +274,7 @@ The data are sorted by the descending average value (column G).  If we sort on t
 
 # MAKE AN ANSWER TABLE
 
-Now sort Cutoff100 on column A.  Remember what databases you have been working with, and their constituents (from the Kaiju webpage).
+Now sort _`Cutoff100`_ on column A.  Remember what databases you have been working with, and their constituents (from the Kaiju webpage).
 
 >**Question 8:**
 >
@@ -286,7 +286,7 @@ Now sort Cutoff100 on column A.  Remember what databases you have been working w
 
 # MAKE AN ANSWER TABLE
 
-For our final look at the data, we will move to the Cutoff10 tab.  Sort this sheet on Taxonomy (column I) in the Z to A direction, i.e., making sure that "Unclassified" is at the top of the sheet.  Scroll down until you get to the Eukaryotes section of the taxonomy.  There are \~500 entries for the eukaryotes.
+For our final look at the data, we will move to the _`Cutoff10`_ tab.  Sort this sheet on Taxonomy (column I) in the Z to A direction, i.e., making sure that "Unclassified" is at the top of the sheet.  Scroll down until you get to the Eukaryotes section of the taxonomy.  There are \~500 entries for the eukaryotes.
 
 >**Question 9:**
 >
@@ -322,21 +322,21 @@ We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  
 
 Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  Right, on to the microbial world.  
 
-We can also search for taxonomic classifications across the bacterial tree of life.  Searching on a name shows where they are located in the plot.  For example, let’s find where “Paracoccus” is on the plot.  We can then double click to zoom in to the Paracoccus genus.  This is probably too close in, so if you click on say Rhodobacteraceae we can see what proportion of the Rhodobacteraceae are members of the Paracoccus genus.
+We can also search for taxonomic classifications across the bacterial tree of life.  Searching on a name shows where they are located in the plot.  For example, let’s find where “_Paracoccus_” is on the plot.  We can then double click to zoom in to the _Paracoccus_ genus.  This is probably too close in, so if you click on say Rhodobacteraceae we can see what proportion of the Rhodobacteraceae are members of the _Paracoccus_ genus.
 
 >**Question 11:**
 >
->What approximate proportion of the Rhodobacteraceae family are members of the Paracoccus genus (Hint: adding up the percentages is fine for today)?
+>What approximate proportion of the Rhodobacteraceae family are members of the _Paracoccus_ genus (Hint: adding up the percentages is fine for today)?
 >
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
 
-A group of bacteria of interest – to me anyway! – are the Proteobacteria, so as we did before, let’s click on that ring (found at about 9:30pm on the clock face) to show all the members of this taxonomic class.  Within the Proteobacteria is the genus Klebsiella (a human pathogen).
+A group of bacteria of interest – to me anyway! – are the Proteobacteria, so as we did before, let’s click on that ring (found at about 9:30pm on the clock face) to show all the members of this taxonomic class.  Within the Proteobacteria is the genus _Klebsiella_ (a human pathogen).
 
 >**Question 12:**
 >
->Use the search function to find members of the Klebsiella genus.  Can you use the rings of the plot to work out the full taxonomic path for the Klebsiella genus?  Use a format like “Bacteria – Proteobacteria - XXXXX”.  The full taxonomic path is quite long.
+>Use the search function to find members of the _Klebsiella_ genus.  Can you use the rings of the plot to work out the full taxonomic path for the _Klebsiella_ genus?  Use a format like “Bacteria – Proteobacteria - XXXXX”.  The full taxonomic path is quite long.
 >
 > <table><tr><td>
 > ____________________
