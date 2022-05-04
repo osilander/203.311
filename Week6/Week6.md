@@ -212,7 +212,7 @@ Finally, take a look at the `ape` `plot.phylo` function. How can you change the 
 
 ### Portfolio Assessment
 
-Above, you have inferred a phylogeny, but have not calculated any level of *certainty* in your tree. For this portion of your assessment, use [this](data/covid_samples.fasta.gz) new multifasta file available with a larger number of sequences. You will need to align these sequences, infer a phylogeny, assess the amount of *certainty* you have in your phylogewny by performing bootstraps on the phylogeny (whatever number you think is reasonable), and plot the phylogeny **with the bootstrapped values appearing on it**. Otherwise you can plot the phylogeny in any way you see fit.[^1]
+Above, you have inferred a phylogeny, but have not calculated any level of *certainty* in your tree. For this portion of your assessment, use [this](data/covid_samples.fasta.gz) new multifasta file available with a larger number of sequences. You will need to align these sequences, infer a phylogeny, assess the amount of *certainty* you have in your phylogeny by performing bootstraps on the phylogeny (whatever number you think is reasonable), and plot the phylogeny **with the bootstrapped values appearing on it**. Otherwise you can plot the phylogeny in any way you see fit.[^1] Note that you do not have to perform any QC or variant calling steps that you did in previous weeks' labs, only perform the alignment (e.g. using `mafft` and infer the phylogeny).
 
 [^1]: In order to calculate bootstrap values and to change to plotting appearance, you will need to look carefully at the `iqtree` program options and `plot.phylo` function in `R`.
 
