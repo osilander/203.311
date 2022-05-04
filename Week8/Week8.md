@@ -19,19 +19,28 @@
 
 ## Purpose
 
-xxxxx
+To use a mixture of tools (online) to explore a small set of metagenomic reads from uploading reads to a server through interactive visualisation and then work in R to look at the data in other ways.
 
 
 ## Introduction
 
-xxxxx
+Microbial diversity has been revolutionised by the rapid advances in sequencing technology, given us new insights into the role of the microbial world in all environments on Earth. Sequencing of metagenomes (all the DNA in a given sample etc) or of specific markers (metabarcodes e.g. 16S rRNA amplicons) have been crucial in this regard. Knowing what is there, and what it is potentially doing are two of the main research areas of interest.  How we then analyse the data, visualise and interpret the results is thus of importance.
+
+Week 8 focusses on using tools outside of `R` for most of today's practical to use online classfiers and visualisation methodologies to explore the complexitites of metagenomic data.
 
 
 ## Lecture Overview
 
-xxxxx
+As a brief summary of the lectures from this week, we discussed the motivation for doing metagenomics analysis given how ubiquitous and important bacteria are to us, the environment and the planet as a whole.  We looked at the history of metagenomics, and then had a quick tour of 4 notable projects – focussing in a little more detail on the Human Microbiome Project – which illustrated how technology has driven the scale of potential projects.  We also touched on the potential controversial issue of personal genomics by looking at the now bankrupt uBiome company, and their products.  There was a quick mention of metabarcoding – a subfield of metagenomics – and how that is different to metagenomics, but yet at the same time, how these areas are also related to each other.
+
+The next focus was on a metagenomics workflow, to show how complex this is, and also where there are potential biases to consider in experimental design, and sample generation.  We then started looking at some of the issues there are in terms of the measures of say taxonomic diversity in analysing results.  We also considered data quality control, and that there are many software packages out there to analyse metagenomics data.  Finally, we considered the concept of comparative metagenomics, and ways to analyse and visualise the data using a tool like MEGAN.  Our last software tool was the one we start off with today, the online taxonomic classifier Kaiju.
+
+So, now on to the practical...
+
+First thing, you have an electronic copy of this practical -- which you will see via the Stream and this site -- **please don't copy and paste in the practical today!** Why? Typing these commands is part of the hard wiring required to make them stick! By typing commands it gives you another opportunity to think about the command before you execute it and typing is more likely to trigger a big red flag in dangerous situations! So, think twice, type once.
 
 
+---
 
 ## Conventions used for this RStudio practical
 
@@ -70,24 +79,25 @@ The machines we are using for the course -- Apple iMacs -- have been updated for
 
 The machines are Windows PC's so logging into them should be the same as any other Massey Windows PC.
 
-#### outside Massey 
+#### Outside Massey 
 
 Most likely this is your own machine, so this should not be an issue.
 
 
 ### Our work today
 
-xxxxx
-
+We will continue to use our RStudio cloud environment as a source and location for the data we are working with, but we will also be using webtools, and the Microsoft product Excel, as well as `R`.
 
 
 ### What we are going to do today?
 
+We are primarily going to be using webtools, and the Microsoft product Excel to explore some reads from an experiment, but under different analysis conditions, varying both the analysis methods and the database we are comparing our reads to. 
+- We will upload a pair of reads to the Kaiju website for analysis against a variety of databases.
+- We will download these data, and open them in Excel to explore them in a comparative way.  
+- We will then look at the results in a completely different way using Krona
+- Finally, we will be returning to `R` for the work that will lead to the Portfolio analysis of today's work.
 
-
-
-
-
+The commands below have been checked and should work fine.
 
 
 ---
@@ -99,9 +109,15 @@ In this, the second practical session of this Microbial Diversity Module, we wil
 
 ### Exercise 1: Data uploading and generation
 
-The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called sampleA_500k_R1.fq.gz and sampleA_500k_R2.fq.gz – to the Kaiju webserver and perform a taxonomic analysis on the reads.  These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the “kaiju” folder.  The are other files in there too, but more on those later. 
+The below screenshot shows the folder structure within `/cloud/project/` for the new Module.
+
+<img src="graphics/window4_2022.PNG" width="600"/>
+
+The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called _`sampleA_500k_R1.fq.gz`_ and _`sampleA_500k_R2.fq.gz`_ – to the Kaiju webserver and perform a taxonomic analysis on the reads. 
 
 <img src="graphics/kaijuLogo.png" width="400"/>
+
+These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the _`kaiju`_ folder in the `/cloud/project/` project within the "weeks7to9" project within the "MicrobialDiversity_2022" workspace.  There are other files in there too, but more on those later. 
 
 We have 3 set of analyses to perform so, your job name for each analysis will vary according to what we are going to run.  The combinations of names for the jobs is shown in the table below:
 
@@ -319,8 +335,8 @@ If you now double click, the ‘unclassified’s disappear, and we now see our c
 
 We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  Click on the blue section at the bottom to expand this section out.  When your arrow looks like the below, double click on it to generate the new view, as per the images below.
 
-<img src="graphics/image13.png" width="400"/>
-<img src="graphics/image14.png" width="400"/>
+<img src="graphics/image13.png" width="500"/>
+<img src="graphics/image14.png" width="500"/>
 
 >**Question 10:**
 >
@@ -366,7 +382,7 @@ Within the Gammaproteobacteria is the order Legionellales (one member of which i
 
 ---
 
-## Further analysis of Kaiju output in `R`
+## Further analysis of Kaiju output in R
 
 
 ---
