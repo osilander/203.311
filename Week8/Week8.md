@@ -1,6 +1,5 @@
 **[Return to the Course Home Page](../index.html)**
 
-<!--### **06-May-2022 There is a compact physical copy of this practical on the "Week | Wiki 8" Stream page.-->
 ## **05-May-2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED**
 
 # Introduction to Metagenomic analysis
@@ -229,7 +228,19 @@ The next thing we are going to do is download the results from the 3 runs.  We a
 4.  The file is always called _`kaiju.out.gz`_.  
 5.  Go to your downloads folder and uncompress this file (double click on it) to make a file called _`kaiju.out`_.
 
-We are going to have a look at the now uncompressed kaiju.out file quickly just to get a hint of what the data looks like.  Open this file up in a spreadsheet program such as Excel.  If you are not sure how to do this, click on the magnifying glass in the top right of the screen -   - and then type “Excel” in the search window.  Double click on the application to start it.  You will see the 7 columns as listed in the screenshot above.  
+> **Please remember that uncompressing a _`.gz`_ file will be a different process depending on your machine and whatever compression software you use, e.g. 7Zip on windows PCs.**
+>
+> **If there is an issue with downloading from the web you can run the following code to retrieve the file, as per the below from the terminal in RStudio.**
+
+```bash
+wget https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/kaiju.out.gz
+gunzip kaiju.out.gz
+```
+
+> **If you have downloaded via the `wget` method above, you will have to download the  _`kaiju.out`_ file from RStudio to your local machine.**
+
+
+We are going to have a look at the now uncompressed  _`kaiju.out`_ file quickly just to get a hint of what the data looks like.  Open this file up in a spreadsheet program such as Excel.  Double click on the application to start it.  You will see the 7 columns as listed in the screenshot above.  
 
 >**Question 2:**
 >
@@ -445,7 +456,7 @@ Let's load in some data now.  This presumes tat you are at _`/cloud/project/`_ a
 > cutDataFileRemovedCols_noUC <- cutDataFileRemovedCols[-c(1), ]
 ```
 
-The next thing to do is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
+The next gthing is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
 
 ```R
 ### make a new object on a certain taxonomic classification and below
@@ -530,23 +541,21 @@ We have fixed the order of the sets here, have a go at changing the order of _`s
 
 Once again, this is a two part analysis for the week 8 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listedin the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
 
-#### Part A
 
-In the "Visualising data in different ways" sectikon above, for the "Heatmaps", we worked with an example file - _`XXXX`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose on one the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
+In the "Visualising data in different ways" sectikon above, for the "Heatmaps", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose on one the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
 
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- combination 1: file _`500k_Cutoff10.txt`_ and taxonomic classification _`__Chitinophagia__`_
+- combination 2: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Rhodobacter__`_
+- combination 3: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Methanomicrobiales__`_
 
-As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.
+As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.  Please use the exact search term above, otherwise you will get fat more data and your plot will look very complex.
 
 #### Part B
 
-In the "Visualising data in different ways" sectikon above, for the "UpSet plots", we worked with an example file - _`XXXX`_ - to understand the relationship between the databases, and how these overlap.  In this part, I would like you to choose on one the following combinations to visualise how the number of times a taxonomic result varies based on searching algorithm and database:
+In the "Visualising data in different ways" sectikon above, for the "UpSet plots", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand the relationship between the databases, and how these overlap.  In this part, I would like you to choose on one the following file s to visualise how the number of times a taxonomic result varies based on searching algorithm and database:
 
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
-- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- file 1: file _`500k_Cutoff10.txt`_
+- file 2: file _`500k_Cutoff1.txt`_ 
 
 
 ---
