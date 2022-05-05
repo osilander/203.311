@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-## **02-May-2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED**
+## **05-May-2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED**
 
 # Introduction to Metagenomic analysis
 
@@ -11,7 +11,9 @@
 [Lecture Overview](#lecture-overview)<br>
 [Conventions used for this RStudio practical](#conventions-used-for-this-rstudio-practical)<br>
 [Accessing the resources needed](#accessing-the-resources-needed)<br>
-
+[Taxonomic classification with the Kaiju webserver](#taxonomic-classification-with-the-kaiju-webserver)<br>
+[Data visualisation with Krona](#data-visualisation-with-krona)<br>
+[Further analysis of Kaiju output in R](#further-analysis-of-kaiju-output-in-r)<br>
 [Portfolio analysis](#portfolio-analysis)<br>
 [Assessment](#assessment)<br>
 [Contact](#contact)<br>
@@ -202,8 +204,6 @@ This is not super-long but gives you a chance to see the motivation for the pape
 > <table><tr><th> </th></tr><tbody><tr><td> </td></tr><tr><td> </td></tr><tr><td> </td></tr></tbody></table>
 
 
-
-
 ### Exercise 2: Data downloading
 
 After a little while, you should have been emailed three times from the Kaiju webserver with your results.  We now have to download these to analyse them.  Using your email link, click on the link to open up the results page.  It lists 4 things:
@@ -384,8 +384,172 @@ Within the Gammaproteobacteria is the order Legionellales (one member of which i
 
 ## Further analysis of Kaiju output in R
 
+### Locating data
+
+We will now return to using `R` to look at our data, and head back to our RStudio Cloud environment.  The first thing we will need to do is to download our _`CutoffXXXX`_ files, i.e., our 5 different levels of counts from an external source this time.  These are now the file names, but with hyperlinks:  
+
+- [500k_Cutoff1.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff1.txt "500k_Cutoff1.txt")
+- [500k_Cutoff10.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff10.txt "500k_Cutoff10.txt")
+- [500k_Cutoff100.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff100.txt "500k_Cutoff100.txt")
+- [500k_Cutoff1000.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff1000.txt "500k_Cutoff1000.txt")
+- [500k_Cutoff10000.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff10000.txt "500k_Cutoff10000.txt")
+
+We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week8data`_, and change into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
+
+```bash
+wget link_address_you_just_copied
+```
+
+>**Question 14:**
+>
+> What command line would you use to check the number of lines in your downloaded files using a wildcard character?
+> how many lines are there in each of the 5 files?
+>
+> <table><thead><tr><th>code to run the command</th><th></th></tr></thead><tbody><tr><td>Cutoff1</td><td></td></tr><tr><td>Cutoff10</td><td></td></tr><tr><td>Cutoff100</td><td></td></tr><tr><td>Cutoff1000</td><td></td></tr><tr><td>Cutoff10000</td><td></td></tr></tbody></table>
+
+
+### Basic dataset interaction
+
+We have seen that the both the search algorithm (`MEM` or `Greedy`), as well as the database we are searching against (`Nr`, `NrEuk` or `RefOnly`) has implications for the composition of our single sample we are working with.  How can we visualise this?
+
+#### Installing some new packages
+
+**NB: these packages have to be installed by you to complete the Portfolio analysis.**
+
+Please install the following packages, and then load them - and another one - for use.
+
+```R
+### install packages
+> install.packages("UpSetR")
+> install.packages("pheatmap")
+
+### load packages
+> library(UpSetR)
+> library(pheatmap)
+> library(data.table)
+```
+
+#### Loading data and subsetting on taxonomy
+
+Let's load in some data now.  This presumes tat you are at _`/cloud/project/`_ and that you have made the  _`week8data`_ directory.  We will load in the _`500k_Cutoff1000.txt`_ file as an example, and perform some manipulation on it to allow us to work with the file in the rest of this section.
+
+```R
+### load in data
+> cutDataFile <- read.table("week8data/500k_Cutoff1000.txt", header = TRUE, sep = "\t")
+
+### remove unwanted columns
+> cutDataFileRemovedCols <- subset(cutDataFile, select=-c(averVal, COV))
+
+### remove the first row of unclassified data
+> cutDataFileRemovedCols_noUC <- cutDataFileRemovedCols[-c(1), ]
+```
+
+The next gthing is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
+
+```R
+### make a new object on a certain taxonomic classification and below
+
+## perform some column manipuluation to fix the taxonomy as our rowname
+> rownames(cutDataFileRemovedCols_noUC) <- cutDataFileRemovedCols_noUC[,7]
+> cutDataFileRemovedCols_noUC2 <- cutDataFileRemovedCols_noUC[,-7]
+
+## extract out the rows of interest
+> onlyTaxaOfInterest <- subset(cutDataFileRemovedCols_noUC2, rownames(cutDataFileRemovedCols_noUC2) 
+      %like% "Proteobacteria")
+
+## tidy up the names
+> rownames(onlyTaxaOfInterest) 
+      <- gsub("root__cellular__organisms__Bacteria__Proteobacteria__", "", rownames(onlyTaxaOfInterest))
+```
+
+This is why we are making a copy of the object here, so that you can look at _`cutDataFileRemovedCols_noUC2`_ to get the part of the name to remove.
+
+>**Question 15:**
+>
+> How many rows does _`onlyTaxaOfInterest`_ have compared to  _`cutDataFileRemovedCols_noUC2`_? (Use one of the many methods you now are aware of, e.g. `grep` in the terminal, or manual inspection to find the numbers.)
+>
+> <table><tr><td>
+> ____________________
+> </td></tr></table>
+
+
+### Visualising data in different ways
+
+We are going to look at our data as heatmaps, and something called an UpSet plot.
+
+#### Heatmaps
+
+I talked about abundance of reads in the second Week 8 lecture.  a convenient way to view the abundance of the different taxa is with a heatmap (https://r-graph-gallery.com/heatmap).  Hopefully you are slightly familiar with these from the other Portfolio analyses.
+
+To drawe a very basic heatmap, we use the `pheatmap()` command from the `pheatmap` package.  
+
+```R
+### draw a basic heatmap
+> pheatmap(onlyTaxaOfInterest)
+```
+This command can be modified very extensively - have a look at `?pheatmap()` in the `R` console to get the help pages.  Try a few things out if you like. 
+
+In window #4, this will look at little weird due to the long taxa names (which is why we have shortened them).  Click in the "Zoom" for the image to go to a new window.  This window is stretchable, so you can make it look how you want, right click it and save it as an image.
+
+
+#### UpSet plots
+
+Now we are going to look at the data in a very different way.  This method is all to do with Venn diagrams, and thinking about the taxa results as members of sets.  In other words, overall if we get a taxon returned from a specific database, what other databases can we find that taxon in as well.  As we have 6 sets of data, we want to look at the insection of those 6.  How do we do that?  Here is an example of a Venn diagram with 6 intersecting sets:
+
+<img src="graphics/Venn6.jpg" width="400"/>
+
+What is going on here?  How intuitive is this?  The answer is **not very intuitive at all**.   Above 7 sets it is almost impossible to work out what is going on (it might be at 6 too!) with all the combination of relationships.  Therefore we are going to look at our data in a different way, using an UpSet plot.  You might have seen these on the R graph gallery (https://r-graph-gallery.com/) at https://r-graph-gallery.com/upset-plot.html.  Have a read of https://upset.app/ for a brief introduction, an example plot and an explanation of what is going on here.  We are going to create a similar plot with our data.
+
+To make the plot, we have to apply a transformation to our data to make it an absence/presence dataset and therefore lose our quantitative data.  So, in this case, any non-zero value in our dataset becomes 1, and 0 stays as 0.  Hence, if a taxon has 3 or 2048 counts associated with it, it gets transformed to 1.  This shows us the detected taxa, rather than the abundance.  This is still a useful way to look at the data to understand the relationship between the 6 datasets we have from our sample.  
+
+```R
+### remove unwanted columns
+> cutDataFileUpSet <- subset(cutDataFile, select=-c(averVal, COV, taxonomy))
+
+### convert all non-zero values to 1
+> cutDataFileUpSet[cutDataFileUpSet != 0] <- 1
+
+### add taxonomy back in 
+> cutDataFileUpSetTaxa <- cbind(cutDataFileUpSet, cutDataFile$taxonomy)
+> colnames(cutDataFileUpSetTaxa)[7] <- "taxonomy"
+
+### draw an upSet plot to show interactions
+> setOrder = c("Greedy_Nr", "Greedy_NrEuk", "Greedy_RefOnly", "MEM_Nr", "MEM_NrEuk", "MEM_RefOnly")
+
+> upset(cutDataFileUpSetTaxa, order.by = c("freq"), decreasing = c(TRUE),
++       sets = setOrder, keep.order = TRUE)
+```
+
+
 
 ---
+
+
+## Portfolio assessment
+
+Once again, this is a two part analysis for the week 8 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listedin the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
+
+#### Part A
+
+In the "Visualising data in different ways" sectikon above, for the "Heatmaps", we worked with an example file - _`XXXX`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose on one the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
+
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+
+As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.
+
+#### Part B
+
+In the "Visualising data in different ways" sectikon above, for the "UpSet plots", we worked with an example file - _`XXXX`_ - to understand the relationship between the databases, and how these overlap.  In this part, I would like you to choose on one the following combinations to visualise how the number of times a taxonomic result varies based on searching algorithm and database:
+
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+- combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+
+
+---
+
 
 ## Assessment
 
