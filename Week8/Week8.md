@@ -444,7 +444,7 @@ Let's load in some data now.  This presumes tat you are at _`/cloud/project/`_ a
 > cutDataFileRemovedCols_noUC <- cutDataFileRemovedCols[-c(1), ]
 ```
 
-The next gthing is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
+The next thing to do is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
 
 ```R
 ### make a new object on a certain taxonomic classification and below
