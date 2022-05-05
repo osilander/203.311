@@ -250,7 +250,7 @@ We are interested in the file for the taxon path counts.  In a similar way, let�
 >How many taxa are there above this threshold?  
 >Finally, what is the species of bacteria with a count of 916?
 >
-> <table><tr><th>Over 1000 counts:</th><th></th></tr><tbody><tr><td> Counts for 0.1% cutoff:</td><td></td></tr><tr><td> Taxa present at more than 0.1%:</td><td></td></tr><tr><td> Taxon at count of 916:</td><td></td></tr></tbody></table>
+> <table><tbody><tr><td>Over 1000 counts:</td><td></td></tr><tr><td>Counts for 0.1% cutoff:</td><td></td></tr><tr><td>Taxa present at more than 0.1%:</td><td></td></tr><tr><td>Taxon at count of 916:</td><td></td></tr></tbody></table>
 
 Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
 
@@ -309,7 +309,7 @@ For our final look at the data, we will move to the _`Cutoff10`_ tab.  Sort this
 >In column C, what is the eukaryote with the highest count? 
 > Why do you think there is a difference between columns C and F in terms of counts for a given taxon?
 >
-> <table><tr><th>Highest count:</th><th></th></tr><tbody><tr><td>Reason for differences in columns C and F:</td><td></td></tr></tbody></table>
+> <table><tbody><tr><td>Highest count:</td><td></td></tr><tr><td>Reason for differences in columns C and F:</td><td></td></tr></tbody></table>
 
 Ok, so now we can look at visualising these data with Krona.
 
@@ -343,7 +343,7 @@ We shall explore the viral world first.  Viruses make up 0.7% of this dataset.  
 >How many viral sequences are there in this dataset (Hint: top right of the page)?  
 >Given this value, approximately how many reads were assigned to Gokushovirinae GAIR4?
 >
-> <table>tr><th>Number of viral reads:</th><th></th></tr><tbody><tr><td>Number of reads assigned to Gokushovirinae GAIR4:</td><td></td></tr></tbody></table>
+> <table><tbody><tr><td>Number of viral reads:</td><td></td></tr><tr><td>Number of reads assigned to Gokushovirinae GAIR4:</td><td></td></tr></tbody></table>
 
 Have a click and explore the data for a couple of minutes.  Use the back arrow (top left of webpage) next to the word ‘Krona’ to go back out.  
 
@@ -378,7 +378,7 @@ Within the Gammaproteobacteria is the order Legionellales (one member of which i
 >
 >Using the chart, and by clicking in various parts of the Krona image, what are the proportions of each of the two families? 
 >
-> <table><tr><th>Legionellaceae:</th><th></th></tr><tbody><tr><td>Coxillaceae:</td><td></td></tr></tbody></table>
+> <table><tbody><tr><td>Legionellaceae:</td><td></td></tr><tr><td>Coxillaceae:</td><td></td></tr></tbody></table>
 
 ---
 
@@ -520,12 +520,12 @@ To make the plot, we have to apply a transformation to our data to make it an ab
 +       sets = setOrder, keep.order = TRUE)
 ```
 
-We have fixed the order of the sets here, have a go at changing the order of _`setOrder`_ if you want to chnage how the ouptut looks.
+We have fixed the order of the sets here, have a go at changing the order of _`setOrder`_ if you want to change how the ouptut looks.
 
 ---
 
 
-## Portfolio assessment
+## Portfolio analysis
 
 Once again, this is a two part analysis for the week 8 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listedin the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
 
@@ -546,6 +546,7 @@ In the "Visualising data in different ways" sectikon above, for the "UpSet plots
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
+
 
 ---
 
@@ -590,4 +591,5 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> -->
+
 
