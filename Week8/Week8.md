@@ -1,5 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
+<!--### **06-May-2022 There is a compact physical copy of this practical on the "Week | Wiki 8" Stream page.-->
 ## **05-May-2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED**
 
 # Introduction to Metagenomic analysis
