@@ -516,11 +516,11 @@ To make the plot, we have to apply a transformation to our data to make it an ab
 ### draw an upSet plot to show interactions
 > setOrder = c("Greedy_Nr", "Greedy_NrEuk", "Greedy_RefOnly", "MEM_Nr", "MEM_NrEuk", "MEM_RefOnly")
 
-> upset(cutDataFileUpSetTaxa, order.by = c("freq"), decreasing = c(TRUE),
+> upset(cutDataFileUpSetTaxa, order.by = "freq", decreasing = TRUE,
 +       sets = setOrder, keep.order = TRUE)
 ```
 
-
+We have fixed the order of the sets here, have a go at changing the order of _`setOrder`_ if you want to chnage how the ouptut looks.
 
 ---
 
@@ -546,7 +546,6 @@ In the "Visualising data in different ways" sectikon above, for the "UpSet plots
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
 - combination X: file _`XXXX`_ and taxonomic classification _`XXXX`_
-
 
 ---
 
@@ -591,5 +590,4 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> -->
-
 
