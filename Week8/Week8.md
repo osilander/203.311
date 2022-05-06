@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-## **05-May-2022 - PLEASE DO NOT MAKE A COPY OF THIS FILE UNTIL THIS LABEL IS REMOVED**
+### **06-May-2022 - Hard copy available on 'Wiki | Week 8' Stream page**
 
 # Introduction to Metagenomic analysis
 
@@ -443,7 +443,7 @@ Please install the following packages, and then load them - and another one - fo
 
 #### Loading data and subsetting on taxonomy
 
-Let's load in some data now.  This presumes tat you are at _`/cloud/project/`_ and that you have made the  _`week8data`_ directory.  We will load in the _`500k_Cutoff1000.txt`_ file as an example, and perform some manipulation on it to allow us to work with the file in the rest of this section.
+Let's load in some data now.  This presumes that you are at _`/cloud/project/`_ and that you have made the  _`week8data`_ directory.  We will load in the _`500k_Cutoff1000.txt`_ file as an example, and perform some manipulation on it to allow us to work with the file in the rest of this section.
 
 ```R
 ### load in data
