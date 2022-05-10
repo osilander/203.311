@@ -98,6 +98,98 @@ The commands below have been checked and should work fine.
 
 ## Exercise 1: completion of the DADA2 tutorial
 
+The DADA2 pipeline produced a sequence table and a taxonomy table which is appropriate for further analysis in phyloseq. We'll also include the small amount of metadata we have – the samples are named by the gender (G), mouse subject number (X) and the day post-weaning (Y) it was sampled (e.g. GXDY is the format of the sample names).  So, now we shall build up this metadata file, but we shall do it inside of `R` using source files available to us:
+
+```R
+### load our required packages
+> library(phyloseq)
+> packageVersion("phyloseq")
+[1] ‘1.30.0’
+
+### modifying our seqtab.nochim object to remove the mock community
+> seqtab <- makeSequenceTable(mergers[names(mergers) != "Mock"])
+> seqtab.nochim <- removeBimeraDenovo(seqtab, verbose=TRUE)
+
+### starting to make a dataframe for the samples by getting their names
+> samples.out <- rownames(seqtab.nochim)
+> samples.out
+ [1] "F3D0"   "F3D1"   "F3D141" "F3D142" "F3D143" "F3D144" "F3D145" "F3D146" "F3D147" "F3D148" "F3D149"
+[12] "F3D150" "F3D2"   "F3D3"   "F3D5"   "F3D6"   "F3D7"   "F3D8"   "F3D9" 
+```
+
+We will now make our other columns of data to add to the metadata:
+
+```R
+### set up the subject and gender
+> subject <- sapply(strsplit(samples.out, "D"), `[`, 1)
+> subject
+ [1] "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3" "F3"
+> gender <- substr(subject,1,1)
+> gender
+ [1] "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F" "F"
+> subject <- substr(subject,2,999)
+> subject
+ [1] "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3" "3"
+```
+
+Now to define the data post weaning:
+
+```R
+### days post weaning
+> day <- as.integer(sapply(strsplit(samples.out, "D"), `[`, 2))
+> day
+ [1]   0   1 141 142 143 144 145 146 147 148 149 150   2   3   5   6   7   8   9
+
+### setting up
+> samdf <- data.frame(Subject=subject, Gender=gender, Day=day)
+> head(samdf)
+  Subject Gender Day
+1       3      F   0
+2       3      F   1
+3       3      F 141
+4       3      F 142
+5       3      F 143
+6       3      F 144
+
+### define early and late categories dependent on days post weaning to add to our data
+> samdf$When <- "Early"
+> samdf$When[samdf$Day>100] <- "Late"
+> rownames(samdf) <- samples.out
+> head(samdf)
+       Subject Gender Day  When
+F3D0         3      F   0 Early
+F3D1         3      F   1 Early
+F3D141       3      F 141  Late
+F3D142       3      F 142  Late
+F3D143       3      F 143  Late
+F3D144       3      F 144  Late
+```
+
+Now we construct our initial phyloseq object as a combination to bring all these things together:
+
+```R### this is all one line of code
+> ps <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE), 
++                sample_data(samdf), 
++                tax_table(taxa))
+> ps
+phyloseq-class experiment-level object
+otu_table()   OTU Table:         [ 218 taxa and 19 samples ]
+sample_data() Sample Data:       [ 19 samples by 4 sample variables ]
+tax_table()   Taxonomy Table:    [ 218 taxa by 6 taxonomic ranks ]
+```
+
+**If you do not see this structure and output, please let a demonstrator know as soon as possible.**
+
+We can start to do many analyses at this point.  Again as a starting point, we will have a look at the counts, alpha diversity, and an initial ordination to see if there are any differences in our metadata, and whether it has an effect on the results.
+
+We shall start off by looking at the alpha diversity:
+
+```R
+### plotting diversity by day using the Shannon and Simpson measures
+> plot_richness(ps, x="Day", measures=c("Shannon", "Simpson"), color="When")
+```
+
+You should see something like the following:
 
 
 
