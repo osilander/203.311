@@ -191,7 +191,7 @@ We shall start off by looking at the alpha diversity:
 
 You should see something like the following:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/DADA2_alpha.png" width="500"/>
 
 >**Question 1:**
 >
@@ -211,7 +211,8 @@ plot_ordination(ps, ord.nmds.bray, color="When", title="Bray NMDS")
 
 You should see something like the following:
 
-# <<ADD IN IMAGE>>
+
+<img src="graphics/DADA2_Bray.png" width="500"/>
 
 >**Question 2:**
 >
@@ -234,7 +235,7 @@ plot_bar(ps.top20, x="Day", fill="Family") + facet_wrap(~When, scales="free_x")
 
 You should see something like the following:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/DADA2_top20.png" width="600"/>
 
 We will look at the `plot.bar()` function shortly.  However, for now, to end this section – and I am not going to list the code to do this – please rerun the above code, only for the top 50.  Call your new object _`top50`_ and change the ending of the first line in the above box of code to be `[1:50]`.
 
@@ -316,13 +317,13 @@ Warning message:
 Removed 104 rows containing missing values (geom_errorbar).
 ```
 
-I am not sure why the error messages are there  (things still appear to work), but you should see something like the following:
+I am not sure why the error messages are there (things still appear to work), but you should see something like the following:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_diversity.png" width="900"/>
 
 Here we have alpha diversity estimators for samples in the Global Patterns dataset. Each panel shows a different type of diversity estimator.  Individual colour-shaded points and brackets represent the richness estimate and the theoretical standard error range associated with that estimate, respectively.  Again because of the power of `R` and our environment, the next plot shows the addition of boxplots on top of the data with very little extra work:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_boxplot.png" width="900"/>
 
 >**Question 4:**
 >
@@ -347,7 +348,7 @@ Once we have made our new dataset, we will create the tree graphic from this sub
 
 You should see something like the following:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_tree.png" width="800"/>
 
 An unbelievably complex figure plotted “relatively” easily.  Next, we shall look at the barplot.  These are key functions and are seen often in research papers about metabarcoding.  We shall also use the enterotype dataset for these plots.  We shall start with a simple rank-abundance barplot, using the cumulative fractional abundance of each OTU in the dataset. In the enterotype dataset, the available published data are simplified as sample-wise fractional occurrences, rather than counts of individuals, and we will further normalize them by the total number of samples (280).  In doing this from the code, we get the figure below:
 
@@ -362,6 +363,7 @@ An unbelievably complex figure plotted “relatively” easily.  Next, we shall 
 ```
 
 # <<ADD IN IMAGE>>
+<img src="graphics/phylo_barplot1.png" width="800"/>
 
 >**Question 5:**
 >
@@ -402,7 +404,7 @@ Again the power of R allows us to plot a variety of information very quickly, an
 
 In this example we have also elected to organize data by “facets” (separate, adjacent sub-plots) according to the genus of each OTU. Within each genus facet, the data is further separated by sequencing technology, and the enterotype label for the sample from which each OTU originated is indicated by the fill colour. Abundance values from different samples and OTUs but having the same variables mapped to the horizontal (x) axis are sorted and stacked, with thin horizontal lines designating the boundaries. With this display it is very clear that the choice of sequencing technology had a large effect on which genera were detected, as well as the fraction of OTUs that were assigned to a genus.
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_topNames.png" width="800"/>
 
 For our final data output for this section, we shall look at the heatmap with an example from the GlobalPatterns dataset.  As the number of taxa in a dataset gets very large, the ability to effectively display all of the elements of the data becomes compromised, and a heatmap representation is no exception. It can also be time-consuming to render.  To address both these issues, we will look at an example in which the GlobalPatterns dataset has been subsetted to a manageable portion, in this case, the Crenarchaeota phylum.  If the following code is run, we can see how a heatmap highlights patterns in the data easily:
 
@@ -416,7 +418,7 @@ Warning message:
 Transformation introduced infinite values in discrete y-axis
 ```
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_heatmap.png" width="700"/>
 
 >**Question 6:**
 >
@@ -459,6 +461,8 @@ Remember we are looking to reduce high dimensional data down to a level we can p
 > plot_scree(GloPa.pcoa, "Scree plot for Global Patterns, UniFrac/PCoA")
 ```
 
+<img src="graphics/phylo_scree.png" width="500"/>
+
 We can see that ~43% of the variation in the data comes from the first 3 axes.  So, if we wanted to compare say the 1st and 2nd, and then the 1st and 3rd axes of data, we could use the following code to make the following plots:
 
 ```R
@@ -477,7 +481,8 @@ We can see that ~43% of the variation in the data comes from the first 3 axes.  
 
 The horizontal axis represents the first axis in the PCoA ordination, while the top and bottom vertical axes represent the second and third axes, respectively. Different points represent different samples within the dataset, and are shaded according to the environment category to which they belong. The colour scheme is the default used by ggplot2.
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_ordinate12.png" width="400"/>
+<img src="graphics/phylo_ordinate13.png" width="400"/>
 
 Our last example is for a Correspondence Analysis.  This is an ordination method that provides information on the taxa that explain differences between samples (or groups of samples).  Let’s start by investigating the scree plot.  To make the data workable however, we shall reduce the number of species under analysis.
 
@@ -505,7 +510,7 @@ Now we can draw the scree plot:
 > plot_scree(gpca, "Scree Plot for Global Patterns Correspondence Analysis")
 ```
 
-# <<ADD IN IMAGE>>
+<img src="graphics/basicScree.png" width="600"/>
 
 Both interestingly and challengingly, the scree plot suggests that the Global Patterns abundance data is quite high-dimensional, with the first two CA axes accounting for not quite 17% of the total (chi-square) variability.  Note the absence of a steep decline in eigenvalue fraction as axis number increases.  Each additional axis represents only marginally less variability than the previous.  It is often more convenient for further analyses if the first two (or three) axes account for most of the variability.
 
@@ -543,7 +548,7 @@ For our final analysis, we will investigate further this top-level structure of 
 
 This gives us the image below:
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_CA_all.png" width="600"/>
 
 However, again because of the power of our analysis system we can easily plot in a facet way the ordination of the top 9 phyla for this dataset.
 
@@ -556,7 +561,7 @@ However, again because of the power of our analysis system we can easily plot in
 
 Only the most abundant 9 phyla among the most abundant 200 taxa (cumulative, all samples) are included. This is just an example to illustrate the functionality.  
 
-# <<ADD IN IMAGE>>
+<img src="graphics/phylo_CA_all.png" width="800"/>
 
 >**Question 8:**
 >
@@ -585,7 +590,7 @@ If we do a basic plot of the data we something not all that interesting (i.e. th
 > plot_net(enterotype, maxdist = 0.3, color = "SeqTech", shape="Enterotype")
 ```
 
-# <<ADD IN IMAGE>>
+<img src="graphics/network1.png" width="600"/>
 
 Our “distance” here is a measure of dissimilarity between samples, and in this case, a value of 0.3 was used to create an edge.  It is possible your plot will look different due to the way the underlying computation is performed (not relevant for this course), but hopefully the overarching structure is still there.  Such a plot can be modified to change the metadata so the data can be visualised to highlight different patterns in the data.  What is the immediate observation here in terms of viewing the data by sequencing technology?
 
@@ -614,7 +619,7 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 > plot_network(ig, enterotype, color="SeqTech", shape="Enterotype", line_weight=0.4, label=NULL)
 ```
 
-# <<ADD IN IMAGE>>
+<img src="graphics/network2.png" width="600"/>
 
 ---
 
@@ -629,9 +634,7 @@ XXXXXXXXXXX
 
 ## Assessment
 
-To reiterate this week's lab is only assessed via the Portfolio analysis as described above.  **No code shown here that has not been at least briefly described in ther Week 9 lecture will not the subject of assessment in the Mastery test for this Module that is taking place between Thursday 19-May-2022 and Friday 20-May-2022 online.**
-
-The mastery test will test the contents of weeks 7 to 9, more information will follow soon.
+To reiterate this week's lab is only assessed via the Portfolio analysis as described above.  **Any code shown here that has not been at least briefly described in the Week 9 lecture will not the subject of assessment in the Mastery test for this Module that is taking place between Thursday 19-May-2022 and Friday 20-May-2022 online.**
 
 
 
