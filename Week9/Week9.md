@@ -114,7 +114,7 @@ The DADA2 pipeline produced a sequence table and a taxonomy table which is appro
 ### load our required packages
 > library(phyloseq)
 > packageVersion("phyloseq")
-[1] ‘1.30.0’
+[1] ‘1.38.0’
 
 ### modifying our seqtab.nochim object to remove the mock community
 > seqtab <- makeSequenceTable(mergers[names(mergers) != "Mock"])
@@ -177,7 +177,8 @@ F3D144       3      F 144  Late
 
 Now we construct our initial phyloseq object as a combination to bring all these things together:
 
-```R### this is all one line of code
+```R
+### this is all one line of code
 > ps <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE), 
 +                sample_data(samdf), 
 +                tax_table(taxa))
