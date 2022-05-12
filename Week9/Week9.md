@@ -638,11 +638,29 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 
 ### Introduction
 
-In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest.  
+In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (https://doi.org/10.1371/journal.pone.0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to working.  The objective of the paper was to:
+
+> "To characterize the microbiota of postmenopausal women undergoing hysterectomy for endometrioid (EAC) or uterine serous cancers (USC) compared to controls with non-malignant conditions."
+
+And the methods of relevance to us:
+
+> "Endometrial, cervicovaginal and anorectal microbial swabs were obtained from 35 postmenopausal women (10 controls, 14 EAC and 11 USC) undergoing hysterectomy. Extracted DNA was PCR amplified using barcoded 16S rRNA gene V4 primers. Sequenced libraries were processed using QIIME2. Phyloseq was used to calculate α- and β- diversity measures."
+
+The paper is interesting in that is refers to the analysis of 35 postmenopausal women (10 controls, 14 EAC and 11 USC), but yet the data repository has 90 samples, and I have been unable to find amongst the data sources the 35 described in the paper.  Other figures have different numbers of samples as well.  Nevertheless, that is not the point here, the point here is to explore the data as a phyloseq object and make some figures.
+
+I have chosen a subset of the data for you: 60 samples in which I have removed the 15 samples with both the least and most numbers of reads.  You can see the effect on read number and the summary in the below:
+
+```R
+### summary code to show read summary
+
+
+```
+
+
 
 ### Locating data
 
-The first thing we will need to do is to download our three files that form the core of a phyloseq object.  These are the file names, but with hyperlinks:  
+I have made the three data types that are needed to make a phyloseq object.  The first thing we will need to do is to download our three files that form the core of a phyloseq object.  These are the file names, but with hyperlinks:  
 
 - [Portfolio_OTUtable.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_OTUtable.txt "Portfolio_OTUtable.txt")
 - [Portfolio_sampleData60.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_sampleData60.txt "Portfolio_sampleData60.txt")
@@ -681,13 +699,13 @@ So now we can import our tables to make a new phyloseq object.  **Please be awar
 > portfolioPhy
 ```
 
-We have now built the object called _`portfolioPhy`_ that we need for the portfolio analysis.  Hopefully by typing `portfolioPhy` in your session you can see the information about the phyloseq object. if you cannot, please let someone know.
+We have now built the object called _`portfolioPhy`_ that we need for the portfolio analysis.  Hopefully by typing `portfolioPhy` in your session you can see the information about the phyloseq object. If you cannot, please let someone know.
 
 ---
 
 ## Portfolio analysis
 
-Once again, this is a two part analysis for the week 9 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria.
+Once again, this is a two part analysis for the week 9 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria, and give it a new name such as _`portfolioPhyBac`_.  You did this earlier today (e.g. in Exercise 3).  This smaller object -- again check on its size with `portfolioPhyBac` as a comparison -- is what you will work with here.
 
 #### Part A
 
@@ -740,5 +758,4 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> -->
-
 
