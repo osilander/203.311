@@ -678,15 +678,16 @@ So now we can import our tables to make a new phyloseq object.  **Please be awar
 
 ### build the object
 > portfolioPhy <- phyloseq(OTU_tab, taxa_tab, samp_tab)
+> portfolioPhy
 ```
 
-We have now built the object called _`portfolioPhy`_ that we need for the portfolio analysis.
+We have now built the object called _`portfolioPhy`_ that we need for the portfolio analysis.  Hopefully by typing `portfolioPhy` in your session you can see the information about the phyloseq object. if you cannot, please let someone know.
 
 ---
 
 ## Portfolio analysis
 
-Once again, this is a two part analysis for the week 9 Portfolio analysis. 
+Once again, this is a two part analysis for the week 9 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria.
 
 #### Part A
 
