@@ -638,7 +638,7 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 
 ### Introduction
 
-In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (https://doi.org/10.1371/journal.pone.0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to working.  The objective of the paper was to:
+In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (https://doi.org/10.1371/journal.pone.0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to work with.  The objective of the paper was:
 
 > "To characterize the microbiota of postmenopausal women undergoing hysterectomy for endometrioid (EAC) or uterine serous cancers (USC) compared to controls with non-malignant conditions."
 
@@ -652,7 +652,7 @@ I have chosen a subset of the data for you: 60 samples in which I have removed t
 
 ```R
 ### summary code to show read summary
-
+### Still to do
 
 ```
 
@@ -712,7 +712,7 @@ Once again, this is a two part analysis for the week 9 Portfolio analysis. We ar
 Using the code described in this practical, and maybe from the Week 9 lecture, plot the alpha diversity values as a plot for the following conditions:
 
 - plot (i): plot the values for _`Sample`_ on the x-axis colouring by _`env_broad_scale`_ with the _`Shannon`_ diversity measure
-- plot (ii): plot the values for _`env_local_scale`_ on the x-axis colouring by _`env_broad_scale`_ with both the _`Shannon`_ and _`Simpson`_ diversity measures.  the order of tese measures in unimportant here.
+- plot (ii): plot the values for _`env_local_scale`_ on the x-axis colouring by _`env_broad_scale`_ with both the _`Shannon`_ and _`Simpson`_ diversity measures.  The order of these measures is unimportant here.
 
 **You must plot both of these plots for Part A, and include all code as to how you got there.** 
 
