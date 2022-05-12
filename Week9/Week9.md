@@ -709,12 +709,24 @@ Once again, this is a two part analysis for the week 9 Portfolio analysis. We ar
 
 #### Part A
 
+Using the code described in this practical, and maybe from the Week 9 lecture, plot the alpha diversity values as a plot for the following conditions:
 
+- plot (i): plot the values for _`Sample`_ on the x-axis colouring by _`env_broad_scale`_ with the _`Shannon`_ diversity measure
+- plot (ii): plot the values for _`env_local_scale`_ on the x-axis colouring by _`env_broad_scale`_ with both the _`Shannon`_ and _`Simpson`_ diversity measures.  the order of tese measures in unimportant here.
+
+**You must plot both of these plots for Part A, and include all code as to how you got there.** 
 
 
 #### Part B
 
+Using the code described in this practical, and maybe from the Week 9 lecture, plot a single barplot using the following set of instructions:
 
+- make a new object of the top 100 taxa (in descending order)
+- transform the sample counts to a fraction incorporating the code `function(OTU) OTU/sum(OTU)`
+- prune the taxa
+- plot the barplot by _`env_local_scale`_ on the x-axis with colouring by _`Genus`_  and `facet_wrap` on _`env_broad_scale`_  
+
+**You include all code as to how you got to generate the plots.** 
 
 ---
 
@@ -758,4 +770,5 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> -->
+
 
