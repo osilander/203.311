@@ -16,6 +16,7 @@
 [Exercise 3: Exploratory data plotting](#exercise-3-exploratory-data-plotting)<br>
 [Exercise 4: Data ordination](#exercise-4-data-ordination)<br>
 [Exercise 5: Networks](#exercise-5-networks)<br>
+[Exercise 6: Retrieval of new data](#exercise-6-retrieval-of-new-data)<br>
 [Portfolio analysis](#portfolio-analysis)<br>
 [Assessment](#assessment)<br>
 [Contact](#contact)<br>
@@ -114,7 +115,7 @@ The DADA2 pipeline produced a sequence table and a taxonomy table which is appro
 ### load our required packages
 > library(phyloseq)
 > packageVersion("phyloseq")
-[1] ‘1.38.0’
+[1] ‘1.30.0’
 
 ### modifying our seqtab.nochim object to remove the mock community
 > seqtab <- makeSequenceTable(mergers[names(mergers) != "Mock"])
@@ -633,11 +634,68 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 
 ---
 
+## Exercise 6: Retrieval of new data 
+
+### Introduction
+
+In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest.  
+
+### Locating data
+
+The first thing we will need to do is to download our three files that form the core of a phyloseq object.  These are the file names, but with hyperlinks:  
+
+- [Portfolio_OTUtable.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_OTUtable.txt "Portfolio_OTUtable.txt")
+- [Portfolio_sampleData60.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_sampleData60.txt "Portfolio_sampleData60.txt")
+- [Portfolio_taxa.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_taxa.txt "Portfolio_taxa.txt")
+
+We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week9data`_, and change into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
+
+```bash
+wget link_address_you_just_copied
+```
+
+### Building a phyloseq object to work with
+
+So now we can import our tables to make a new phyloseq object.  **Please be aware that _`Portfolio_OTUtable.txt`_ might take quite a few minutes to load.**
+
+```R
+### set the working directory
+> setwd("/cloud/project/week9data/")
+
+### sample table
+> portfolio_samp <- read.table(file = "Portfolio_sampleData60.txt", sep = "\t", header = TRUE)
+> rownames(portfolio_samp) <- portfolio_samp$Sample
+> samp_tab <- sample_data(portfolio_samp)
+
+### OTU table
+> portfolio_OTU <- read.delim(file = "Portfolio_OTUtable.txt", sep = "\t")
+> OTU_tab <- otu_table(portfolio_OTU, taxa_are_rows = FALSE)
+
+### taxa table
+> portfolio_taxa <- read.delim(file = "Portfolio_taxa.txt", sep = "\t")
+> portfolio_taxa <- as.matrix(portfolio_taxa)
+> taxa_tab <- tax_table(portfolio_taxa)
+
+### build the object
+> portfolioPhy <- phyloseq(OTU_tab, taxa_tab, samp_tab)
+```
+
+We have now built the object called _`portfolioPhy`_ that we need for the portfolio analysis.
+
+---
+
 ## Portfolio analysis
 
 Once again, this is a two part analysis for the week 9 Portfolio analysis. 
 
-XXXXXXXXXXX
+#### Part A
+
+
+
+
+#### Part B
+
+
 
 ---
 
