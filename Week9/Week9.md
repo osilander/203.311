@@ -651,6 +651,8 @@ The paper is interesting in that is refers to the analysis of 35 postmenopausal 
 I have chosen a subset of the data for you: 60 samples in which I have removed the 15 samples with both the least and most numbers of reads.  You can see the effect on read number and the summary in the below:
 
 ```R
+## this is for demonstration only - there is no need to type anything in this box, move on, nothing to see here!
+
 ### summary code to show read summary
 > all90 <- c(3428, 8329, 7876, 10681, 5860, 2799, 5594, 7139, 7946, 738, 7202, 105193, 521, 4813, 5364, 1043, 7527, 6607, 15328, 9503, 11029, 6874, 12746, 5312, 81, 39, 8623, 5922, 6999, 9600, 5502, 7137, 7778, 326, 7651, 9637, 2338, 7405, 11160, 7192, 6565, 10997, 563, 9322, 122949, 14620, 6685, 5089, 8794, 5777, 8613, 549, 3271, 9339, 10453, 182085, 5095, 9576, 13100, 7405, 5070, 6908, 5898, 5842, 6263, 2685, 2310, 8604, 2811, 3482, 7287, 5993, 1460, 9761, 6203, 3226, 5630, 4, 8047, 604, 9260, 277, 26800, 74311, 157038, 1719, 107046, 16522, 2, 1)
 > summary(all90)
