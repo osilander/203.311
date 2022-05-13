@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-#### **13-May-2022 - Hard copy is available on the 'Wiki | Week 9' Stream page.
+#### **13-May-2022 - Hard copy is available on the 'Wiki | Week 9' Stream page.**
 
 # Metagenomic and metabarcoding visualisation
 
