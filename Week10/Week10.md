@@ -52,9 +52,13 @@ We can already see that consumption of some types of foods differs more than oth
 We will move on to a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
 
 
-**At this point, open your `RStudio` console**.
+**At this point, open your `terminal`**.
 
-First, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
+Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
+
+Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you choose, but note that this is a dataset on cocktails).
+
+We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
 
 ### RNA-seq
 
