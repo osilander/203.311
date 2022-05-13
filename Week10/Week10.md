@@ -39,7 +39,7 @@ Let us see how this works.
 
 To gain some initial insight we will consider the food dataset from the UK. This is shown below.
 
-<img src="graphics/meat-potatoes" width="400" title="That's a lotta potatoes N. Ireland"/><br>
+<img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
 **Yummy**
 
 We will be using several new methods for data visalisation. Some of them are more intuitive than others. To help you gain some intuition, we will begin with a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
