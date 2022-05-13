@@ -7,8 +7,8 @@
 
 1. Understand the purpose of dimensional reduction techniques
 2. Understand why dimensional reduction is useful for analysing large datasets
-3. List three common methods for visualising RNA-seq data (volcano plot, heatmap, and PCA/UMAP/tSNE)
-4. Explain the differences between each of the above visulaisation methods.
+3. List three common methods for visualising RNA-seq data (volcano plot, heatmap, and dimensional reduction - PCA/UMAP/tSNE)
+4. Explain the differences between each of the above visulaisation methods
 5. Explain the insights that dimensional reduction can give for RNA-seq data
 6. Perform the steps necessary to implement dimensional reduction on a dataset
 7. Interpret dimensional reduction plots
@@ -42,9 +42,19 @@ Let us see how this works.
 To gain some initial insight we will consider the food dataset from the UK. This is shown below.
 
 <img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
-**Yummy**<br>
+**Yummy**<br><br>
 
-We will be using several new methods for data visalisation. Some of them are more intuitive than others. To help you gain some intuition, we will begin with a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
+Our aim here is to find out which of these countries :grimacing: differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these differ the most in the combination of all these foods?
+
+We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
+
+### Hold my beer - Increasing Sample Size
+We will move on to a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
+
+
+**At this point, open your `RStudio` console**.
+
+First, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
 
 ### RNA-seq
 

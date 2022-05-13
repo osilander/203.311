@@ -1,0 +1,938 @@
+"name"	"category"	"light_rum"	"lemon_juice"	"lime_juice"	"sweet_vermouth"	"orange_juice"	"powdered_sugar"	"dark_rum"	"cranberry_juice"	"pineapple_juice"	"bourbon_whiskey"	"simple_syrup"	"cherry_flavored_brandy"	"light_cream"	"triple_sec"	"maraschino"	"amaretto"	"grenadine"	"apple_brandy"	"brandy"	"gin"	"anisette"	"dry_vermouth"	"apricot_flavored_brandy"	"bitters"	"straight_rye_whiskey"	"benedictine"	"egg_white"	"half_and_half"	"vodka"	"grapefruit_juice"	"blended_scotch_whiskey"	"port"	"white_creme_de_cacao"	"citrus_flavored_vodka"	"whole_egg"	"egg_yolk"	"blended_whiskey"	"dubonnet"	"blanco_tequila"	"old_mr_boston_dry_gin"
+"1"	"Gauguin"	"Cocktail Classics"	2	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"2"	"Fort Lauderdale"	"Cocktail Classics"	1.5	0	0.25	0.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"3"	"Cuban Cocktail No. 1"	"Cocktail Classics"	2	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"4"	"Cool Carlos"	"Cocktail Classics"	0	0	0	0	1	0	1.5	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"5"	"John Collins"	"Whiskies"	0	1	0	0	0	0	0	0	0	2	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"6"	"Cherry Rum"	"Cocktail Classics"	1.25	0	0	0	0	0	0	0	0	0	0	1.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"7"	"Casa Blanca"	"Cocktail Classics"	2	0	1.5	0	0	0	0	0	0	0	0	0	0	1.5	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"8"	"Caribbean Champagne"	"Cocktail Classics"	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"9"	"Amber Amour"	"Cordials and Liqueurs"	0	0.25	0	0	0	0	0	0	0	0	0.25	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"10"	"The Joe Lewis"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"11"	"Bacardi Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"12"	"Apple Pie No. 1"	"Cocktail Classics"	0.75	1	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"13"	"Yolanda"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"14"	"Yellow Rattler"	"Cocktail Classics"	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"15"	"Why Not?"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"16"	"Amaretto Stinger"	"Cordials and Liqueurs"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"17"	"What The Hell"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"18"	"Webster Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"19"	"Union Jack Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"20"	"Jocose Julep"	"Whiskies"	0	0	1	0	0	0	0	0	0	2.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"21"	"Trinity Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"22"	"Three Stripes Cocktail"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"23"	"Tanq-A-Rita"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"24"	"Amaretto Sour"	"Cordials and Liqueurs"	0	0.75	0	0	1	0	0	0	0	0	0.5	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"25"	"Tailspin Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"26"	"Sweet Patootie Cocktail"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"27"	"Sunshine Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"28"	"Spring Feeling Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"29"	"Sphinx Cocktail"	"Cocktail Classics"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"30"	"Jitterbug Sour"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	2	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"31"	"Southern Gin Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	2	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"32"	"Society Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"33"	"Snyder"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"34"	"Smiler Cocktail"	"Cocktail Classics"	0	0	0	0.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"35"	"Smile Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"36"	"Amaretto Rose"	"Cordials and Liqueurs"	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"37"	"Sand-Martin Cocktail"	"Cocktail Classics"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"38"	"Irish Whiskey Highball"	"Whiskies"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"39"	"Japanese"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"40"	"Roselyn Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"41"	"Resolute Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"42"	"Racquet Club Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.75	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"43"	"Amaretto And Cream"	"Cordials and Liqueurs"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0
+"44"	"Pollyanna Cocktai"	"Cocktail Classics"	0	0	0	0.5	3	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"45"	"Plaza Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"46"	"Irish Whiskey Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.25	0	0	0	0	0	0.5	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"47"	"Absinthe Special Cocktail"	"Cordials and Liqueurs"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"48"	"Nineteenth Hole"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"49"	"Montreal Club Bouncer"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"50"	"Monte Carlo Imperial Highball"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"51"	"Irish Shillelagh"	"Whiskies"	1	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"52"	"Melon Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"53"	"Martini (Medium)"	"Cocktail Classics"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"54"	"Martini (Dry) (5-to-1)"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"55"	"Mamie's Sister"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"56"	"Irish Rickey"	"Whiskies"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"57"	"Maiden's Prayer"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"58"	"Lone Tree Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"59"	"London Buck"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"60"	"Leap Frog Highball"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"61"	"Kup's Indispensable Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"62"	"Knock-Out Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0.5	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"63"	"K. G. B. Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"64"	"Imperial Fizz"	"Whiskies"	0.5	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"65"	"Jeyplak Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"66"	"H. P. W. Cocktail"	"Cocktail Classics"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"67"	"Hotel Plaza Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"68"	"Hoffman House Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"69"	"Hawaiin Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	1	0	0	0	0	0.5	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"70"	"White Russian"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"71"	"Greyhound"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0
+"72"	"Green Devil"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"73"	"Greenback"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"74"	"Grapefruit Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"75"	"Hotel D'alsace"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"76"	"Jamaica Granito"	"Brandy"	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"77"	"Gin Sling"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"78"	"Gin Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"79"	"Horse's Neck (With A Kick)"	"Whiskies"	0	1	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"80"	"Gin and It"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"81"	"Gin Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"82"	"West Side"	"Vodka"	0	1.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"83"	"Gimlet"	"Cocktail Classics"	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"84"	"Free Silver"	"Cocktail Classics"	0	0.25	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"85"	"Frankenjack Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"86"	"Fog Horn"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"87"	"Flying Dutchman"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"88"	"Hoot Mon Cocktail"	"Whiskies"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"89"	"Fifty-Fifty Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"90"	"Favorite Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"91"	"Farmer's Cocktail"	"Cocktail Classics"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"92"	"Warsaw Cocktail"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"93"	"Emerald Isle Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0.06	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"94"	"Du Barry Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0.5	0.75	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"95"	"Dry Martini (5-to-1)"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"96"	"Dixie Cocktail"	"Cocktail Classics"	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"97"	"Delmonico No. 2"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"98"	"Hole-In-One"	"Whiskies"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.02	0	0	0	0	0	0	1.75	0	0	0	0	0	0	0	0	0
+"99"	"Vodka Stinger"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"100"	"Caruso"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"101"	"Bulldog Highball"	"Cocktail Classics"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"102"	"Brown Cocktail"	"Cocktail Classics"	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"103"	"Bronx Terrace Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"104"	"Bronx Cocktail (Dry)"	"Cocktail Classics"	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"105"	"Blue Devil Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"106"	"Blue Canary"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0
+"107"	"Blue Bird"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1.5	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"108"	"Bloodhound Cocktail"	"Cocktail Classics"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"109"	"Billy Taylor"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"110"	"Bijou Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"111"	"Bermuda Rose"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	1.25	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"112"	"Vodka Sour"	"Vodka"	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"113"	"Apricot Anisette Collins"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"114"	"Alexander's Sister Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"115"	"Highland Cooler"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0
+"116"	"Alexander Cocktail No. 1"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"117"	"Adam and Eve"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"118"	"Vodka Sling"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"119"	"Jack Rose Cocktail"	"Brandy"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"120"	"Tempter Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0
+"121"	"Special Rough Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"122"	"Vodka Grasshopper"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0.75	0	0	0	0.75	0	0	0	0	0	0	0
+"123"	"Singapore Sling"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0.5	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"124"	"Saratoga Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0.5	0	0	0	2	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"125"	"High Cotton"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"126"	"Polonaise"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"127"	"Vodka Gimlet"	"Vodka"	0	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"128"	"Merry Widow Cocktail No. 2"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	1.25	0	0	1.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"129"	"Lugger"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"130"	"Jamaica Hop"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"131"	"Hebrides"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"132"	"Hennessy Martini"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"133"	"Vodka Daisy"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"134"	"Heavenly Dram"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"135"	"Classic Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"136"	"Cherry Sling"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"137"	"Cherry Fizz"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"138"	"Vodka Cooler"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"139"	"Carrol Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"140"	"Button Hook Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"141"	"Bull's Eye"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"142"	"Brantini"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"143"	"Heather's Kiss"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2.25	0	0	0	0	0	0	0	0	0
+"144"	"Brandy Squirt"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"145"	"Brandy and Soda"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"146"	"Brandy Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"147"	"Vodka Collins"	"Vodka"	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"148"	"Brandy Crusta Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0.5	1	0	0	0	2	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"149"	"Heather Blush"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+"150"	"Jack Maples"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"151"	"Brandy Alexander"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"152"	"Vodka and Tonic"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"153"	"Apricot Cocktail"	"Cocktail Classics"	0	0.25	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"154"	"Alexander Cocktail No. 2"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"155"	"After Dinner Cocktail"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"156"	"Harvest Moon"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0.04	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"157"	"Red Raider"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"158"	"Vodka and Apple Juice"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"159"	"Mint Julep (Southern Style)"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"160"	"Grounds For Divorce"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"161"	"Gentleman's Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"162"	"Dixie Julep"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"163"	"Victory Collins"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"164"	"Bourbon Cobbler"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0
+"165"	"Greenpoint"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"166"	"Yellowjacket"	"Non-alcoholic Drinks"	0	0.5	0	0	2	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"167"	"Velvet Peach Hammer"	"Vodka"	0	0.5	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.75	0	0	0	0	0	0	0	0	0	0	0
+"168"	"Grandfather"	"Whiskies"	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"169"	"Goldrush"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"170"	"Godfather"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"171"	"Jack-In-The-Box"	"Brandy"	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"172"	"Saronno"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"173"	"Saronno Rose"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"174"	"Gilchrist"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0.75	1.5	0	0	0	0	0	0	0	0	0
+"175"	"Frisco Sour"	"Whiskies"	0	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"176"	"Fratelli Cocktail"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"177"	"Francis The Mule"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"178"	"Fox River Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.08	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"179"	"Flying Scotchman"	"Whiskies"	0	0	0	1	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+"180"	"The Final Ward"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"181"	"Martini"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"182"	"Fancy Whiskey"	"Whiskies"	0	1	0	0	0	0	0	0	0	0	0.25	0	0	0.25	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"183"	"Mandarine Sour"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"184"	"Underneath The Mango Tree"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"185"	"Fancy-Free Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"186"	"Honeymoon Cocktail"	"Brandy"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"187"	"Twister"	"Vodka"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"188"	"Trident"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"189"	"Top Banana"	"Vodka"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"190"	"Emperor Norton's Mistress"	"Whiskies"	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"191"	"Easterner"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"192"	"Toasted Drop"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"193"	"Eastern Sour"	"Whiskies"	0	0	1	0	1.5	0	0	0	0	2	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"194"	"K. C. B. Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"195"	"Easter Elchies"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"196"	"Dufftown Flip"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0.5	0	0	1	0	0	0	0	0
+"197"	"Harvard Cooler"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"198"	"The Duboudreau Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"199"	"Irish Whisky"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"200"	"Dubliner"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"201"	"Double Standard Sour"	"Whiskies"	0	1	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0.5	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"202"	"Dixie Whiskey Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0.25	0	0	0.5	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"203"	"The Titian"	"Vodka"	0	0	0.5	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"204"	"Tiger Tanaka"	"Vodka"	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+"205"	"Grenadine Rickey"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"206"	"Thyme Collins"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+"207"	"Tabby Cat"	"Vodka"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"208"	"Sweet Maria"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0
+"209"	"Dirty Harry"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"210"	"Harvard Cocktail"	"Brandy"	0	0.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"211"	"Gin and Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"212"	"Surf Rider"	"Vodka"	0	0.5	0	0.5	2	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"213"	"Dinah Cocktail"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	1.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"214"	"The Summer Of Love"	"Vodka"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"215"	"Devil's Soul"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"216"	"Deshler"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0.04	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"217"	"Stupid Cupid"	"Vodka"	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+"218"	"Derby"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"219"	"Stockholm 75"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0
+"220"	"The Delmarva Cocktail"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"221"	"Sputnik"	"Vodka"	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	1.25	0	0	0	0	0	0	0	0	0	0	0
+"222"	"Gotham"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0.06	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"223"	"De La Louisiane"	"Whiskies"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.06	0.75	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"224"	"Soviet"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"225"	"Daisy Dueller"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"226"	"Sonic Blaster"	"Vodka"	0.5	0	0	0	1	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0
+"227"	"Creole Lady"	"Whiskies"	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"228"	"Rum Coooler"	"Cocktail Classics"	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"229"	"Siberian Sleighride"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	1.25	0	0	0	0.75	0	0	0	0	0	0	0
+"230"	"Cotton Club Flip"	"Whiskies"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"231"	"Golden Dawn"	"Brandy"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"232"	"Sidecar"	"Cocktail Classics"	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"233"	"Shalom"	"Vodka"	0	0.5	0	0	0.5	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.75	0	0	0	0	0	0	0
+"234"	"Commodore Cocktail"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0
+"235"	"Sea Breeze"	"Vodka"	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1	0	0	0	0	0	0	0	0	0	0
+"236"	"Screwdriver"	"Vodka"	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"237"	"Coffee Old-Fashioned"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"238"	"Dry Martini"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"239"	"Salty Dog"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	5	0	0	0	0	0	0	0	0	0	0
+"240"	"Dr. Cook"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"241"	"Dillatini Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"242"	"Chi-Town Flip"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	2	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"243"	"Chef's Pain"	"Vodka"	0	0	0.75	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"244"	"Sampan Shipwreck A"	"Vodka"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"245"	"Chas"	"Whiskies"	0	0	0	0	0.25	0	0	0	0	1.5	0	0	0	0.25	0	0.25	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"246"	"Goat's Delight"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0
+"247"	"Russian Bear Cocktail"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	1	0	0	0	0.5	0	0	0	0	0	0	0
+"248"	"Character Development"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"249"	"Ruby Red"	"Vodka"	0	0	0	0	1	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0
+"250"	"Chaplin"	"Whiskies"	0	0	0	0	0	0	0	0	0	0.75	0	0	0	1	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"251"	"Rouxby Red"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0
+"252"	"Rosemary Clementine Sparkle"	"Vodka"	0	0.75	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"253"	"Chapel Hill"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	2	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"254"	"Robin's Nest"	"Vodka"	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0
+"255"	"Chancellor Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.02	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"256"	"Carre Reprise"	"Whiskies"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"257"	"Gilroy Cocktail"	"Brandy"	0	0.5	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"258"	"Redhead Martini"	"Vodka"	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"259"	"Red Apple"	"Vodka"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"260"	"Canal Street Daisy"	"Whiskies"	0	0.75	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+"261"	"Canadian Cocktail"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"262"	"Purple Ruby"	"Vodka"	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0.5	0	0	0	0	0	0	0	0	0	0
+"263"	"Canadian Cherry"	"Whiskies"	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"264"	"Orange Smile"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"265"	"Purple Passion Iced Tea"	"Vodka"	0.5	0.75	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0
+"266"	"Canadian Breeze"	"Whiskies"	0	0.5	0	0	0	0	0	0	0.75	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"267"	"Purple Passion"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	2	0	0	0	0	0	0	0	0	0	0
+"268"	"Cameron's Kick Cocktail"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0
+"269"	"Georgia Mint Julep"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"270"	"California Lemonade"	"Whiskies"	0	1	1	0	0	0	0	0	0	2	1	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"271"	"Boston Side Car"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"272"	"Cablegram"	"Whiskies"	0	1	0	0	0	0	0	0	0	2	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"273"	"Bull And Bear"	"Whiskies"	0	1	0	0	0.75	0	0	0	0	1.5	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"274"	"Brooklyn"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"275"	"Brighton Punch"	"Whiskies"	0	1	0	0	2	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"276"	"Bourbon Renewal"	"Whiskies"	0	1	0	0	0	0	0	0	0	2	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"277"	"Bourbon Highball"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"278"	"Bourbon And Elder"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"279"	"Bourbon Crusta"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"280"	"Bourbon Cooler"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	2.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0
+"281"	"Froupe Cocktail"	"Brandy"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"282"	"Bourbon A La Creme"	"Whiskies"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"283"	"The Bone"	"Whiskies"	0	0	0.5	0	0	0	0	0	0	2	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"284"	"Bobby Burns Cocktail"	"Whiskies"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"285"	"Bloody Scotsman"	"Whiskies"	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"286"	"Blood and Sand"	"Whiskies"	0	0	0	0.5	0.5	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0
+"287"	"The Blinker"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0
+"288"	"Pike's Peak Cooler"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"289"	"Blarney Stone Cocktail"	"Whiskies"	0	0	0	0	1	0	0	0	0	0	0	0	0	0.5	0.5	0	0	0	0	0	0.5	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"290"	"Pacman"	"Cocktail Classics"	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"291"	"Lemonade (Golden)"	"Cocktail Classics"	0	1	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"292"	"Black Hawk"	"Whiskies"	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"293"	"Lemonade (Egg)"	"Cocktail Classics"	0	1	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"294"	"Bensonhurst"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	1	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"295"	"Chocolate Daisy"	"Cocktail Classics"	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0
+"296"	"French Quarter"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"297"	"Creme de Gin Cocktail"	"Cocktail Classics"	0	2	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"298"	"Creamy Screwdriver"	"Cocktail Classics"	0	0	0	0	6	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0
+"299"	"Creamy Orange"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	1	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"300"	"Creamsicle"	"Cocktail Classics"	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"301"	"Cowboy Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"302"	"Beals Cocktail"	"Whiskies"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"303"	"Coronation Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"304"	"Cornell Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"305"	"Combo"	"Cocktail Classics"	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0.5	0	0	0	0	1	0	0	2.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"306"	"Basin Street"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	2	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"307"	"Cole's Raspberry Cream"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	1.5	0	0	0	0	0	0	0
+"308"	"Cognac Coupling"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"309"	"Coffee Sour"	"Cocktail Classics"	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"310"	"Coffee Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0
+"311"	"Coffee Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0
+"312"	"Purple Mask"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0
+"313"	"Clove Cocktail"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"314"	"Clover Leaf Cocktail"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"315"	"Clover Club Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"316"	"Priority Cocktail"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"317"	"Clamato Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"318"	"Cider Eggnog"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"319"	"Chocolate Soldier"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"320"	"Chocolate Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"321"	"Chocolate Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	1	0	0	0	0
+"322"	"Chicago Fizz"	"Cocktail Classics"	1	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0
+"323"	"Pretty In Pink"	"Vodka"	0	0.75	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"324"	"Cherry Wine Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0
+"325"	"Cherry Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"326"	"Polynesian Cocktail"	"Vodka"	0	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"327"	"Chateau Briand's Rum Cow"	"Cocktail Classics"	0	0	0	0	0	0	1.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"328"	"Pink Pussycat"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	1.5	2	0	0	0	0	0	0	0	0	0	0
+"329"	"Back Porch Swizzle"	"Whiskies"	0	0	0	0	0	0	0	0	1	1.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"330"	"Canadian Pineapple"	"Cocktail Classics"	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"331"	"Calm Voyage"	"Cocktail Classics"	0.5	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"332"	"Pink Lemonade"	"Vodka"	0	0.25	0.25	0	0	0	0	0	0	0	0.25	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"333"	"Caledonia"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"334"	"Caf_ di Amaretto"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"335"	"Cafe De Paris Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"336"	"Aztec's Mark"	"Whiskies"	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0
+"337"	"Fontainebleau Special"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"338"	"Suntan"	"Cocktail Classics"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"339"	"Sunburn"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0
+"340"	"Suissesse Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"341"	"Strawberry Sunries"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"342"	"Autumn Leaves"	"Whiskies"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0.04	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"343"	"Pickled Pink"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"344"	"Aquarius"	"Whiskies"	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0
+"345"	"Soul Kiss Cocktail"	"Cocktail Classics"	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"346"	"Pickled Martini"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"347"	"Sloe Gin Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"348"	"Angel's Share"	"Whiskies"	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"349"	"Silver Stallion Fizz"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"350"	"Silver King Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.04	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"351"	"American Trilogy"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"352"	"Silver Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"353"	"Sherry Twist Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"354"	"Sherry Sangaree"	"Cocktail Classics"	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0
+"355"	"Sherry Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"356"	"Petit Zinc"	"Vodka"	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"357"	"Sherry Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"358"	"Americana"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"359"	"Allegheny"	"Whiskies"	0	0.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"360"	"Sevilla Cocktail"	"Cocktail Classics"	1	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0
+"361"	"September Morn Cocktail"	"Cocktail Classics"	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"362"	"Peach Iced Tea"	"Vodka"	0	0.75	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"363"	"Fantasio Cocktail"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"364"	"Scotch Bird Flyer"	"Cocktail Classics"	0	0	0	0	0	0.5	0	0	0	0	0	0	1	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"365"	"Algonquin"	"Whiskies"	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"366"	"Savannah"	"Cocktail Classics"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0
+"367"	"Pink Rose Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	2	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"368"	"Ninotchka Cocktail"	"Vodka"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.5	0	0	0	0	0	0	0
+"369"	"Prairie Oyster"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"370"	"Prairie Chicken"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"371"	"Pousse L'Amour"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"372"	"Puerto Apple"	"Cocktail Classics"	0.75	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"373"	"Akogare"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"374"	"Prado"	"Cocktail Classics"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"375"	"Port Wine Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	1	0	0	0	0	0
+"376"	"Port Wine Cobbler"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0
+"377"	"Nijinksy Blini"	"Vodka"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"378"	"Affinity Cocktail (whisky)"	"Whiskies"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.06	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+"379"	"Plain Vermouth Cocktail"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"380"	"Ping-Pong Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"381"	"Moscow Mule"	"Vodka"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"382"	"Phoebe Snow"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"383"	"Affinity Cocktail"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.04	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"384"	"Peggy Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0
+"385"	"Peach Blow Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"386"	"Peach Blossom"	"Cocktail Classics"	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"387"	"Mocha Express"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"388"	"Palmer Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"389"	"Mr. 404"	"Vodka"	0	0.75	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"390"	"Mountain Cocktail"	"Cocktail Classics"	0	0.25	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"391"	"Morning Glory Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"392"	"Adderly Cocktail"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.04	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"393"	"Fancy Brandy"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0.25	0	0	0	0	2	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"394"	"Montreal Gin Sour"	"Cocktail Classics"	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"395"	"Montezuma"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"396"	"Miss Jones"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"397"	"Mint Gin Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"398"	"Mint Collins"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"399"	"Million-Dollar Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	2	0	0	0	0	0	0	0	1	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"400"	"Millionaire Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0.25	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"401"	"Academic Review"	"Whiskies"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"402"	"Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"403"	"Merry Widow Fizz"	"Cocktail Classics"	0	0.5	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"404"	"May Blossom Fizz"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"405"	"Mary Garden Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"406"	"19th Century"	"Whiskies"	0	0.75	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0
+"407"	"Manila Fizz"	"Cocktail Classics"	0	0	0.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"408"	"1626"	"Whiskies"	0	0	0	0	0	0	0	0	0	2.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"409"	"Maracuya Mosquito"	"Vodka"	0	0	0.5	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"410"	"Madras"	"Vodka"	0	0	0	0	1	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"411"	"Absinthe Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"412"	"Lychee Lucy"	"Vodka"	0	0	0	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"413"	"Vodka Martini"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"414"	"The Loop"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0
+"415"	"Long Island Iced Tea"	"Vodka"	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0.75	0
+"416"	"Fallen Leaves"	"Brandy"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"417"	"L'italienne"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"418"	"Rum Dubonnet"	"Cocktail Classics"	1.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"419"	"Ruby Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"420"	"Limoncello Manzanilla Marmalade Sour"	"Vodka"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1.5	0	0	0	0	0	0
+"421"	"Royal Gin Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"422"	"Royal Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"423"	"Royal Clover Club Cocktail"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"424"	"Lights On The Plaza"	"Vodka"	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"425"	"Rococo"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"426"	"Rock & Rye Cooler"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"427"	"Rock & Rye Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"428"	"Le Paradini"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"429"	"Red Swizzle"	"Cocktail Classics"	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	2	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"430"	"Lemon Drop"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"431"	"Rebel Charge"	"Cocktail Classics"	0	1	0	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"432"	"Rattlesnake Cocktail"	"Cocktail Classics"	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"433"	"Ramos Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	1	0.5	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"434"	"San Francisco"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"435"	"Sand-Martini Cocktail"	"Cocktail Classics"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"436"	"Sake Martini (Sakini)"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"437"	"Lemon Crush"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"438"	"Rye Whiskey Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"439"	"Leaves Of Grass"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"440"	"Widow's Dream"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"441"	"Whiskey Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0
+"442"	"L.A. Sunrise"	"Vodka"	0	0	0	0	2	0	0.25	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"443"	"White Rose Cocktail"	"Cocktail Classics"	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0.75	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"444"	"White Plush"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"445"	"White Elephant"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"446"	"Whiskey Toddy (cold)"	"Cocktail Classics"	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"447"	"Kretchma Cocktail"	"Vodka"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0
+"448"	"Whiskey Skin"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"449"	"Whiskey Milk Punch"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0
+"450"	"Katana"	"Vodka"	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"451"	"Ethel Duffy Cocktail"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"452"	"Daiquiri"	"Cocktail Classics"	2	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"453"	"Wembley Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	1.5	0	0.75	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"454"	"Weep-No-More Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"455"	"Jungle Juice"	"Vodka"	1	1	0	0	0	0	0	0	0	0	1	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"456"	"Wedding Belle Cocktail"	"Cocktail Classics"	0	0	0	0	1.5	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"457"	"Waterloo"	"Cocktail Classics"	1	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"458"	"Waterbury Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0.5	0	1.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"459"	"Washington Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	1.5	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"460"	"The Jamaican Ten Speed"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0
+"461"	"Twin Six Cocktail"	"Cocktail Classics"	0	0	0	0.5	1	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"462"	"Jackie-O"	"Vodka"	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"463"	"Trois Rivieres"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"464"	"Tovarich Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"465"	"Italian Screwdriver"	"Vodka"	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	1.5	0	0	0	0	0	0
+"466"	"T.N.T. Cocktail No. 1"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"467"	"Ibiza"	"Vodka"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"468"	"Thunder"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"469"	"Huntsman Cocktail"	"Vodka"	0	0	0.5	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"470"	"Tequila Fizz"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"471"	"Humpty Dumpty"	"Vodka"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.06	0	0	0	0	2	0	0	0	0	0	1	0	0	0	0	0
+"472"	"Tequila Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"473"	"Temptation Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0.5	0	0
+"474"	"Tchoupitolas Street Guzzle"	"Cocktail Classics"	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"475"	"Tahitian Tea"	"Cocktail Classics"	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0
+"476"	"Limey"	"Cocktail Classics"	1	0	1	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"477"	"Headless Horseman"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.06	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"478"	"Love Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"479"	"Los Angeles Cocktail"	"Cocktail Classics"	0	0.5	0	0.25	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0
+"480"	"Long Island Tea"	"Cocktail Classics"	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0
+"481"	"Harvey Wallbanger"	"Vodka"	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"482"	"Lime Giant"	"Cocktail Classics"	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"483"	"Lil Naue"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	1	0	0	0	0
+"484"	"Harrington"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"485"	"El Profesor"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"486"	"Leap Year Cocktail"	"Cocktail Classics"	0	0.25	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"487"	"Lasky Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"488"	"Lady Love Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	2	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"489"	"Handball Cooler"	"Vodka"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"490"	"Hyatt's Jamaican Banana"	"Cocktail Classics"	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0.5	0	0	0	0	0	0	0
+"491"	"H.P.W. Cocktail"	"Cocktail Classics"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"492"	"Hot Shot Margarita"	"Cocktail Classics"	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"493"	"The Groupie"	"Vodka"	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+"494"	"Hot Brandy Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"495"	"Grape Nehi"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"496"	"Hole-in-One Cocktai"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"497"	"Grapefruit Gimlet Royale"	"Vodka"	0	0	0.25	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1	0	0	0	0	0	0	0	0	0	0
+"498"	"Hair Raiser"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"499"	"Godmother"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"500"	"Green Opal"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"501"	"Green Hornet (Dry)"	"Cocktail Classics"	0	0	2	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"502"	"Green Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"503"	"Godchild"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"504"	"Grape Vodka Froth"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"505"	"Grapefruit Nog"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	1	0	0	0	0	0
+"506"	"Golden Slipper"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"507"	"Golden Frappe"	"Cocktail Classics"	0	2	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0
+"508"	"Glass Tower"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"509"	"Golden Fizz"	"Cocktail Classics"	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"510"	"Gloom Lifter"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	1	0	0	0
+"511"	"Glogg"	"Cocktail Classics"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"512"	"Georgia Peach"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"513"	"Georgia Mule"	"Vodka"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"514"	"Gentle Ben"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0
+"515"	"East India Cocktail No. 1"	"Brandy"	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0.5	0	0	0	0	1.5	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"516"	"General Harrison's Eggnog"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"517"	"Gables Collins"	"Vodka"	0	0.5	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"518"	"Frozen Brandy and Rum"	"Cocktail Classics"	1	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"519"	"Frozen Apple"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"520"	"Frisky Witch"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"521"	"Froth Blower Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"522"	"French Martini"	"Vodka"	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"523"	"Flatiron Martini"	"Vodka"	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"524"	"Favourite Cocktail"	"Cocktail Classics"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0.75	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"525"	"Electric Jam"	"Vodka"	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.25	0	0	0	0	0	0	0	0	0	0	0
+"526"	"Fairy Belle Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1.5	0	0	0.75	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"527"	"Duke Cocktail"	"Cocktail Classics"	0	2	0	0	1	0	0	0	0	0	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"528"	"Dreamy Dorini Smoking Martini"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"529"	"Dubonnet Highball"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+"530"	"Dubonnet Fizz"	"Cocktail Classics"	0	0.25	0	0	0.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0
+"531"	"Dubonnet Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"532"	"Doctor Cook"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0.75	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"533"	"Desert Sunrise"	"Vodka"	0	0	0	0	1.5	0	0	0	1.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1.25	0	0	0	0	0	0	0	0	0	0	0
+"534"	"Dillatini"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"535"	"Devil's Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0
+"536"	"Derby Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"537"	"Cubeltini"	"Vodka"	0	0	1	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"538"	"Crocodile Cooler"	"Vodka"	0	1	0	0	0	0	0	0	0	0	0.75	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"539"	"Cosmopolitan"	"Vodka"	0	0	0.5	0	0	0	0	0.5	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"540"	"Dream Cocktail"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	1.5	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"541"	"Jean Lafitte Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"542"	"Japanese Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1.5	0	0	0
+"543"	"Citronella Cooler"	"Vodka"	0	2	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0
+"544"	"North Pole Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"545"	"The Cinquecento"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0.5	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0
+"546"	"New Orleans Gin Fizz"	"Cocktail Classics"	0	0.5	0.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"547"	"Napoleon"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0
+"548"	"Zombie"	"Rum - Daiquiris"	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"549"	"Kiss the Boys Goodbye"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"550"	"X.Y.Z. Cocktail"	"Rum - Daiquiris"	1	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"551"	"K.G.B. Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"552"	"Eye-Opener"	"Cocktail Classics"	2	0	0	0	0	0.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0	0	0
+"553"	"Wiki Waki Woo"	"Rum - Daiquiris"	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"554"	"Elk's Own Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0.75	0	0	0	0	1.5	0	0	0
+"555"	"Egg Sour"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0.25	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"556"	"White Lion Cocktail"	"Cocktail Classics"	1.5	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"557"	"White Lily Cocktail"	"Rum - Daiquiris"	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0.75	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"558"	"Ice Cream Flip"	"Rum - Daiquiris"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"559"	"Outrigger"	"Cocktail Classics"	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"560"	"Opera Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0
+"561"	"Virginia Dare"	"Rum - Daiquiris"	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"562"	"Opening Cocktail"	"Cocktail Classics"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0
+"563"	"Queen Bee"	"Cocktail Classics"	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"564"	"Van Vleet"	"Rum - Daiquiris"	3	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"565"	"Zaza Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"566"	"The Vacation Cocktail"	"Rum - Daiquiris"	0	0	0.75	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"567"	"Dolores"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"568"	"Vesuvio"	"Cocktail Classics"	1	0.5	0	0.5	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0
+"569"	"Urban Anxiety"	"Rum"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"570"	"Virgin"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"571"	"Tropica Cocktail"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"572"	"Vermouth Cassis"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"573"	"Verboten"	"Cocktail Classics"	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"574"	"Velvet Hammer No. 2"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+"575"	"Velvet Hammer No. 1"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"576"	"Ulanda Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"577"	"Torridora Cocktail"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0
+"578"	"Boston Sour"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	2	0	0	0
+"579"	"Three Miller Cocktail"	"Rum - Daiquiris"	0	0	1	0	0	0	2	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"580"	"Bird-of-Paradise Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"581"	"Biffy Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"582"	"Between-The-Sheets Cocktail"	"Cocktail Classics"	0.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"583"	"Third-Rail Cocktail"	"Rum - Daiquiris"	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0.75	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"584"	"Bentley"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"585"	"Tahiti Club"	"Rum - Daiquiris"	2	0.5	0.5	0	0	0	0	0	0.5	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"586"	"Barton Special"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"587"	"Barnaby's Buffalo Blizzard"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	1	0	0	0	0	0	0	0
+"588"	"Susie Taylor"	"Rum - Daiquiris"	2	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"589"	"Baltimore Bracer"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"590"	"Bachelor's Bait Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	1.5	0	0	0	0.02	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"591"	"Bushranger"	"Cocktail Classics"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"592"	"Sunset at Gowanus"	"Rum - Daiquiris"	0	0	0.75	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"593"	"Bulldog Highballl"	"Cocktail Classics"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"594"	"Bucks Fizz (Mimosa)"	"Cocktail Classics"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"595"	"Buckjones"	"Cocktail Classics"	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"596"	"Stormy Colada"	"Rum - Daiquiris"	0	0	0	0	0	0	2	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"597"	"Bronx SIlver Cocktail"	"Cocktail Classics"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"598"	"Bronx Golden Cocktail"	"Cocktail Classics"	0	0	0	0.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"599"	"Stone Wall"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"600"	"Depth Bomb"	"Brandy"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"601"	"Stone Cocktail"	"Rum - Daiquiris"	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"602"	"Almeria"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"603"	"Aunt Jemima"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0
+"604"	"Spanish Town Cocktail"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"605"	"Apricot Lady"	"Cocktail Classics"	1.25	0	1	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"606"	"Apricot Anise Collins"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"607"	"Apple Rum Rickey"	"Cocktail Classics"	0.75	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"608"	"Sloppy Joe's Cocktail No. 1"	"Rum - Daiquiris"	0.75	0	1	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0.5	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"609"	"Applejack Punch"	"Cocktail Classics"	0	0	0	0	16	0	0	0	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"610"	"Brandy Flip"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"611"	"Sir Walter Cocktail"	"Rum - Daiquiris"	0.75	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	1	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"612"	"Saxon Cocktail"	"Rum - Daiquiris"	1.75	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"613"	"Boston Bullet"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"614"	"Sargasso"	"Rum - Daiquiris"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"615"	"Santiago Cocktail"	"Rum - Daiquiris"	1.5	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"616"	"Saint Lucy Bracer"	"Rum - Daiquiris"	0	0	0	0.5	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"617"	"Applecar"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"618"	"Apple Blow Fizz"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"619"	"Antoine Special"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"620"	"Ante"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"621"	"S & V"	"Rum - Daiquiris"	1.5	0	0.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"622"	"Rum Toddy (Cold)"	"Rum - Daiquiris"	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"623"	"Deauville Cocktail"	"Brandy"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0.5	0.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"624"	"Allies Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"625"	"Rum Swizzle"	"Rum - Daiquiris"	0	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"626"	"A. J."	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"627"	"After Supper Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"628"	"Rum Sour"	"Rum - Daiquiris"	2	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"629"	"Acapulco"	"Cocktail Classics"	1.5	0	1	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"630"	"Ambrosia"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"631"	"Rum Screwdriver"	"Rum - Daiquiris"	1.5	0	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"632"	"Rum Rickey"	"Rum - Daiquiris"	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"633"	"Rum Relaxer"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"634"	"Rum Old-Fashioned"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"635"	"Rum Martini"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"636"	"Rum Fix"	"Rum - Daiquiris"	2.5	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"637"	"Rum Daisy"	"Rum - Daiquiris"	2	0.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"638"	"D'artagnan"	"Brandy"	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"639"	"Rum Cooler"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"640"	"Rum Collins"	"Rum - Daiquiris"	2	0	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"641"	"Seaboabd"	"Cocktail Classics"	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"642"	"Rum Cobbler"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"643"	"Robson Cocktail"	"Rum - Daiquiris"	0	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"644"	"Rio Fix"	"Rum - Daiquiris"	0	0	0.75	0	0	0	0	0	0.5	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"645"	"Ringo Starr"	"Rum - Daiquiris"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"646"	"Restless Native"	"Rum - Daiquiris"	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0
+"647"	"Quarter Deck Cocktail"	"Rum - Daiquiris"	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"648"	"Quaker's Cocktail"	"Rum - Daiquiris"	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"649"	"Puerto Rican Rum Daisy"	"Rum - Daiquiris"	0	0.75	0	0	0.25	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"650"	"Cuban Cocktail No. 2"	"Brandy"	0.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"651"	"Prohibition Punch"	"Rum - Daiquiris"	0	0.25	0	0	0	0	1.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"652"	"Poker Cocktail"	"Rum - Daiquiris"	1.5	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"653"	"Planter's Punch No. 2"	"Rum - Daiquiris"	2	0.25	1	0	2	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"654"	"Planter's Punch No. 1"	"Rum - Daiquiris"	2.5	0	2	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"655"	"Planter's Cocktail"	"Rum - Daiquiris"	0	0.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"656"	"Pink Paradise"	"Rum - Daiquiris"	0	0	0	0	0	0	0	3	1.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"657"	"Pink Creole"	"Rum - Daiquiris"	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0
+"658"	"Pineapple Fizz"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"659"	"Pineapple Cocktail"	"Rum - Daiquiris"	1.5	0.5	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"660"	"Pearl Button"	"Rum - Daiquiris"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"661"	"The Crux"	"Brandy"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0
+"662"	"Paris When It Sizzles"	"Rum - Daiquiris"	0	0	0.5	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"663"	"Palmetto Cocktail"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"664"	"Paddington"	"Rum - Daiquiris"	1.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0
+"665"	"The Old Cuban"	"Rum - Daiquiris"	0	0	0.75	0	0	0	1.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"666"	"Oh, Gosh!"	"Rum - Daiquiris"	1.5	0	1	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"667"	"Night Cap"	"Rum - Daiquiris"	2	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"668"	"New Orleans Buck"	"Rum - Daiquiris"	1.5	0.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"669"	"Nevada Cocktail"	"Rum - Daiquiris"	1.5	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"670"	"Moonquake Shake"	"Rum - Daiquiris"	0	0.25	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"671"	"Monkey Wrench"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"672"	"Creme De Cafe"	"Brandy"	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0
+"673"	"Margarita"	"Cocktail Classics"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"674"	"Mojito"	"Rum - Daiquiris"	2	0	3	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"675"	"Champagne Flamingo"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0
+"676"	"Thunder and Lightning Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"677"	"Casco Bay Lemonade"	"Vodka"	0	2	0	0	0	0	0	1	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"678"	"Caribbean Cruise"	"Vodka"	0.25	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"679"	"Cappuccino Cocktail"	"Vodka"	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0.75	0	0	0	0	0	0	0	0	0	0	0
+"680"	"Cape Codder"	"Tequila"	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"681"	"Baltimore Bracer Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+"682"	"Caesar"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"683"	"Bull Shot"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"684"	"Bullfrog"	"Vodka"	0	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"685"	"Boston Gold"	"Vodka"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"686"	"Corpse Reviver No. 1"	"Brandy"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"687"	"Thanksgiving Special Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75
+"688"	"Tequini Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"689"	"Bordeaux Cocktail"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"690"	"Bolshoi Punch"	"Vodka"	0.5	0.75	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"691"	"Blue Lagoon"	"Vodka"	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"692"	"Bloody Mary"	"Vodka"	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"693"	"Bloody Bull"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"694"	"The Blood Orange"	"Vodka"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"695"	"Black Russian"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"696"	"Black Magic"	"Vodka"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"697"	"Victor Collins"	"Cocktail Classics"	0	3	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"698"	"Snowball Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"699"	"Violet Fizz"	"Cocktail Classics"	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"700"	"Bikini"	"Vodka"	0.5	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+"701"	"Cold Deck Cocktail"	"Brandy"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"702"	"The Big Crush"	"Vodka"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"703"	"Bianca"	"Vodka"	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0
+"704"	"Bella Fragolia"	"Vodka"	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"705"	"Beer Buster"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"706"	"Basil 8"	"Vodka"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"707"	"Shamrock Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"708"	"Aqueduct"	"Vodka"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0
+"709"	"Alfie Cocktail"	"Vodka"	0	1.5	0	0	0	0	0	0	0.75	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"710"	"Admiral Perry"	"Vodka"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+"711"	"Yellow Rose Of Texas"	"Tequila"	0	0.75	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"712"	"St. Patrick's Day Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"713"	"Waiting On Summer"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"714"	"Prince's Smile Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"715"	"Viva Villa"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"716"	"Praire Chicken"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	1
+"717"	"Venial Sin"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"718"	"Vagabundo"	"Tequila"	0	0	0.5	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"719"	"The 21st Century"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	1.5	0
+"720"	"Pollyanna Cocktail"	"Cocktail Classics"	0	0	0	0.5	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2
+"721"	"Toreador"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	1.5	0
+"722"	"Pink Lady Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"723"	"Tia Juanathan"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"724"	"Phoebe Snow Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0
+"725"	"Tequonic"	"Tequila"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"726"	"Tequini"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"727"	"Passion Daiquiri Cocktail"	"Cocktail Classics"	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"728"	"Tequila Sunrise"	"Tequila"	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"729"	"Coffee Grasshopper"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0
+"730"	"Tequila Straight"	"Tequila"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"731"	"Tequila Sour"	"Tequila"	0	0.75	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"732"	"Tequila Smash"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"733"	"Tequila Pink"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"734"	"Tequila Old-Fashioned"	"Tequila"	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"735"	"Rob Roy Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"736"	"Tequila Mockingbird"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.75	0
+"737"	"Tequila Matador"	"Tequila"	0	0	0.5	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"738"	"Tequila Manhattan"	"Tequila"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"739"	"Thunderclap Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75
+"740"	"Thunder Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"741"	"Tequila Collins"	"Tequila"	0	0.5	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"742"	"White Lady Cocktail"	"Cocktail Classics"	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"743"	"Tequila Canyon"	"Tequila"	0	0	0	0	1	0	0	1	1	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"744"	"Chicago Cocktail"	"Brandy"	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0.25	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"745"	"Sunday Confession"	"Tequila"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"746"	"Strawberry Margarita"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"747"	"Western Rose Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"748"	"Widow's Kiss Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"749"	"Spice Of Life"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"750"	"Widow's Dream Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0
+"751"	"Vodka Gypsy Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"752"	"South Of The Border"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"753"	"Violet Fizz Juice"	"Cocktail Classics"	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"754"	"Smoked Margarita"	"Tequila"	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"755"	"Sloe Tequila"	"Shooters"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"756"	"Queen Elizabeth Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"757"	"Silk Stockings"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1.5	0
+"758"	"Orchid Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	2
+"759"	"Orange Milk Fizz"	"Cocktail Classics"	0	0.5	0	0	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"760"	"Orange Gin Rickey"	"Cocktail Classics"	0	0	0.5	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"761"	"Orange Gin Highball"	"Cocktail Classics"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"762"	"Orange Gin Fizz"	"Cocktail Classics"	0	0.5	0	0	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"763"	"Orange Gin Collins"	"Cocktail Classics"	0	0.5	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"764"	"Sidewinder"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"765"	"Orange Blossom Cocktail"	"Cocktail Classics"	0	0	0	0	1	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"766"	"Shady Lady"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	1	0
+"767"	"Cherry Blossom"	"Brandy"	0	0.5	0	0	0	0	0	0	0	0	0	0.5	0	0.25	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"768"	"The Sfozando"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.02	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"769"	"Napoleon Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	2
+"770"	"Moulin Rouge Cocktail"	"Cocktail Classics"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"771"	"Sea Of Cortez"	"Tequila"	0	0	1	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"772"	"Satin Sheets"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"773"	"Santana Sling"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"774"	"Rosita"	"Tequila"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"775"	"Mariposa Cocktail"	"Cocktail Classics"	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"776"	"Margarita Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"777"	"The Refuge"	"Tequila"	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	1.5	0
+"778"	"Manhattan Cocktail (dry)"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"779"	"Mamie Taylor"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"780"	"Quetzalcoatl"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	1	0
+"781"	"Purple Pancho"	"Tequila"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"782"	"Midnight Express"	"Rum - Daiquiris"	0	0.25	0.75	0	0	0	1.5	0	0	0	0.25	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"783"	"London Special Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"784"	"Mary Pickford Cocktail"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0.25	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"785"	"Charles Cocktail"	"Brandy"	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"786"	"Martinique Rose"	"Rum - Daiquiris"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0
+"787"	"Mariposa"	"Rum - Daiquiris"	1	0.5	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"788"	"Mandeville"	"Rum - Daiquiris"	1.5	0.5	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"789"	"K.C.B. Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"790"	"Malmaison"	"Rum - Daiquiris"	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"791"	"Mai-Tai (Trader Vic Version)"	"Rum - Daiquiris"	0	0	1	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"792"	"Jersey Lightning Cocktail"	"Cocktail Classics"	0	0	1	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"793"	"Lumination"	"Rum - Daiquiris"	0	0	0	0	0	0	2	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"794"	"Jamaica Glow Cocktail"	"Cocktail Classics"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"795"	"Lounge Lizard"	"Rum - Daiquiris"	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"796"	"Jack-in-the-Box Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"797"	"Irish Whisky Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"798"	"Look Out Below"	"Rum - Daiquiris"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"799"	"Little Princess Cocktail"	"Rum - Daiquiris"	1.5	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"800"	"Little Devil Cocktail"	"Rum - Daiquiris"	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"801"	"Champs Elysees Cocktail"	"Brandy"	0	0.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	1	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"802"	"Hop Toad Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"803"	"Level headed Cocktail"	"Rum - Daiquiris"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"804"	"La Vita Dulce"	"Rum - Daiquiris"	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"805"	"Hole-in-One Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"806"	"Ko Adang"	"Rum - Daiquiris"	0	0	0.5	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"807"	"Knickerbocker Special Cocktail"	"Rum - Daiquiris"	2	1	0	0	1	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"808"	"Hair Raiser Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"809"	"Green Opal Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5
+"810"	"Jamaican Ginger"	"Rum - Daiquiris"	1.5	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.08	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"811"	"Green Dragon Cocktail"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.08	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"812"	"Jamaican Crawler"	"Rum - Daiquiris"	1	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"813"	"Jade"	"Rum - Daiquiris"	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"814"	"Jacqueline"	"Rum - Daiquiris"	0	0	1	0	0	0	2	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"815"	"Jack Sparrow Flip"	"Rum - Daiquiris"	0	0	0	0	0	0	2	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"816"	"Irresistible"	"Rum - Daiquiris"	1.5	0.25	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"817"	"Carroll Cocktail"	"Brandy"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"818"	"Hush and Wonder"	"Rum - Daiquiris"	2	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.06	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"819"	"Hurricane Leah"	"Rum - Daiquiris"	0	1.5	0	0	3	0	0	0	0	0	1.5	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"820"	"Gimlet Cocktail"	"Cocktail Classics"	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"821"	"Hurricane"	"Rum - Daiquiris"	0	0	1	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"822"	"Hop Toad"	"Rum - Daiquiris"	0.75	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"823"	"The Holy Roller"	"Rum - Daiquiris"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"824"	"Hemingway's Nog"	"Rum - Daiquiris"	0	0	0	0	0	0	1.5	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0.06	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"825"	"Flying Scotchman Cocktail"	"Cocktail Classics"	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"826"	"Havana Cocktail"	"Rum - Daiquiris"	0.75	0.25	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"827"	"Harvest Nectar"	"Rum - Daiquiris"	1.5	1	0	0	1	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"828"	"Fancy Brandy Cocktail"	"Cocktail Classics"	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"829"	"Fallen Angel Cocktail"	"Cocktail Classics"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"830"	"The Poncho"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0.5	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"831"	"Hai Karate"	"Rum - Daiquiris"	0	0	1	0	1	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"832"	"Cara Sposa"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0
+"833"	"Traditional Martini (Dry)"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"834"	"Pina Agave"	"Tequila"	0	0.75	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"835"	"Grande Guignol"	"Rum - Daiquiris"	0	0	0.75	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"836"	"Pancho Villa"	"Tequila"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"837"	"Paloma (Natural)"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	2	0
+"838"	"Golden Friendship"	"Rum - Daiquiris"	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"839"	"Paloma"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"840"	"Pacific Sunshine"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"841"	"Golden Eclipse"	"Rum - Daiquiris"	0	0.5	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"842"	"Diplomat Cocktail"	"Cocktail Classics"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	1.5	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"843"	"Oldest Temptation"	"Tequila"	0	0.5	0	0	0	0	0	0	0	0	0.25	0	0	0.5	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"844"	"Ginger Grapefruit Rickey"	"Rum - Daiquiris"	2	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0
+"845"	"Calvados Cocktail"	"Brandy"	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"846"	"Daiquiri Cocktail"	"Cocktail Classics"	0	0	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"847"	"The Oaxaca Old-Fashioned"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"848"	"Cuban Special Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"849"	"Gaugin"	"Rum - Daiquiris"	2	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"850"	"The Nomad South"	"Tequila"	0	0	0.5	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"851"	"Creole Lady Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"852"	"No. 8"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"853"	"Fog Cutter"	"Rum - Daiquiris"	1.5	1.5	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"854"	"Mexicola"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"855"	"Floridita No. 3"	"Rum - Daiquiris"	2	0	0.75	0	0	0	0	0	0	0	0.5	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0
+"856"	"Mexican Monk"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"857"	"Floridita No. 1"	"Rum - Daiquiris"	1.5	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+"858"	"Mexican Madras"	"Tequila"	0	0	0.25	0	1	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"859"	"Cadiz"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0
+"860"	"Chocolate Soldier Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	1.5
+"861"	"Fireman's Sour"	"Rum - Daiquiris"	2	0	2	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"862"	"Fat Like Buddha"	"Rum - Daiquiris"	0	0	0	0	0	0	2	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"863"	"Cherry Blossom Cocktail"	"Cocktail Classics"	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"864"	"Fair-and-Warmer Cocktail"	"Rum - Daiquiris"	1.5	0	0	0.75	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"865"	"Chelsea Sidecar Cocktail"	"Cocktail Classics"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75
+"866"	"Mexican Firing Squad"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"867"	"Mexicana"	"Tequila"	0	1	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0
+"868"	"El Presidente Cocktail No. 2"	"Rum - Daiquiris"	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"869"	"Margarita Tequila"	"Shooters"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"870"	"Lillypad"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"871"	"X. Y. Z. Cocktail"	"Cocktail Classics"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"872"	"La Ultima Palabra"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0.75	0
+"873"	"Bull's Milk"	"Brandy"	1	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"874"	"La Bomba"	"Tequila"	0	0	2	0	1.5	0	0	0	1.5	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"875"	"Jinx Cocktail"	"Tequila"	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0
+"876"	"The Interesting Cocktail"	"Tequila"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	2	0
+"877"	"Hot Pants"	"Tequila"	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	1.5	0
+"878"	"High Plains Drifter No. 1"	"Tequila"	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"879"	"Hairy Sunrise"	"Tequila"	0	0	0	0	3	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0.75	0
+"880"	"Guadalajara"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"881"	"Frostbite"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	1	0
+"882"	"Flower Power"	"Tequila"	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	1	0	0	1	0	0	0	0	0	0	0	0	2	0
+"883"	"Cablegram Highball"	"Cocktail Classics"	0	0.5	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"884"	"Cabaret Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0.04	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"885"	"Bulla's Eye"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"886"	"El Oso (The Bear)"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"887"	"El Ni_o"	"Tequila"	0	0	6	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"888"	"El Molino"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0
+"889"	"Bucks Fizz"	"Cocktail Classics"	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"890"	"Dirty Daisy"	"Tequila"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"891"	"Diablo"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"892"	"Count Camillo's Paloma"	"Tequila"	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0.75	0
+"893"	"Company B"	"Tequila"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"894"	"Chupa Cabra"	"Tequila"	0	0	0.5	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	2	0
+"895"	"Chinchona"	"Tequila"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"896"	"Chapala"	"Tequila"	0	0.75	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"897"	"Bulldog Cocktail"	"Brandy"	0	0.5	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"898"	"Boston Sidecar Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"899"	"Catalina Margarita"	"Tequila"	0	2	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"900"	"Camino Del Ray"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"901"	"Cactus Berry"	"Tequila"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.25	0
+"902"	"Bolero Cocktail"	"Cocktail Classics"	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"903"	"Bum's Rush"	"Tequila"	0	0	1	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"904"	"Brave Bull"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"905"	"Blue Margarita"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"906"	"Bloody Maria"	"Tequila"	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"907"	"Pineapple Dream Cocktail"	"Cocktail Classics"	0	0	0.5	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"908"	"Big Red Hooter"	"Tequila"	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+"909"	"Blood Bronx Cocktail"	"Cocktail Classics"	0	0	0	0	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5
+"910"	"Bravo"	"Tequila"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"911"	"Amante Picante"	"Tequila"	0	0	1	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0
+"912"	"Brunswick Street Cocktail"	"Brandy"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0
+"913"	"Alamo Splash"	"Tequila"	0	1	0	0	1	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0
+"914"	"Betsy Ross Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	1.25
+"915"	"Bermuda Rose Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.25
+"916"	"Yokahama Romance"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"917"	"Yale Cocktail"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0.5	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"918"	"Xanthia Cocktail"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"919"	"Woodstock"	"Gin"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"920"	"Wolf's Bite"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"921"	"Barbary Coast Cocktail"	"Cocktail Classics"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5
+"922"	"The Winkle"	"Gin"	0	4	1	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"923"	"The Wink"	"Gin"	0	0	0	0	0	0	0	0	0	0	0.25	0	0	0.25	0	0	0	0	0	2	0	0	0	0.04	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"924"	"Will Rogers"	"Gin"	0	0	0	0	0.5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1.5	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"925"	"Brandy Vermouth Cocktail"	"Brandy"	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0.02	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"926"	"White Spider"	"Gin"	0	0.75	0	0	0	0	0	0	0	0	0.25	0	0	0.5	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"927"	"White Lady"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"928"	"Western Rose"	"Gin"	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0.5	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"929"	"May Blosson Fizz"	"Cocktail Classics"	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"930"	"Wembly Cocktail"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	1.5	0	0.75	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"931"	"Apple Pie Cocktail"	"Cocktail Classics"	0	1	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"932"	"Water Lily"	"Gin"	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"933"	"Wallis Blue Cocktail"	"Gin"	0	0	1	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"934"	"Minnehaha Cocktail"	"Cocktail Classics"	0	0	0	0.5	0.25	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+"935"	"Wallick Cocktail"	"Gin"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1.5	0	1.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"936"	"Waikiki Beachcomber"	"Gin"	0	0	0	0	0	0	0	0	0.5	0	0	0	0	0.75	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"937"	"Vow Of Silence"	"Gin"	0	0	0.5	0	0	0	0	0	0	0	0.25	0	0	0	0	0	0	0	0	1.5	0	0	0	0	0	0	0	0	0	0.75	0	0	0	0	0	0	0	0	0	0
