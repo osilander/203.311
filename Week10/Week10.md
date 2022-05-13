@@ -7,10 +7,12 @@
 
 1. Understand the purpose of dimensional reduction techniques
 2. Understand why dimensional reduction is useful for analysing large datasets
-3. Explain the insights that dimensional reduction can give for RNA-seq data
-4. Perform the steps necessary to implement dimensional reduction on a dataset
-5. Interpret dimensional reduction plots
-6. Disucss the advantages and disadvantages of two common dimensional reduction techniques, PCA and UMAP.
+3. List three common methods for visualising RNA-seq data (volcano plot, heatmap, and PCA/UMAP/tSNE)
+4. Explain the differences between each of the above visulaisation methods.
+5. Explain the insights that dimensional reduction can give for RNA-seq data
+6. Perform the steps necessary to implement dimensional reduction on a dataset
+7. Interpret dimensional reduction plots
+8. Discuss the advantages and disadvantages of two common dimensional reduction techniques, PCA and UMAP.
 
 
 ## Introduction
@@ -40,15 +42,17 @@ Let us see how this works.
 To gain some initial insight we will consider the food dataset from the UK. This is shown below.
 
 <img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
-**Yummy**
+**Yummy**<br>
 
 We will be using several new methods for data visalisation. Some of them are more intuitive than others. To help you gain some intuition, we will begin with a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
 
-
+### RNA-seq
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
 **So many choices**<br>
 source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-population-samples/
+
+### Next Time
 
 Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
 
