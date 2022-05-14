@@ -153,7 +153,8 @@ ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
 # What is this code doing? It has a new method, which()
 cocktails_df[cocktails_df$name==my.cocktail,which(ingredients>0)]
 
-# repeat the above steps but with a new cocktail
+# repeat the above steps but with a 
+# cocktail of your choice, for example, this one:
 my.cocktail <- "Sphinx Cocktail"
 ```
 
@@ -167,7 +168,8 @@ if you were bartending.
 my.cocktails <- c("Silver Fizz", "Peach Blow Fizz")
 # Another new method, the for loop
 # we repeat the same as above, but
-# "loop" over all values of the vector above
+# "loop" over all values of the my.cocktails vector above
+# of course here, coi means "cocktail of interest"
 for(coi in my.cocktails) {
   ingredients <- cocktails_df[cocktails_df$name==coi,]
   print(cocktails_df[cocktails_df$name==coi,which(ingredients>0)])
@@ -175,7 +177,7 @@ for(coi in my.cocktails) {
 ```
 So similar yet so different.
 
-Enough of that.
+Enough of that, onwards and upwards.
 
 
 ### RNA-seq
