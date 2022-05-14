@@ -31,22 +31,27 @@ Dimensional reduction is an important technique. In fact when you have any biolo
 - gene expression data from cancer samples for hundreds of differemt genes
 - phenotypic data from hundreds of dogs with information on tens of different phenotypes (e.g. height, weight, disposition, leg length, tail length, hair length, coat colour, eye colour, etc.
 
-**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.**
+**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.** Here, we will focus on two main methods: UMAP and Principal Component Analysis (PCA).
 
-Before reading further, please take three minutes and read [this quick intro](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues "eigen-who?") before continuing.
+Before reading further, please take five minutes and read [this quick intro to PCA](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues "eigen-who?") before continuing.
 
-Let us see how this works.
+Becuase this is such an important concept, we are going to spend some time on this.
+First some examples that have *nothing* to do with RNA or cells or sequencing. 
+But hopefully they give us some insight into how dimensional reduction works and why it's important.
 
 ### The Meat and Potatoes
 
-To gain some initial insight we will consider the food dataset from the UK. This is shown below.
+To gain some initial insight we will consider a food dataset from the UK. This is shown below.
 
 <img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
 **Yummy**<br><br>
 
 Our aim here is to find out which of these countries :grimacing: differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these differ the most in the combination of all these foods?
 
-We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
+We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*). But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components
+
+<img src="graphics/diet.png" width="400" title="N. Ireland is a different place"/><br>
+**Yummy**<br><br>
 
 ### Hold my beer - Increasing Sample Size
 We will move on to a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
@@ -63,7 +68,7 @@ We now have a dataset of cocktails and their ingredients. Take a look at the dat
 We need to load a library before we do our first analysis
 
 ```R
-# it's the tidyverse
+# it's the tidyverse!
 install.packages("tidymodels")
 library(tidymodels)
 
@@ -74,28 +79,30 @@ library(forcats)
 Now we do the PCA
 
 ```R
-# this is a recipe
-# we don't really sweat the details
-# we just paste the code
+# This is a recipe
+# We don't really sweat the details
+# We just paste the code (*all* of it)
 # But I put comments in if you're curious
+
 # Tell the recipe what's happening with no model ( ~. )
 pca_rec <- recipe(~., data = cocktails_df) %>%
   # Note that the name and category of cocktail 
   # are just labels not predictors
   update_role(name, category, new_role = "id") %>%
-  # Normalise means "centre" all the 
-  # variables so mean is 0 and SD is 1
+  # Normalise means so all the 
+  # variables have mean 0 and stdev 1
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors())
 
 # Actually do the magic PCA by "preparing"
 # the "recipe"
 pca_prep <- prep(pca_rec)
+# and a smidge of tidying
 tidied_pca <- tidy(pca_prep, 2)
 ```
 Phew.
 
-Now we visualise the results. First, let's take a look at
+Now we can visualise the results. First, let's take a look at
 the first two principal components. Remember, these are the
 combinations of ingredients that contain the most variance
 (in other words, what combinations of ingredients differ
@@ -139,6 +146,8 @@ This would help us suggest new but similar drinks to customers, for example
 if you were bartending.
 
 ```R
+# Here, we choose a couple of cocktails to look at
+# You can choose these or different ontes
 my.cocktails <- c("Silver Fizz", "Peach Blow Fizz")
 # Another new method, the for loop
 # we repeat the same as above, but
