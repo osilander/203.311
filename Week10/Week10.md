@@ -55,7 +55,7 @@ We can also visualise this as a heatmap, which plots the same information, but m
 <img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
 **It's getting hot in here**<br><br>
 
-But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components
+But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets, 
 
 <img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
 **Nearly matches the geography**<br><br>
@@ -65,7 +65,7 @@ Not only that, we can visualise which diet items *contribute* to those component
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
 
-Now we can see that Dimension (Component) 1 consists primarily of sugars, other_veg, and alcohol, all of which Scots, English, and Welsh consume more of. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes. But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that contain 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (with some alcohol), all of which the Welsh consume more of. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that contain 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
 
 Okay, let's repeat this ourselves, with a new dataset.
 
