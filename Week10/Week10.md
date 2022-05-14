@@ -74,16 +74,84 @@ library(forcats)
 Now we do the PCA
 
 ```R
+# this is a recipe
+# we don't really sweat the details
+# we just paste the code
+# But I put comments in if you're curious
+# Tell the recipe what's happening with no model ( ~. )
 pca_rec <- recipe(~., data = cocktails_df) %>%
+  # Note that the name and category of cocktail 
+  # are just labels not predictors
   update_role(name, category, new_role = "id") %>%
+  # Normalise means "centre" all the 
+  # variables so mean is 0 and SD is 1
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors())
 
+# Actually do the magic PCA by "preparing"
+# the "recipe"
 pca_prep <- prep(pca_rec)
-
 tidied_pca <- tidy(pca_prep, 2)
-
 ```
+Phew.
+
+Now we visualise the results. First, let's take a look at
+the first two principal components. Remember, these are the
+combinations of ingredients that contain the most variance
+(in other words, what combinations of ingredients differ
+the most between cocktail drinks).
+
+```R
+# Now we use the ggplot plotting package
+# This uses the idea of a *grammar* of graphics
+# and is among the most popular plotting methods in R
+
+# juice gets the results of the recipe
+# and feed it %>% to the plotting function
+juice(pca_prep) %>%
+# the plotting
+  ggplot(aes(PC1, PC2, label = name)) +
+  # make the points colored by category
+  geom_point(aes(color = category), alpha = 0.7, size = 2) +
+  # add text 
+  geom_text(check_overlap = TRUE, hjust = "inward", family = "Helvetica", size = 8) +
+  # but don't colour the text
+  labs(color = NULL)
+```
+
+Wow, a few cocktails are quite different from others. What's in an Applejack punch?
+
+```R
+# we have a cocktail of interest
+my.cocktail <- "Applejack Punch"
+# lets find the ingredients and assign it to a variable, "ingredients"
+ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
+# Now we can see the ingredients
+# What is this code doing? It has a new method, which()
+cocktails_df[cocktails_df$name==my.cocktail,which(ingredients>0)]
+
+# repeat the above steps but with a new cocktail
+my.cocktail <- "Sphinx Cocktail"
+```
+
+Not only can we say which cocktails are most different, we can see which are most similar.
+This would help us suggest new but similar drinks to customers, for example
+if you were bartending.
+
+```R
+my.cocktails <- c("Silver Fizz", "Peach Blow Fizz")
+# Another new method, the for loop
+# we repeat the same as above, but
+# "loop" over all values of the vector above
+for(coi in my.cocktails) {
+  ingredients <- cocktails_df[cocktails_df$name==coi,]
+  print(cocktails_df[cocktails_df$name==coi,which(ingredients>0)])
+}
+```
+So similar yet so different.
+
+Enough of that.
+
 
 ### RNA-seq
 
