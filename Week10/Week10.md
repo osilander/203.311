@@ -56,9 +56,34 @@ We will move on to a cocktail dataset and a tutorial derived from [here](https:/
 
 Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
 
-Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you choose, but note that this is a dataset on cocktails).
+Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it "cocktails_df" as that will match the code below).
 
 We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
+
+We need to load a library before we do our first analysis
+
+```R
+# it's the tidyverse
+install.packages("tidymodels")
+library(tidymodels)
+
+install.packages("forcats")
+library(forcats)
+```
+
+Now we do the PCA
+
+```R
+pca_rec <- recipe(~., data = cocktails_df) %>%
+  update_role(name, category, new_role = "id") %>%
+  step_normalize(all_predictors()) %>%
+  step_pca(all_predictors())
+
+pca_prep <- prep(pca_rec)
+
+tidied_pca <- tidy(pca_prep, 2)
+
+```
 
 ### RNA-seq
 
