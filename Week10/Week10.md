@@ -48,10 +48,23 @@ To gain some initial insight we will consider a food dataset from the UK. This i
 
 Our aim here is to find out which of these countries :grimacing: differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these differ the most in the combination of all these foods?
 
-We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*). But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components
+We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
+
+We can also visualise this as a heatmap, which plots the same information, but more compactly.
+
+<img src="graphics/diet-heat.png" width="400" title="cookin"/><br>
+**It's getting hot in here**<br><br>
+
+
+
+But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components
 
 <img src="graphics/diet.png" width="400" title="N. Ireland is a different place"/><br>
 **Yummy**<br><br>
+
+Not only that, we can visualise which diet items *contribute* to those components. This is shown below.
+
+
 
 ### Hold my beer - Increasing Sample Size
 We will move on to a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
