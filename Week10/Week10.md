@@ -28,10 +28,10 @@ We will use **dimensional reduction** techniques. In this way we can objectively
 Dimensional reduction is an important technique. In fact when you have any biological samples that have a large number of variables, e.g.
 - microbiome samples with hundreds of different bacteria
 - genotype data for individuals with hundreds of different SNPs
-- gene expression data from cancer samples for hundreds of differemt genes
-- phenotypic data from hundreds of dogs with information on tens of different phenotypes (e.g. height, weight, disposition, leg length, tail length, hair length, coat colour, eye colour, etc.
+- gene expression data from cancer samples for hundreds of different genes
+- phenotypic data from hundreds of dogs with information on tens of different phenotypes (e.g. height, weight, disposition, leg length, tail length, hair length, coat colour, and eye colour)
 
-**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.** Here, we will focus on two main methods: UMAP and Principal Component Analysis (PCA).
+**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.** Here, we will focus on two main methods: Principal Component Analysis (PCA) and UMAP.
 
 Before reading further, please take five minutes and read [this quick intro to PCA](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues "eigen-who?") before continuing.
 
@@ -41,31 +41,31 @@ But hopefully they give us some insight into how dimensional reduction works and
 
 ### The Meat and Potatoes
 
-To gain some initial insight we will consider a food dataset from the UK. This is shown below.
+To gain some initial insight we will consider a food dataset from the UK. This is shown below. The dataset shows the consumption (in grams) per person per week of each of the foodstuffs.
 
 <img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
 **Yummy**<br><br>
 
-Our aim here is to find out which of these countries :grimacing: differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these differ the most in the combination of all these foods?
+Our aim here is to find out which of these countries :grimacing: differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these countries differ the most in the combination of all these foods?
 
 We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
 
-We can also visualise this as a heatmap, which plots the same information, but more compactly.
+We can also visualise this as a heatmap, which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar. Note, importantly, that it does not say much about *how* similar.
 
 <img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
 **It's getting hot in here**<br><br>
 
-But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (pc1 and pc2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets, 
+But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (pc1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
 
 <img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
-**Nearly matches the geography**<br><br>
+**England is central to it all**<br><br>
 
 Not only that, we can visualise which diet items *contribute* to those components. This is shown below.
 
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
 
-Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (with some alcohol), all of which the Welsh consume more of. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that contain 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (with some alcohol), all of which the Welsh consume more of, especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
 
 Okay, let's repeat this ourselves, with a new dataset.
 
@@ -77,11 +77,11 @@ We will move on to a cocktail dataset and a tutorial derived from [here](https:/
 
 Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
 
-Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it "cocktails_df" as that will match the code below).
+Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it `cocktails_df` as that will match the code below).
 
 We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
 
-We need to load a library before we do our first analysis
+Next we need to load a library before we do our first analysis
 
 ```R
 # it's the tidyverse!
@@ -90,9 +90,15 @@ library(tidymodels)
 
 install.packages("forcats")
 library(forcats)
+
+install.packages("embed")
+library(embed)
+
+install.packages("ggplot2")
+library(ggplot2)
 ```
 
-Now we do the PCA
+Now we start on the path toward PCA.
 
 ```R
 # This is a recipe
@@ -100,7 +106,7 @@ Now we do the PCA
 # We just paste the code (*all* of it)
 # But I put comments in if you're curious
 
-# Tell the recipe what's happening with no model ( ~. )
+# Tell the recipe what's happening but have no model ( ~. )
 pca_rec <- recipe(~., data = cocktails_df) %>%
   # Note that the name and category of cocktail 
   # are just labels not predictors
@@ -109,8 +115,10 @@ pca_rec <- recipe(~., data = cocktails_df) %>%
   # variables have mean 0 and stdev 1
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors())
+```
 
-# Actually do the magic PCA by "preparing"
+```R
+# Actually do the PCA by "preparing"
 # the "recipe"
 pca_prep <- prep(pca_rec)
 # and a smidge of tidying
@@ -120,25 +128,25 @@ Phew.
 
 Now we can visualise the results. First, let's take a look at
 the first two principal components. Remember, these are the
-combinations of ingredients that contain the most variance
+*combinations* of ingredients that contain the most variance
 (in other words, what combinations of ingredients differ
 the most between cocktail drinks).
 
-```R
-# Now we use the ggplot plotting package
-# This uses the idea of a *grammar* of graphics
-# and is among the most popular plotting methods in R
+Below we use the [ggplot](https://ggplot2.tidyverse.org/index.html "it's the tidy verse!") plotting package.
+This uses the idea of a *grammar* of graphics
+and is among the most popular plotting methods in R
 
+```R
 # juice gets the results of the recipe
-# and feed it %>% to the plotting function
+# and feeds it using %>% to the plotting function
 juice(pca_prep) %>%
-# the plotting
+# the plotting, include the cocktail name
   ggplot(aes(PC1, PC2, label = name)) +
   # make the points colored by category
   geom_point(aes(color = category), alpha = 0.7, size = 2) +
   # add text 
-  geom_text(check_overlap = TRUE, hjust = "inward", family = "Helvetica", size = 8) +
-  # but don't colour the text
+  geom_text(check_overlap = TRUE, hjust = "inward", size = 2) +
+  # and don't add more colour anywhere
   labs(color = NULL)
 ```
 
@@ -147,14 +155,18 @@ Wow, a few cocktails are quite different from others. What's in an Applejack pun
 ```R
 # we have a cocktail of interest
 my.cocktail <- "Applejack Punch"
-# lets find the ingredients and assign it to a variable, "ingredients"
+# Let's find the ingredients and assign it to a variable, "ingredients"
+# You should be able to see what the code below is doing
+
 ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
 # Now we can see the ingredients
 # What is this code doing? It has a new method, which()
+# that we use to only report the ingredients that are 
+# "true" (i.e. they're in the cocktail)
 cocktails_df[cocktails_df$name==my.cocktail,which(ingredients>0)]
 
 # repeat the above steps but with a 
-# cocktail of your choice, for example, this one:
+# cocktail of your choice, or, for example, this one:
 my.cocktail <- "Sphinx Cocktail"
 ```
 
@@ -177,8 +189,34 @@ for(coi in my.cocktails) {
 ```
 So similar yet so different.
 
-Enough of that, onwards and upwards.
+So what have we discovered? We have found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
 
+But enough of that, onwards and upwards.
+
+### Who map? UMAP
+A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation).
+Let's go through this quickly just so we can compare to our previous results. We make almost exaclt the same recipe as before:
+
+```R
+umap_rec <- recipe(~., data = cocktails_df) %>%
+  update_role(name, category, new_role = "id") %>%
+  step_normalize(all_predictors()) %>%
+  step_umap(all_predictors())
+
+umap_prep <- prep(umap_rec)
+
+umap_prep
+```
+
+And juice our results to plot it.
+
+```R
+juice(umap_prep) %>%
+  ggplot(aes(UMAP1, UMAP2, label = name)) +
+  geom_point(aes(color = category), alpha = 0.7, size = 2) +
+  geom_text(check_overlap = TRUE, hjust = "inward", size = 2) +
+  labs(color = NULL)
+```
 
 ### RNA-seq
 
