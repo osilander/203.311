@@ -162,7 +162,7 @@ ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
 # Now we can see the ingredients
 # What is this code doing? It has a new method, which()
 # that we use to only report the ingredients that are 
-# "true" (i.e. they're in the cocktail)
+# greater than 0 (i.e. they're in the cocktail)
 cocktails_df[cocktails_df$name==my.cocktail,which(ingredients>0)]
 
 # repeat the above steps but with a 
@@ -194,13 +194,15 @@ So what have we discovered? We have found that dimensional reduction is a powerf
 But enough of that, onwards and upwards.
 
 ### Who map? UMAP
-A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation).
-Let's go through this quickly just so we can compare to our previous results. We make almost exaclt the same recipe as before:
+A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimension while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!").
+
+Okay, let's go through this quickly just so we can compare to our previous results. We make almost exact the same recipe as before:
 
 ```R
 umap_rec <- recipe(~., data = cocktails_df) %>%
   update_role(name, category, new_role = "id") %>%
   step_normalize(all_predictors()) %>%
+  # this is the different step, where we use the step_umap function
   step_umap(all_predictors())
 
 umap_prep <- prep(umap_rec)
@@ -218,7 +220,9 @@ juice(umap_prep) %>%
   labs(color = NULL)
 ```
 
-### RNA-seq
+Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* 
+
+## RNA-seq
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
 **So many choices**<br>
