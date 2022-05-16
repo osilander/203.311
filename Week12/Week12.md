@@ -1,32 +1,20 @@
 **[Return to the Course Home Page](../index.html)**
 
 # Science and the Public
-**Associate Professor Patrick Biggs, Dr Olin Silander and Professor Murray Cox**
+**Professor Patrick Biggs, Dr Olin Silander and Professor Murray Cox**
 
-## Purpose
+## Note
 
-xxxx
-
-
-## Introduction
-
-xxx
+The information for this week is shown on the 'Wiki | Week 12' Stream page, and no further information will be posted here, apart from the timetable below.
 
 
-## Practical sections start here
+## Timetable for Week 12 
 
-New material goes here...
-
-
-<br><br><br>
-
-[GitHub Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
-
-This is how you put in an image file:
-```
-<img src="graphics/giphy.gif" width="300"/>
-```
-<img src="graphics/giphy.gif" width="300"/>
-
+| Date 	| Day 	| Activity 	|
+|---	|---	|---	|
+| 30-May 	| Monday 	| No lecture - perfect time to tidy up your talk 	|
+| 31-May 	| Tuesday 	| all recorded talks to be submitted by 11:59pm 	|
+| 2-June 	| Thursday  	| 11am Zoom: first 8 talks 	|
+| 3-June 	| Friday 	| 11am Zoom: second 8 talks 	|
+| 3-June 	| Friday 	| 2pm lab session: remaining talks  	|
 
