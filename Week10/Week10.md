@@ -65,7 +65,7 @@ Not only that, we can visualise which diet items *contribute* to those component
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
 
-Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (with some alcohol), all of which the Welsh consume more of, especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg, all of which the Welsh consume more of, especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
 
 Okay, let's repeat this ourselves, with a new dataset.
 
@@ -81,19 +81,22 @@ Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table(
 
 We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
 
-Next we need to load a library before we do our first analysis
+Next we need to load a few libraries before we do our first analysis
 
 ```R
 # it's the tidyverse!
 install.packages("tidymodels")
 library(tidymodels)
 
+# it's for cats!
 install.packages("forcats")
 library(forcats)
 
+# it's an obscure stats package!
 install.packages("embed")
 library(embed)
 
+# it's a famous plotting package!
 install.packages("ggplot2")
 library(ggplot2)
 ```
@@ -132,7 +135,7 @@ the first two principal components. Remember, these are the
 (in other words, what combinations of ingredients differ
 the most between cocktail drinks).
 
-Below we use the [ggplot](https://ggplot2.tidyverse.org/index.html "it's the tidy verse!") plotting package.
+Below we use the [ggplot](https://ggplot2.tidyverse.org/index.html "Thanks, Hadley!") plotting package.
 This uses the idea of a *grammar* of graphics
 and is among the most popular plotting methods in R
 
@@ -194,7 +197,7 @@ So what have we discovered? We have found that dimensional reduction is a powerf
 But enough of that, onwards and upwards.
 
 ### Who map? UMAP
-A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimension while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!").
+A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimensions while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!").
 
 Okay, let's go through this quickly just so we can compare to our previous results. We make almost exact the same recipe as before:
 
@@ -220,7 +223,7 @@ juice(umap_prep) %>%
   labs(color = NULL)
 ```
 
-Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* 
+Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* Here we can see that UMAP does not aim to find what variables differentiate samples the most (thereby *stretching* some dimensions considerably and *shrinking* others). Rather, UMAP aims to find ways to reduce dimensions while maintaining groupings. If we consider the Woolly Mammoth example from the link above, PCA would find that the variable with the most variation is (largely speaking) length and width. It would then project onto these, leaving differences between the left and right side nearly non-existent. You canimagine, for example, that the two tusks would thus become indistinguishable. However, this is not at all true for UMAP. It groups the tusks (as they are near) but keeps them separate. Similar for the left and right legs.
 
 ## RNA-seq
 
@@ -230,10 +233,10 @@ Now we can begin our RNA-seq journey. To do this, we will begin at the beginning
 
  ```bash
 # -x extracts -v is verbose -f is the file
-tar -xvf rnaseq.tar
+tar -xvf data.tar
 
 # upon successful untarring, remove the tarball!
-rm rnaseq.tar
+rm data.tar
 ```
 
 <img src="graphics/tar_2x.png" width="700"/><br>
@@ -262,7 +265,7 @@ mu1tiqc .
 
 ```
 
-Go ahead and click on the multiqc report file (`.html`). It should open in your browser. For each of the `.fastq` files we can see a summary of its statistics. Note that there is aclickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolboax allows you to do things like colour smaples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates.
+Go ahead and click on the multiqc report file (`.html`). (Open in your browser)For each of the `.fastq` files we can see a summary of its statistics. Note that there is aclickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolboax allows you to do things like colour smaples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates.
 
 We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances this could be fatal for your pipeline.
 
