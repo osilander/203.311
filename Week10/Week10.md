@@ -236,7 +236,7 @@ tar -xvf rnaseq.tar
 rm rnaseq.tar
 ```
 
-<img src="graphics/tar_2x.png" width="300"/><br>
+<img src="graphics/tar_2x.png" width="500"/><br>
 **You're lucky I told you the command.**<br><br>
 
 
