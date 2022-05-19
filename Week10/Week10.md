@@ -229,7 +229,7 @@ Woah. Compare this to the previous PCA result. What is different? Although *both
 
 ### The Data
 
-Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that much this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial") and that parts of this lab are based on that tutorial.
+Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that much this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial") and that parts of this lab are based on that tutorial.
 
  Let's first untar the [tarball](https://en.wikipedia.org/wiki/Tar_(computing "Sticky!") so that we see the files inside.
 
@@ -285,8 +285,11 @@ We now need to map our reads. What should we use? Well, you have mapped reads be
 # let's index first
 bwa index human-GRCh38-22sub.fasta
 
-# now map the first read set
-bwa mem human-GRCh38-22sub.fasta UHR_Rep1_chr22.R1.fastq.gz UHR_Rep2_chr22.R1.fastq.gz > UHR_Rep1_chr22.sam
+# now map the first UHR read set
+# the first argument is the reference to map against
+# the second two arguments anre the read files
+# and output is to a .sam
+bwa mem human-GRCh38-22sub.fasta UHR_Rep1.R1.fastq UHR_Rep1.R2.fastq > UHR_Rep1.sam
 
 ```
 
@@ -294,13 +297,33 @@ Great. Let's take a quick look at our results.
 
 ```bash
 # samtools is so versatile
-samtools flagstats UHR_Rep1_chr22.sam
+samtools flagstats UHR_Rep1.sam
+```
+
+Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good").
+
+Why do we have these Supplementary reads? Did you forget something? We are looking at RNA-seq data. RNA-seq data is from mRNA, which is often *spliced*. So we need a splice-aware aligner!
+
+
+<img src="graphics/map-reads.png" width="300"/><br>
+**Yes, you do.**<br><br>
+
+
+```bash
+# here's a splice-aware aligner?
+mamba install -c bioconda hisat2
 ```
 
 ```bash
 # there is nothing to do here but cut and paste
 # I promise, no syntax errors
---rg-id=${F/_Build37\-ErccTranscripts\-chr22\.read1\.trim\.fastq\.gz/}
+#--rg-id=${F/_Build37\-ErccTranscripts\-chr22\.read1\.trim\.fastq\.gz/}
+# first we make the index
+hisat2-build human-GRCh38-22sub.fasta human-GRCh38-22sub
+
+# then we map. These arguments should be relatively self-explanatory
+
+
 ```
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
