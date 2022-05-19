@@ -285,9 +285,22 @@ We now need to map our reads. What should we use? Well, you have mapped reads be
 # let's index first
 bwa index human-GRCh38-22sub.fasta
 
-# now map our first read set
-bwa mem human-GRCh38-22sub.fasta 
+# now map the first read set
+bwa mem human-GRCh38-22sub.fasta UHR_Rep1_chr22.R1.fastq.gz UHR_Rep2_chr22.R1.fastq.gz > UHR_Rep1_chr22.sam
 
+```
+
+Great. Let's take a quick look at our results.
+
+```bash
+# samtools is so versatile
+samtools flagstats UHR_Rep1_chr22.sam
+```
+
+```bash
+# there is nothing to do here but cut and paste
+# I promise, no syntax errors
+--rg-id=${F/_Build37\-ErccTranscripts\-chr22\.read1\.trim\.fastq\.gz/}
 ```
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
