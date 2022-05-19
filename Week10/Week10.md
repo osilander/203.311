@@ -332,9 +332,18 @@ samtools flagstats UHR_Rep1.bwa.sam
 samtools flagstats UHR_Rep1.hisat2.sam
 # let's remove this pesky bwa alignment
 rm *bwa.sam
+# and the hisat2 alignment (trust me)
+rm *hisat2.sam
 ```
 
-We can see now that there are no Supplementary reads in the `hisat2` `.sam` file, and thus we have successfully mapped across the exon junctions. We have six different read sets here though and would like to map them all. We could go and map each one of them by hand. But we are operating on the command line and would like to do things a little more quickly. In this case 
+We have just seen that there are no Supplementary reads in the `hisat2` `.sam` file, and thus we have successfully mapped across the exon junctions. However, we have six different read sets here and would like to map them all. We could go and map each one of them by hand. But we are operating on the command line and would like to do things a little more quickly. In this case we will use a `bash` loop, a slightly complicated format but one which can help tremendously when you have hundreds of files. I have written it out below. If you *have not* used the same file names as the ones listed above, then the loop won't work. Let someone know if this is the case.
+
+```bash
+# the F here is a variable that we loop over
+for F in *R1.fastq; do hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam}; done
+```
+
+You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads. Finally, we can take a look at this.
 
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
