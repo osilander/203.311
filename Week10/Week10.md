@@ -338,11 +338,27 @@ We have just seen that there are no Supplementary reads in the `hisat2` `.sam` f
 
 ```bash
 # the F here is a variable that we loop over
-for F in *R1.fastq; do hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam}; done
+# We'll also sort
+for F in *R1.fastq; do
+    hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam};
+    samtools sort ${F/R1\.fastq/sam} > ${F/R1\.fastq/sort\.sam};
+done
 ```
 
-You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads. Finally, we can take a look at this.
+You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads. Finally, we can take a look at the depths.
 
+```bash
+samtools coverage -m sam.file.of.your.choice.sam
+```
+
+Take a look at all the replicates for each sample. Do they look the same? You can return to the UCSC browser page to see how the plots here relate to the gene locations on the chromosome. Remember that the region you have mappoed to is a small part of chromosome 22. Specifically, it's from 22.5 Mbp to 23 Mbp. Thus, on your `samtools coverage` plot, position 150 Kbp will be 22.5 Mbp + 150 Kbp = 22,650,000 bp.
+
+There are clearly specific genes that are almost completely turned off in the brain. Whic are those?
+
+Look also at *UHR_Rep2.sort.sam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
+
+<br>
+<br>
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
 **So many choices**<br>
