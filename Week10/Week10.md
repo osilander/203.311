@@ -261,7 +261,7 @@ mamba install -c bioconda fastqc multiqc
 Now we run the QC steps
 
 ```bash
-fastqc *fastq.gz
+fastqc *fastq
 
 # it can't be this easy, can it?
 # you wouldn't cut and paste this, would you?
@@ -315,9 +315,7 @@ mamba install -c bioconda hisat2
 ```
 
 ```bash
-# there is nothing to do here but cut and paste
-# I promise, no syntax errors
-#--rg-id=${F/_Build37\-ErccTranscripts\-chr22\.read1\.trim\.fastq\.gz/}
+
 # first we make the index. The second argument here is the base-name of our index
 hisat2-build human-GRCh38-22sub.fasta human-GRCh38-22sub
 
