@@ -235,10 +235,10 @@ Now we can begin our RNA-seq journey. To do this, we will begin at the beginning
 
  ```bash
 # -x extracts -v is verbose -f is the file
-tar -xvf data.tar
+tar -xvf fastq.data.tar
 
 # upon successful untarring, remove the tarball!
-rm data.tar
+rm fastq.data.tar
 ```
 
 <img src="graphics/tar_2x.png" width="700"/><br>
@@ -289,7 +289,7 @@ bwa index human-GRCh38-22sub.fasta
 # the first argument is the reference to map against
 # the second two arguments anre the read files
 # and output is to a .sam
-bwa mem human-GRCh38-22sub.fasta UHR_Rep1.R1.fastq UHR_Rep1.R2.fastq > UHR_Rep1.sam
+bwa mem human-GRCh38-22sub.fasta UHR_Rep1.R1.fastq UHR_Rep1.R2.fastq > UHR_Rep1.bwa.sam
 
 ```
 
@@ -297,7 +297,7 @@ Great. Let's take a quick look at our results.
 
 ```bash
 # samtools is so versatile
-samtools flagstats UHR_Rep1.sam
+samtools flagstats UHR_Rep1.bwa.sam
 ```
 
 Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good").
@@ -318,17 +318,32 @@ mamba install -c bioconda hisat2
 # there is nothing to do here but cut and paste
 # I promise, no syntax errors
 #--rg-id=${F/_Build37\-ErccTranscripts\-chr22\.read1\.trim\.fastq\.gz/}
-# first we make the index
+# first we make the index. The second argument here is the base-name of our index
 hisat2-build human-GRCh38-22sub.fasta human-GRCh38-22sub
 
 # then we map. These arguments should be relatively self-explanatory
-
-
+hisat2 -x human-GRCh38-22sub -1 UHR_Rep1.R1.fastq -2 UHR_Rep1.R2.fastq -S UHR_Rep1.hisat2.sam
 ```
+
+```bash
+# samtools is so versatile
+samtools flagstats UHR_Rep1.bwa.sam
+# then to compare
+samtools flagstats UHR_Rep1.hisat2.sam
+# let's remove this pesky bwa alignment
+rm *bwa.sam
+```
+
+We can see now that there are no Supplementary reads in the `hisat2` `.sam` file, and thus we have successfully mapped across the exon junctions. We have six different read sets here though and would like to map them all. We could go and map each one of them by hand. But we are operating on the command line and would like to do things a little more quickly. In this case 
+
 
 <img src="graphics/edger-deseq2.jpeg" width="500"/><br>
 **So many choices**<br>
 source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-population-samples/
+
+
+
+
 
 ### Next Time
 
