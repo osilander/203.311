@@ -39,7 +39,7 @@ Becuase this is such an important concept, we are going to spend some time on th
 First some examples that have *nothing* to do with RNA or cells or sequencing. 
 But hopefully they give us some insight into how dimensional reduction works and why it's important.
 
-**Important Note**: I have put some extremely informative (imho) youtube videos up on Stream that explain PCA, UMAP, RNA-seq normalisation, and from there you can find explanations on other RNA-seq related topics. Also here:
+**Important Note**: I have put some extremely informative (imho) youtube videos up on Stream that explain PCA, UMAP, RNA-seq normalisation, and from there you can find explanations on other RNA-seq related topics. Also linked here:<br>
 [Explain PCA](https://www.youtube.com/watch?v=HMOI_lkzW08 "6 minutes")<br>
 [Explain PCoA and MDS](https://www.youtube.com/watch?v=GEn-_dAyYME "8 minutes")<br>
 [Explain UMAP](https://www.youtube.com/watch?v=eN0wFzBA4Sc "18 minutes")<br>
