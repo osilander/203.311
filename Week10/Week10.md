@@ -370,10 +370,8 @@ Take a look at all the replicates for each sample. Do they look the same? You ca
 There are clearly specific genes that are almost completely turned off in the brain. Which are those?
 
 Look also at *UHR_Rep2.sort.sam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
-
 <br>
 <br>
-
 ## Next Time
 
 Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
