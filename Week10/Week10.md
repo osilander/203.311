@@ -84,11 +84,11 @@ We will move on to a cocktail dataset and a tutorial derived from [here](https:/
 
 Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
 
-Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it `cocktails_df` as that will match the code below).
+Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it `cocktails_df` (as that will match the code below).
 
 We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
 
-Next we need to load a few libraries before we do our first analysis
+Next we need to load a few libraries before we do our first analysis. This will take about three minutes, so sit back for a second.
 
 ```R
 # it's the tidyverse!
@@ -108,7 +108,7 @@ install.packages("ggplot2")
 library(ggplot2)
 ```
 
-Now we start on the path toward PCA.
+Now we start on the path toward cocktail PCA.
 
 ```R
 # This is a recipe
@@ -121,7 +121,7 @@ pca_rec <- recipe(~., data = cocktails_df) %>%
   # Note that the name and category of cocktail 
   # are just labels not predictors
   update_role(name, category, new_role = "id") %>%
-  # Normalise means so all the 
+  # Normalise so all the 
   # variables have mean 0 and stdev 1
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors())
@@ -159,6 +159,8 @@ juice(pca_prep) %>%
   # and don't add more colour anywhere
   labs(color = NULL)
 ```
+Note that you can change the `PC1` and `PC2` in the `ggplot` function to 
+plot the next principal components. Feel free to try this (e.g. to `PC2` and `PC3`.
 
 Wow, a few cocktails are quite different from others. What's in an Applejack punch?
 
@@ -198,6 +200,19 @@ for(coi in my.cocktails) {
 }
 ```
 So similar yet so different.
+
+Finbally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!"))
+
+```R
+tidied_pca %>%
+  filter(component %in% paste0("PC", 1:5)) %>%
+  mutate(component = fct_inorder(component)) %>%
+  ggplot(aes(value, terms, fill = terms)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~component, nrow = 1) +
+  labs(y = NULL)
+```
+
 
 So what have we discovered? We have found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
 
