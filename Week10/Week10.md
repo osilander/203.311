@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-# Single Cell Transcriptomics
+# Transcriptomics
 **Dr Olin Silander**
 
 ## Learning Objectives
@@ -225,11 +225,13 @@ juice(umap_prep) %>%
 
 Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* Here we can see that UMAP does not aim to find what variables differentiate samples the most (thereby *stretching* some dimensions considerably and *shrinking* others, especially if there are only a few outliers in some dimensions). Rather, UMAP aims to find ways to reduce dimensions while maintaining groupings. If we consider the Woolly Mammoth example from the link above, PCA would find that the variable with the most variation is (largely speaking) length and width. It would then project onto these, leaving differences between the left and right side nearly non-existent. You canimagine, for example, that the two tusks would thus become indistinguishable. However, this is not at all true for UMAP. It groups the tusks (as they are near) but keeps them separate. Similar for the left and right legs.
 
+A second difference between the two methods is that PCA is better suited for datasets in which there are a small number of variable-combinations that differentiate samples (e.g. when the first three principal components accounts for 90% of the variation of the data). In contrast, UMAP is better suited for datasets in which there are many many variable combinations that differentiate samples 
+
 ## RNA-seq
 
 ### The Data
 
-Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that much this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial") and that parts of this lab are based on that tutorial.
+Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that much this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
 
  Let's first untar the [tarball](https://en.wikipedia.org/wiki/Tar_(computing "Sticky!") so that we see the files inside.
 

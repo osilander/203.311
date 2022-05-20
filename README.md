@@ -15,7 +15,7 @@ This practice-oriented course differs from many of the other courses you may hav
 | 7 | Microbial Diversity                    | [Barcodes and Diversity](Week7/Week7.html)      |
 | 8 |                                     | [Metagenomics](Week8/Week8.html)      |
 | 9 |                | [Metagenomic Visualization](Week9/Week9.html)      |
-| 10 | Human Genomics                  | [Single Cell Transcriptomics](Week10/Week10.html) |
+| 10 | Human Genomics                  | [Transcriptomics](Week10/Week10.html) |
 | 11 |                | [Transcriptomic Visualization](Week11/Week11.html) |
 | 12 | Science Communication  |            [Science and the Public](Week12/Week12.html) |
 
