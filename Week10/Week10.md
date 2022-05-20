@@ -40,11 +40,11 @@ First some examples that have *nothing* to do with RNA or cells or sequencing.
 But hopefully they give us some insight into how dimensional reduction works and why it's important.
 
 **Important Note**: I have put some extremely informative (imho) youtube videos up on Stream that explain PCA, UMAP, RNA-seq normalisation, and from there you can find explanations on other RNA-seq related topics. Also here:
-[Explain PCA](https://www.youtube.com/watch?v=HMOI_lkzW08 "6 minutes")
-[Explain PCoA and MDS](https://www.youtube.com/watch?v=GEn-_dAyYME "8 minutes")
-[Explain UMAP](https://www.youtube.com/watch?v=eN0wFzBA4Sc "18 minutes")
-[Explain RNA-seq](https://www.youtube.com/watch?v=tlf6wYJrwKY&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp "18 minutes")
-[FPKM and TPM](https://www.youtube.com/watch?v=TTUrtCY2k-w&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp&index=6 "10 minutes")
+[Explain PCA](https://www.youtube.com/watch?v=HMOI_lkzW08 "6 minutes")<br>
+[Explain PCoA and MDS](https://www.youtube.com/watch?v=GEn-_dAyYME "8 minutes")<br>
+[Explain UMAP](https://www.youtube.com/watch?v=eN0wFzBA4Sc "18 minutes")<br>
+[Explain RNA-seq](https://www.youtube.com/watch?v=tlf6wYJrwKY&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp "18 minutes")<br>
+[FPKM and TPM](https://www.youtube.com/watch?v=TTUrtCY2k-w&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp&index=6 "10 minutes")<br>
 
 ### The Meat and Potatoes
 
