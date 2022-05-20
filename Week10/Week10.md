@@ -256,7 +256,7 @@ A second difference between the two methods is that PCA is better suited for dat
 
 ### The Data
 
-Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that much this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
+Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
 
  Let's first untar the [tarball](https://en.wikipedia.org/wiki/Tar_(computing "Sticky!") so that we see the files inside.
 
@@ -296,12 +296,14 @@ mu1tiqc .
 
 ```
 
-Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates.
+Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300;
 
 We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances this could be fatal for your pipeline.
 
 ### Alignment
-The human genome is three billion base pairs long (the haploid version). Clearly we cannot take the reads from above and map them to this genome as you will not be able to handle this genome in the memory of your `RStudio` instance. Instead, then, I have extracted 500 Kbp from chromosome 22 (so, only 1 Mb in total), and we will deal only with this region. You can see this region [here - yes, clickme](https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr22%3A22500000%2D23000000&hgsid=1357628733_TbqBbiOKKUkY821r3FT7Pi0FieRA "It's the Santa Cruz genome browser!"). The webpage you are on is the Santa Cruz Genome Browser, one of the primary repositories for reference genomes, with many of the genome features hand-annotated. Here, you can see a region from human chromosome 22 (visible at the top of the screen, with the focal region in a red rectangle). In an extreme stroke of luck, this region also has genes in it. (Kidding, I made sure it did). These genes are visible as dark blue / purplish annotated elements, and are clickable if you'd like to see more details.
+The human genome is three billion base pairs long (the haploid version). Clearly we cannot take the reads from above and map them to this genome as you will not be able to handle this genome in the memory of your `RStudio` instance. Instead, then, I have extracted 500 Kbp from chromosome 22, and we will deal only with this region. You can see this region [here - yes, clickme](https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr22%3A22500000%2D23000000&hgsid=1357628733_TbqBbiOKKUkY821r3FT7Pi0FieRA "It's the Santa Cruz genome browser!").
+
+The webpage you were just on (or are about to go on) is the Santa Cruz Genome Browser, one of the primary repositories for reference genomes, with many of the genome features hand-annotated. Here, you can see a region from human chromosome 22 (visible at the top of the screen, with the focal region in a red rectangle). In an extreme stroke of luck, this region also has genes in it. (Kidding, I made sure it did). These genes are visible as dark blue / purplish annotated elements, and are clickable if you'd like to see more details.
 
 The `.fasta` file of the extracted region from Chromosome 22 is [here](data/human-GRCh38-22sub.fasta). Go ahead and download it now (yes, `wget`).
 
@@ -332,12 +334,12 @@ Look specifically at the "Supplementary reads." What are these? [Click here to f
 Why do we have these Supplementary reads? Did you forget something? We are looking at RNA-seq data. RNA-seq data is from mRNA, which is often *spliced*. So we need a splice-aware aligner!
 
 
-<img src="graphics/map-reads.png" width="300"/><br>
+<img src="graphics/map-reads.png" width="400"/><br>
 **Yes, you do.**<br><br>
 
 
 ```bash
-# here's a splice-aware aligner?
+# here's a splice-aware aligner
 mamba install -c bioconda hisat2
 ```
 
@@ -353,8 +355,12 @@ hisat2 -x human-GRCh38-22sub -1 UHR_Rep1.R1.fastq -2 UHR_Rep1.R2.fastq -S UHR_Re
 ```bash
 # samtools is so versatile
 samtools flagstats UHR_Rep1.bwa.sam
-# then to compare
+# then the hisat version to compare
 samtools flagstats UHR_Rep1.hisat2.sam
+```
+Note the differences between the two `.sam` files.
+
+```bash
 # let's remove this pesky bwa alignment
 rm *bwa.sam
 # and the hisat2 alignment (trust me)
@@ -374,7 +380,7 @@ for F in *R1.fastq; do
 done
 ```
 
-You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads. Finally, we can take a look at the depths.
+You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads (the files are much much smaller). Finally, we can take a look at the depths.
 
 ```bash
 samtools coverage -m sam.file.of.your.choice.sam
@@ -394,7 +400,5 @@ Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is singl
 <img src="graphics/single-cell.jpeg" width="500"/><br>
 **Problem solved.**<br><br>
 
-
-<br><br><br>
 
 
