@@ -393,6 +393,10 @@ There are clearly specific genes that are almost completely turned off in the br
 Look also at *UHR_Rep2.sort.sam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
 <br>
 <br>
+
+### Portfolio Analysis
+Often we are interested in the distribution of coverage (i.e. depth) values for an RNA-seq dataset so that we can look for specific artefacts or problems with our data. In this case, "distribution" simply means a histogram or density plot. For this portfolio analysis, you will need to calculate and plot such *distributions* of coverage (i.e. depth) for all six samples for which you now have `.sam` files. Plot these in such a way that these distributions are easy to compare, and thus easy to check for problematic samples. This could involve any of a number of manipulations or plotting methods, and I leave this to you.
+
 ## Next Time
 
 Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
