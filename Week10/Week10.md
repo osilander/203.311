@@ -196,6 +196,9 @@ So what have we discovered? We have found that dimensional reduction is a powerf
 
 But enough of that, onwards and upwards.
 
+<img src="graphics/studying-pca.jpeg" width="500"/><br>
+**Even so, we will go upwards.**<br><br>
+
 ### Who map? UMAP
 A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimensions while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!"). Scroll down to the Woolly Mammoth and adjust the parameters. Specifically, try n_neighbors = 100 and min_dist = 0.25.
 
