@@ -57,22 +57,22 @@ Our aim here is to find out which of these countries &#128556; differ the most i
 
 We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
 
-We can also visualise this as a heatmap, which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar. Note, importantly, that it does not say much about *how* similar.
+We can also visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar. Note, importantly, that it does not say much about *how* similar.
 
 <img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
 **It's getting hot in here**<br><br>
 
-But we can also figure out which countries are the most similar or different in their combined diet. For this, we can perform a PCA. This finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (pc1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
+Inb contrast, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is becuase PCA finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
 
 <img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
 **England is central to it all**<br><br>
 
-Not only that, we can visualise which diet items *contribute* to those components. This is shown below.
+Not only that, we can visualise which diet items *contribute* to those components. The top four items that contribute the most to these principal components (Dim1 and Dim2) are shown below.
 
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
 
-Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg, all of which the Welsh consume more of, especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (and a bit of alcohol), all of which the Welsh consume more of -- especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But perhaps most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
 
 Okay, let's repeat this ourselves, with a new dataset.
 
