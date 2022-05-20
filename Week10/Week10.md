@@ -372,15 +372,7 @@ Look also at *UHR_Rep2.sort.sam*. There is something slightly funny going on wit
 <br>
 <br>
 
-<img src="graphics/edger-deseq2.jpeg" width="500"/><br>
-**So many choices**<br>
-source: https://kaopubear.top/blog/2022-03-20-donot-use-deseq2-edger-in-human-population-samples/
-
-
-
-
-
-### Next Time
+## Next Time
 
 Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
 
