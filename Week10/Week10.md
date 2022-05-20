@@ -13,7 +13,7 @@
 6. Perform the steps necessary to implement dimensional reduction on a dataset
 7. Interpret dimensional reduction plots
 8. Discuss the advantages and disadvantages of two common dimensional reduction techniques, PCA and UMAP.
-
+9. Explain the requirements for read mapping in RNA-seq and interpret the results.
 
 ## Introduction
 
@@ -38,6 +38,13 @@ Before reading further, please take five minutes and read [this quick intro to P
 Becuase this is such an important concept, we are going to spend some time on this.
 First some examples that have *nothing* to do with RNA or cells or sequencing. 
 But hopefully they give us some insight into how dimensional reduction works and why it's important.
+
+**Important Note**: I have put some extremely informative (imho) youtube videos up on Stream that explain PCA, UMAP, RNA-seq normalisation, and from there you can find explanations on other RNA-seq related topics. Also here:
+[Explain PCA](https://www.youtube.com/watch?v=HMOI_lkzW08 "6 minutes")
+[Explain PCoA and MDS](https://www.youtube.com/watch?v=GEn-_dAyYME "8 minutes")
+[Explain UMAP](https://www.youtube.com/watch?v=eN0wFzBA4Sc "18 minutes")
+[Explain RNA-seq](https://www.youtube.com/watch?v=tlf6wYJrwKY&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp "18 minutes")
+[FPKM and TPM](https://www.youtube.com/watch?v=TTUrtCY2k-w&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp&index=6 "10 minutes")
 
 ### The Meat and Potatoes
 
@@ -194,7 +201,7 @@ So similar yet so different.
 
 So what have we discovered? We have found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
 
-But enough of that, onwards and upwards.
+But enough of that, onwards and upwards (hopefully). <br><br>
 
 <img src="graphics/studying-pca.jpeg" width="500"/><br>
 **Even so, we will go upwards.**<br><br>
