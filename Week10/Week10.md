@@ -376,26 +376,26 @@ We have just seen that there are no Supplementary reads in the `hisat2` `.sam` f
 # be able to understand what is happening here
 for F in *R1.fastq; do
     hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam};
-    samtools sort ${F/R1\.fastq/sam} > ${F/R1\.fastq/sort\.sam};
+    samtools sort ${F/R1\.fastq/sam} > ${F/R1\.fastq/sort\.bam};
 done
 ```
 
 You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads (the files are much much smaller). Finally, we can take a look at the depths.
 
 ```bash
-samtools coverage -m sam.file.of.your.choice.sam
+samtools coverage -m bam.file.of.your.choice.bam
 ```
 
 Take a look at all the replicates for each sample. Do they look the same? You can return to the UCSC browser page to see how the plots here relate to the gene locations on the chromosome. Remember that the region you have mappoed to is a small part of chromosome 22. Specifically, it's from 22.5 Mbp to 23 Mbp. Thus, on your `samtools coverage` plot, position 150 Kbp will be 22.5 Mbp + 150 Kbp = 22,650,000 bp.
 
 There are clearly specific genes that are almost completely turned off in the brain. Which are those?
 
-Look also at *UHR_Rep2.sort.sam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
+Look also at *UHR_Rep2.sort.bam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
 <br>
 <br>
 
 ### Portfolio Analysis
-Often we are interested in the distribution of coverage (i.e. depth) values for an RNA-seq dataset so that we can look for specific artefacts or problems with our data. In this case, "distribution" simply means a histogram or density plot. For this portfolio analysis, you will need to calculate and plot such *distributions* of coverage (i.e. depth) for all six samples for which you now have `.sam` files. Plot these in such a way that these distributions are easy to compare, and thus easy to check for problematic samples. This could involve any of a number of manipulations or plotting methods, and I leave this to you.
+Often we are interested in the distribution of coverage (i.e. depth) values for an RNA-seq dataset so that we can look for specific artefacts or problems with our data. In this case, "distribution" simply means a histogram or density plot. For this portfolio analysis, you will need to calculate and plot such *distributions* of coverage (i.e. depth) for all six samples for which you now have `.bam` files. Plot these in such a way that these distributions are easy to compare, and thus easy to check for problematic samples. This could involve any of a number of manipulations or plotting methods, and I leave this to you.
 
 ## Next Time
 
