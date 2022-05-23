@@ -5,7 +5,7 @@
 
 ## Note
 
-The information for this week is shown on the 'Wiki | Week 12' Stream page, and no further information will be posted here, apart from the timetable below.
+The information for this week is shown on the 'Wiki \| Week 12' Stream page, and no further information will be posted here, apart from the timetable below.
 
 
 ## Timetable for Week 12 
