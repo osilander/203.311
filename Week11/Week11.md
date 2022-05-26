@@ -34,7 +34,7 @@ Closely related to the binomial distribution is The Poisson Distribution, which 
 The number of RNA-seq reads that map to a gene [is also Poisson distributed](https://www.biostars.org/p/84445/ "I knew it!") (largely speaking). As expected then, most packages for analysing RNA-seq data *model* the data as being Poisson distributed. Let us then see what this means for genes with high and low number of reads mapped to them.
 
 <img src="graphics/prob-poisson.jpeg" width="600" title="C'mon this looks too complicated"/><br>
-**I literally do not understand this at all**<br><br>
+**I literally do not understand this at all**. Credit: [xkcd](https://www.explainxkcd.com/wiki/index.php/12:_Poisson "But here's an explanation")<br><br>
 
 
 ### Differential Gene Expression Analysis
