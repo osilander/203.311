@@ -47,6 +47,7 @@ Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset wi
 
 # Doing this at the top let's us easily adjust the number of genes
 # and number of samples without adjusting the rest of the code
+# (if for some reason you wanted to do that)
 n.genes <- 500
 n.samples <- 6
 
@@ -139,7 +140,26 @@ summary(deseq.results)
 with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
 ```
 
+Your plot - for the most part - should indicate that there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
 
+We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
+
+
+```R
+# Randomly increase read counts of 10 genes
+# in the cancer samples by 10 counts
+rand.genes <- sample(1:n.genes,10)
+low.read.counts[rand.genes,4:6] <- low.read.counts[rand.genes,4:6] + 40
+
+# reconstruct our analysis object
+deseq.sample <- DESeqDataSetFromMatrix(countData=low.read.counts, colData=sample.data, design= ~ tissue)
+
+# Do the analysis, get the results, and plot it
+deseq.sample <- DESeq(deseq.sample)
+deseq.results <- results(deseq.sample, contrast=c("tissue", "cancer", "normal"))
+with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
+
+```
 
 ### Differential Gene Expression Analysis (Real Data)
 
