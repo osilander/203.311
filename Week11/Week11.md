@@ -46,22 +46,28 @@ Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset wi
 # And we'll get results for four "samples"
 
 # Doing this at the top let's us easily adjust the number of genes
-# and snumber of samples without adjusting the rest of the code
+# and number of samples without adjusting the rest of the code
 n.genes <- 500
 n.samples <- 6
 
-# Make our data
-low.read.counts <- matrix(rpois(n.samples*n.genes,3), ncol=n.samples, nrow=n.genes)
+# Make our data, the total amount is just the number 
+# of samples times the number of genes and we'll have
+# a mean of 3. We'll pretend our data come from two
+# samples, "normal" and "cancer" tissue
+
+normal.counts <- rpois(n.samples*n.genes/2,3)
+cancer.counts <- rpois(n.samples*n.genes/2,3)
+
+low.read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
 
 # Add some labels
 rownames(low.read.counts) <- paste0("gene_",1:n.genes)
-colnames(low.read.counts) <- paste0("sample_",1:n.samples)
-
+colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
 head(read.counts)
 ``` 
 
-Let's check that these are Poisson distributed.
+Let's check that these are Poisson distributed. We'll use the `hist()` function.
 
 ```R
 # I always change this as I don't like sideways numbers
@@ -71,7 +77,7 @@ par(las=1)
 hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Frequency", main="Poisson or not?")
 ```
 
-You'll note that even though we specified that the mean of our distributions should be three, the number of "genes" with three reads mapping is very similar to the number of reads with two reads mapping. Also note that this distribution has a relatively long tail - there (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
+You'll note that even though we specified that the mean of our distributions should be three, the number of "genes" with three reads mapping is very similar to the number of reads with two reads mapping. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
@@ -82,20 +88,59 @@ This line should follow the distribution fairly closely, with some sampling nois
 
 ```R
 # We don't care if it's pretty
+# But let's output to a pdf so we can look at it later
+pdf(file="low.read.count.pdf", width=2,height=8)
 heatmap(low.read.counts)
+dev.off()
 ```
 
-Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc.
-
-### Differential Gene Expression Analysis
-
-As we will be using the DESeq2 package we will first need to install it. Navigate to your `R` console.
+Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using a [very popular](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike") package, `the DESeq2` package.
 
 ```R
 # Get DESeq2 from the bioconductor website
 library(BiocManager)
 BiocManager::install("DESeq2")
 ```
+
+We also have to set up our sample data so that `DESeq2` can handle it. This is relatively simple, and just involves constructing a matrix that will tell `DESeq2` which samples are which. Let's do that quickly:
+
+```R
+# for this to work you must have named your
+# sample number variable "n.samples" 
+sample.data <- matrix(c(rep("normal",n.samples/2), rep("cancer",n.samples/2)), ncol=1, nrow=n.samples)
+rownames(sample.data) <- colnames(low.read.counts)
+colnames(sample.data) <- "tissue"
+```
+
+Then we can have `DESeq2` do the analysis for us (thanks!)
+
+```R
+# Here we make our DESeq2 object
+deseq.sample <- DESeqDataSetFromMatrix(countData=low.read.counts, colData=sample.data, design= ~ tissue)
+
+# This is the actual analysis
+deseq.sample <- DESeq(deseq.sample)
+
+# Last thing we do is fetch the results out of the object after telling it
+# that we want to compare normal tissue and cancer tissue
+deseq.results <- results(deseq.sample, contrast=c("tissue", "cancer", "normal"))
+
+# How did it go?
+summary(deseq.results)
+
+# Finally, we can make our first plot, a volcano plot
+# We just have to specify which variable to plot. But 
+# we all know a volcano plot is log2 fold-change versus
+# -log10 p-value
+with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
+```
+
+
+
+### Differential Gene Expression Analysis (Real Data)
+
+As we will be using the DESeq2 package we will first need to install it. Navigate to your `R` console.
+
 We will use the `DESeq2` plotting tools, which require `ggplot2`. Apparently many of you are becoming quite familiar with this package for your portfolio assessments (well done!).
 
 ```R
