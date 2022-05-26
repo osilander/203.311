@@ -96,6 +96,10 @@ dev.off()
 
 Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using a [very popular](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike") package, `the DESeq2` package.
 
+
+<img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
+**There are really only two commonly used RNA-seq analysis packages**<br><br>
+
 ```R
 # Get DESeq2 from the bioconductor website
 library(BiocManager)
