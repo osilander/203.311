@@ -132,7 +132,7 @@ dge.low.counts.backup <- dge.low.counts
 
 ```
 
-We can then filter our results so that we only include genes that have mapped read counts per million mapped reads of at least 100 in at least 2 samples.
+We can then filter our results so that we only include genes that have mapped read counts per million mapped reads of at least 100 in at least two samples.
 
 ```R
 # remind ourselves what the read counts look like
@@ -142,18 +142,28 @@ head(dge.low.counts)
 head(cpm(dge.low.counts))
 
 # find out which rows to keep
+# here cpm(dge.low.counts)>100 gives a TRUE or FALSE
+# which can also be summed as they can be 
+# interpreted as ones (TRUE) or zeroes (FALSE)
 keep <- rowSums(cpm(dge.low.counts)>100) >= 2
 
 # keep only those rows
 dge.low.counts <- dge.low.counts[keep,]
 
-# check what 
+# check what was lost
 dim(dge.low.counts)
 ```
 
-We've kept all our genes! Even though they have low counts! That's because all rows have at least two samples with more than zero reads, and our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5
+We've kept all our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2\*62.5 is greater than 100, so that's all we need. Of course we can also calculate the probability that five of our samples in one row have fewer than two eads, and that is just the probability that at least five have one or zero reads, which is about one in six million. We could change our cutoff to three samples having at least 100 mapped reads, and then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000. Let's do that.
 
-with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-4,4)))
+```R
+keep <- rowSums(cpm(dge.low.counts)>100) >= 3
+
+# keep only those rows
+dge.low.counts <- dge.low.counts[keep,]
+
+# check what was lost
+dim(dge.low.counts)
 ```
 
 Your plot - for the most part - should indicate that there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
