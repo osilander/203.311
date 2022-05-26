@@ -114,21 +114,45 @@ We also have to set up our sample data so that `edgeR` can handle it. This is re
 # sample number variable "n.samples" 
 sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
 
+# What does it look  like?
 sample.data
 ```
 
-Then we can have `DESeq2` do the analysis for us (thanks!)
+Then we can have `edgeR` do the analysis for us (thanks!)
 
 ```R
 # Here we make our edgeR object
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 # check what it looks like
-summary(d)
+summary(dge.low.counts)
 
-# Finally, we can make our first plot, a volcano plot
-# We just have to specify which variable to plot. But 
-# we all know a volcano plot is log2 fold-change versus
-# -log10 p-value
+# We make a cheeky backup copy because we're prone
+# to deleting important things
+dge.low.counts.backup <- dge.low.counts
+
+```
+
+We can then filter our results so that we only include genes that have mapped read counts per million mapped reads of at least 100 in at least 2 samples.
+
+```R
+# remind ourselves what the read counts look like
+head(dge.low.counts)
+
+# What do the counts per million look like?
+head(cpm(dge.low.counts))
+
+# find out which rows to keep
+keep <- rowSums(cpm(dge.low.counts)>100) >= 2
+
+# keep only those rows
+dge.low.counts <- dge.low.counts[keep,]
+
+# check what 
+dim(dge.low.counts)
+```
+
+We've kept all our genes! Even though they have low counts! That's because all rows have at least two samples with more than zero reads, and our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5
+
 with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-4,4)))
 ```
 
