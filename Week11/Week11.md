@@ -95,16 +95,16 @@ heatmap(low.read.counts)
 dev.off()
 ```
 
-Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using a [very popular](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike") package, `the DESeq2` package.
+Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
 
 
 <img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
 **There are really only two commonly used RNA-seq analysis packages**<br><br>
 
 ```R
-# Get DESeq2 from the bioconductor website
+# Get edgeR from the bioconductor website
 library(BiocManager)
-BiocManager::install("DESeq2")
+BiocManager::install("edgeR")
 ```
 
 We also have to set up our sample data so that `DESeq2` can handle it. This is relatively simple, and just involves constructing a matrix that will tell `DESeq2` which samples are which. Let's do that quickly:
