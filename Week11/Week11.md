@@ -107,31 +107,23 @@ library(BiocManager)
 BiocManager::install("edgeR")
 ```
 
-We also have to set up our sample data so that `DESeq2` can handle it. This is relatively simple, and just involves constructing a matrix that will tell `DESeq2` which samples are which. Let's do that quickly:
+We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a matrix that will tell `edgeR` which samples are which. Let's do that quickly:
 
 ```R
 # for this to work you must have named your
 # sample number variable "n.samples" 
-sample.data <- matrix(c(rep("normal",n.samples/2), rep("cancer",n.samples/2)), ncol=1, nrow=n.samples)
-rownames(sample.data) <- colnames(low.read.counts)
-colnames(sample.data) <- "tissue"
+sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
+
+sample.data
 ```
 
 Then we can have `DESeq2` do the analysis for us (thanks!)
 
 ```R
-# Here we make our DESeq2 object
-deseq.sample <- DESeqDataSetFromMatrix(countData=low.read.counts, colData=sample.data, design= ~ tissue)
-
-# This is the actual analysis
-deseq.sample <- DESeq(deseq.sample)
-
-# Last thing we do is fetch the results out of the object after telling it
-# that we want to compare normal tissue and cancer tissue
-deseq.results <- results(deseq.sample, contrast=c("tissue", "cancer", "normal"))
-
-# How did it go?
-summary(deseq.results)
+# Here we make our edgeR object
+dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
+# check what it looks like
+summary(d)
 
 # Finally, we can make our first plot, a volcano plot
 # We just have to specify which variable to plot. But 
