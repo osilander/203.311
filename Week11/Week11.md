@@ -50,14 +50,14 @@ Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset wi
 # (if for some reason you wanted to do that)
 n.genes <- 500
 n.samples <- 6
-
+avg.reads <- 4
 # Make our data, the total amount is just the number 
 # of samples times the number of genes and we'll have
 # a mean of 3. We'll pretend our data come from two
 # samples, "normal" and "cancer" tissue
 
-normal.counts <- rpois(n.samples*n.genes/2,3)
-cancer.counts <- rpois(n.samples*n.genes/2,3)
+normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
+cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
 
 low.read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
 
@@ -75,14 +75,14 @@ Let's check that these are Poisson distributed. We'll use the `hist()` function.
 par(las=1)
 
 # We'll use a very large number of breaks for consistency with the next section
-hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Frequency", main="Poisson or not?")
+hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
 
-You'll note that even though we specified that the mean of our distributions should be three, the number of "genes" with three reads mapping is very similar to the number of reads with two reads mapping. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
+You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observeing reads that map to these genes. We should have sequencing data that is *deeper* - i.e. has more reads per sample. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
-points(0:12, dpois(0:12,3)*1000, ty="o", bg="pink", lwd=2, pch=21)
+points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
 ```
 
 This line should follow the distribution fairly closely, with some sampling noise. Let's next look at our dataset more holistically. Here, we will use a heatmap, which most of you will have already encountered.
@@ -137,7 +137,7 @@ summary(deseq.results)
 # We just have to specify which variable to plot. But 
 # we all know a volcano plot is log2 fold-change versus
 # -log10 p-value
-with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
+with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-4,4)))
 ```
 
 Your plot - for the most part - should indicate that there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
@@ -147,9 +147,12 @@ We can now make our toy data set a bit more interesting. For example, we could c
 
 ```R
 # Randomly increase read counts of 10 genes
-# in the cancer samples by 10 counts
+# in the cancer samples by 3-fold
+# to do that we first find random genes (rows)
 rand.genes <- sample(1:n.genes,10)
-low.read.counts[rand.genes,4:6] <- low.read.counts[rand.genes,4:6] + 40
+# Then we increase the counts, but *only* in the cancer samples (the 
+# 2nd half of the samples)
+low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
 
 # reconstruct our analysis object
 deseq.sample <- DESeqDataSetFromMatrix(countData=low.read.counts, colData=sample.data, design= ~ tissue)
@@ -159,7 +162,11 @@ deseq.sample <- DESeq(deseq.sample)
 deseq.results <- results(deseq.sample, contrast=c("tissue", "cancer", "normal"))
 with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
 
+summary(deseq.results)
+
 ```
+
+Now you should see some differentially expressed genes (but maybe not many). Let's repeat this process but pretend we have a better sample with more reads.
 
 ### Differential Gene Expression Analysis (Real Data)
 
