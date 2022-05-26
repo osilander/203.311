@@ -95,7 +95,7 @@ heatmap(low.read.counts)
 dev.off()
 ```
 
-Great, we've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
+Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
 
 
 <img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
@@ -118,7 +118,7 @@ sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples
 sample.data
 ```
 
-Then we can have `edgeR` do the analysis for us (thanks!)
+Then we can have `edgeR` do the analysis for us (thanks!). Various parts of the tutorial below are from [here](https://www.nathalievialaneix.eu/doc/html/solution-edgeR-rnaseq.html) and [here](https://web.stanford.edu/class/bios221/labs/rnaseq/lab_4_rnaseq.html).
 
 ```R
 # Here we make our edgeR object
@@ -166,7 +166,47 @@ dge.low.counts <- dge.low.counts[keep,]
 dim(dge.low.counts)
 ```
 
-Your plot - for the most part - should indicate that there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+Next we need to normalise our data for library size.
+
+```R
+# normalise
+dge.low.counts <- calcNormFactors(dge.low.counts)
+
+# check what we did
+dge.low.counts
+```
+
+Looks good.
+
+Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot..
+
+```R
+plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
+```
+
+Your plot - for the most part - should indicate that none of the samples cluster by type (although you might find, by chance, that they do).
+
+We can also sort our data to find the most differentially expressed genes using the `topTags` function:
+
+```R
+# here, n is the number of genes to return, we just make it all genes
+sort.dge <- topTags(dgeTest, n=nrow(dgeTest$table))
+head(sort.dge)
+```
+
+But we can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-satellite-image "Sharkcano") plot. First we have to extract the relevant fields from our `edgeR` object, then plot.
+
+```R
+# as everyone knows, a volcano plot requires the log2 fold-change and the -log10 p-values
+volcanoData <- cbind(dge.low.counts$table$logFC, -log10(dge.low.counts$table$FDR))
+colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+
+# Everyone loves pch 19
+plot(volcanoData, pch=19)
+
+```
+
+there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
 
 We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
 
