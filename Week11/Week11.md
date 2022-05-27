@@ -286,9 +286,11 @@ dge.counts <- calcNormFactors(dge.counts)
 
 ```
 
-Take a quick peak at how Poisson this is
+Take a quick peak at how Poisson this is.
 ```R
 hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
+points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
+
 ```
 Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
 
