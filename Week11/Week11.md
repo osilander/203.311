@@ -83,7 +83,7 @@ par(las=1)
 hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
 
-You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observeing reads that map to these genes. We should have sequencing data that is *deeper* - i.e. has more reads per sample. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
+You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes. We should have sequencing data that is *deeper* - i.e. has more reads per sample. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
@@ -100,7 +100,7 @@ heatmap(low.read.counts)
 dev.off()
 ```
 
-Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
+Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. If you *actually* think this, you are squinting at your data too hard... Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
 
 
 <img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
@@ -112,12 +112,12 @@ library(BiocManager)
 BiocManager::install("edgeR")
 ```
 
-We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a matrix that will tell `edgeR` which samples are which. Let's do that quickly:
+We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a vector that will tell `edgeR` which samples are which. Let's do that quickly:
 
 ```R
 # for this to work you must have named your
 # sample number variable "n.samples" 
-sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
+sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
 
 # What does it look  like?
 sample.data
