@@ -283,7 +283,7 @@ rownames(read.counts) <- paste0("gene_",1:n.genes)
 colnames(read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
 head(read.counts)
-sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
+sample.data <- (rep("normal",n.samples/2),rep("cancer",n.samples/2))
 
 # check what it looks like
 summary(read.counts)
