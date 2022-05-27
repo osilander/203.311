@@ -38,7 +38,7 @@ The number of RNA-seq reads that map to a gene [is also Poisson distributed](htt
 **I literally do not understand this at all**. Credit: [xkcd](https://www.explainxkcd.com/wiki/index.php/12:_Poisson "But here's an explanation")<br><br>
 
 
-Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented set of barcodes in what was otherwise a good sequencing run. To make this toy dataset, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
+We'll make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented set of barcodes in what was otherwise a good sequencing run. To make this toy dataset, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
 
 ```R
 # Let's keep this simple
@@ -47,7 +47,7 @@ Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset wi
 # and the second is the *mean* of the Poisson distribution
 # We don't need to specify the variance, as the variance of 
 # a Poisson distribution is EQUAL to the mean!
-# And we'll get results for four "samples"
+# And we'll get results for six "samples"
 
 # Doing this at the top let's us easily adjust the number of genes
 # and number of samples without adjusting the rest of the code
