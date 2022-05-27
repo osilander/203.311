@@ -316,7 +316,7 @@ dge.test <- exactTest(dge.counts)
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 
-volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+volcanoData <- cbind(dge.counts$table$logFC, -log10(dge.counts$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 
