@@ -186,11 +186,12 @@ plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$grou
 
 Your plot - for the most part - should indicate that none of the samples cluster by type (although you might find, by chance, that they do).
 
-We can also sort our data to find the most differentially expressed genes using the `topTags` function:
+We can also sort our data to find the most differentially expressed genes using the `exactTest` and `topTags` functions:
 
 ```R
+dge.test <- exactTest(dge.low.counts)
 # here, n is the number of genes to return, we just make it all genes
-sort.dge <- topTags(dgeTest, n=nrow(dgeTest$table))
+sort.dge <- topTags(ge.test, n=nrow(dge.test$table))
 head(sort.dge)
 ```
 
@@ -226,10 +227,11 @@ low.read.counts[rand.genes,4:6] <- 4*low.read.counts[rand.genes,(n.samples/2+1):
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
 
-# Does this change anything?
+# Does this change anything? Let's check.
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 
 ```
+With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes!
 
 Now you should see some differentially expressed genes (but maybe not many). Let's repeat this process but pretend we have a better sample with more reads.
 
