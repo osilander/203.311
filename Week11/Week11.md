@@ -338,6 +338,8 @@ plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
+#let's highlight which points we made differentially expressed
+points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 
 Or plot the volcano plot but with FDR.
@@ -353,7 +355,7 @@ What is different here versus the dataset with few reads? We can easily see that
 
 ### Apologies
 
-We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s or cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.<br>
+We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s of cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.<br>
 
 
 <img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
