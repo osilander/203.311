@@ -251,7 +251,6 @@ plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$grou
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
-points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
 
@@ -340,10 +339,11 @@ sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 
-volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
-#let's highlight which points we made differentially expressed
+# let's highlight which points we made differentially expressed
+
 points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 
@@ -353,7 +353,6 @@ Or plot the volcano plot but with FDR.
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
-points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 
 What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
