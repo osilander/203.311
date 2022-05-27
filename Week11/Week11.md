@@ -198,37 +198,36 @@ But we can also make a [volcano](https://www.space.com/sharkcano-undersea-volcan
 
 ```R
 # as everyone knows, a volcano plot requires the log2 fold-change and the -log10 p-values
-volcanoData <- cbind(dge.low.counts$table$logFC, -log10(dge.low.counts$table$FDR))
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 
 # Everyone loves pch 19
 plot(volcanoData, pch=19)
 
+# okay but what if we *correct for multiple tests, and instead use the 
+# corrected p-value (here, called FDR)
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
+plot(volcanoData, pch=19)
 ```
 
-there are no differentially expressed "genes". This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+Nothing! This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
 
 We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
 
 
 ```R
-# Randomly increase read counts of 10 genes
+# Randomly increase read counts of 20 genes
 # in the cancer samples by 3-fold
 # to do that we first find random genes (rows)
-rand.genes <- sample(1:n.genes,10)
+rand.genes <- sample(1:n.genes,20)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
-low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+low.read.counts[rand.genes,4:6] <- 4*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
+dge.low.counts <- calcNormFactors(dge.low.counts)
 
-# reconstruct our analysis object
-deseq.sample <- DESeqDataSetFromMatrix(countData=low.read.counts, colData=sample.data, design= ~ tissue)
-
-# Do the analysis, get the results, and plot it
-deseq.sample <- DESeq(deseq.sample)
-deseq.results <- results(deseq.sample, contrast=c("tissue", "cancer", "normal"))
-with(deseq.results, plot(log2FoldChange, -log10(pvalue), pch=20, main="Volcano plot", xlim=c(-3,3)))
-
-summary(deseq.results)
+# Does this change anything?
+plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 
 ```
 
