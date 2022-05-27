@@ -284,7 +284,12 @@ Take a quick peak at how Poisson this is
 ```R
 hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
-Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold
+Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
+
+
+<img src="graphics/normals.png" width="600" title="It's not Ohio"/><br>
+**There are lots of distributions and they're all related**<br><br>
+
 
 Now, the `edgeR` bit.
 
