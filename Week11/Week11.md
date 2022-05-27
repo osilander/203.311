@@ -65,7 +65,7 @@ low.read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=
 rownames(low.read.counts) <- paste0("gene_",1:n.genes)
 colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
-head(read.counts)
+head(low.read.counts)
 ``` 
 
 Let's check that these are Poisson distributed. We'll use the `hist()` function.
@@ -231,9 +231,11 @@ We can now make our toy data set a bit more interesting. For example, we could c
 rand.genes <- sample(1:n.genes,20)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
-low.read.counts[rand.genes,4:6] <- 4*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
+dge.low.counts <- estimateCommonDisp(dge.low.counts)
+dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 
 # Does this change anything? Let's check.
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
@@ -246,10 +248,30 @@ What about our differentially expressed genes?
 dge.test <- exactTest(dge.low.counts)
 # here, n is the number of genes to return, we just make it all genes
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge)
+# We'll look at a few extra lines
+head(sort.dge, n=22L)
 ```
 
 Now you should see some differentially expressed genes (but maybe not many). Let's repeat this process but pretend we have a better sample with more reads.
+
+Okay, to get a better handkle on this whole process, let's change some more parameters. This time, we'll get more reads. We can just run through the code quite quickly.
+
+```R
+n.genes <- 4000
+
+# change one or both of these to whatever values you like
+# before they were 6 and 4
+n.samples <- 8
+avg.reads <- 50
+normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
+cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
+read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
+# Add some labels
+rownames(low.read.counts) <- paste0("gene_",1:n.genes)
+colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
+# Did it work?
+head(low.read.counts)
+```
 
 ### Differential Gene Expression Analysis (Real Data)
 
