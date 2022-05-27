@@ -271,6 +271,13 @@ rownames(read.counts) <- paste0("gene_",1:n.genes)
 colnames(read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
 head(read.counts)
+sample.data <- sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
+
+# check what it looks like
+summary(read.counts)
+dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
+dge.counts <- calcNormFactors(dge.counts)
+
 ```
 
 The `edgeR` bit.
@@ -287,6 +294,22 @@ head(sort.dge)
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
+
+dge.test <- exactTest(dge.counts)
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+head(sort.dge, n=22L)
+```
+As before, you should find that there are few differences. But maybe we can change the exopression of a few genes.
+
+```R
+rand.genes <- sample(1:n.genes,20)
+# Then we increase the counts, but *only* in the cancer samples (the 
+# 2nd half of the samples)
+low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
+dge.low.counts <- calcNormFactors(dge.low.counts)
+dge.low.counts <- estimateCommonDisp(dge.low.counts)
+dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 ```
 
 
