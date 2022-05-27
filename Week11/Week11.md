@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-# Transcriptomic Visualization
+# Transcriptomic Analysis and Visualization
 **Dr Olin Silander**
 
 ## Learning Objectives
@@ -8,7 +8,7 @@
 1. Understand the steps involved in analysing RNA-seq data
 2. Understand how small read count numbers can lead to uncertainty
 3. Calculate differences in gene expression between samples (DGE)
-4. Use three methods to visualise differences in gene expression: volcano plots, heatmaps, and MDS 
+4. Use two methods to visualise differences in gene expression: volcano plots and MDS 
 
 
 ## Introduction
