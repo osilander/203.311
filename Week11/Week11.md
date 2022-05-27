@@ -267,11 +267,28 @@ normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
 cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
 read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
 # Add some labels
-rownames(low.read.counts) <- paste0("gene_",1:n.genes)
-colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
+rownames(read.counts) <- paste0("gene_",1:n.genes)
+colnames(read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
-head(low.read.counts)
+head(read.counts)
 ```
+
+The `edgeR` bit.
+
+```R
+dge.counts <- estimateCommonDisp(dge.low.counts)
+dge.counts <- estimateTagwiseDisp(dge.low.counts)
+# look at this plot, don't ignore it
+plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
+dge.test <- exactTest(dge.counts)
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+head(sort.dge)
+
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+plot(volcanoData, pch=19)
+```
+
 
 ### Differential Gene Expression Analysis (Real Data)
 
