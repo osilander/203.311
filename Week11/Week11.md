@@ -55,8 +55,8 @@ We'll make some pretend RNA-seq data. First, we will make a toy dataset with a v
 n.genes <- 4000
 n.samples <- 6
 avg.reads <- 4
-# Make our data, the total amount is just the number 
-# of samples times the number of genes and we'll have
+# Next, make our data. The total amount of "read" data we need is just the number 
+# of samples multiplied by the number of genes, and we'll have
 # a mean of 3. We'll pretend our data come from two
 # samples, "normal" and "cancer" tissue
 
@@ -79,6 +79,7 @@ Let's check that these are Poisson distributed. We'll use the `hist()` function.
 par(las=1)
 
 # We'll use a very large number of breaks for consistency with the next section
+# We'll also break on increments of 0.5 so that the counts are centred
 hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
 
