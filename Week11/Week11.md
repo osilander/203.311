@@ -247,6 +247,11 @@ dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 # Does this change anything? Let's check.
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 
+
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+plot(volcanoData, pch=19)
+points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
 
@@ -348,6 +353,7 @@ Or plot the volcano plot but with FDR.
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
+points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 
 What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
