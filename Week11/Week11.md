@@ -191,7 +191,7 @@ We can also sort our data to find the most differentially expressed genes using 
 ```R
 dge.test <- exactTest(dge.low.counts)
 # here, n is the number of genes to return, we just make it all genes
-sort.dge <- topTags(ge.test, n=nrow(dge.test$table))
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 ```
 
@@ -232,6 +232,14 @@ plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$grou
 
 ```
 With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes!
+
+What about our differentially expressed genes?
+```R
+dge.test <- exactTest(dge.low.counts)
+# here, n is the number of genes to return, we just make it all genes
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+head(sort.dge)
+```
 
 Now you should see some differentially expressed genes (but maybe not many). Let's repeat this process but pretend we have a better sample with more reads.
 
