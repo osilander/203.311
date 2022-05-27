@@ -8,12 +8,16 @@
 1. Understand the steps involved in analysing RNA-seq data
 2. Understand how small read count numbers can lead to uncertainty
 3. Calculate differences in gene expression between samples (DGE)
-4. Use four methods to visualise differences in gene expression: volcano plots, heatmaps, and MDS 
+4. Use three methods to visualise differences in gene expression: volcano plots, heatmaps, and MDS 
 
 
 ## Introduction
 
-Up to this point, we have covered Methods for visualising RNA-seq results via dimensional reduction - specifically, Principal Component Analysis (PCA) and Uniform Manifold Approximation and Projection (UMAP). You have seen that in using these methods that certain "characteristics" (e.g. cocktail ingredients) of certain "things" (e.g. cocktails) can be reduced  
+Up to this point, we have covered Methods for visualising RNA-seq results via dimensional reduction - specifically, Principal Component Analysis (PCA) and Uniform Manifold Approximation and Projection (UMAP). You have seen that in using these methods that certain "characteristics" (e.g. cocktail ingredients) of certain "things" (e.g. cocktails) can be reduced. We have also visualised how RNA-seq data maps to genomic regions.
+
+Today, we are going to just make some "toy" datasets so that we can get some insight into how RNA-seq packages are operating to find and plot differentially expressed genes (genes that are expressed at different levels in different samples).
+
+First, we will see how our data can affect our conclusions by dealing with datasets of different size. The aim is to compare the results from two analyses - one with small numbers of reads, and one with large numbers. After we look at each dataset, which we generate randomly, we will change the dataset so that there *are* differentially expressed genes (DGEs), and see how that affects our inferences.
 
 
 ### Why are small numbers unreliable?
@@ -228,9 +232,11 @@ We can now make our toy data set a bit more interesting. For example, we could c
 # Randomly increase read counts of 20 genes
 # in the cancer samples by 3-fold
 # to do that we first find random genes (rows)
-rand.genes <- sample(1:n.genes,10)
+rand.genes <- sample(1:n.genes,20)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
+# Here I am multiplying the expression levels by 2. You can chnage this and mulitply
+# by a different number if you please.
 low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
@@ -241,7 +247,7 @@ dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 
 ```
-With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes!
+With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
 
 What about our differentially expressed genes?
 ```R
@@ -252,9 +258,9 @@ sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge, n=22L)
 ```
 
-Now you should see some differentially expressed genes (but maybe not many). Let's repeat this process but pretend we have a better sample with more reads.
+Now you should see some differentially expressed genes (but maybe not many, especially depending on how much you changed the genes' expression (e,g. by two-fold or four-fold or 1.5-fold)).
 
-Okay, to get a better handkle on this whole process, let's change some more parameters. This time, we'll get more reads. We can just run through the code quite quickly.
+Okay, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads. We can just run through the code quite quickly.
 
 ```R
 n.genes <- 4000
@@ -341,14 +347,11 @@ plot(volcanoData, pch=19)
 
 What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
 
-### Differential Gene Expression Analysis (Real Data)
-
-
 
 ### Apologies
 
-We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s or cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.
+We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s or cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.<br>
 
 
 <img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
-**Well, on Sunday it is**<br><br>
+**Well, on Sunday it is.**<br><br>
