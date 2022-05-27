@@ -8,7 +8,7 @@
 1. Understand the steps involved in analysing RNA-seq data
 2. Understand how small read count numbers can lead to uncertainty
 3. Calculate differences in gene expression between samples (DGE)
-4. Use four methods to visualise differences in gene expression: volcano plots, heatmaps, PCA, and UMAP 
+4. Use four methods to visualise differences in gene expression: volcano plots, heatmaps, and MDS 
 
 
 ## Introduction
@@ -22,19 +22,19 @@ I have discussed in class that when only a small number of RNA-seq reads map to 
 
 Many of you have probably heard of different probability distributions, for example the [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution "Pi, why are you in this formula?") (or Gaussian distribution), the [exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution "It's got no memory!"), the [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution "Will I succeed or not??"). Each of these is associated with different types of processes or samples, for example, [human height](https://tasks.illustrativemathematics.org/content-standards/HSS/ID/A/4/tasks/1020#:~:text=The%20heights%20of%20adult%20men,standard%20deviation%20of%202.5%20inches. "how tall are you?"), the [lifetime of a car battery](https://opentextbc.ca/introstatopenstax/chapter/the-exponential-distribution/ "I'm not talking about Tesla here"), or the [number of heads you'll get in ten coin flips](https://onlinestatbook.com/2/probability/binomial.html "Heads I win, tails you lose!"), respectively.
 
-Closely related to the binomial distribution is The Poisson Distribution, which is the distribution one would expect in almost any case we are sampling a countable number of things. For example, after a very light rain, we could count the number of raindrops on different sidewalk squares. [These would be Poisson distributed](https://en.wikipedia.org/wiki/Poisson_scatter_theorem#:~:text=The%20expected%20number%20of%20raindrops,with%20intensity%20parameter%202%2F5. "But they would be hard to count"). Maybe we are interested in [how many Prussian cavalry](http://rstudio-pubs-static.s3.amazonaws.com/567089_c15d14f3d35b4edcbf13f33bbe775d4c.html "Not interested, thanks") are likely to be [killed by horse kicks in any given year](https://www.randomservices.org/random/data/HorseKicks.html "Where is Prussia anyway?"). Or maybe we're interested in the [number of calls we can expect at a call centre](https://www.statology.org/poisson-distribution-real-life-examples/ "Not answering my phone"). All of these are Poisson distributed.<br>
+Closely related to the binomial distribution is The Poisson Distribution, which is the distribution one would expect in almost any case we are sampling a countable number of things. For example, after a very light rain, we could count the number of raindrops on different sidewalk squares. [These would be Poisson distributed](https://en.wikipedia.org/wiki/Poisson_scatter_theorem#:~:text=The%20expected%20number%20of%20raindrops,with%20intensity%20parameter%202%2F5. "But they would be hard to count"). Maybe we are interested in [how many Prussian cavalry](http://rstudio-pubs-static.s3.amazonaws.com/567089_c15d14f3d35b4edcbf13f33bbe775d4c.html "Not interested, thanks") are likely to be [killed by horse kicks in any given year](https://www.randomservices.org/random/data/HorseKicks.html "Where is Prussia anyway?"). Or maybe we're interested in the [number of calls we can expect at a call centre per hour](https://www.statology.org/poisson-distribution-real-life-examples/ "Not answering my phone"). All of these are Poisson distributed.<br>
 
 <img src="graphics/prob-dists.jpeg" width="1400" title="C'mon this looks too complicated"/><br>
 **There are lots of distributions and they're all related**<br><br>
 
 
-The number of RNA-seq reads that map to a gene [is also Poisson distributed](https://www.biostars.org/p/84445/ "I knew it!") (largely speaking). As expected, then, most packages for analysing RNA-seq data *model* the data as being Poisson distributed. Let us see what this means for genes with high and low number of reads mapped to them.
+The number of RNA-seq reads that map to a gene [is also Poisson distributed](https://www.biostars.org/p/84445/ "I knew it!") (largely speaking). As expected, then, most packages for analysing RNA-seq data *model* the data as being Poisson distributed (well...more on that later). Let us see what this means for genes with high and low number of reads mapped to them.
 
 <img src="graphics/poisson.jpeg" width="600" title="Early days"/><br>
 **I literally do not understand this at all**. Credit: [xkcd](https://www.explainxkcd.com/wiki/index.php/12:_Poisson "But here's an explanation")<br><br>
 
 
-Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented barcode in what was otherwise a good sequencing run. To do this, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
+Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented set of barcodes in what was otherwise a good sequencing run. To make this toy dataset, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
 
 ```R
 # Let's keep this simple
@@ -219,7 +219,7 @@ volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 plot(volcanoData, pch=19)
 ```
 
-Nothing! This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+Nothing! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
 
 We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
 
@@ -228,10 +228,10 @@ We can now make our toy data set a bit more interesting. For example, we could c
 # Randomly increase read counts of 20 genes
 # in the cancer samples by 3-fold
 # to do that we first find random genes (rows)
-rand.genes <- sample(1:n.genes,20)
+rand.genes <- sample(1:n.genes,10)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
-low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
 dge.low.counts <- estimateCommonDisp(dge.low.counts)
@@ -280,7 +280,13 @@ dge.counts <- calcNormFactors(dge.counts)
 
 ```
 
-The `edgeR` bit.
+Take a quick peak at how Poisson this is
+```R
+hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
+```
+Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold
+
+Now, the `edgeR` bit.
 
 ```R
 dge.counts <- estimateCommonDisp(dge.counts)
