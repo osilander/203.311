@@ -308,7 +308,7 @@ head(sort.dge, n=22L)
 As before, you should find that there are few differences. But maybe we can change the exopression of a few genes.
 
 ```R
-rand.genes <- sample(1:n.genes,20)
+rand.genes <- sample(1:n.genes,10)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
 read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*read.counts[rand.genes,(n.samples/2+1):n.samples]
@@ -333,16 +333,17 @@ volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 ```
+
+What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
+
 ### Differential Gene Expression Analysis (Real Data)
 
-As we will be using the DESeq2 package we will first need to install it. Navigate to your `R` console.
 
-We will use the `DESeq2` plotting tools, which require `ggplot2`. Apparently many of you are becoming quite familiar with this package for your portfolio assessments (well done!).
 
-```R
-# Install ggplot2 if necessary
-# load the libraries for ggplot2 and DESeq2
-# you know how to do this
-```
+### Apologies
+
+We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s or cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.
+
+
 
 The input data 
