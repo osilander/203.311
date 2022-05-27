@@ -159,7 +159,7 @@ dge.low.counts <- dge.low.counts[keep,]
 dim(dge.low.counts)
 ```
 
-We've kept all our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2\*62.5 is greater than 100, so that's all we need. Of course we can also calculate the probability that five of our samples in one row have fewer than two eads, and that is just the probability that at least five have one or zero reads, which is about one in six million. We could change our cutoff to three samples having at least 100 mapped reads, and then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000. Let's do that.
+We've kept all our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2\*62.5 is greater than 100, so that's all we need. We can think whether this is a good thing or not (in fact, it's likely to not be a problem). Of course we can also calculate the probability that five of our samples in one row have fewer than two eads, and that is just the probability that at least five have one or zero reads, which is about one in six million. We could change our cutoff to three samples having at least 100 mapped reads, and then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000. Let's do that.
 
 ```R
 keep <- rowSums(cpm(dge.low.counts)>100) >= 3
@@ -183,7 +183,7 @@ dge.low.counts
 
 Looks good.
 
-I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (and in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
+I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (because in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
 
 ```R
 # we do this across genes and across samples
