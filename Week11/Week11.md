@@ -48,7 +48,7 @@ Okay, let's make some pretend RNA-seq data. First, we will make a toy dataset wi
 # Doing this at the top let's us easily adjust the number of genes
 # and number of samples without adjusting the rest of the code
 # (if for some reason you wanted to do that)
-n.genes <- 500
+n.genes <- 4000
 n.samples <- 6
 avg.reads <- 4
 # Make our data, the total amount is just the number 
@@ -177,6 +177,14 @@ dge.low.counts
 ```
 
 Looks good.
+
+I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (and in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
+
+```R
+# we do this across genes and across samples
+dge.low.counts <- estimateCommonDisp(dge.low.counts)
+dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
+```
 
 Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot..
 
