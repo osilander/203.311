@@ -305,14 +305,28 @@ As before, you should find that there are few differences. But maybe we can chan
 rand.genes <- sample(1:n.genes,20)
 # Then we increase the counts, but *only* in the cancer samples (the 
 # 2nd half of the samples)
-low.read.counts[rand.genes,4:6] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
-dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
-dge.low.counts <- calcNormFactors(dge.low.counts)
-dge.low.counts <- estimateCommonDisp(dge.low.counts)
-dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
+read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*read.counts[rand.genes,(n.samples/2+1):n.samples]
+dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
+dge.counts <- calcNormFactors(dge.counts)
+dge.counts <- estimateCommonDisp(dge.counts)
+dge.counts <- estimateTagwiseDisp(dge.counts)
+dge.test <- exactTest(dge.counts)
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+head(sort.dge)
+plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
+
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+plot(volcanoData, pch=19)
 ```
 
+Or plot the volcano plot but with FDR
 
+```R
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
+colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+plot(volcanoData, pch=19)
+```
 ### Differential Gene Expression Analysis (Real Data)
 
 As we will be using the DESeq2 package we will first need to install it. Navigate to your `R` console.
