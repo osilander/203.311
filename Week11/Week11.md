@@ -340,7 +340,7 @@ colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 ```
 
-Or plot the volcano plot but with FDR
+Or plot the volcano plot but with FDR.
 
 ```R
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
