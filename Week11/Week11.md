@@ -276,8 +276,8 @@ head(read.counts)
 The `edgeR` bit.
 
 ```R
-dge.counts <- estimateCommonDisp(dge.low.counts)
-dge.counts <- estimateTagwiseDisp(dge.low.counts)
+dge.counts <- estimateCommonDisp(dge.counts)
+dge.counts <- estimateTagwiseDisp(dge.counts)
 # look at this plot, don't ignore it
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 dge.test <- exactTest(dge.counts)
