@@ -205,7 +205,7 @@ Type `ls` to see the contents (which should be empty).  Inside this directory, t
 $ ls -a
 ```
 
-To see its full contents.  What else do we see?  
+To see its full contents.  What else do we see here?  
 
 ```bash
 /cloud/project/Lab2UnixAndR/FridayFolder$ ls -a
