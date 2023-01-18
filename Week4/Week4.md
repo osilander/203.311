@@ -3,7 +3,7 @@
 **There is no project to clone for this week; you can do all work in your own project**
 
 # Sequencing and Mapping
-**Dr Olin Silander**
+**A/Prof Olin Silander**
 
 [Purpose](#purpose)<br>
 [Introduction](#introduction)<br>
