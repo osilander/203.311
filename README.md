@@ -10,7 +10,7 @@ This practice-oriented course differs from many of the other courses you may hav
 | 2 | Bootcamp                                       | [Introduction to UNIX](Week2/Week2.html)      |
 | 3 | Bootcamp                                        | [Introduction to Visualization](Week3/Week3.html)      |
 | 4 | Molecular Evolution            | [Sequencing and Mapping](Week4/Week4.html)      |
-| 5 | Science Communication  |            [Science and the Public](Week12/Week12.html) |
+| 5 | Science Communication  |            [Science and the Public](Week5a/Week5a.html) |
 | 6 | Molecular Evolution         |         [Variants and Phylogenies](Week5/Week5.html)      |
 | 7 | Molecular Evolution         |        [Evolutionary Visualization](Week6/Week6.html)      |
 | 8 | Microbial Diversity                    | [Barcodes and Diversity](Week7/Week7.html)      |
