@@ -1,367 +1,410 @@
 **[Return to the Course Home Page](../index.html)**
 
-# Transcriptomic Analysis and Visualization
+# Transcriptomics
 **Dr Olin Silander**
 
 ## Learning Objectives
 
-1. Understand the steps involved in analysing RNA-seq data
-2. Understand how small read count numbers can lead to uncertainty
-3. Calculate differences in gene expression between samples (DGE)
-4. Use two methods to visualise differences in gene expression: volcano plots and MDS 
-
+1. Understand the purpose of dimensional reduction techniques
+2. Understand why dimensional reduction is useful for analysing large datasets
+3. List three common methods for visualising RNA-seq data (volcano plot, heatmap, and dimensional reduction - PCA/UMAP/tSNE)
+4. Explain the differences between each of the above visulaisation methods
+5. Explain the insights that dimensional reduction can give for RNA-seq data
+6. Perform the steps necessary to implement dimensional reduction on a dataset
+7. Interpret dimensional reduction plots
+8. Discuss the advantages and disadvantages of two common dimensional reduction techniques, PCA and UMAP.
+9. Explain the requirements for read mapping in RNA-seq and interpret the results.
 
 ## Introduction
 
-Up to this point, we have covered Methods for visualising RNA-seq results via dimensional reduction - specifically, Principal Component Analysis (PCA) and Uniform Manifold Approximation and Projection (UMAP). You have seen that in using these methods that certain "characteristics" (e.g. cocktail ingredients) of certain "things" (e.g. cocktails) can be reduced. We have also visualised how RNA-seq data maps to genomic regions.
+### Dimensional Reduction
 
-Today, we are going to just make some "toy" datasets so that we can get some insight into how RNA-seq packages are operating to find and plot differentially expressed genes (genes that are expressed at different levels in different samples).
+As we have learned throughout the Semester, a key aspect of data analysis is data visualisation. However, working in genomics, we often have extremely complicated data, and coming up with ways to visualise it in an intuitive yet objective manner is hard.
 
-First, we will see how our data can affect our conclusions by dealing with datasets of different size. The aim is to compare the results from two analyses - one with small numbers of reads, and one with large numbers. After we look at each dataset, which we generate randomly, we will change the dataset so that there *are* differentially expressed genes (DGEs), and see how that affects our inferences.
+For example, last week you visualised differences in microbiome content based on hundreds of bacteria across tens of microbiome communites. How should we do this if we have tens of thousands of genes (i.e. variables) and tens of thousands of samples? We need to have an effective manner of *reducing* the number of variables so that we can visualise only one or two. How should we reduce the number of variables?
+
+We will use **dimensional reduction** techniques. In this way we can objectively reduce tens of thousands of variables into *combinations of variables* so we can focus only on the one or two (or three) *most important (combinations) of variables* and determine which of our samples are most similar or different on the basis of these combinations.
+
+Dimensional reduction is an important technique. In fact when you have any biological samples that have a large number of variables, e.g.
+- microbiome samples with hundreds of different bacteria
+- genotype data for individuals with hundreds of different SNPs
+- gene expression data from cancer samples for hundreds of different genes
+- phenotypic data from hundreds of dogs with information on tens of different phenotypes (e.g. height, weight, disposition, leg length, tail length, hair length, coat colour, and eye colour)
+
+**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.** Here, we will focus on two main methods: Principal Component Analysis (PCA) and UMAP.
+
+Before reading further, please take five minutes and read [this quick intro to PCA](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues "eigen-who?") before continuing.
+
+Becuase this is such an important concept, we are going to spend some time on this.
+First some examples that have *nothing* to do with RNA or cells or sequencing. 
+But hopefully they give us some insight into how dimensional reduction works and why it's important.
+
+**Important Note**: I have put some extremely informative (imho) youtube videos up on Stream that explain PCA, UMAP, RNA-seq normalisation, and from there you can find explanations on other RNA-seq related topics. Also linked here:<br>
+[Explain PCA](https://www.youtube.com/watch?v=HMOI_lkzW08 "6 minutes")<br>
+[Explain PCoA and MDS](https://www.youtube.com/watch?v=GEn-_dAyYME "8 minutes")<br>
+[Explain UMAP](https://www.youtube.com/watch?v=eN0wFzBA4Sc "18 minutes")<br>
+[Explain RNA-seq](https://www.youtube.com/watch?v=tlf6wYJrwKY&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp "18 minutes")<br>
+[Explain FPKM and TPM](https://www.youtube.com/watch?v=TTUrtCY2k-w&list=PLblh5JKOoLUJo2Q6xK4tZElbIvAACEykp&index=6 "10 minutes")<br>
+
+### The Meat and Potatoes
+
+To gain some initial insight into PCA we will consider a food dataset from the UK. This is shown below. The dataset shows the consumption (in grams) per person per week of each of the foodstuffs.
+
+<img src="graphics/meat-potatoes.png" width="400" title="That's a lotta potatoes N. Ireland"/><br>
+**Yummy**<br><br>
+
+Our aim here is to find out which of these countries &#128556; differ the most in their diets. But of course diets are not one food or two foods, they are combinations of all foods. So which of these countries differ the most in the combination of all these foods?
+
+We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
+
+We can also visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar. Note, importantly, that it does not say much about *how* similar.
+
+<img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
+**It's getting hot in here**<br><br>
+
+Inb contrast, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is becuase PCA finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
+
+<img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
+**England is central to it all**<br><br>
+
+Not only that, we can visualise which diet items *contribute* to those components. The top four items that contribute the most to these principal components (Dim1 and Dim2) are shown below.
+
+<img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
+**What are "other veg", Wales?**<br><br>
+
+Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (and a bit of alcohol), all of which the Welsh consume more of -- especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But perhaps most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+
+Okay, let's repeat this ourselves, with a new dataset.
+
+### Hold my beer - Increasing Sample Size and Dimensions
+We will move on to a cocktail dataset and a tutorial derived from [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Cocktails how are they different") and [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-26/readme.md "Cocktails lots of data").
 
 
-### Why are small numbers unreliable?
+**At this point, open your `terminal`**.
 
-I have discussed in class that when only a small number of RNA-seq reads map to a gene, we cannot be as certain of its expression level than when large numbers of reads map to a gene. Let's first investigate this to gain some insight.
+Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
 
-Many of you have probably heard of different probability distributions, for example the [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution "Pi, why are you in this formula?") (or Gaussian distribution), the [exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution "It's got no memory!"), the [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution "Will I succeed or not??"). Each of these is associated with different types of processes or samples, for example, [human height](https://tasks.illustrativemathematics.org/content-standards/HSS/ID/A/4/tasks/1020#:~:text=The%20heights%20of%20adult%20men,standard%20deviation%20of%202.5%20inches. "how tall are you?"), the [lifetime of a car battery](https://opentextbc.ca/introstatopenstax/chapter/the-exponential-distribution/ "I'm not talking about Tesla here"), or the [number of heads you'll get in ten coin flips](https://onlinestatbook.com/2/probability/binomial.html "Heads I win, tails you lose!"), respectively.
+Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it `cocktails_df` (as that will match the code below).
 
-Closely related to the binomial distribution is The Poisson Distribution, which is the distribution one would expect in almost any case we are sampling a countable number of things. For example, after a very light rain, we could count the number of raindrops on different sidewalk squares. [These would be Poisson distributed](https://en.wikipedia.org/wiki/Poisson_scatter_theorem#:~:text=The%20expected%20number%20of%20raindrops,with%20intensity%20parameter%202%2F5. "But they would be hard to count"). Maybe we are interested in [how many Prussian cavalry](http://rstudio-pubs-static.s3.amazonaws.com/567089_c15d14f3d35b4edcbf13f33bbe775d4c.html "Not interested, thanks") are likely to be [killed by horse kicks in any given year](https://www.randomservices.org/random/data/HorseKicks.html "Where is Prussia anyway?"). Or maybe we're interested in the [number of calls we can expect at a call centre per hour](https://www.statology.org/poisson-distribution-real-life-examples/ "Not answering my phone"). All of these are Poisson distributed.<br>
+We now have a dataset of cocktails and their ingredients. Take a look at the dataset, for example with `head` or `summary`.
 
-<img src="graphics/prob-dists.jpeg" width="1400" title="C'mon this looks too complicated"/><br>
-**There are lots of distributions and they're all related**<br><br>
-
-
-The number of RNA-seq reads that map to a gene [is also Poisson distributed](https://www.biostars.org/p/84445/ "I knew it!") (largely speaking). As expected, then, most packages for analysing RNA-seq data *model* the data as being Poisson distributed (well...more on that later). Let us see what this means for genes with high and low number of reads mapped to them.
-
-<img src="graphics/poisson.jpeg" width="600" title="Early days"/><br>
-**I literally do not understand this at all**. Credit: [xkcd](https://www.explainxkcd.com/wiki/index.php/12:_Poisson "But here's an explanation")<br><br>
-
-
-We'll make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented set of barcodes in what was otherwise a good sequencing run. To make this toy dataset, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
+Next we need to load a few libraries before we do our first analysis. This will take about three minutes, so sit back for a second.
 
 ```R
-# Let's keep this simple
-# we'll use R's built-in Poisson random number generator rpois()
-# In this case, the first argument is the number of random numbers
-# and the second is the *mean* of the Poisson distribution
-# We don't need to specify the variance, as the variance of 
-# a Poisson distribution is EQUAL to the mean!
-# And we'll get results for six "samples"
+# it's the tidyverse!
+install.packages("tidymodels")
+library(tidymodels)
 
-# Doing this at the top let's us easily adjust the number of genes
-# and number of samples without adjusting the rest of the code
-# (if for some reason you wanted to do that)
-n.genes <- 4000
-n.samples <- 6
-avg.reads <- 4
-# Next, make our data. The total amount of "read" data we need is just the number 
-# of samples multiplied by the number of genes, and we'll have
-# a mean of 3. We'll pretend our data come from two
-# samples, "normal" and "cancer" tissue
+# it's for cats!
+install.packages("forcats")
+library(forcats)
 
-normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
-cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
+# it's an obscure stats package!
+install.packages("embed")
+library(embed)
 
-low.read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
+# it's a famous plotting package!
+install.packages("ggplot2")
+library(ggplot2)
+```
 
-# Add some labels
-rownames(low.read.counts) <- paste0("gene_",1:n.genes)
-colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
-# Did it work?
-head(low.read.counts)
+Now we start on the path toward cocktail PCA.
+
+```R
+# This is a recipe
+# We don't really sweat the details
+# We just paste the code (*all* of it)
+# But I put comments in if you're curious
+
+# Tell the recipe what's happening but have no model ( ~. )
+pca_rec <- recipe(~., data = cocktails_df) %>%
+  # Note that the name and category of cocktail 
+  # are just labels not predictors
+  update_role(name, category, new_role = "id") %>%
+  # Normalise so all the 
+  # variables have mean 0 and stdev 1
+  step_normalize(all_predictors()) %>%
+  step_pca(all_predictors())
+```
+
+```R
+# Actually do the PCA by "preparing"
+# the "recipe"
+pca_prep <- prep(pca_rec)
+# and a smidge of tidying
+tidied_pca <- tidy(pca_prep, 2)
+```
+Phew.
+
+Now we can visualise the results. First, let's take a look at
+the first two principal components. Remember, these are the
+*combinations* of ingredients that contain the most variance
+(in other words, what combinations of ingredients differ
+the most between cocktail drinks).
+
+Below we use the [ggplot](https://ggplot2.tidyverse.org/index.html "Thanks, Hadley!") plotting package.
+This uses the idea of a *grammar* of graphics
+and is among the most popular plotting methods in R
+
+```R
+# juice gets the results of the recipe
+# and feeds it using %>% to the plotting function
+juice(pca_prep) %>%
+# the plotting, include the cocktail name
+  ggplot(aes(PC1, PC2, label = name)) +
+  # make the points colored by category
+  geom_point(aes(color = category), alpha = 0.7, size = 2) +
+  # add text 
+  geom_text(check_overlap = TRUE, hjust = "inward", size = 2) +
+  # and don't add more colour anywhere
+  labs(color = NULL)
+```
+Note that you can change the `PC1` and `PC2` in the `ggplot` function to 
+plot the next principal components. Feel free to try this (e.g. to `PC2` and `PC3`.
+
+Wow, a few cocktails are quite different from others. What's in an Applejack punch?
+
+```R
+# we have a cocktail of interest
+my.cocktail <- "Applejack Punch"
+# Let's find the ingredients and assign it to a variable, "ingredients"
+# You should be able to see what the code below is doing
+
+ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
+# Now we can see the ingredients
+# What is this code doing? It has a new method, which()
+# that we use to only report the ingredients that are 
+# greater than 0 (i.e. they're in the cocktail)
+cocktails_df[cocktails_df$name==my.cocktail,which(ingredients>0)]
+
+# repeat the above steps but with a 
+# cocktail of your choice, or, for example, this one:
+my.cocktail <- "Sphinx Cocktail"
+```
+
+Not only can we say which cocktails are most different, we can see which are most similar.
+This would help us suggest new but similar drinks to customers, for example
+if you were bartending.
+
+```R
+# Here, we choose a couple of cocktails to look at
+# You can choose these or different ontes
+my.cocktails <- c("Silver Fizz", "Peach Blow Fizz")
+# Another new method, the for loop
+# we repeat the same as above, but
+# "loop" over all values of the my.cocktails vector above
+# of course here, coi means "cocktail of interest"
+for(coi in my.cocktails) {
+  ingredients <- cocktails_df[cocktails_df$name==coi,]
+  print(cocktails_df[cocktails_df$name==coi,which(ingredients>0)])
+}
+```
+So similar yet so different.
+
+Finbally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!"))
+
+```R
+tidied_pca %>%
+  filter(component %in% paste0("PC", 1:5)) %>%
+  mutate(component = fct_inorder(component)) %>%
+  ggplot(aes(value, terms, fill = terms)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~component, nrow = 1) +
+  labs(y = NULL)
+```
+
+
+So what have we discovered? We have found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
+
+But enough of that, onwards and upwards (hopefully). <br><br>
+
+<img src="graphics/studying-pca.jpeg" width="500"/><br>
+**Even so, we will go upwards.**<br><br>
+
+### Who map? UMAP
+A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimensions while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!"). Scroll down to the Woolly Mammoth and adjust the parameters. Specifically, try n_neighbors = 100 and min_dist = 0.25.
+
+Okay, let's go through this quickly just so we can compare to our previous results. We make almost exact the same recipe as before:
+
+```R
+umap_rec <- recipe(~., data = cocktails_df) %>%
+  update_role(name, category, new_role = "id") %>%
+  step_normalize(all_predictors()) %>%
+  # this is the different step, where we use the step_umap function
+  step_umap(all_predictors())
+
+umap_prep <- prep(umap_rec)
+
+umap_prep
+```
+
+And juice our results to plot it.
+
+```R
+juice(umap_prep) %>%
+  ggplot(aes(UMAP1, UMAP2, label = name)) +
+  geom_point(aes(color = category), alpha = 0.7, size = 2) +
+  geom_text(check_overlap = TRUE, hjust = "inward", size = 2) +
+  labs(color = NULL)
+```
+
+Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* Here we can see that UMAP does not aim to find what variables differentiate samples the most (thereby *stretching* some dimensions considerably and *shrinking* others, especially if there are only a few outliers in some dimensions). Rather, UMAP aims to find ways to reduce dimensions while maintaining groupings. If we consider the Woolly Mammoth example from the link above, PCA would find that the variable with the most variation is (largely speaking) length and width. It would then project onto these, leaving differences between the left and right side nearly non-existent. You canimagine, for example, that the two tusks would thus become indistinguishable. However, this is not at all true for UMAP. It groups the tusks (as they are near) but keeps them separate. Similar for the left and right legs.
+
+A second difference between the two methods is that PCA is better suited for datasets in which there are a small number of variable-combinations that differentiate samples (e.g. when the first three principal components accounts for 90% of the variation of the data). In contrast, UMAP is better suited for datasets in which there are many many variable combinations that differentiate samples 
+
+## RNA-seq
+
+### The Data
+
+Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
+
+ Let's first untar the [tarball](https://en.wikipedia.org/wiki/Tar_(computing "Sticky!") so that we see the files inside.
+
+ ```bash
+# -x extracts -v is verbose -f is the file
+tar -xvf fastq.data.tar
+
+# upon successful untarring, remove the tarball!
+rm fastq.data.tar
+```
+
+<img src="graphics/tar_2x.png" width="700"/><br>
+**You're lucky I told you the command.**<br><br>
+
+
+If you look at the names of the `.fastq` files, you will see that some are called "HBR" and some "UHR". The HBR reads are from RNA isolated from the brains of 23 Caucasians, male and female, of varying age but mostly 60-80 years old. The UHR are from RNA isolated from a diverse set of 10 cancer cell lines.
+
+Let's next, check the that `.fastq` files look as we expect. Use your trusty friend, `seqkit`.
+
+Finally, let's do a quick QC step. Before, we used the comprehensive QC tool `fastp`. This is an excellent tool as an all-in-one QC and trimmer. Now we will use `fastqc` and look at a report generated by `multiqc` for rapid QC assessment
+
+We can do a quick install:
+
+```bash
+# both at once
+# might briefly redline your RAM
+mamba install -c bioconda fastqc multiqc
 ``` 
+Now we run the QC steps
 
-Let's check that these are Poisson distributed. We'll use the `hist()` function.
+```bash
+fastqc *fastq
 
-```R
-# I always change this as I don't like sideways numbers
-par(las=1)
-
-# We'll use a very large number of breaks for consistency with the next section
-# We'll also break on increments of 0.5 so that the counts are centred
-hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
-```
-
-You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes. We should have sequencing data that is *deeper* - i.e. has more reads per sample. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
-
-```R
-# Make sure your histogram window is still active
-points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
-```
-
-This line should follow the distribution fairly closely, with some sampling noise. Let's next look at our dataset more holistically. Here, we will use a heatmap, which most of you will have already encountered.
-
-```R
-# We don't care if it's pretty
-# But let's output to a pdf so we can look at it later
-pdf(file="low.read.count.pdf", width=2,height=8)
-heatmap(low.read.counts)
-dev.off()
-```
-
-Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. If you *actually* think this, you are squinting at your data too hard... Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
-
-
-<img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
-**There are really only two commonly used RNA-seq analysis packages**<br><br>
-
-```R
-# Get edgeR from the bioconductor website
-library(BiocManager)
-BiocManager::install("edgeR")
-```
-
-We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a vector that will tell `edgeR` which samples are which. Let's do that quickly:
-
-```R
-# for this to work you must have named your
-# sample number variable "n.samples" 
-sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
-
-# What does it look  like?
-sample.data
-```
-
-Then we can have `edgeR` do the analysis for us (thanks!). Various parts of the tutorial below are from [here](https://www.nathalievialaneix.eu/doc/html/solution-edgeR-rnaseq.html) and [here](https://web.stanford.edu/class/bios221/labs/rnaseq/lab_4_rnaseq.html).
-
-```R
-# Here we make our edgeR object
-dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
-# check what it looks like
-summary(dge.low.counts)
-
-# We make a cheeky backup copy because we're prone
-# to deleting important things
-dge.low.counts.backup <- dge.low.counts
+# it can't be this easy, can it?
+# you wouldn't cut and paste this, would you?
+mu1tiqc .
 
 ```
 
-We can then filter our results so that we only include genes that have mapped read counts per million mapped reads of at least 100 in at least two samples.
+Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300;
 
-```R
-# remind ourselves what the read counts look like
-head(dge.low.counts)
+We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances this could be fatal for your pipeline.
 
-# What do the counts per million look like?
-head(cpm(dge.low.counts))
+### Alignment
+The human genome is three billion base pairs long (the haploid version). Clearly we cannot take the reads from above and map them to this genome as you will not be able to handle this genome in the memory of your `RStudio` instance. Instead, then, I have extracted 500 Kbp from chromosome 22, and we will deal only with this region. You can see this region [here - yes, clickme](https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr22%3A22500000%2D23000000&hgsid=1357628733_TbqBbiOKKUkY821r3FT7Pi0FieRA "It's the Santa Cruz genome browser!").
 
-# find out which rows to keep
-# here cpm(dge.low.counts)>100 gives a TRUE or FALSE
-# which can also be summed as they can be 
-# interpreted as ones (TRUE) or zeroes (FALSE)
-keep <- rowSums(cpm(dge.low.counts)>100) >= 2
+The webpage you were just on (or are about to go on) is the Santa Cruz Genome Browser, one of the primary repositories for reference genomes, with many of the genome features hand-annotated. Here, you can see a region from human chromosome 22 (visible at the top of the screen, with the focal region in a red rectangle). In an extreme stroke of luck, this region also has genes in it. (Kidding, I made sure it did). These genes are visible as dark blue / purplish annotated elements, and are clickable if you'd like to see more details.
 
-# keep only those rows
-dge.low.counts <- dge.low.counts[keep,]
+The `.fasta` file of the extracted region from Chromosome 22 is [here](data/human-GRCh38-22sub.fasta). Go ahead and download it now (yes, `wget`).
 
-# check what was lost
-dim(dge.low.counts)
-```
+We now need to map our reads. What should we use? Well, you have mapped reads before in the lab in which we reconstructed SARS-CoV-2 genomes. We can repeat that here.
 
-We've kept all our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2\*62.5 is greater than 100, so that's all we need. We can think whether this is a good thing or not (in fact, it's likely to not be a problem). Of course we can also calculate the probability that five of our samples in one row have fewer than two eads, and that is just the probability that at least five have one or zero reads, which is about one in six million. We could change our cutoff to three samples having at least 100 mapped reads, and then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000. Let's do that.
+```bash
+# it's our trusty friend bwa mem
+# let's index first
+bwa index human-GRCh38-22sub.fasta
 
-```R
-keep <- rowSums(cpm(dge.low.counts)>100) >= 3
-
-# keep only those rows
-dge.low.counts <- dge.low.counts[keep,]
-
-# check what was lost
-dim(dge.low.counts)
-```
-
-Next we need to normalise our data for library size.
-
-```R
-# normalise
-dge.low.counts <- calcNormFactors(dge.low.counts)
-
-# check what we did
-dge.low.counts
-```
-
-Looks good.
-
-I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (because in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
-
-```R
-# we do this across genes and across samples
-dge.low.counts <- estimateCommonDisp(dge.low.counts)
-dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
-```
-
-Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot..
-
-```R
-plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
-```
-
-Your plot - for the most part - should indicate that none of the samples cluster by type (although you might find, by chance, that they do).
-
-We can also sort our data to find the most differentially expressed genes using the `exactTest` and `topTags` functions:
-
-```R
-dge.test <- exactTest(dge.low.counts)
-# here, n is the number of genes to return, we just make it all genes
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge)
-```
-
-But we can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-satellite-image "Sharkcano") plot. First we have to extract the relevant fields from our `edgeR` object, then plot.
-
-```R
-# as everyone knows, a volcano plot requires the log2 fold-change and the -log10 p-values
-volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
-
-# Everyone loves pch 19
-plot(volcanoData, pch=19)
-
-# okay but what if we *correct for multiple tests, and instead use the 
-# corrected p-value (here, called FDR)
-volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
-plot(volcanoData, pch=19)
-```
-
-Nothing! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
-
-We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
-
-
-```R
-# Randomly increase read counts of 20 genes
-# in the cancer samples by 3-fold
-# to do that we first find random genes (rows)
-rand.genes <- sample(1:n.genes,20)
-# Then we increase the counts, but *only* in the cancer samples (the 
-# 2nd half of the samples)
-# Here I am multiplying the expression levels by 2. You can chnage this and mulitply
-# by a different number if you please.
-low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
-dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
-dge.low.counts <- calcNormFactors(dge.low.counts)
-dge.low.counts <- estimateCommonDisp(dge.low.counts)
-dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
-
-# Does this change anything? Let's check.
-plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
-
-volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
-plot(volcanoData, pch=19)
-# let's highlight which points we made differentially expressed
-points(volcanoData[rand.genes,], pch=19,col="orange")
-```
-With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
-
-What about our differentially expressed genes?
-```R
-dge.test <- exactTest(dge.low.counts)
-# here, n is the number of genes to return, we just make it all genes
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-# We'll look at a few extra lines
-head(sort.dge, n=22L)
-```
-
-Now you should see some differentially expressed genes (but maybe not many, especially depending on how much you changed the genes' expression (e,g. by two-fold or four-fold or 1.5-fold)).
-
-Okay, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads. We can just run through the code quite quickly.
-
-```R
-n.genes <- 4000
-
-# change one or both of these to whatever values you like
-# before they were 6 and 4
-n.samples <- 8
-avg.reads <- 50
-normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
-cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
-read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
-# Add some labels
-rownames(read.counts) <- paste0("gene_",1:n.genes)
-colnames(read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
-# Did it work?
-head(read.counts)
-sample.data <- (rep("normal",n.samples/2),rep("cancer",n.samples/2))
-
-# check what it looks like
-summary(read.counts)
-dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
-dge.counts <- calcNormFactors(dge.counts)
+# now map the first UHR read set
+# the first argument is the reference to map against
+# the second two arguments anre the read files
+# and output is to a .sam
+bwa mem human-GRCh38-22sub.fasta UHR_Rep1.R1.fastq UHR_Rep1.R2.fastq > UHR_Rep1.bwa.sam
 
 ```
 
-Take a quick peak at how Poisson this is.
-```R
-hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
-points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
+Great. Let's take a quick look at our results.
 
-```
-Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
-
-
-<img src="graphics/normals.png" width="600" title="It's not Ohio"/><br>
-**There are lots of distributions and they're all related**<br><br>
-
-
-Now, the `edgeR` bit.
-
-```R
-dge.counts <- estimateCommonDisp(dge.counts)
-dge.counts <- estimateTagwiseDisp(dge.counts)
-# look at this plot, don't ignore it
-plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
-dge.test <- exactTest(dge.counts)
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge)
-
-volcanoData <- cbind(dge.counts$table$logFC, -log10(dge.counts$table$PValue))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
-plot(volcanoData, pch=19)
-
-dge.test <- exactTest(dge.counts)
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge, n=22L)
-```
-As before, you should find that there are few differences. But maybe we can change the exopression of a few genes.
-
-```R
-rand.genes <- sample(1:n.genes,10)
-# Then we increase the counts, but *only* in the cancer samples (the 
-# 2nd half of the samples)
-read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*read.counts[rand.genes,(n.samples/2+1):n.samples]
-dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
-dge.counts <- calcNormFactors(dge.counts)
-dge.counts <- estimateCommonDisp(dge.counts)
-dge.counts <- estimateTagwiseDisp(dge.counts)
-dge.test <- exactTest(dge.counts)
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge)
-plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
-
-volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
-plot(volcanoData, pch=19)
-# let's highlight which points we made differentially expressed
-points(volcanoData[rand.genes,], pch=19,col="orange")
+```bash
+# samtools is so versatile
+samtools flagstats UHR_Rep1.bwa.sam
 ```
 
-Or plot the volcano plot but with FDR.
+Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good").
 
-```R
-volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
-plot(volcanoData, pch=19)
+Why do we have these Supplementary reads? Did you forget something? We are looking at RNA-seq data. RNA-seq data is from mRNA, which is often *spliced*. So we need a splice-aware aligner!
+
+
+<img src="graphics/map-reads.png" width="400"/><br>
+**Yes, you do.**<br><br>
+
+
+```bash
+# here's a splice-aware aligner
+mamba install -c bioconda hisat2
 ```
 
-What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
+```bash
+
+# first we make the index. The second argument here is the base-name of our index
+hisat2-build human-GRCh38-22sub.fasta human-GRCh38-22sub
+
+# then we map. These arguments should be relatively self-explanatory
+hisat2 -x human-GRCh38-22sub -1 UHR_Rep1.R1.fastq -2 UHR_Rep1.R2.fastq -S UHR_Rep1.hisat2.sam
+```
+
+```bash
+# samtools is so versatile
+samtools flagstats UHR_Rep1.bwa.sam
+# then the hisat version to compare
+samtools flagstats UHR_Rep1.hisat2.sam
+```
+Note the differences between the two `.sam` files.
+
+```bash
+# let's remove this pesky bwa alignment
+rm *bwa.sam
+# and the hisat2 alignment (trust me)
+rm *hisat2.sam
+```
+
+We have just seen that there are no Supplementary reads in the `hisat2` `.sam` file, and thus we have successfully mapped across the exon junctions. However, we have six different read sets here and would like to map them all. We could go and map each one of them by hand. But we are operating on the command line and would like to do things a little more quickly. In this case we will use a `bash` loop, a slightly complicated format but one which can help tremendously when you have hundreds of files. I have written it out below. If you *have not* used the same file names as the ones listed above, then the loop won't work. Let someone know if this is the case.
+
+```bash
+# the F here is a variable that we loop over
+# We'll also sort
+# With some careful examination you should
+# be able to understand what is happening here
+for F in *R1.fastq; do
+    hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam};
+    samtools sort ${F/R1\.fastq/sam} > ${F/R1\.fastq/sort\.bam};
+done
+```
+
+You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads (the files are much much smaller). Finally, we can take a look at the depths.
+
+```bash
+samtools coverage -m bam.file.of.your.choice.bam
+```
+
+Take a look at all the replicates for each sample. Do they look the same? You can return to the UCSC browser page to see how the plots here relate to the gene locations on the chromosome. Remember that the region you have mappoed to is a small part of chromosome 22. Specifically, it's from 22.5 Mbp to 23 Mbp. Thus, on your `samtools coverage` plot, position 150 Kbp will be 22.5 Mbp + 150 Kbp = 22,650,000 bp.
+
+There are clearly specific genes that are almost completely turned off in the brain. Which are those?
+
+Look also at *UHR_Rep2.sort.bam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
+<br>
+<br>
+
+### Portfolio Analysis
+Often we are interested in the distribution of coverage (i.e. depth) values for an RNA-seq dataset so that we can look for specific artefacts or problems with our data (see [Figure 5 here](https://f1000research.com/articles/5-2122 "Figure 5!") for an example of such a plot). In this case, "distribution" simply means a histogram or density plot. For this portfolio analysis, you will need to calculate and plot such *distributions* (histograms or density plots or even violin plots) of coverage (i.e. depth) for all six samples for which you now have `.bam` files. Plot these in such a way that these distributions are easy to compare, and thus easy to check for problematic samples. This could involve any of a number of manipulations or plotting methods, and I leave this to you. Carefully consider *what* sort of pattern could indicate a problem, and *why* that problem could occur. This may help in deciding how to visualise or compare your data.
+
+Remember that there are more decisions to make than just "plot a histogram(s)". You need to decide on the x-axis limits, the number of breaks (i.e. thin bars or thick bars), the type of x-axis, the y-axis limits, the type of y-axis, whether you want bars or lines for the histogram, if a density plot is better, or maybe even a [violin plot](https://en.wikipedia.org/wiki/Violin_plot "Elegant!"), whether it should be shaded or couloured, etc.
+
+## Next Time
+
+Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
+
+<img src="graphics/single-cell.jpeg" width="500"/><br>
+**Problem solved.**<br><br>
 
 
-### Apologies
 
-We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s of cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.<br>
-
-
-<img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
-**Well, on Sunday it is.**<br><br>
