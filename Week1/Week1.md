@@ -45,7 +45,7 @@ We discussed the extensive help and support that these around R and its use, all
 
 
 <table><tr><td>
-<strong>Note for 2022:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
+<strong>Note:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
 <!--- Due to Covid-19 and the uncertainties this can still cause us, t--->
 </td></tr></table>
 
