@@ -45,7 +45,8 @@ We discussed the extensive help and support that these around R and its use, all
 
 
 <table><tr><td>
-<strong>Note for 2022:</strong> Due to Covid-19 and the uncertainties this can still cause us, the practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
+<strong>Note for 2022:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
+<!--- Due to Covid-19 and the uncertainties this can still cause us, t--->
 </td></tr></table>
 
 
@@ -89,7 +90,7 @@ We will be working within web browsers, and Firefox and Chrome are installed on 
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course -- Apple iMacs -- have been updated for 2023, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -104,11 +105,11 @@ Most likely this is your own machine, so this should not be an issue.
 
 #### Setting up an account on RStudio Cloud
 
-We have organised a student account for you at <https://rstudio.cloud/> to be valid until the start of June 2022 (i.e. for the nearly all of the Semester). The information for the working area for this module has been sent to you separately via a Stream announcement.
+We have organised a student account for you at <https://rstudio.cloud/> to be valid until mid June 2023 (i.e. for the nearly all of the Semester). The information for the working area for this module has been sent to you separately via a Stream announcement.
 
 #### Important Note
 
-**Please see the separate document -- "Access_to_RStudio_Cloud2022.pdf" -- that has been provided both as a Stream announcement and in the "Taiwhanga\|Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
+**Please see the separate document -- "Access_to_RStudio_Cloud2023.pdf" -- that has been provided both as a Stream announcement and in the "Taiwhanga\|Labs" section on the Stream site for setting up your RStudio Cloud environment. You must do this before you can do any work in this course, so being familiar with working with these projects when links and projects get sent to you by lecturers is extremely important.**
 
 ### Our work today
 
@@ -1028,7 +1029,7 @@ For those of you on the iMacs, please remember to go to the Apple Menu on your i
 
 To reiterate, for this, the first lab of this course, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for two things:
 
-1. For the mastery test which accounts for 15% of the course.  This will take place between Thursday 24-Mar-2022 and Friday 25-Mar-2022 online.
+1. For the mastery test which accounts for 15% of the course.  This will take place between Thursday 23-Mar-2023 and Friday 24-Mar-2023 online.
 2. For a very large part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
@@ -1057,7 +1058,7 @@ School of Natural Sciences
 [^1]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction>
 [^2]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/basic-data-types>
 [^3]: Concepts for this part of the practical came from a tutorial found at: <http://www.r-tutor.com/r-introduction/>
-[^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2022, due to the version of R.
+[^4]: You might have to hit **\[Enter\]** in the console to see the plot -- this is a new change for 2023, due to the version of R.
 
 
 
@@ -1082,7 +1083,3 @@ This is how you put in an image file:
 <img src="graphics/giphy.gif" width="300"/>
 ```
 <img src="graphics/giphy.gif" width="300"/> --->
-      
-    
-
-    
