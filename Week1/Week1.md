@@ -1004,7 +1004,7 @@ One last question: if you take the following numbers from your answers returned 
 > 
 > Exercise K:	character 1 (-1), character 4
 > 
-> Exercise L: character 2, character 3
+> Exercise L: character 2 (-1), character 3 (-1)
 > 
 
 This is the series called:
