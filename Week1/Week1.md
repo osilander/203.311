@@ -105,7 +105,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 #### Setting up an account on RStudio Cloud
 
-We have organised a student account for you at <https://rstudio.cloud/> to be valid until mid June 2023 (i.e. for the nearly all of the Semester). The information for the working area for this module has been sent to you separately via a Stream announcement.
+We have organised a student account for you at <https://posit.cloud/> to be valid until mid June 2023 (i.e. for the nearly all of the Semester). The information for the working area for this module has been sent to you separately via a Stream announcement.
 
 #### Important Note
 
@@ -113,7 +113,7 @@ We have organised a student account for you at <https://rstudio.cloud/> to be va
 
 ### Our work today
 
-We are going to be using RStudio today as a convenient introduction in using R, so we are going to focus mostly on the console today (bottom left pane from the lecture). However, we will be using -- or rather you will need to be aware of -- the whole environment for this morning, and also for both next week, and therest of the course.
+We are going to be using RStudio today as a convenient introduction in using R, so we are going to focus mostly on the console today (bottom left pane from the lecture). However, we will be using -- or rather you will need to be aware of -- the whole environment for this morning, and also for both next week, and the rest of the course.
 
 
 
@@ -256,7 +256,7 @@ Try some ideas out for yourself, and place some code examples in the box below. 
 
 ## R data types [^2]
 
-There are 5 data types, and we can find out about them using the `class()` function. As is the lectures that is what we shall do here.
+There are 5 data types, and we can find out about them using the `class()` function. As in the lectures that is what we shall do here.
 
 
 ### Numeric
@@ -264,7 +264,7 @@ There are 5 data types, and we can find out about them using the `class()` funct
 This is the default computational data type. If we assign a decimal value to a variable `a` as follows, `a` will be of the numeric type.
 
 ```R
-> a <- 10.5   ### assign a decimal value* **
+> a <- 10.5    ### assign a decimal value* **
 > a            ### print the value of a* **
 [1] 10.5
 > class(a)     ### print the class name of a
@@ -290,7 +290,7 @@ Furthermore, even if we assign an integer to a variable `k`, it is still being s
 
 ### Integer
 
-To make integers in R, we need to specific them as such. We can be assured that y is indeed an integer by applying the **is.integer()** function.
+To make integers in R, we need to specific them as such. We can be assured that y is indeed an integer by applying the `is.integer()` function.
 
 ```R
 > y <- as.integer(3)
@@ -302,7 +302,7 @@ To make integers in R, we need to specific them as such. We can be assured that 
 > [1] TRUE
 ```
 
-We can also coerce both numeric value and decimal values into an integer with the same **as.integer()** function.
+We can also coerce both numeric value and decimal values into an integer with the same `as.integer()` function.
 
 ```R
 > as.integer(3.14)    ### coerce a numeric value
@@ -519,17 +519,18 @@ In subsequent practicals we will be using indexed positions in vectors, matrices
 ```
 
 ### Matrix
- This is a collection of data elements in a 2D format, also known as a table.  Consider a matrix A with 2 rows and 3 columns, such as:	
+
+This is a collection of data elements in a 2D format, also known as a table.  Consider a matrix A with 2 rows and 3 columns, such as:	
  
 <img src="graphics/matrixA.PNG" width="150"/>
  
-As long as the elements are of the same type, we can use our first multi-line R code to make a matrix:
+As long as the elements are of the same type, we can use our first multi-line R code to make a matrix.  Remember from the lectures that is no need to type the `+`, this indicates that you input runs over more than one line:
 
 ```R
 > A <- matrix(
 +   c(2, 1, 4, 5, 3, 7),      ### data elements
-+   nrow = 2,		      ### number of rows
-+   ncol = 3,		      ### number of columns
++   nrow = 2,		               ### number of rows
++   ncol = 3,		               ### number of columns
 +   byrow = TRUE)             ### fill by rows
 > A
      [,1] [,2] [,3]
@@ -608,7 +609,7 @@ The columns of two matrices having the same number of rows can be combined into 
 [3,]    2
 ```
 
-We can now use the column bind (cbind) function to join C and B together:
+We can now use the column bind `cbind()` function to join C and B together:
 
 ```R
 > cbind(C,B)
@@ -618,7 +619,7 @@ We can now use the column bind (cbind) function to join C and B together:
 [3,]    2    7    5
 ```
 
-The same principle works with the row bind (rbind) function.  Enter the following code and see what happens with a new matrix D.
+The same principle works with the row bind `rbind()` function.  Enter the following code and see what happens with a new matrix D.
 
 ```R
 ### we can also write the matrix function on one line to save space.
@@ -681,7 +682,7 @@ We can also modify members of the list, but not their source.
 
 ### Data frame
 
-We have left our most important data type to last – the data frame. This is used for storing data tables. It is a list of vectors of equal length. For example, the following variable `df` is a data frame containing three vectors `n`, `s` and `b`.
+We have left our most important data type to last –- the data frame. This is used for storing data tables. It is a list of vectors of equal length. For example, the following variable `df` is a data frame containing three vectors `n`, `s` and `b`.
 
 ```R
 > n <- c(2, 3, 5)
@@ -695,7 +696,7 @@ We have left our most important data type to last – the data frame. This is us
 3 5 cc  TRUE
 ```
 
-It is now time to start using some real data that can be found in R, in the base package (i.e., it’s just there).    The dataset `mtcars` gets used a great deal in R introductions etc.  So why not do the same here today?  It is much bigger than anything we have looked at so far.
+It is now time to start using some real data that can be found in R, in the base package (i.e., it’s just there).  The dataset `mtcars` gets used a great deal in R introductions etc.  So why not do the same here today?  It is much bigger than anything we have looked at so far.
 
 Let’s use the `head()` function – similar to head in Linux that we will also look at next week – to look at the top of this dataframe:
 
@@ -853,7 +854,7 @@ You might have to hit [Enter] in the console to see the plot.
 
 ```R
 ### let’s make a vector of 3 colours based on the variable ‘stype’
-> colors<-c("tomato","forestgreen","purple")[apipop$stype]
+> colors<-c("tomato", "forestgreen", "purple")[apipop$stype]
 ### plot again
 > plot(api00~api99,data = apipop,col = colors)
 ```
