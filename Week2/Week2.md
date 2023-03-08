@@ -679,19 +679,85 @@ File names conventionally start with a lower-case letter and may end with a dot 
 
 ## Getting help
 
+> __Note: For us in this somewhat restricted environment the way the `man` pages workas described below is unconventional.__ I have edited this section to give you a hint as to what a more usual resonse to these commands would be. Typing the commands in our current environment will result is errors being returned.
+
 There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man command` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
 
 ```bash
 $ man wc
 ```
 
-You will then need to type [q] to return to the terminal prompt.  Alternatively
+If this was behaving properly, you would then need to type [q] to return to the terminal prompt.  What we see instead is:
+
+```
+WC(1)                                                                                   User Commands                                                                                  WC(1)
+
+NAME
+       wc - print newline, word, and byte counts for each file
+
+SYNOPSIS
+       wc [OPTION]... [FILE]...
+       wc [OPTION]... --files0-from=F
+
+DESCRIPTION
+       Print  newline,  word,  and  byte  counts  for each FILE, and a total line if more than one FILE is specified.  
+       A word is a non-zero-length sequence of characters delimited by white space.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       The options below may be used to select which counts are printed, always in the following order: newline, word, 
+       character, byte, maximum line length.
+
+       -c, --bytes
+              print the byte counts
+
+       -m, --chars
+              print the character counts
+
+       -l, --lines
+              print the newline counts
+
+       --files0-from=F
+              read input from the files specified by NUL-terminated names in file F; If F is - then read names from
+              standard input
+
+       -L, --max-line-length
+              print the maximum display width
+
+       -w, --words
+              print the word counts
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+AUTHOR
+       Written by Paul Rubin and David MacKenzie.
+
+REPORTING BUGS
+       GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+       Report wc translation bugs to <http://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright © 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later 
+       <http://gnu.org/licenses/gpl.html>. This is free software: you are free to change and redistribute it.  
+       There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       Full documentation at: <http://www.gnu.org/software/coreutils/wc>
+       or available locally via: info '(coreutils) wc invocation'
+
+GNU coreutils 8.28                                  January 2018                                    WC(1)
+```
+
+In addition, the `whatis` command gives a one-line description of the command, but omits any information about options etc.  So here we see:
 
 ```bash
 $ whatis wc
-```
+wc (1)               - print newline, word, and byte counts for each file
 
-gives a one-line description of the command, but omits any information about options etc.
+```
 
 When you are not sure of the exact name of a command, you can use the command `apropos`:
 
@@ -699,12 +765,30 @@ When you are not sure of the exact name of a command, you can use the command `a
 $ apropos <<keyword>>
 ```
 
-will give you the commands with keyword in their manual page header. For example, try typing
+will give you the commands with keyword in their manual page header. For example, if you typed
 
 ```bash
-$ apropos copy
+$ apropos different
 ```
+you would see the following output:
 
+```bash
+$ apropos different
+Bio::Tools::RandomDistFunctions (3pm) - A set of routines useful for generating random data in different distributions
+bp_parse_hmmsearch (1p) - parse single/multiple HMMSEARCH results file(s) with different output options
+Date::Calendar (3pm) - Calendar objects for different holiday schemes
+Math::Derivative (3pm) - Numeric 1st and 2nd order differentiation
+mogrify (1)          - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+mogrify-im6 (1)      - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+mogrify-im6.q16 (1)  - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+sg (1)               - execute command as different group ID
+TAP::Parser::SourceHandler (3perl) - Base class for different TAP source handlers
+texttotext (1e)      - Convert a plain text format to a different format
+Tk::send (3pm)       - Execute a command in a different application
+XML::LibXML::ErrNo (3pm) - Structured Errors This module is based on xmlerror.h libxml2 C header file. It defines symbolic constants for all libxml2 error codes. Currently libxml2 uses over ...
+xmltoxml (1e)        - Convert an XML document to a different format
+xmltransform (1e)    - Convert an XML document to a different format using a supplied XSLT file
+```
 
 ## File security
 
