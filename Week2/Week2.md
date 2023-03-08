@@ -129,7 +129,7 @@ I have used a testing environment for developing these resources, so my command 
 
 On the right-hand side we have "window #4", which again needs to be switched to be in the "Files" tab, as in the below.  Folders of use for today give us the following view:
 
-<img src="graphics/window4.PNG" width="600"/>
+<img src="graphics/updatedFileFolder.png" width="600"/>
 
 This is the base folder for your work today, and all files for this practical have been loaded into the project for you.
 
