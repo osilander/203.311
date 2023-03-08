@@ -48,7 +48,7 @@ As a brief summary of the lecture, we learnt that Unix has been around for 50 ye
 
 https://www.theguardian.com/technology/2014/oct/02/from-windows-1-to-windows-10-29-years-of-windows-evolution
 
-Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X (and later named versions of place in California) -- are also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
+Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X (and later named versions of places in California) -- are also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
 
 
 <table><tr><td>
