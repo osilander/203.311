@@ -52,7 +52,7 @@ Windows has clearly come on a long way with a shorter history than Unix. You wil
 
 
 <table><tr><td>
-<strong>Note for 2022:</strong> Due to Covid-19 and the uncertainties this can still cause us, the practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
+<strong>Note for 2022:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly. 
 </td></tr></table>
 
 
@@ -95,13 +95,13 @@ Don't forget to press the [Enter] key: commands are not sent to the computer unt
 
 ### Computing
 
-#### general
+#### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -114,7 +114,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 ### Use of RStudio Cloud for this Linux practical
 
-To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2022" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
+To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2023" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
 
 <img src="graphics/terminal.PNG" width="600"/>
 
@@ -1187,7 +1187,7 @@ For those of you on the iMacs, please remember to go to the Apple Menu on your i
 
 To reiterate, for this, the second lab of this course, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for two things:
 
-1. For the mastery test which accounts for 15% of the course.  This will take place between Thursday 24-Mar-2022 and Friday 25-Mar-2022 online.
+1. For the mastery test which accounts for 15% of the course. This will take place between Thursday 23-Mar-2023 and Friday 24-Mar-2023 online.
 2. For a part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats (e.g. sequences files in say fasta format) and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
