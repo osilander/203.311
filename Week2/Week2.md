@@ -388,7 +388,9 @@ The `cat` command can be used to display the contents of a file on the screen. T
 $ cat science.txt
 ```
 
-As you can see, the file is longer than the size of the window, so it scrolls past making it unreadable.  Check is by scrolling up and down in the terminal window using the bar on the right hand side.
+As you can see (well no actualy - see below), the file is longer than the size of the window, so it scrolls past making it unreadable.  Check this by scrolling up and down in the terminal window using the bar on the right hand side.
+
+> __Note:__ For us in this somewhat restricted environment the way `cat` works is unconventional.  You will probably have to press [Ctrl] and [c] to stop this behaviour, and return to the command prompt.  Hence you will not see this scrolling past the screen, but that is OK for today. 
 
 ### `less`
 
@@ -1142,7 +1144,7 @@ $ sed -n 's/the/our/1p' BSD
 ```
 >**Exercise I:**
 >
-> What is the sed command to substitute 'the' with 'non' in a case-insensitive manner.  Write the code in the box below:
+> What is the sed command to substitute 'the' with 'quote' in a case-insensitive manner.  Write the code in the box below:
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
@@ -1152,7 +1154,7 @@ A final point is that I would look very carefully at the way this substitution w
 
 ## Conclusion of the practical
 
-One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphanumeric characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
+One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphabetical characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
 
 > Exercise A:	character 3
 >
@@ -1162,11 +1164,11 @@ One last question: if you take the following characters from the first lines of 
 > 
 > Exercise C:	character 7
 > 
-> Exercise A: _character 7, character 1, character 6_
+> Exercise A: character 7, character 1, character 6
 > 
 > Exercise I:	character 10, character 1
 > 
-> Exercise I:	_character 2, character 5_ 
+> Exercise I:	character 2, character 5
 > 
 > Exercise H:	characters 1 to 5
 >
