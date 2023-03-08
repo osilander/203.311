@@ -905,7 +905,7 @@ Note: It is not possible to kill off other users' processes !!!
 
 ## Other useful commands
 
-#### `df`
+### `df`
 
 This command reports on the space left on the file system. For example, to find out how much space is left on the machine, type
 
@@ -913,7 +913,7 @@ This command reports on the space left on the file system. For example, to find 
 $ df .
 ```
 
-#### `du`
+### `du`
 
 This command outputs the number of kilobyes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. In your _`Lab2UnixAndR`_ directory, type
 
@@ -944,7 +944,7 @@ To see the change in size, type `ls -l` again.  To expand the file, use the `gun
 $ gunzip science.txt.gz
 ```
 
-#### `zcat`
+### `zcat`
 
 `zcat` will read gzipped files without needing to uncompress them first.  Go back and repeat the compression of _`science.txt`_, and then type
 
@@ -978,7 +978,7 @@ science.txt.gz: gzip compressed data, was "science.txt", last modified: Sat Jul 
 slist:          ASCII text
 ```
 
-#### `diff`
+### `diff`
 
 This command compares the contents of two files and displays the differences. Suppose you have a file called _`file1`_ and you edit some part of it and save it as _`file2`_. To see the differences type
 
@@ -988,11 +988,11 @@ $ diff file1 file2
 
 Lines beginning with a `<` denotes _`file1`_, while lines beginning with a `>` denotes _`file2`_.
 
-#### `find`
+### `find`
 
 This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing `man find`.
 
-#### `history`
+### `history`
 
 The C shell keeps an ordered list of all the commands that you have entered. Each command is given a number according to the order it was entered.
 
