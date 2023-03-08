@@ -48,11 +48,11 @@ As a brief summary of the lecture, we learnt that Unix has been around for 50 ye
 
 https://www.theguardian.com/technology/2014/oct/02/from-windows-1-to-windows-10-29-years-of-windows-evolution
 
-Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X -- like all recent versions is also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
+Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X (and later named versions of place in California) -- are also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
 
 
 <table><tr><td>
-<strong>Note for 2022:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly. 
+<strong>Note:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly. 
 </td></tr></table>
 
 
@@ -62,7 +62,7 @@ This module is an introduction to the worlds of Linux and R, with a mastery test
 
 Windows and macOS are very powerful OS and thousands of people working on their development to make them the polished products they are.  However, the time it takes new features and programs to be incorporated takes a very long time because of the huge corporations they have become.  
 
-This is why a large part of scientific research computing uses Unix/Linux as an environment within which to work.  We can access new programs, try them out, and use them in our research if we want to.  We have greater control over the parameters and options that come with the programs.  In other words, many of these programs do not suffer from the "black box" nature of Windows and macOS, i.e. we do not know how they fully work under the surface.  The number of new programs for genome analysis that you can download is growing all the time.  LetÕs first go through some of the programs that come with a standard installation of Linux so that you can work with files and directories.
+This is why a large part of scientific research computing uses Unix/Linux as an environment within which to work.  We can access new programs, try them out, and use them in our research if we want to.  We have greater control over the parameters and options that come with the programs.  In other words, many of these programs do not suffer from the "black box" nature of Windows and macOS, i.e. we do not know how they fully work under the surface.  The number of new programs for genome analysis that you can download is growing all the time.  Let's first go through some of the programs that come with a standard installation of Linux so that you can work with files and directories.
 
 First thing, don't copy and paste in the practical today!  Why?  Typing these commands is part of the hard wiring required to make them stick!  Also, "with great power comes great responsibility", and the way you are working today has the power to wipe a computer -- no trash recovery -- completely gone forever (except for that system-wide backup you have made right?)!  By typing commands, it gives you another opportunity to think about the command before you execute it and typing is more likely to trigger a big red flag in dangerous situations!  **_Think twice, type once._**
 
