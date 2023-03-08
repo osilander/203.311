@@ -370,7 +370,7 @@ You can use the `rmdir` command to remove a directory (make sure it is empty fir
 
 Here are a few other useful commands:
 
-#### `clear` (clear screen)
+### `clear` (clear screen)
 
 Before you start the next section, you may like to clear the terminal window of the previous commands so the output of the following commands can be clearly understood.  At the prompt, type
 
@@ -380,7 +380,7 @@ $ clear
 
 This will clear all text and leave you with the `$` prompt at the top of the window.
 
-#### `cat` (concatenate)
+### `cat` (concatenate)
 
 The `cat` command can be used to display the contents of a file on the screen. Type:
 
@@ -390,7 +390,7 @@ $ cat science.txt
 
 As you can see, the file is longer than the size of the window, so it scrolls past making it unreadable.  Check is by scrolling up and down in the terminal window using the bar on the right hand side.
 
-#### less
+### `less`
 
 The `less` command writes the contents of a file onto the screen a page at a time. Type
 
@@ -400,7 +400,7 @@ $ less science.txt
 
 Press the [space-bar] if you want to see another page, and type [q] if you want to quit reading. As you can see, less is often used in preference to cat for long files.
 
-#### head
+### `head`
 
 The `head` command writes the first ten lines of a file to the screen.  First clear the screen then type
 
@@ -416,7 +416,7 @@ $ head -n 5 science.txt
 
 What difference did the `-n 5` do to the `head` command?
 
-#### tail
+### `tail`
 
 The `tail` command writes the last ten lines of a file to the screen.  Clear the screen and type
 
