@@ -626,7 +626,7 @@ $ head science.txt > lines.txt
 $ sort < lines.txt
 ```
 
-This is a bit slow and you have to remember to remove the temporary file called _`lines.txt`_ when you have finished. What you really want to do is connect the output of the `hea`d command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar `|`.  For example, typing
+This is a bit slow and you have to remember to remove the temporary file called _`lines.txt`_ when you have finished. What you really want to do is connect the output of the `head` command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar `|`.  For example, typing
 
 ```bash
 $ head science.txt | sort
