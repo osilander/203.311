@@ -679,9 +679,9 @@ File names conventionally start with a lower-case letter and may end with a dot 
 
 ## Getting help
 
-> __Note: For us in this somewhat restricted environment the way the `man` pages workas described below is unconventional.__ I have edited this section to give you a hint as to what a more usual resonse to these commands would be. Typing the commands in our current environment will result is errors being returned.
+> __Note: For us in this somewhat restricted environment the way the `man` pages work as described below is unconventional.__ I have edited this section to give you a hint as to what a more usual resonse to these commands would be. Typing the commands in our current environment will result is errors being returned.
 
-There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man command` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
+There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man <<command>>` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
 
 ```bash
 $ man wc
@@ -1238,9 +1238,9 @@ A final point is that I would look very carefully at the way this substitution w
 
 ## Conclusion of the practical
 
-One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphabetical characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
+One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  The rows in italics define the words. __Count only alphabetical characters from the first to the last, and ignore spaces.__  Write your answer below:
 
-> Exercise A:	character 3
+> _Exercise A:_	character 3
 >
 > Exercise B:	character 8
 > 
@@ -1250,11 +1250,11 @@ One last question: if you take the following characters from the first lines of 
 > 
 > Exercise A: character 7, character 1, character 6
 > 
-> Exercise I:	character 10, character 1
+> _Exercise I:_	character 10, character 1
 > 
 > Exercise I:	character 2, character 5
 > 
-> Exercise H:	characters 1 to 5
+> _Exercise H:_	characters 1 to 5
 >
 > <table><tr><td>
 > ____________________
