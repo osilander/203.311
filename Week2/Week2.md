@@ -690,7 +690,7 @@ $ man wc
 If this was behaving properly, you would then need to type [q] to return to the terminal prompt.  What we see instead is:
 
 ```
-WC(1)                                                                                   User Commands                                                                                  WC(1)
+WC(1)                                            User Commands                                       WC(1)
 
 NAME
        wc - print newline, word, and byte counts for each file
