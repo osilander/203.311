@@ -302,7 +302,7 @@ You still get the same error as the folder does not exist (yet!).
 
 `cp` _`<<file1>> <<file2>>`_ is the command which makes a copy of _`<<file1>>`_ in the current working directory and calls it _`<<file2>>`_.  What we are going to do now, is to take a file stored in another part of the file system, and use the `cp` command to copy it to your _`Lab2UnixAndR`_ directory.
 
-First, `cd` to your _`Lab2UnixAndR`_ directory.
+First, `cd` to your _`Lab2UnixAndR`_ directory, then:
 
 ```bash
 $ cd /cloud/project/Lab2UnixAndR/FridayFolder
