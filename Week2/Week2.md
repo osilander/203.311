@@ -1260,7 +1260,6 @@ One last question: if you take the following characters from the first lines of 
 > ____________________
 > </td></tr></table>
 
-The italicised lines define the words.
 
 That is today’s practical completed.
 
