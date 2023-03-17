@@ -65,13 +65,16 @@ Element Aviti is one of the newer technologies that offer high throughput sequen
 
 
 ### Which matter now and in the future?
-It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. Here is the result of a poll by [Albert Vilella](https://twitter.com/AlbertVilella "Twitter"), [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done").
+It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. [Albert Vilella](https://twitter.com/AlbertVilella "Twitter") recently posted a Twitter poll: [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done").
 
+<br>
 <img src="graphics/seq-interest.png" title="poll results" width="500"/><br>
-**Looks like there's a lot of interest in Oxford Nanopore**
+**Looks like there's a lot of interest in Oxford Nanopore and Element**
 
 
 ### Others
+
+There are a host
 
 
 **Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".**
