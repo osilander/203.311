@@ -37,24 +37,42 @@ The data we will investigate today is from publicly available SARS-Cov-2 genome 
 ## Background
 
 Soon after the birth of Next Generation Sequencing in 2005 (or so), the technology rapidly proliferated into a number of 
-[different platforms](https://en.wikipedia.org/wiki/Massive_parallel_sequencing "NGS sequencing platforms") (e.g. 454, IonTorrent, Helicos, and others). However, this number has been gradually weaned down, and currently there are three dominant NGS sequencing platforms: [Illumina](https://en.wikipedia.org/wiki/Illumina,_Inc. "Illumina on Wikipedai"), which dominates the market; [PacBio](https://en.wikipedia.org/wiki/Pacific_Biosciences "PacBio on Wikipedia"); and [Oxford Nanopore](https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies "Oxford Nanopore on Wikipedia").
-These three technologies differ considerably in their methodologies. For all three, sequencing output ranges from tens of gigabases (billions of nucleotides) to terabases (trillions of nucleotides), depending on the specific platform (e.g. Illumina MiSeq, Illumina NovaSeq, Oxford Nanopore MinION, Oxford Nanopore PromethION, etc.).
+[different platforms](https://en.wikipedia.org/wiki/Massive_parallel_sequencing "NGS sequencing platforms") (e.g. 454, IonTorrent, Helicos, and others). Over the last decade and a half, companies came and went, and currently there are three dominant NGS sequencing platforms: [Illumina](https://en.wikipedia.org/wiki/Illumina,_Inc. "Illumina on Wikipedai"), which dominates the market; [PacBio](https://en.wikipedia.org/wiki/Pacific_Biosciences "PacBio on Wikipedia"); and [Oxford Nanopore](https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies "Oxford Nanopore on Wikipedia").
+These three technologies differ considerably in their methodologies. For all three, sequencing output ranges from tens of gigabases (billions of nucleotides) to terabases (trillions of nucleotides), depending on the specific platform (e.g. Illumina MiSeq, Illumina NovaSeq, Oxford Nanopore MinION, Oxford Nanopore P2, etc.). However, these are not the only methods available, and recently a number of other possibly disruptive technologies have come onto the scene (see below)
 
 
 ### Illumina
 <img src="graphics/Illumina.gif" title="It's bridge PCR!" width="300"/>
 
-Illumina sequencing relies on sequencing-by-synthesis in which millions of single DNA molecules are multiplied into millions of "clusters", each consisting of thousands of clonal molecules. Each cluster is sequenced by the incorporating fluorescent nucleotides, exciting the fluorescence, and imaging the cluster. [Review the method here](https://www.illumina.com/science/technology/next-generation-sequencing/sequencing-technology.html "Illumina movie"). Read lengths for Illumina range between 75 bp and 300 bp, and are of very high quality (i.e. the sequence of base pairs is almost certainly correct, with an error rate of approximately 1 in 10,000).
+Illumina sequencing relies on **sequencing-by-synthesis**, a process in which hundreds of millions of single DNA molecules deposited onto a patterned flowcell. These single molecules are then multiplied into hundreds of millions of "clusters", each consisting of thousands of clonal molecules (each derived from a single molecule). Each cluster is sequenced by (1)incorporating a fluorescent nucleotide (the same nucleotide will be incorporated into all molecules in a cluster), (2) exciting the fluorescence of the incorporated nucleotides, (3) and taking a picture of the cluster's fluorescence. The fluorescent moiety (big word) is then cleaved and the next nucleotide is incorporated. [Review the method here](https://www.illumina.com/science/technology/next-generation-sequencing/sequencing-technology.html "Illumina movie"). Read lengths for Illumina range between 75 bp and 300 bp, and are of very high quality (i.e. the sequence of base pairs is almost certainly correct, with an error rate of approximately 1 in 10,000).
 
 ### PacBio
 <img src="graphics/pacbio.gif" title="The world's smallest microscope" width="300"/>
 
-PacBio sequencing relies on imaging the incorporation of fluorescent nucleotides into single DNA molecules using zero-mode-waveguides ("the worlds smallest microscope"). [Review the method here](https://www.pacb.com/smrt-science/smrt-sequencing/ "PacBio movie"). Read lengths for PacBio range from 1000 bp to 30 kilobase pairs, and range in quality from very low (15% error rate) to very high (1 in 100,000 or lower error rate).
+PacBio sequencing relies on imaging fluorescent nucleotides as they are incorporated into **single** DNA molecules using **zero-mode-waveguides** ("the worlds smallest microscope"). This is fundamentally different from Illumina in that the pictures that are taken during sequencing are of single DNA molecules [Review the method here](https://www.pacb.com/smrt-science/smrt-sequencing/ "PacBio movie"). Read lengths for PacBio range from 1000 bp to 30 kilobase pairs, and range in quality from very low (15% error rate) to very high (1 in 100,000 *or lower* error rate).
 
 ### Oxford Nanopore
 <img src="graphics/ont.gif" title="So many pores" width="300"/>
 
-Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1%.
+Oxford Nanopore sequencing relies on sensing current changes in a pore as a single DNA *or RNA* molecule is passed through a pore (a protein taken from *E. coli*). This differs fundamentally from both the above methods as it does not rely on taking pictures. [Review the method here](https://nanoporetech.com/applications/dna-nanopore-sequencing "ONT movie"). Read lengths for Oxford Nanopore are essentially unlimited (e.g. 1 megabase pair), and are of medium quality, with an error rate of approximately 1 in 100.
+
+### MGI / BGI
+MGI is a relatively new technology that relies on creating DNA "nanoballs" (DNB). After these are made, they are deposited on a patterned flow cell (as Illumina is), fluorescent nucleotides are added, and a picture of the flow cell is taken to determine the colour of the nucleotide that has been incorporated. For a video of this process, see [here](https://www.google.com/search?q=mgi+seq&sxsrf=AJOqlzVqpyPqojq2ZbTyUa_XJ4Qyz9qhHg:1679016650500&source=lnms&tbm=vid&sa=X&ved=2ahUKEwiwppm46OH9AhXy9DgGHWHdCJ4Q0pQJegQIBRAG&biw=1725&bih=861&dpr=1#fpstate=ive&vld=cid:89958952,vid:xUVdJN0m38c "DNA! Nano!"). This technology is very very similar to Illumina's, with similar read lengths and accuracy.
+
+### ElementBio Aviti
+Element Aviti is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). Again, this has similar read lengths and accuracy as Illumina.
+
+
+
+### Which matter now and in the future?
+It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. Here is the result of a poll by [Albert Vilella](https://twitter.com/AlbertVilella "Twitter"), [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done").
+
+<img src="graphics/seq-interest.png" title="poll results" width="500"/><br>
+**Looks like there's a lot of interest in Oxford Nanopore**
+
+
+### Others
+
 
 **Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".**
 
@@ -62,10 +80,15 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a DNA 
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). As you can imagine, these characteristics provide different advantages.
 
-Oxford Nanopore and Illumina also differ in other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their varied modifications, whereas Illumia sequences *copies* of DNA only.
+Oxford Nanopore and Illumina also differ in other ways, but we will not discuss those in detail today. Perhaps the primary difference is that Oxford Nanopore sequences the *original* molecules of DNA and RNA with all their various modifications (cytosine methylation, adenine methylation, and others), whereas Illumia sequences *copies* of DNA only.
  
 <img src="graphics/ont-ill.png" title="Scary car ride" width="500"/><br>
-**Oxford Nanopore - not just boring old DNA**
+**Oxford Nanopore - the original DNA in all its glory**
+
+## First things first
+
+We will soon get to the actual DNA sequence data. But to deal with the data, you will need a slew of new software. Thus, you must be introduced to methods for managing that software. Let's begin there.
+
 
 ### Software Management
 
@@ -78,17 +101,17 @@ As you are probably aware, software **packages** are sets of tools that have bee
 *However*, software packages and tools often have **dependencies**, which are other pieces of software that are necessary to run the software you would like to install. For example, to use Instagram, you also need software that controls your phone's camera. This reliance of Instagram on camera-controlling software is known as a **dependency**. Importantly, software like Instagram is designed to be **user-friendly**, and during installation will usually check whether such camera-controlling software exists, and if it does not, may try to install it.
 
 <img src="graphics/File_dependency.png" title="About to crumble" width="300"/> <br>
-**Software dependencies are real** (credit: [xkcd](https://xkcd.com/2347/ "XKCD homepage")) <br>
+**Software dependencies are real and precarious, especially in bioinformatics** (credit: [xkcd](https://xkcd.com/2347/ "XKCD homepage")) <br>
 
 
-Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics. It considerably simplifies the process of installing software, negating the need to find websites, download multiple files, unzip files, find compatible files for your operating system, etc.
+Despite the existence of dependencies, many bioinformatics software programs (most of which are written by academic-oriented computational biologists -- or worse, plain-old biologists) do not check for dependencies. This can create significant issues if you try to run a piece of software but are missing other software that it needs to run. To make sure that we resolve all these dependency issues when we install new software, we will use a **package management** system. This management system is called [conda](https://en.wikipedia.org/wiki/Conda_(package_manager "Wikipedia link"), and it is perhaps the most common package manager used in bioinformatics. It considerably simplifies the process of installing software, meaning that you will not need to find software websites, download multiple files, unzip files, find compatible files for your operating system, etc.
 
 <img src="graphics/dependencies.jpg" title="Woody and Buzz in dependency Hell" width="600"/><br>
 **You will never escape them** <br>
 
 ### Conda Installation
 
-As with any software, the first thing we need to do is install the package manager itself. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie podcast").
+As with any software, the first thing we need to do is install the **package manager** itself. The installation of this tool is perhaps the most complicated installation we will do in this course, as we cannot use `conda` to install itself (and I have not pre-installed it on your system). However, after the installation of `conda`, your life will become far easier (well, in terms of analysing biological data) and you will be on your way to becoming a seasoned [bioinformatician](https://soundcloud.com/microbinfie "binfie podcast").
 
 First, I need to post a **reminder** -- as we will be operating mostly on the command line, you **must never forget** tab-complete.
 
@@ -121,24 +144,24 @@ The file you have downloaded (with the extension `.sh`) is a bash file, which is
 
 ### Naming Conventions
 
-One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
+One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) Know that there is no clear-cut [best case](https://www.reddit.com/r/ProgrammingLanguages/comments/10twqkt/do_you_prefer_camelcase_or_snake_case_for/ "reddit argument") convention. I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
 
 <img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/><br>
 **Please be consistent with your file names**<br>
 
-As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhpas not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`), `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
+As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhaps not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`), `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
 
-Also: if you are ever writing the date, use the format `YYYYMMDD`. That way, when you sort files by name, they will *also* be sorted by date (e.g. if you know that you made one set of data before another, it will be easier to find).
+Aside: if you are ever writing the date, use the format `YYYYMMDD`. That way, when you sort files by name, they will *also* be sorted by date (e.g. if you know that you made one set of data before another, it will be easier to find).
 
 Finally, there are certain characters that you should **always** avoid when naming files and folders. Besides spaces, these are (not necessarily exhaustive):
 
 ```bash
    : ; ` " ' \ / ! @ # $ % ^ & * ( ) + , ? [ ] { } | > <
 ```
-Look closely above and you will note that several characters above are a different colour (e.g. ";") - that's because the `bash` interpreter thinks it's a special character.
+Look closely above and you will note that several characters above are a different colour (e.g. ";") - that's because the `bash` interpreter used to render this webpage thinks it's a special character.
 
 
-### Back to the Topic at Hand - Conda
+### Back to the Topic at Hand - Conda, a Package Manager
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
@@ -172,7 +195,15 @@ Now, you should be able to use the `conda` command. Again, one useful way to che
 conda --help
 ``` 
 
-This should bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate).
+This should bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate). Note that this is different from the `R` help command.
+
+### Faster Management
+Over the years, the conda ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a replacement manager, `mamba`. Intall this using the following syntax:
+
+```bash
+# don't worry about exactly what is happening here
+conda install mamba -n base -c conda-forge
+```
 
 ### Software Installation
 
