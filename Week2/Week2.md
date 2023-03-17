@@ -48,11 +48,11 @@ As a brief summary of the lecture, we learnt that Unix has been around for 50 ye
 
 https://www.theguardian.com/technology/2014/oct/02/from-windows-1-to-windows-10-29-years-of-windows-evolution
 
-Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X -- like all recent versions is also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
+Windows has clearly come on a long way with a shorter history than Unix. You will also remember from the lecture that the current version of the Apple OS -- OS X (and later named versions of places in California) -- are also based on Unix.  That is why we could very easily get the basics of using the command line using a terminal on our iMacs we use for this course at Manawatu.  There is no need to install any other way to perform command line applications.  Windows machines (like those at Albany) cannot easily run Linux/Unix without additional software.  
 
 
 <table><tr><td>
-<strong>Note for 2022:</strong> Due to Covid-19 and the uncertainties this can still cause us, the practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly.
+<strong>Note:</strong> The practicals for 203311 this year are being performed inside a new cloud-based RStudio environment called "RStudio Cloud". We will discuss the use of this shortly. 
 </td></tr></table>
 
 
@@ -62,7 +62,7 @@ This module is an introduction to the worlds of Linux and R, with a mastery test
 
 Windows and macOS are very powerful OS and thousands of people working on their development to make them the polished products they are.  However, the time it takes new features and programs to be incorporated takes a very long time because of the huge corporations they have become.  
 
-This is why a large part of scientific research computing uses Unix/Linux as an environment within which to work.  We can access new programs, try them out, and use them in our research if we want to.  We have greater control over the parameters and options that come with the programs.  In other words, many of these programs do not suffer from the "black box" nature of Windows and macOS, i.e. we do not know how they fully work under the surface.  The number of new programs for genome analysis that you can download is growing all the time.  LetÕs first go through some of the programs that come with a standard installation of Linux so that you can work with files and directories.
+This is why a large part of scientific research computing uses Unix/Linux as an environment within which to work.  We can access new programs, try them out, and use them in our research if we want to.  We have greater control over the parameters and options that come with the programs.  In other words, many of these programs do not suffer from the "black box" nature of Windows and macOS, i.e. we do not know how they fully work under the surface.  The number of new programs for genome analysis that you can download is growing all the time.  Let's first go through some of the programs that come with a standard installation of Linux so that you can work with files and directories.
 
 First thing, don't copy and paste in the practical today!  Why?  Typing these commands is part of the hard wiring required to make them stick!  Also, "with great power comes great responsibility", and the way you are working today has the power to wipe a computer -- no trash recovery -- completely gone forever (except for that system-wide backup you have made right?)!  By typing commands, it gives you another opportunity to think about the command before you execute it and typing is more likely to trigger a big red flag in dangerous situations!  **_Think twice, type once._**
 
@@ -95,13 +95,13 @@ Don't forget to press the [Enter] key: commands are not sent to the computer unt
 
 ### Computing
 
-#### general
+#### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -114,7 +114,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 ### Use of RStudio Cloud for this Linux practical
 
-To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2022" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
+To start off with log into your RStudio Cloud account, and go to the `week1and2` project in the "Bootcamp_2023" workspace we used last week. In the lower left-hand side -- the area you used the console for last week -- you will see another tab called "Terminal".  This is where we are going to be working today, so click on that, and you should see something like the below.   
 
 <img src="graphics/terminal.PNG" width="600"/>
 
@@ -129,7 +129,7 @@ I have used a testing environment for developing these resources, so my command 
 
 On the right-hand side we have "window #4", which again needs to be switched to be in the "Files" tab, as in the below.  Folders of use for today give us the following view:
 
-<img src="graphics/window4.PNG" width="600"/>
+<img src="graphics/updatedFileFolder.png" width="600"/>
 
 This is the base folder for your work today, and all files for this practical have been loaded into the project for you.
 
@@ -302,7 +302,7 @@ You still get the same error as the folder does not exist (yet!).
 
 `cp` _`<<file1>> <<file2>>`_ is the command which makes a copy of _`<<file1>>`_ in the current working directory and calls it _`<<file2>>`_.  What we are going to do now, is to take a file stored in another part of the file system, and use the `cp` command to copy it to your _`Lab2UnixAndR`_ directory.
 
-First, `cd` to your _`Lab2UnixAndR`_ directory.
+First, `cd` to your _`Lab2UnixAndR`_ directory, then:
 
 ```bash
 $ cd /cloud/project/Lab2UnixAndR/FridayFolder
@@ -370,7 +370,7 @@ You can use the `rmdir` command to remove a directory (make sure it is empty fir
 
 Here are a few other useful commands:
 
-#### `clear` (clear screen)
+### `clear` (clear screen)
 
 Before you start the next section, you may like to clear the terminal window of the previous commands so the output of the following commands can be clearly understood.  At the prompt, type
 
@@ -380,7 +380,7 @@ $ clear
 
 This will clear all text and leave you with the `$` prompt at the top of the window.
 
-#### `cat` (concatenate)
+### `cat` (concatenate)
 
 The `cat` command can be used to display the contents of a file on the screen. Type:
 
@@ -388,9 +388,11 @@ The `cat` command can be used to display the contents of a file on the screen. T
 $ cat science.txt
 ```
 
-As you can see, the file is longer than the size of the window, so it scrolls past making it unreadable.  Check is by scrolling up and down in the terminal window using the bar on the right hand side.
+As you can see (well no actualy - see below), the file is longer than the size of the window, so it scrolls past making it unreadable.  Check this by scrolling up and down in the terminal window using the bar on the right hand side.
 
-#### less
+> __Note:__ For us in this somewhat restricted environment the way `cat` works is unconventional.  You will probably have to press [Ctrl] and [c] to stop this behaviour, and return to the command prompt.  Hence you will not see this scrolling past the screen, but that is OK for today. 
+
+### `less`
 
 The `less` command writes the contents of a file onto the screen a page at a time. Type
 
@@ -400,7 +402,7 @@ $ less science.txt
 
 Press the [space-bar] if you want to see another page, and type [q] if you want to quit reading. As you can see, less is often used in preference to cat for long files.
 
-#### head
+### `head`
 
 The `head` command writes the first ten lines of a file to the screen.  First clear the screen then type
 
@@ -416,7 +418,7 @@ $ head -n 5 science.txt
 
 What difference did the `-n 5` do to the `head` command?
 
-#### tail
+### `tail`
 
 The `tail` command writes the last ten lines of a file to the screen.  Clear the screen and type
 
@@ -624,7 +626,7 @@ $ head science.txt > lines.txt
 $ sort < lines.txt
 ```
 
-This is a bit slow and you have to remember to remove the temporary file called _`lines.txt`_ when you have finished. What you really want to do is connect the output of the `hea`d command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar `|`.  For example, typing
+This is a bit slow and you have to remember to remove the temporary file called _`lines.txt`_ when you have finished. What you really want to do is connect the output of the `head` command directly to the input of the `sort` command. This is exactly what pipes do. The symbol for a pipe is the vertical bar `|`.  For example, typing
 
 ```bash
 $ head science.txt | sort
@@ -677,19 +679,85 @@ File names conventionally start with a lower-case letter and may end with a dot 
 
 ## Getting help
 
-There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man command` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
+> __Note: For us in this somewhat restricted environment the way the `man` pages work as described below is unconventional.__ I have edited this section to give you a hint as to what a more usual resonse to these commands would be. Typing the commands in our current environment will result is errors being returned.
+
+There are online manuals which gives information about most commands. The manual pages tell you which options a particular command can take, and how each option modifies the behaviour of the command. Type `man <<command>>` to read the manual page for a particular command.  For example, to find out more about the `wc` (word count) command, type
 
 ```bash
 $ man wc
 ```
 
-You will then need to type [q] to return to the terminal prompt.  Alternatively
+If this was behaving properly, you would then need to type [q] to return to the terminal prompt.  What we see instead is:
+
+```
+WC(1)                                            User Commands                                       WC(1)
+
+NAME
+       wc - print newline, word, and byte counts for each file
+
+SYNOPSIS
+       wc [OPTION]... [FILE]...
+       wc [OPTION]... --files0-from=F
+
+DESCRIPTION
+       Print  newline,  word,  and  byte  counts  for each FILE, and a total line if more than one FILE is specified.  
+       A word is a non-zero-length sequence of characters delimited by white space.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       The options below may be used to select which counts are printed, always in the following order: newline, word, 
+       character, byte, maximum line length.
+
+       -c, --bytes
+              print the byte counts
+
+       -m, --chars
+              print the character counts
+
+       -l, --lines
+              print the newline counts
+
+       --files0-from=F
+              read input from the files specified by NUL-terminated names in file F; If F is - then read names from
+              standard input
+
+       -L, --max-line-length
+              print the maximum display width
+
+       -w, --words
+              print the word counts
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+AUTHOR
+       Written by Paul Rubin and David MacKenzie.
+
+REPORTING BUGS
+       GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+       Report wc translation bugs to <http://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright © 2017 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later 
+       <http://gnu.org/licenses/gpl.html>. This is free software: you are free to change and redistribute it.  
+       There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       Full documentation at: <http://www.gnu.org/software/coreutils/wc>
+       or available locally via: info '(coreutils) wc invocation'
+
+GNU coreutils 8.28                                  January 2018                                    WC(1)
+```
+
+In addition, the `whatis` command gives a one-line description of the command, but omits any information about options etc.  So here we see:
 
 ```bash
 $ whatis wc
-```
+wc (1)               - print newline, word, and byte counts for each file
 
-gives a one-line description of the command, but omits any information about options etc.
+```
 
 When you are not sure of the exact name of a command, you can use the command `apropos`:
 
@@ -697,12 +765,30 @@ When you are not sure of the exact name of a command, you can use the command `a
 $ apropos <<keyword>>
 ```
 
-will give you the commands with keyword in their manual page header. For example, try typing
+will give you the commands with keyword in their manual page header. For example, if you typed
 
 ```bash
-$ apropos copy
+$ apropos different
 ```
+you would see the following output:
 
+```bash
+$ apropos different
+Bio::Tools::RandomDistFunctions (3pm) - A set of routines useful for generating random data in different distributions
+bp_parse_hmmsearch (1p) - parse single/multiple HMMSEARCH results file(s) with different output options
+Date::Calendar (3pm) - Calendar objects for different holiday schemes
+Math::Derivative (3pm) - Numeric 1st and 2nd order differentiation
+mogrify (1)          - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+mogrify-im6 (1)      - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+mogrify-im6.q16 (1)  - resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. Mogrify overwrites the original image file, whereas, convert(1) writes t...
+sg (1)               - execute command as different group ID
+TAP::Parser::SourceHandler (3perl) - Base class for different TAP source handlers
+texttotext (1e)      - Convert a plain text format to a different format
+Tk::send (3pm)       - Execute a command in a different application
+XML::LibXML::ErrNo (3pm) - Structured Errors This module is based on xmlerror.h libxml2 C header file. It defines symbolic constants for all libxml2 error codes. Currently libxml2 uses over ...
+xmltoxml (1e)        - Convert an XML document to a different format
+xmltransform (1e)    - Convert an XML document to a different format using a supplied XSLT file
+```
 
 ## File security
 
@@ -905,7 +991,7 @@ Note: It is not possible to kill off other users' processes !!!
 
 ## Other useful commands
 
-#### `df`
+### `df`
 
 This command reports on the space left on the file system. For example, to find out how much space is left on the machine, type
 
@@ -913,7 +999,7 @@ This command reports on the space left on the file system. For example, to find 
 $ df .
 ```
 
-#### `du`
+### `du`
 
 This command outputs the number of kilobyes used by each subdirectory. Useful if you have gone over quota and you want to find out which directory has the most files. In your _`Lab2UnixAndR`_ directory, type
 
@@ -944,7 +1030,7 @@ To see the change in size, type `ls -l` again.  To expand the file, use the `gun
 $ gunzip science.txt.gz
 ```
 
-#### `zcat`
+### `zcat`
 
 `zcat` will read gzipped files without needing to uncompress them first.  Go back and repeat the compression of _`science.txt`_, and then type
 
@@ -978,7 +1064,7 @@ science.txt.gz: gzip compressed data, was "science.txt", last modified: Sat Jul 
 slist:          ASCII text
 ```
 
-#### `diff`
+### `diff`
 
 This command compares the contents of two files and displays the differences. Suppose you have a file called _`file1`_ and you edit some part of it and save it as _`file2`_. To see the differences type
 
@@ -988,11 +1074,11 @@ $ diff file1 file2
 
 Lines beginning with a `<` denotes _`file1`_, while lines beginning with a `>` denotes _`file2`_.
 
-#### `find`
+### `find`
 
 This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing `man find`.
 
-#### `history`
+### `history`
 
 The C shell keeps an ordered list of all the commands that you have entered. Each command is given a number according to the order it was entered.
 
@@ -1142,7 +1228,7 @@ $ sed -n 's/the/our/1p' BSD
 ```
 >**Exercise I:**
 >
-> What is the sed command to substitute 'the' with 'non' in a case-insensitive manner.  Write the code in the box below:
+> What is the sed command to substitute 'the' with 'quote' in a case-insensitive manner.  Write the code in the box below:
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
@@ -1152,9 +1238,9 @@ A final point is that I would look very carefully at the way this substitution w
 
 ## Conclusion of the practical
 
-One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  __Count only alphanumeric characters from the first to the last, and ignore spaces.__  Write your answer in the box opposite:
+One last question: if you take the following characters from the first lines of code from the following short exercises, what three words do you end up with?  The rows in italics define the words. __Count only alphabetical characters from the first to the last, and ignore spaces.__  Write your answer below:
 
-> Exercise A:	character 3
+> _Exercise A:_	character 3
 >
 > Exercise B:	character 8
 > 
@@ -1162,19 +1248,18 @@ One last question: if you take the following characters from the first lines of 
 > 
 > Exercise C:	character 7
 > 
-> Exercise A: _character 7, character 1, character 6_
+> Exercise A: character 7, character 1, character 6
 > 
-> Exercise I:	character 10, character 1
+> _Exercise I:_	character 10, character 1
 > 
-> Exercise I:	_character 2, character 5_ 
+> Exercise I:	character 2, character 5
 > 
-> Exercise H:	characters 1 to 5
+> _Exercise H:_	characters 1 to 5
 >
 > <table><tr><td>
 > ____________________
 > </td></tr></table>
 
-The italicised lines define the words.
 
 That is today’s practical completed.
 
@@ -1187,7 +1272,7 @@ For those of you on the iMacs, please remember to go to the Apple Menu on your i
 
 To reiterate, for this, the second lab of this course, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for two things:
 
-1. For the mastery test which accounts for 15% of the course.  This will take place between Thursday 24-Mar-2022 and Friday 25-Mar-2022 online.
+1. For the mastery test which accounts for 15% of the course. This will take place between Thursday 23-Mar-2023 and Friday 24-Mar-2023 online.
 2. For a part of this course in which you will use RStudio to explore examples of genomic data.
 
 The mastery test will test both Linux and R, so half of the marks will come from each part.  We have not done much biology today, but as a hint have a think about how we can work with biological data that can come in a variety of formats (e.g. sequences files in say fasta format) and what we can potentially do with those given what we have learnt today.  There will be a worksheet with test questions for you to work through as preparation for the test.
