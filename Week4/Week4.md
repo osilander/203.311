@@ -38,7 +38,9 @@ The data we will investigate today is from publicly available SARS-Cov-2 genome 
 
 Soon after the birth of Next Generation Sequencing in 2005 (or so), the technology rapidly proliferated into a number of 
 [different platforms](https://en.wikipedia.org/wiki/Massive_parallel_sequencing "NGS sequencing platforms") (e.g. 454, IonTorrent, Helicos, and others). Over the last decade and a half, companies came and went, and currently there are three dominant NGS sequencing platforms: [Illumina](https://en.wikipedia.org/wiki/Illumina,_Inc. "Illumina on Wikipedai"), which dominates the market; [PacBio](https://en.wikipedia.org/wiki/Pacific_Biosciences "PacBio on Wikipedia"); and [Oxford Nanopore](https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies "Oxford Nanopore on Wikipedia").
-These three technologies differ considerably in their methodologies. For all three, sequencing output ranges from tens of gigabases (billions of nucleotides) to terabases (trillions of nucleotides), depending on the specific platform (e.g. Illumina MiSeq, Illumina NovaSeq, Oxford Nanopore MinION, Oxford Nanopore P2, etc.). However, these are not the only methods available, and recently a number of other possibly disruptive technologies have come onto the scene (see below)
+These three technologies differ considerably in their methodologies. For all three, sequencing output ranges from tens of gigabases (billions of nucleotides) to terabases (trillions of nucleotides), depending on the specific platform (e.g. Illumina MiSeq, Illumina NovaSeq, Oxford Nanopore MinION, Oxford Nanopore P2, etc.). However, these are not the only methods available, and recently a number of other possibly disruptive technologies have come onto the scene (see below). Lest we forget, when Fred Sanger first started sequencing, he was averaging one base pair per day at his peak.
+
+
 
 
 ### Illumina
@@ -62,6 +64,8 @@ MGI is a relatively new technology that relies on creating DNA "nanoballs" (DNB)
 ### ElementBio Aviti
 Element Aviti is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). Again, this has similar read lengths and accuracy as Illumina.
 
+### Ultima Genomics
+Ultima is the most recent big entry into the NGS market, and promises by a considerable margin, the cheapest human genome ($100).
 
 
 ### Which matter now and in the future?
@@ -71,10 +75,6 @@ It's difficult to know what the sequencing landscape will look like in five year
 <img src="graphics/seq-interest.png" title="poll results" width="500"/><br>
 **Looks like there's a lot of interest in Oxford Nanopore and Element**
 
-
-### Others
-
-There are a host
 
 
 **Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".**
@@ -201,61 +201,65 @@ conda --help
 This should bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate). Note that this is different from the `R` help command.
 
 ### Faster Management
-Over the years, the conda ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a replacement manager, `mamba`. Intall this using the following syntax:
+Over the years, the conda ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a faster manager, `mamba`. `mamba` will allow faster searching of the `conda`  as it works in parallel and uses `C++`. Install `mamba` using the following syntax:
 
 ```bash
 # don't worry about exactly what is happening here
 conda install mamba -n base -c conda-forge
 ```
 
+As you can see, we have used `conda` only to be able to install `mamba`. From now on, use `mamba` to install all programs.
+
 ### Software Installation
 
 `conda` installs software packages using what is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda docs") channel, which currently has recipes for more than 7000 software packages.
 
-Let's try to install some software packages now. One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" one sequence of DNA to another sequence of DNA). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This process is relatively simple:
+Let's try to install some software packages now.
+
+One piece of software we will need allows us to figure out where a certain sequence of DNA is in a genome (this type of software can be referred to as a "mapper" because it "maps" one sequence of DNA to another sequence of DNA). We will explore why you might want to do this later. The software we will use is [minimap2](https://github.com/lh3/minimap2 "minimap2 github"). This installation process is relatively simple:
 
 ```bash
-# Below we specify which channel we would like conda
+# Below we specify which channel we would like mamba
 # to look in to find the minimap2 recipe.
 # This is done using the -c option
 
-conda install -c bioconda minimap2
+mamba install -c bioconda minimap2
 ```
 
-`conda` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`. Let's now get to the task at hand for today: analyzing DNA sequences from SARS-CoV-2.
+`mamba` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`. Let's now get to the task at hand for today: analyzing DNA sequences from SARS-CoV-2.
 
 ### SARS-CoV-2 Genome Sequencing
-In the past 2.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with close to [ten million whole genome sequences available](https://www.nature.com/articles/d41586-021-03698-7 "Nature article on Omicron"), and two million sequence [by the UK alone](https://www.gov.uk/government/news/uk-completes-over-2-million-sars-cov-2-whole-genome-sequences "gov.uk press release"). SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that is (until recently) the primarily application used in New Zealand, in constrast to most other countries (again, until recently with the emergence of the Omicron variant).
+In the past 3.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with well over [ten million whole genome sequences available](https://www.nature.com/articles/d41586-021-03698-7 "Nature article on Omicron"), and as of a year ago, two million sequence [by the UK alone](https://www.gov.uk/government/news/uk-completes-over-2-million-sars-cov-2-whole-genome-sequences "gov.uk press release"). SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that was used extensively in New Zealand early in the pandemic, in constrast to most other countries.
 
 #### QUESTION
-1. Why has SARS-CoV-2 genome sequencing been used more commonly for transmission tracking in New Zealand compared to other countries?
+1. Why was it possible to use SARS-CoV-2 genome sequencing for transmission tracking in New Zealand but not in most other countries?
 
 Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on a plane"), especially figures 3 and 4; and [this paper here](files/sc2_realtime_genomics.pdf "COVID outbreaks in NZ") (how many of those outbreaks do you remember?) for some applications of SARS-CoV-2 genome sequencing data in New Zealand. **Both of these papers are required reading and may appear in your tests.**
 
 ### Our Data
 
-There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). Specifically explore the ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; as we will be using data generated with that method.
+There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). The ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; is the method used to produce the data we will explore here.
 
-The sequence data that we will be using today was generated using both Illumina and Oxford Nanopore reads, and are from two different SARS-CoV-2 genomes. The format of the data is *fastq*. `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+The NGS methods that produced today's data are Illumina and Oxford Nanopore. The format of the sequence data is *fastq*. Remember that the `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
 The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](./data/missouri-2022-29-10.fastq.gz "ONT 2").
 
-To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory called `data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
+To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory, perhaps `covid/data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
 ```bash
 wget link_address_you_just_copied
 ```
 You should see a rapid animated arrow tracking the download.
 
-Repeat this for *all three other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `data/` directory above, you could make a directory called `sequence_data/`. Feel free to change the name now if you like.
+Repeat this for *all three other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `covid/data/` directory above, you could make a directory called `scv/sequence_data/`. Feel free to change the name now if you like (hint: use `mv`).
 
-After downloading all four files, you have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this, but note that not only is it important to whether there are files in the directory, you need to know *whether there is anything in the files*, and preferably how much data is in the files. If you are not familiar with how to do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
+After downloading all four files, you will have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this. In this case you need to know (1) whether there are files in the directory, and (2) *whether there is anything in the files* (and preferably how much data is in the files). If you are not familiar with how you might do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
 
 #### QUESTIONS
-1. Are all three files present?
+1. Are all four files present?
 2. How big are they?
 3. Are you sure they all sitting in the `/data` directory that is sitting within your `/cloud/project/` directory?
-4. What does the `.gz` at the end of the file names indicate about the type fo file it is?
+4. What does the `.gz` at the end of the file names indicate about the type of file it is?
 5. How can you view the contents of files that have a `.gz` suffix (for example, what do you need to do first before viewing)?
 
 #### Organization (optional but useful and easy)
@@ -266,7 +270,7 @@ Things will start to get a little crazy as we get more data - new directories, n
 # i.e. it's no longer bioconda
 # But we still use the -c option to
 # specify another channel
-conda install -c conda-forge tree
+mamba install -c conda-forge tree
 ```
 
 Now we can use our tree command to see what is where and how it's organised:
@@ -287,7 +291,7 @@ Check out the `tree` command using the `--help` subcommand. What does the `-L` o
 
 #### Making Good Use of Summary Statistics
 
-Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (okay, they're not *that* large). Even so, we use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
+Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (well, not *that* large for sequencing data). We will use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
 ```bash
 # Here we first have to use zcat, not head directly, or cat,
 # as the files are zipped. 
@@ -302,10 +306,10 @@ zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 Once we have the data and have decided that it looks as we expect (*or does it?* &#129300;), the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
 ```bash
-# Below we use conda (of course) and 
-# tell conda which *channel* to look in
+# Below we use mamba (of course) and 
+# tell mamba which *channel* to look in
 # for the recipe using the -c option
-conda install -c bioconda seqkit
+mamba install -c bioconda seqkit
 ```
 
 If your command does not work, let a lecturer, demonstrator, or classmate know.
