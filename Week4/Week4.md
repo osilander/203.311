@@ -301,7 +301,7 @@ Next, let's next look quickly inside the files. However, we don't want to open t
 # and feeds it to another.
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
-**For completeness and carefulness, we do it for all four files**.
+**For completeness and carefulness, we do it for all four files**. Delete any suspicious sequence files from your directory and note the importance of looking critically  at your data.
 
 Once we have the data and have decided that it looks as we expect (*or does it?* &#129300;), the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
@@ -314,20 +314,20 @@ mamba install -c bioconda seqkit
 
 If your command does not work, let a lecturer, demonstrator, or classmate know.
 
-We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install using conda:
+We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install using `mamba`:
 
 ```bash
 # Once more we look in the bioconda channel
 # but now I won't tell you what to type
 # because you know how to install things with
 # simple names like "fastp" by
-# using conda by looking in a specific channel
+# using mamba by looking in a specific channel
 # and installing the software by name
 ```
 
 #### Summary Stats with seqkit
 
-Now let's use `seqkit` first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. First, some simple statistics about your read files:
+Now let's use `seqkit` ("sequence kit") first. Type `seqkit --help` to make sure it's working. No errors? If you have an error, ask for help. First, some simple statistics about your read files:
 
 ```bash
 # Some simple statistics about your files
@@ -342,7 +342,7 @@ seqkit stats *fastq.gz
 
 ```bash
 # Maybe a few more stats. Remember the
-# *name* of the program and you know that
+# *correct name* of the program and you know that
 # gzipped files don't end in ".gx" so
 # don't copy-paste
 seqklt stats -a *fastq.gx
@@ -352,7 +352,7 @@ Let's look at whole distributions of read lengths instead of just the *average* 
 
 ```bash
 # A histogram of read lengths.
-# We use the watch subcommand and the --bins option to clean up the 
+# We use the *watch* subcommand and the --bins option to clean up the 
 # histograms a tiny bit. The --bins options tells the program
 # how many different histogram bins you want (here, I chose 15)
 # If you want, you can leave the --bins 15 part of the command out.
