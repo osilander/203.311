@@ -372,22 +372,22 @@ It is also possible to make a simple plot of the average *quality* of each read.
 # read aspect we would like to plot. Above it was MeanLength
 # Now it's MeanQual. We leave the --bins option in (you don't have to).
 # When you leave in --bins you need to specify a number (I chose 15)
-seqklt witch --folds MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
+seqklt witch --fielbs MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-*Error? The program is "seqkit", the subcommand is "watch", the argument is "fields", and the read aspect is "MeanQual".*
+*Any errors?* The program is "seqkit", the subcommand is `watch`, the argument is `fields`, and the read aspect is `MeanQual`.
 
 Do this for both the Oxford Nanopore and Illumina reads.
 
 #### QUESTIONS
-1. If a base has a quality score of 10, what is the likelihood that it is the correct base? See if you can find this out using Google, or calculate it.
+1. If a base has a quality score of 10, what is the likelihood that it is the correct base? See if you can find this out using Google, or calculate it if you remember how to convert q-score to accuracy.
 2. What if a base has a quality score of 25? Again, see if you can search for this answer or calculate it.
-3. How do these sequencing files differ in the distributions of quality scores?
+3. How do the Illumin and Oxford Nanopore sequencing files differ in the distributions of quality scores?
 4. What are the *highest* average read qualities for the Oxford Nanopore reads (approximately)?
 5. For an Oxford Nanopore read with a "high" average quality, what fraction of bases do you expect to be correct?
 
 #### Summary Stats with fastp
 
-Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences if you would like. You should have installed it above, check if it's properly installed:
+Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences if you would like. You should have installed it using the directions above and `mamba`. First check if it's properly installed:
 
 ```bash
 # As usual, we use the --help option to see if the
@@ -409,7 +409,9 @@ fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h m
 # repeat for the Illumina data
 # We now have two inputs, -i and -I
 # and two outputs -o and -O
-# but still only one html and json
+# but still only one html and json.
+# The two inputs and outputs are becuase
+# the data are paired end.
 # Note that the "\" below indicates
 # that the command extends over multiple lines.
 # Note that here you **should not** use the -A option
@@ -450,6 +452,7 @@ Oops. Did you forget that `seqkit` outputs to standard out? You have to use the 
 
 ```bash
 # Please do not redirect this into mydata.txt
+# Rather, name the file something sensible.
 seqkit fx2tab -qln myseqs.fastq.gz > mydata.txt
 ```
 
@@ -478,7 +481,7 @@ If you do see it, you should be able to load the file into `R` as a dataframe. P
 mydata <- read.table(file="data.i.made.using.seqkit.txt")
 ```
 
-Check that you have correctly loaded the data using `head()` or `summary()`.
+Check that you have correctly loaded the data using `head(mydata)` or `summary(mydata)`.
 
 Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested above, your data will have four columns; the third and fourth of these are the length of the read and the quality of the read. Go ahead and plot the data in a manner you might think is informative (e.g. `hist()`, `plot()`, `boxplot()`, `barplot()`, etc.). **Please think about what and how you would like to plot the data and what type of plot would be needed.** Not all of the previous plotting commands are useful for this data. You can browse plotting options and methods [here](https://r-graph-gallery.com/ "R graph gallery").
 
