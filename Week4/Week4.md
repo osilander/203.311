@@ -61,14 +61,13 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a sing
 ### MGI / BGI
 MGI is a relatively new technology that relies on creating DNA "nanoballs" (DNB). After these are made, they are deposited on a patterned flow cell (as Illumina is), fluorescent nucleotides are added, and a picture of the flow cell is taken to determine the colour of the nucleotide that has been incorporated. For a video of this process, see [here](https://www.google.com/search?q=mgi+seq&sxsrf=AJOqlzVqpyPqojq2ZbTyUa_XJ4Qyz9qhHg:1679016650500&source=lnms&tbm=vid&sa=X&ved=2ahUKEwiwppm46OH9AhXy9DgGHWHdCJ4Q0pQJegQIBRAG&biw=1725&bih=861&dpr=1#fpstate=ive&vld=cid:89958952,vid:xUVdJN0m38c "DNA! Nano!"). This technology is very very similar to Illumina's, with similar read lengths and accuracy.
 
-### ElementBio Aviti
-Element Aviti is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). Again, this has similar read lengths and accuracy as Illumina.
+### ElementBio Aviti and Ultima Genomics
+Element Aviti is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). There is some rolling circle stuff (like MGI), some polony stuff, some labelled (fluorescent) nucleotides, and some non-fluorescent nucleotides. It is similar to - if not quite identical - "sequencing-by-synthesis." Again, this has similar read lengths and accuracy as Illumina (and in fact offer a kit to convert Illumina libraries so they are compatible with Aviti).
 
-### Ultima Genomics
-Ultima is the most recent big entry into the NGS market, and promises by a considerable margin, the cheapest human genome ($100).
+Ultima is the most recent big entry into the NGS market, and promises by a considerable margin, the cheapest human genome ($100). Ultima also uses "sequencing by synthesis" ()
 
 
-### Which matter now and in the future?
+### Which platforms matter now and in the future?
 It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. [Albert Vilella](https://twitter.com/AlbertVilella "Twitter") recently posted a Twitter poll: [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done").
 
 <br>
@@ -77,7 +76,7 @@ It's difficult to know what the sequencing landscape will look like in five year
 
 
 
-**Note that below, we will refer to any DNA sequence data from and NGS platform as a "read".**
+> Note: we will refer to any DNA sequence data from an NGS platform as a "read".
 
 #### Today
 
@@ -95,9 +94,9 @@ We will soon get to the actual DNA sequence data. But to deal with the data, you
 
 ### Software Management
 
-We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data.\*
+We need software to be able to process all of this data. Until now (other than Linux, the operating system itself), you have used the pre-installed statistical programming software, `R`. However, we need additional software to process DNA sequence data.
 
-\* *Here, rather than just "software", we will refer to these computer programs as "software packages", as one piece of "software" contains several pieces of related software, hence software package (you have seen the phrase software packages before when installing new programs in `R`).*
+> Note: Here, rather than just "software", we will refer to these computer programs as "software packages", as one piece of "software" may contain several pieces of related software, hence software package (you have seen the phrase software packages before when installing new programs in `R`).
 
 As you are probably aware, software **packages** are sets of tools that have been developed to perform specific jobs, or are used to implement specific methods. Your general view of a software package may be something like Excel or Chrome or TikTok. More fundamentally, a software package is simply a group of computer programs used to perform a specific task. In bioinformatics, for example, this could be a set of programs (individual computer programs written in a language such as `python`) telling the computer how to interpret and display the quality scores from a `.fastq` file.
 
@@ -504,3 +503,70 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
     After installation, `conda` would usually adjust your `$PATH` variable by adding the directory `~/miniconda3/bin` to your `$PATH` variable -- so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first because the computer will look in this directory first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
 
 [^2]: Paired end Illumina `.fastq` files are often named with an internal "R1" and "R2". This refers the "Read 1" and "Read 2" and indicates, for convencience, that the files are paired.
+
+
+|Platform|Read length max: (paired-end*, Half of data in reads**)|Price per Gbp min: ($)|
+|-----------|-------------|------------|
+|ILMN iSeq 100 1fcell|PE150*|485.00|
+|ILMN MiniSeq 1fcell|PE150*|233.33|
+|ILMN MiSeq 1fcell|PE300*|117.97|
+|ILMN NextSeq 550 1fcell|PE150*|43.80|
+|ILMN HiSeq 4000 2fcells|PE150*|25.00|
+|ILMN NextSeq 1000 P1/P2 1fcell|PE150*|30.61|
+|ILMN NextSeq 2000 P3 1fcell|PE150*|17.30|
+|ILMN NextSeq 2000 P4 1fcell (2024)|PE150*|NA|
+|ILMN NovaSeq SP 2fcells|PE250*|10.90|
+|ILMN NovaSeq S1 2fcells|PE150*|10.90|
+|ILMN NovaSeq S2 2fcells|PE150*|7.97|
+|ILMN NovaSeq S4 v1.5 2fcells|PE150*|4.84|
+|ILMN NovaSeq X & X Plus 1.5B 10B 2fcells (Feb 2023)|PE150*|3.20|
+|ILMN NovaSeq X & X Plus 25B 2fcells (H2 2023)|PE150*|2.00|
+|ILMN NovaSeq X & X Plus 25B 2fcells Long Reads (H2 2023)|5000*|13.50|
+|ElemBio AVITI 2fcell|PE150*|5.00|
+|ElemBio AVITI 2fcell x3 pricing model|PE150*|2.00|
+|ElemBio AVITI 2fcell 2x300 Cloudbreak (early 2023)|PE300*|5.00|
+|ElemBio AVITI 2022 2fcell 2x75bp (Q4 2022)|PE75*|NA|
+|Singular Genomics G4 F2 4fcell Standard|PE150*|16.00|
+|Singular Genomics G4 F2 4fcell Max Read|50|16.00|
+|Singular Genomics G4 F3 4fcell (Q1 2023)|PE150*|7.4|
+|Singular Genomics Systems PX (2024)|PE150*|NA|
+|PACB 8M Sequel II/IIe v2.0 HiFi 1SMRTcell|15-18K**|43.30|
+|PACB 25M Revio HiFi 4SMRTcells (2023H1)|15-18K**|9.95|
+|PACB Onso Short-reads (2023Q2)|PE150*|15.00|
+|ONT Flongle 1fcell 126 channels|20-2000000|37.50|
+|ONT MinION Mk1b 1fcell 512 channels|20-2000000|13.13|
+|ONT MinION Mk1c 1fcell 512 channels|20-2000000|13.13|
+|ONT GridION X5 5fcells|20-2000000|13.13|
+|ONT P2 Solo 1fcell high duplex Kit14|20-2000000|13.60|
+|ONT P2  1fcell high duplex  Kit14|20-2000000|13.60|
+|ONT PromethION 24fcells 10,700 channels high duplex Kit14|20-2000000|10.92|
+|ONT PromethION 48fcells 10,700 channels high duplex Kit14|20-2000000|10.92|
+|TMO Ion S5 510 1chip|200-400|950.00|
+|TMO Ion S5 520 1chip|200-600|500.00|
+|TMO Ion S5 530 1chip|200-600|150.00|
+|TMO Ion Genexus GX5 1chip|200-400|104.20|
+|TMO Ion S5 540 1chip|200|93.30|
+|TMO Ion S5 550 1chip|200|66.80|
+|MGI DNBSEQ-T10×4RS  8fcell PE100 500nm pitch|PE100*|2.00|
+|MGI DNBSEQ-T20x2 6fcell PE100 600nm pitch|PE100*|1.50|
+|MGI DNBSEQ-T20x2 6fcell PE150 500nm(p) (Sep 2023)|PE150*|0.99|
+|MGI DNBSEQ-T7 4fcells|PE150*|1.50|
+|MGI DNBSEQ-T7 4fcells x3 pricing model|PE150*|1.30|
+|MGI DNBSEQ-G400C  CoolMPS 2fcells|PE200*|5.00|
+|MGI DNBSEQ-G400RS  HotMPS 2fcells|PE100*|5.80|
+|DNBSEQ-G99 2fcells|PE150*|NA|
+|DNBSEQ-G50 FCL 1fcell|PE150*|NA|
+|DNBSEQ-G50 FCS 1fcell|100|720.00|
+|DNBSEQ-E25 1fcell|25|NA|
+|DNBSEQ-E5 1fcell|100|NA|
+|Genapsys 1M Chip|150|500.00|
+|Genapsys 16M Chip|300|299.00|
+|Genapsys 50M read (144M 2023?)|PE150*|NA|
+|Genapsys 100M read (144M 2024?)|PE150*|NA|
+|Genapsys 500M+ Chip (1B+ 2025?)|PE250*|NA|
+|GeneMind FASTASeq 300 (2023?)|PE150*|NA|
+|GeneMind GenoCare 1600 (2022)|36-75|NA|
+|GeneMind Bio GenoLab M (2021)|PE150*|NA|
+|QitanTech QNome-3841|200-2,000,000|NA|
+|QitanTech QNome-3841hex|200-2,000,000|NA|
+|Ultima Genomics UG 100 (2flow runs)|300|1.00|
