@@ -505,6 +505,8 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 [^2]: Paired end Illumina `.fastq` files are often named with an internal "R1" and "R2". This refers the "Read 1" and "Read 2" and indicates, for convencience, that the files are paired.
 
 
+> You wanted a complete list of every sequencing platform, the read length, and the cost per Gbp?
+
 |Platform|Read length max: (paired-end*, Half of data in reads**)|Price per Gbp min: ($)|
 |-----------|-------------|------------|
 |ILMN iSeq 100 1fcell|PE150*|485.00|
@@ -520,10 +522,10 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |ILMN NovaSeq S2 2fcells|PE150*|7.97|
 |ILMN NovaSeq S4 v1.5 2fcells|PE150*|4.84|
 |ILMN NovaSeq X & X Plus 1.5B 10B 2fcells (Feb 2023)|PE150*|3.20|
-|ILMN NovaSeq X & X Plus 25B 2fcells (H2 2023)|PE150*|2.00|
+|ILMN NovaSeq X & X Plus 25B 2fcells (H2 2023)|PE150*|**2.00**|
 |ILMN NovaSeq X & X Plus 25B 2fcells Long Reads (H2 2023)|5000*|13.50|
 |ElemBio AVITI 2fcell|PE150*|5.00|
-|ElemBio AVITI 2fcell x3 pricing model|PE150*|2.00|
+|ElemBio AVITI 2fcell x3 pricing model|PE150*|**2.00**|
 |ElemBio AVITI 2fcell 2x300 Cloudbreak (early 2023)|PE300*|5.00|
 |ElemBio AVITI 2022 2fcell 2x75bp (Q4 2022)|PE75*|NA|
 |Singular Genomics G4 F2 4fcell Standard|PE150*|16.00|
@@ -531,7 +533,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |Singular Genomics G4 F3 4fcell (Q1 2023)|PE150*|7.4|
 |Singular Genomics Systems PX (2024)|PE150*|NA|
 |PACB 8M Sequel II/IIe v2.0 HiFi 1SMRTcell|15-18K**|43.30|
-|PACB 25M Revio HiFi 4SMRTcells (2023H1)|15-18K**|9.95|
+|PACB 25M Revio HiFi 4SMRTcells (2023H1)|15-18K\*\*|**9.95**|
 |PACB Onso Short-reads (2023Q2)|PE150*|15.00|
 |ONT Flongle 1fcell 126 channels|20-2000000|37.50|
 |ONT MinION Mk1b 1fcell 512 channels|20-2000000|13.13|
@@ -540,7 +542,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |ONT P2 Solo 1fcell high duplex Kit14|20-2000000|13.60|
 |ONT P2  1fcell high duplex  Kit14|20-2000000|13.60|
 |ONT PromethION 24fcells 10,700 channels high duplex Kit14|20-2000000|10.92|
-|ONT PromethION 48fcells 10,700 channels high duplex Kit14|20-2000000|10.92|
+|ONT PromethION 48fcells 10,700 channels high duplex Kit14|20-2000000|**10.92**|
 |TMO Ion S5 510 1chip|200-400|950.00|
 |TMO Ion S5 520 1chip|200-600|500.00|
 |TMO Ion S5 530 1chip|200-600|150.00|
@@ -549,7 +551,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |TMO Ion S5 550 1chip|200|66.80|
 |MGI DNBSEQ-T10×4RS  8fcell PE100 500nm pitch|PE100*|2.00|
 |MGI DNBSEQ-T20x2 6fcell PE100 600nm pitch|PE100*|1.50|
-|MGI DNBSEQ-T20x2 6fcell PE150 500nm(p) (Sep 2023)|PE150*|0.99|
+|MGI DNBSEQ-T20x2 6fcell PE150 500nm(p) (Sep 2023)|PE150*|**0.99**|
 |MGI DNBSEQ-T7 4fcells|PE150*|1.50|
 |MGI DNBSEQ-T7 4fcells x3 pricing model|PE150*|1.30|
 |MGI DNBSEQ-G400C  CoolMPS 2fcells|PE200*|5.00|
@@ -569,4 +571,4 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |GeneMind Bio GenoLab M (2021)|PE150*|NA|
 |QitanTech QNome-3841|200-2,000,000|NA|
 |QitanTech QNome-3841hex|200-2,000,000|NA|
-|Ultima Genomics UG 100 (2flow runs)|300|1.00|
+|Ultima Genomics UG 100 (2flow runs)|300|**1.00**|
