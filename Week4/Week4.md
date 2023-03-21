@@ -176,7 +176,10 @@ Let's now actually install `conda` (in our case we install a miniature version o
     # press enter and the spacebar several
     # times at the --More-- prompt, and 
     # type "yes" three times. It should
-    # be readily apparent where to do this. 
+    # be readily apparent where to do this:
+    # Miniconda3 will now be installed into this location: yes
+    # Do you wish the installer to initialize Miniconda3
+    # by running conda init? yes
     bash Miniconda3-latest-Linux-x86_64.sh
     
     # delete the installer after successful run
@@ -207,6 +210,8 @@ Over the years, the conda ecosystem has gotten so large that it is slow and some
 conda install mamba -n base -c conda-forge
 ```
 
+This will likely "redline" your RAM (visible in the top right corner of your screen as a little odometer). However, once installation occurs, the RAM should decrease. If the install fails, let someone know.
+
 As you can see, we have used `conda` only to be able to install `mamba`. From now on, use `mamba` to install all programs.
 
 ### Software Installation
@@ -225,9 +230,13 @@ One piece of software we will need allows us to figure out where a certain seque
 mamba install -c bioconda minimap2
 ```
 
-`mamba` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`. Let's now get to the task at hand for today: analyzing DNA sequences from SARS-CoV-2.
+`mamba` will sit around looking for the recipe for a minute, and then it should ask you whether you want to install the software. Simply press `enter` or type `Y` and press `enter`.
 
-### SARS-CoV-2 Genome Sequencing
+Congrats! Your first command line installation of a real software package!
+
+Let's now get to the task at hand for today: analyzing DNA sequences from SARS-CoV-2.
+
+## SARS-CoV-2 Genome Sequencing
 In the past 3.5 years, SARS-CoV-2 (the causative agent of COVID-19) has become one of the most extensivley sequenced organisms on earth, with well over [ten million whole genome sequences available](https://www.nature.com/articles/d41586-021-03698-7 "Nature article on Omicron"), and as of a year ago, two million sequence [by the UK alone](https://www.gov.uk/government/news/uk-completes-over-2-million-sars-cov-2-whole-genome-sequences "gov.uk press release"). SARS-CoV-2 genome sequencing is performed for two primary reasons: (1) to track the emergence of new and possibly more virulent variants, and (2) to track transmission between people. It is this second application that was used extensively in New Zealand early in the pandemic, in constrast to most other countries.
 
 #### QUESTION
@@ -275,22 +284,22 @@ mamba install -c conda-forge tree
 Now we can use our tree command to see what is where and how it's organised:
 
 ```bash
-# We use the -L option
+# We use the -L option, the -h option, and the --du option
 # First head back up a directory
 cd ..
 # Then run tree
-tree -L 2 
+tree -L 2 --du -h
 ```
 
 Nice.
 
-Check out the `tree` command using the `--help` subcommand. What does the `-L` option do?
+Check out the `tree` command using the `--help` subcommand. What do the `-L --du -h` options do?
 
 ### Critically Evaluating Your Data
 
 #### Making Good Use of Summary Statistics
 
-Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (well, not *that* large for sequencing data). We will use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
+Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (well, not *that* large for genome sequence data). We will use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
 ```bash
 # Here we first have to use zcat, not head directly, or cat,
 # as the files are zipped. 
@@ -300,7 +309,7 @@ Next, let's next look quickly inside the files. However, we don't want to open t
 # and feeds it to another.
 zcat choose_one_fastq_file_to_look_at.fastq.gz | head
 ```
-**For completeness and carefulness, we do it for all four files**. Delete any suspicious sequence files from your directory and note the importance of looking critically  at your data.
+**For completeness and carefulness, we do it for all four files**. Delete any suspicious sequence files from your directory and note to yourself the importance of looking critically  at your data.
 
 Once we have the data and have decided that it looks as we expect (*or does it?* &#129300;), the first thing we will do is get some summary statistics (all good data science and bioinformatics and, indeed, *any science* should begin with actually *looking* at the data). Luckily, there are a number of other pieces of software that have been written to do this, so we will not need to re-invent the wheel. Today we will use two pieces of software. The first is [seqkit](https://bioinf.shenwei.me/seqkit/ "seqkit site"), a blazingly fast and flexible piece of software. Install:
 
@@ -340,7 +349,7 @@ seqkit stats *fastq.gz
 4. How do the average read lengths differ between your sequencing files?
 
 ```bash
-# Maybe a few more stats. Remember the
+# Maybe a few more stats using the -a option. Remember the
 # *correct name* of the program and you know that
 # gzipped files don't end in ".gx" so
 # don't copy-paste
@@ -359,7 +368,7 @@ Let's look at whole distributions of read lengths instead of just the *average* 
 # The subcommand is "watch" not "witch", so copy-paste won't be easy
 seqkit witch --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?). Remember, the up-arrow and tab-complete are your friends.
+Use this `seqkit watch` command for all of your sequencing files. You can also try the `--log` option if you want (what does this option do?). Remember, the up-arrow and tab-complete are your friends. `--help` is your other friend, e.g. `seqkit watch --help`.
 
 #### QUESTION
 1. How do the sequencing files differ in the *distributions* of read lengths?
