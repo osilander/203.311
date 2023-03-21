@@ -376,13 +376,14 @@ Use this `seqkit watch` command for all of your sequencing files. You can also t
 It is also possible to make a simple plot of the average *quality* of each read. In this case, quality of a base (A,C,G,T) in a read refers to the likelihood that the base is correct. See the explanation of quality scores [here](https://en.wikipedia.org/wiki/FASTQ_format#Quality "Wikipedia quality scores"). Recall that Illumina and Oxford Nanopore data differ in their read accuracy, and thus quality. Which technology has higher accuracy? Go ahead and plot the quality scores. Here we also use `seqkit`.
 
 ```bash
-# below we add a new argument, --fields, to specify which 
-# read aspect we would like to plot. Above it was MeanLength
-# Now it's MeanQual. We leave the --bins option in (you don't have to).
+# Below we add a new argument, --fields, to specify which 
+# read characteristic we would like to plot. Above seqkit used 
+# the default field for watch, MeanLength. Now we can get MeanQual. 
+# We leave the --bins option in (you don't have to).
 # When you leave in --bins you need to specify a number (I chose 15)
-seqklt witch --fielbs MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
+seqklt wutch --fielbs MoanQual --bins 15 choose_one_fastq_file_to_plot.fastq.gz
 ```
-*Any errors?* The program is "seqkit", the subcommand is `watch`, the argument is `fields`, and the read aspect is `MeanQual`.
+*Any errors?* The program is "seqkit", the subcommand is `watch`, the argument is `fields`, and the read characteristic is `MeanQual`.
 
 Do this for both the Oxford Nanopore and Illumina reads.
 
@@ -395,7 +396,7 @@ Do this for both the Oxford Nanopore and Illumina reads.
 
 #### Summary Stats with fastp
 
-Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences if you would like. You should have installed it using the directions above and `mamba`. First check if it's properly installed:
+Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences (if you would like). You should have installed it using the directions above and `mamba`. First check if it's properly installed:
 
 ```bash
 # As usual, we use the --help option to see if the
@@ -421,38 +422,42 @@ fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h m
 # The two inputs and outputs are becuase
 # the data are paired end.
 # Note that the "\" below indicates
-# that the command extends over multiple lines.
+# that the command extends over multiple lines. This
+# is done so that it's easier to see. You do not  
+# need to do this but you can if you like.
 # Note that here you **should not** use the -A option
-fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz \
--I kwazulu-natal-2020-06-02_R2_sub.fastq.gz \
--o kwazulu-natal-2020-06-02_R1_sub.trim.fastq.gz \
--O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz \
+fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz -I kwazulu-natal-2020-06-02_R2_sub.fastq.gz \
+-o kwazulu-natal-2020-06-02_R1_sub.trim.fastq.gz -O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz \
 -h kwazulu-natal-2020-06-02.html -j kwazulu-natal-2020-06-02.json
 ```
 
 Unfortunately, the results of the fastp analysis do not display properly in your browser. However, I think it is important that you see them. For this reason, do the following:
 1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For Windows users, this could be Notepad.
-2. Open a new document in the editor.
+2. Open a new document in that editor.
 3. In your RStudio _files_, find the files that you just made using fastp (e.g. montana.html and montana.json). open the `.html` _in the RStudio editor window_.
-4. Copy all the text from the editor window,  paste it into the text editor window, and save this file to your desktop with an `.html` suffix.
-5. Repeat this for the `.json` file and save it with *the same name as the html file but with a `.json` suffix*.
+4. Copy all the text from the _RStudio_ editor window, paste it into the text editor window, and save this file to your desktop with an `.html` suffix.
+5. Repeat this for the `.json` file and save it with *the same name and sample place as the html file but with a `.json` suffix*.
 6. Open the `.html` file now on your desktop by double clicking on it. This should bring you to a web page displaying the `fastp` results.
 
 #### QUESTIONS
 1. What percentage of reads were scored as having low quality?
 2. Are any specific bases generally of lower quality (e.g. A, C, G, T)?
-3. What text is at the very bottom of the page? Why is this useful?
+3. What text is at the very bottom of the web page? Why is this useful?
 
 ### Getting Tabulated Data to Plot in R
 
-In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. *But*, these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
+In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. But these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
 
 To begin, we make some files with the new data we would like. In this case, we will use `seqkit` again. First, some data on the distribution of lengths and quality *per sequence* (rather than per position). Do this for your untrimmed and trimmed Oxford Nanopore data (Montana):
 
 ```bash
+#let's try seqkit fx2tab ("fastx format to tab format")
+seqkit fx2tab --help
 # -q and -l options give the length and quality for each sequence.
-# -n supresses the output of the sequences and qualities of *each bp* 
+# -n supresses the output of the sequences and qualities for *every bp* 
 # of each read
+# note that here we can squish them into a single option, -qln rather
+# than -q -l -n (also possible)
 seqkit fx2tab -qln myseqs.fastq.gz
 ```
 
