@@ -62,13 +62,13 @@ Oxford Nanopore sequencing relies on sensing current changes in a pore as a sing
 MGI is a relatively new technology that relies on creating DNA "nanoballs" (DNB). After these are made, they are deposited on a patterned flow cell (as Illumina is), fluorescent nucleotides are added, and a picture of the flow cell is taken to determine the colour of the nucleotide that has been incorporated. For a video of this process, see [here](https://www.google.com/search?q=mgi+seq&sxsrf=AJOqlzVqpyPqojq2ZbTyUa_XJ4Qyz9qhHg:1679016650500&source=lnms&tbm=vid&sa=X&ved=2ahUKEwiwppm46OH9AhXy9DgGHWHdCJ4Q0pQJegQIBRAG&biw=1725&bih=861&dpr=1#fpstate=ive&vld=cid:89958952,vid:xUVdJN0m38c "DNA! Nano!"). This technology is very very similar to Illumina's, with similar read lengths and accuracy.
 
 ### ElementBio Aviti and Ultima Genomics
-Element Aviti is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). There is some rolling circle stuff (like MGI), some polony stuff, some labelled (fluorescent) nucleotides, and some non-fluorescent nucleotides. It is similar to - if not quite identical - "sequencing-by-synthesis." Again, this has similar read lengths and accuracy as Illumina (and in fact offer a kit to convert Illumina libraries so they are compatible with Aviti).
+The [Element Aviti](https://www.elementbiosciences.com/products/aviti "No clue how this works") is one of the newer technologies that offer high throughput sequencing. It is so new that I have not figured out exactly how it works, despite [multiple](http://omicsomics.blogspot.com/2022/03/element-unveils-aviti.html "Love Keith!") different [attempts](https://www.elementbiosciences.com/resources/products-and-partners/aviti-sequencing-system/avidity-sequencing-technology "Official video"). There is some rolling circle stuff (like MGI), some polony stuff, some labelled (fluorescent) nucleotides, and some non-fluorescent nucleotides. It is similar to - if not quite identical - "sequencing-by-synthesis." Again, this has similar read lengths and accuracy as Illumina (and in fact offer a kit to convert Illumina libraries so they are compatible with Aviti).
 
-Ultima is the most recent big entry into the NGS market, and promises by a considerable margin, the cheapest human genome ($100). Ultima also uses "sequencing by synthesis" ()
+[Ultima](https://www.ultimagenomics.com/ "CD's are cool again") is the most recent big entry into the NGS market, and promises by a considerable margin, the cheapest human genome ($100). Ultima also uses "sequencing by synthesis" (mostly), as well as a CD-like surface that allows smaller amounts of reagents per sequencing run.
 
 
 ### Which platforms matter now and in the future?
-It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. [Albert Vilella](https://twitter.com/AlbertVilella "Twitter") recently posted a Twitter poll: [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done").
+It's difficult to know what the sequencing landscape will look like in five years. However, current interests from people involved in sequencing may give us some idea. [Albert Vilella](https://twitter.com/AlbertVilella "Twitter") recently posted a Twitter poll: [Which new sequencing platform/company do you find most interesting?](https://twitter.com/AlbertVilella/status/1635572223841914880?s=20 "voting's done"). See the bottom of this page for a complete summary of all current NGS sequencing platforms and their costs.
 
 <br>
 <img src="graphics/seq-interest.png" title="poll results" width="500"/><br>
@@ -76,9 +76,10 @@ It's difficult to know what the sequencing landscape will look like in five year
 
 
 
-> Note: we will refer to any DNA sequence data from an NGS platform as a "read".
 
 #### Today
+
+> Note: we will refer to any DNA sequence data from an NGS platform as a "read".
 
 Today we will deal with DNA sequence data from two of the most widely-available technologies, Illumina and Oxford Nanopore. The primary difference between these two technolgies is that Illumina provides short, highly accurate reads using a very expensive machine (~ $1 million USD), while Oxford Nanopore provides long, less accurate reads using a very cheap machine (~ $1000 USD). As you can imagine, these characteristics provide different advantages.
 
@@ -146,9 +147,11 @@ The file you have downloaded (with the extension `.sh`) is a bash file, which is
 
 ### Naming Conventions
 
-One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case"). You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) Know that there is no clear-cut [best case](https://www.reddit.com/r/ProgrammingLanguages/comments/10twqkt/do_you_prefer_camelcase_or_snake_case_for/ "reddit argument") convention. I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
+One important aspect of organising files and directories (folders) is [naming convention](https://en.wikipedia.org/wiki/Naming_convention_(programming "Wiki page on naming convention"). When working on the command line, your life will become considerably easier if you avoid using spaces in your files and directory names. Thus, **never** name your file `my awesome file.txt`. Instead, name it `my_awesome_file.txt` ("snake case"), or `myAwesomeFile.txt` ("camel case") or `my-awesome-file.txt` ("kebab case") or `my.awesome.file.txt` and probably not `MY_AWESOME_FILE.txt` ("screaming snake case") or `MY-AWESOME-FILE.txt` ("spicy kebab case" (okay I might've made that up)).
 
-<img src="graphics/naming.jpg" title="Do as I say, not as I do" width="600"/><br>
+You should pick one of these at the start of the course, and *stick to that format throughout the course* (i.e. camel case, or kebab case, etc.) Know that there is no clear-cut [best case](https://www.reddit.com/r/ProgrammingLanguages/comments/10twqkt/do_you_prefer_camelcase_or_snake_case_for/ "reddit argument") convention. I usually use snake case, but not always - kebab case requires one less keystroke than snake case so I sometimes use that. And using a `.` means that your file names will only ever have one type of non-word character, so it's less to remember. But, do as I say not as I do and always use the same convention. Last, you should almost **never** begin a file or directory name with a `.` (e.g. `.my-awesome-file.txt`) as this will make it a hidden file.
+
+<img src="graphics/naming.jpg" title="Do as I say, not as I do" width="500"/><br>
 **Please be consistent with your file names**<br>
 
 As I pointed out above and will re-emphasise here, the second thing to pay attention to when naming files is the *extension* or suffix. For example *text files* are usually named with the extension `.txt`. *Often*, but not always, file extensions have three characters. Some well-known exceptions are `.html`, `.docx`, `.xlsx`, and the perhaps not standard `.jpeg`. In this course, we will run into a wide variety of files with a wide variety of extensions, for example `.fastq`, `.sam`, `.bam`, `.txt`, `.sh`, `.fasta`, `.html`, `.gbk`, `.bai`, `.py`, `.r` (sometimes `.R`), `.gz`, `.aln`, `.tre`, `.phy`, `.vcf`,  `.bcf`, and many more!  Hopefully at the conclusion of this Semester you will be familiar with all of these.
@@ -163,23 +166,23 @@ Finally, there are certain characters that you should **always** avoid when nami
 Look closely above and you will note that several characters above are a different colour (e.g. ";") - that's because the `bash` interpreter used to render this webpage thinks it's a special character.
 
 
-### Back to the Topic at Hand - Conda, a Package Manager
+### Back to the Topic at Hand - Conda (and Mamba), a Package Manager
 
 Let's now actually install `conda` (in our case we install a miniature version of it with less bloat, `miniconda`).
 
 **Warning**: Be careful when using `rm` in the following command. (Why? What does `rm` do?)
 
 ```bash
-    # Run the installer
+    # Run the conda installer
     # Note: now you can use tab-complete.
     # During installation. You will need to 
     # press enter and the spacebar several
     # times at the --More-- prompt, and 
     # type "yes" three times. It should
     # be readily apparent where to do this:
-    # Miniconda3 will now be installed into this location: yes
-    # Do you wish the installer to initialize Miniconda3
-    # by running conda init? yes
+    # "Miniconda3 will now be installed into this location:" yes
+    # "Do you wish the installer to initialize Miniconda3
+    # by running conda init?" yes
     bash Miniconda3-latest-Linux-x86_64.sh
     
     # delete the installer after successful run
@@ -187,7 +190,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
 ```
 
 **IMPORTANT**
-Conda may not behave *quite* as it should in this cloud-based platform. Try typing `conda --help`. If there is an error, then to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste) the *entire* line below:
+`Conda` may not behave *quite* as it should in this cloud-based platform. Try typing `conda --help`. If there is an error, then to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste) the *entire* line below:
 
 ```bash
 export PATH="$HOME/miniconda3/bin:$PATH"
@@ -203,7 +206,7 @@ conda --help
 This should bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate). Note that this is different from the `R` help command.
 
 ### Faster Management
-Over the years, the conda ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a faster manager, `mamba`. `mamba` will allow faster searching of the `conda`  as it works in parallel and uses `C++`. Install `mamba` using the following syntax:
+Over the years, the `conda` ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a faster manager, `mamba`. `mamba` will allow faster searching of `conda` channels as it works in parallel and uses `C++`. Install `mamba` using the following syntax:
 
 ```bash
 # don't worry about exactly what is happening here
@@ -216,7 +219,7 @@ As you can see, we have used `conda` only to be able to install `mamba`. From no
 
 ### Software Installation
 
-`conda` installs software packages using what is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda docs") channel, which currently has recipes for more than 7000 software packages.
+`mamba` installs software packages using what is called a *recipe*, and these recipes are contained in places called *channels*. Most recipes for bioinformatic software are contained in the [bioconda](https://bioconda.github.io "bioconda docs") channel, which currently has recipes for more than 7000 software packages.
 
 Let's try to install some software packages now.
 
@@ -295,7 +298,7 @@ Nice.
 
 Check out the `tree` command using the `--help` subcommand. What do the `-L --du -h` options do?
 
-### Critically Evaluating Your Data
+## Critically Evaluating Your Data
 
 #### Making Good Use of Summary Statistics
 
@@ -444,7 +447,7 @@ Unfortunately, the results of the fastp analysis do not display properly in your
 2. Are any specific bases generally of lower quality (e.g. A, C, G, T)?
 3. What text is at the very bottom of the web page? Why is this useful?
 
-### Getting Tabulated Data to Plot in R
+## Getting Tabulated Data to Plot in R
 
 In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. But these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
 
@@ -498,7 +501,7 @@ Check that you have correctly loaded the data using `head(mydata)` or `summary(m
 
 Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested above, your data will have four columns; the third and fourth of these are the length of the read and the quality of the read. Go ahead and plot the data in a manner you might think is informative (e.g. `hist()`, `plot()`, `boxplot()`, `barplot()`, etc.). **Please think about what and how you would like to plot the data and what type of plot would be needed.** Not all of the previous plotting commands are useful for this data. You can browse plotting options and methods [here](https://r-graph-gallery.com/ "R graph gallery").
 
-### Portfolio Analysis {#Portfolio-Analysis}
+## Portfolio Analysis {#Portfolio-Analysis}
 1. The GC (guanine and cytosine) content of a genome (and read) is known to affect how easy it is to sequence. For example, regions of genomes that are GC-rich are often under-represented in sequencing data. One question that arises from this is whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads. Please address this question.<br>
 
     You will have to generate new data on GC content and quality using `seqkit` and combine it with `R` plotting methods to answer this question. Please do this, and state whether you think there is, or is not, a link between GC content and read quality in this data, and provide your graphical analysis as evidence (you are free to present additional evidence).
@@ -510,18 +513,10 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
     *In the practicals for weeks 4 to 11, you will encounter one question in each practical session that relates to different methods of visualisation. These will be highlighted as a “Portfolio Analysis”. For these, you will need to perform the necessary analyses and accompanying visualisations to communicate the results in a clear and aesthetically pleasing manner. You will also need to write a brief caption for each figure (100 words or less) explaining the visualisation and why you selected that particular one. Finally, you will also submit the code you have used to generate the visualisations. This code needs to be commented (for example, an average of one comment per line of code). Submit these to via Stream as a single .pdf. These should be in the order: code, followed by visualisation, followed by caption. If you have used both `terminal` and `R` code, please submit them together, with comments delimiting each section.*
 
 
-### Footnotes
-
-[^1]: The `$PATH` variable contains places (directories) in which your computer looks for programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
-
-    After installation, `conda` would usually adjust your `$PATH` variable by adding the directory `~/miniconda3/bin` to your `$PATH` variable -- so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first because the computer will look in this directory first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
-
-[^2]: Paired end Illumina `.fastq` files are often named with an internal "R1" and "R2". This refers the "Read 1" and "Read 2" and indicates, for convencience, that the files are paired.
-
-
 > You wanted a complete list of every sequencing platform, the read length, and the cost per Gbp?
 
 [Albert Vielella](https://docs.google.com/spreadsheets/d/1GMMfhyLK0-q8XkIo3YxlWaZA5vVMuhU1kg41g4xLkXc/edit#gid=1569422585 "detailed table of seq technologies")
+
 
 |Platform|Read length max: (paired-end*, Half of data in reads**)|Price per Gbp min: ($)|
 |-----------|-------------|------------|
@@ -588,3 +583,14 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |QitanTech QNome-3841|200-2,000,000|NA|
 |QitanTech QNome-3841hex|200-2,000,000|NA|
 |Ultima Genomics UG 100 (2flow runs)|300|**1.00**|
+
+
+
+### Footnotes
+
+[^1]: The `$PATH` variable contains places (directories) in which your computer looks for programs. These directories are listed one after the other. The computer will search these in the order they are listed until the program you requested is found (or not, then it will complain). For example, you might have a `$PATH` variable that says: first look in my home directory (`~/`), and then in the `/usr/bin/` directory, and then in my friend's directory (`/friends_dir/sneaky_software_i_saved_there/`). However, those are *the only* places the computer will look. If you want the computer to look in more places, you have to add those locations to the `$PATH` variable. The `$` indicates that it is a *variable*.
+
+    After installation, `conda` would usually adjust your `$PATH` variable by adding the directory `~/miniconda3/bin` to your `$PATH` variable -- so that the program `conda` can be found anytime you open a new shell, and any program that `conda` installs will be used first because the computer will look in this directory first. *However*, `RStudioCloud` does not recognise the addition of `conda` to the path, so we add it manually.
+
+[^2]: Paired end Illumina `.fastq` files are often named with an internal "R1" and "R2". This refers the "Read 1" and "Read 2" and indicates, for convencience, that the files are paired.
+
