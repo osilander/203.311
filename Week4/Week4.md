@@ -513,6 +513,8 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
     *In the practicals for weeks 4 to 11, you will encounter one question in each practical session that relates to different methods of visualisation. These will be highlighted as a “Portfolio Analysis”. For these, you will need to perform the necessary analyses and accompanying visualisations to communicate the results in a clear and aesthetically pleasing manner. You will also need to write a brief caption for each figure (100 words or less) explaining the visualisation and why you selected that particular one. Finally, you will also submit the code you have used to generate the visualisations. This code needs to be commented (for example, an average of one comment per line of code). Submit these to via Stream as a single .pdf. These should be in the order: code, followed by visualisation, followed by caption. If you have used both `terminal` and `R` code, please submit them together, with comments delimiting each section.*
 
 
+## Appendix
+
 > You wanted a complete list of every sequencing platform, the read length, and the cost per Gbp?
 
 [Albert Vielella](https://docs.google.com/spreadsheets/d/1GMMfhyLK0-q8XkIo3YxlWaZA5vVMuhU1kg41g4xLkXc/edit#gid=1569422585 "detailed table of seq technologies")
