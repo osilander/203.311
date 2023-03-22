@@ -253,11 +253,12 @@ There are several methods used to sequence SARS-CoV-2, but perhaps the most comm
 
 The NGS methods that produced today's data are Illumina and Oxford Nanopore. The format of the sequence data is *fastq*. Remember that the `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](./data/missouri-2022-29-10.fastq.gz "ONT 2").
+The sequence data are available [here](./data/sequence-files.tar.gz "tarball of all data") as a `tar.gz` file. **Do not download the data yet**. The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](./data/missouri-2022-29-10.fastq.gz "ONT 2").
 
 To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory, perhaps `covid/data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
 ```bash
+### try downloading the tar.gz file first.
 wget link_address_you_just_copied
 ```
 You should see a rapid animated arrow tracking the download.
@@ -324,17 +325,6 @@ mamba install -c bioconda seqkit
 ```
 
 If your command does not work, let a lecturer, demonstrator, or classmate know.
-
-We will *also* use a program called [fastp](https://github.com/OpenGene/fastp "fastp github"). Install using `mamba`:
-
-```bash
-# Once more we look in the bioconda channel
-# but now I won't tell you what to type
-# because you know how to install things with
-# simple names like "fastp" by
-# using mamba by looking in a specific channel
-# and installing the software by name
-```
 
 #### Summary Stats with seqkit
 
