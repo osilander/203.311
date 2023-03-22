@@ -517,7 +517,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 
 > You wanted a complete list of every sequencing platform, the read length, and the cost per Gbp?
 
-[Albert Vielella](https://docs.google.com/spreadsheets/d/1GMMfhyLK0-q8XkIo3YxlWaZA5vVMuhU1kg41g4xLkXc/edit#gid=1569422585 "detailed table of seq technologies")
+This is from [Albert Vielella](https://docs.google.com/spreadsheets/d/1GMMfhyLK0-q8XkIo3YxlWaZA5vVMuhU1kg41g4xLkXc/edit#gid=1569422585 "detailed table of seq technologies")
 
 
 |Platform|Read length max: (paired-end*, Half of data in reads**)|Price per Gbp min: ($)|
