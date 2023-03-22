@@ -548,14 +548,14 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 |PACB 8M Sequel II/IIe v2.0 HiFi 1SMRTcell|15Kbp-18Kbp**|43.30|
 |PACB 25M Revio HiFi 4SMRTcells (2023H1)|15Kbp-18Kbp\*\*|**9.95**|
 |PACB Onso Short-reads (2023Q2)|PE150*|15.00|
-|ONT Flongle 1fcell 126 channels|20-2Mbp|37.50|
+|ONT Flongle 1fcell 126 channels|20bp-2Mbp|37.50|
 |ONT MinION Mk1b 1fcell 512 channels|20bp-2Mbp|13.13|
 |ONT MinION Mk1c 1fcell 512 channels|20bp-2Mbp|13.13|
 |ONT GridION X5 5fcells|20bp-2Mbp|13.13|
 |ONT P2 Solo 1fcell high duplex Kit14|20bp-2Mbp|13.60|
 |ONT P2  1fcell high duplex  Kit14|20bp-2Mbp|13.60|
-|ONT PromethION 24fcells 10,700 channels high duplex Kit14|20-2Mbp|10.92|
-|ONT PromethION 48fcells 10,700 channels high duplex Kit14|20-2Mbp|**10.92**|
+|ONT PromethION 24fcells 10,700 channels high duplex Kit14|20bp-2Mbp|10.92|
+|ONT PromethION 48fcells 10,700 channels high duplex Kit14|20bp-2Mbp|**10.92**|
 |TMO Ion S5 510 1chip|200-400|950.00|
 |TMO Ion S5 520 1chip|200-600|500.00|
 |TMO Ion S5 530 1chip|200-600|150.00|
