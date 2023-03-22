@@ -251,13 +251,11 @@ Please look over [this paper here](files/sc2_flight_transmission.pdf "Strains on
 
 There are several methods used to sequence SARS-CoV-2, but perhaps the most common is via [amplicon panels](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels), in which PCR is used to amplify the entire genome in short pieces, which are then sequenced. The four most common methods are listed [here](https://sg.idtdna.com/pages/landing/coronavirus-research-reagents/ngs-assays#offerings "IDT SARS-CoV-2 methods"). The ["xGen SARS-CoV-2 Midnight Amplicon Panel"](https://sg.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-amplicon-sequencing/predesigned-amplicon-panels/sars-cov-2-midnight-amp-panel#product-details "Midnight method") &#128540; is the method used to produce the data we will explore here.
 
-The NGS methods that produced today's data are Illumina and Oxford Nanopore. The format of the sequence data is *fastq*. Remember that the `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
+The NGS methods that produced today's data (sequence data from different SARS-CoV-2 isolates) are Illumina and Oxford Nanopore. The format of the sequence data is *fastq*. Remember that the `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The sequence data are available as a tarball [here](./data/sequence-files.tar "tarball of all data") as a `tar.gz` file. **Do not download the data yet**.
+The sequence data are available as a tarball [normal tarball here](./data/sequence-files.tar "tarball of all data") as a `tar.gz` file. **Do not download the data yet**.
 
-The Illumina data are available here: [read1](./data/kwazulu-natal-2020-06-02_R1_sub.fastq.gz "Illumina R1") and [read2](./data/kwazulu-natal-2020-06-02_R2_sub.fastq.gz "Illumina R2") (the data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2]. The Oxford Nanopore data are available [here](./data/montana-2021-29-09.fastq.gz "ONT 1") and [here](./data/missouri-2022-29-10.fastq.gz "ONT 2").
-
-To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory, perhaps `covid/data`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
+To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory, perhaps `covid/`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
 ```bash
 # try downloading the tar file first.
@@ -267,7 +265,27 @@ wget tarball-link-address-you-just-copied
 ```
 You should see a rapid animated arrow tracking the download.
 
-Repeat this for *all three other sequence files*. Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `covid/data/` directory above, you could make a directory called `scv/sequence_data/`. Feel free to change the name now if you like (hint: use `mv`).
+This should result in a ~17Mb `tar` ball in your directory. If it does not, then try using [this link](https://github.com/osilander/203.311/blob/main/Week4/data/sequence-files.tar?raw=true "raw data link"). **If you use this link you will have to do the following**:
+
+```bash
+# The downloaded file will have an odd extension.
+# you will need to change it using mv.
+# TAB-COMPLETE the first filename below to do this
+mv sequence-files.tar?raw=true sequence-files.tar
+```
+
+Once you have downloaded the data, you will need to unpack it. Use `tar` to do this:
+
+```bash
+# expand the tar ball
+tar -xvf sequence-files.tar
+```
+
+This should result in a single directory, `sequence-files`, containing four compressed `fastq` files (`fastq.gz`). Two of these are Illumina files, and two are Oxford Nanopore.
+
+Nopte that the Illumina data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2], but these are from the same SARAS-CoV-2 viral isolate.
+
+Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `covid/data/` directory above, you could make a directory called `scv/sequence_data/`. Feel free to change the name now if you like (hint: use `mv`).
 
 After downloading all four files, you will have all the DNA sequence data that we will use today. If you have done this correctly, you should be able to list the files from the command line. Please do that now. There are several ways to do this. In this case you need to know (1) whether there are files in the directory, and (2) *whether there is anything in the files* (and preferably how much data is in the files). If you are not familiar with how you might do this, [click here](https://man7.org/linux/man-pages/man1/ls.1.html "ls man pages") to see the man pages on `ls`.
 
