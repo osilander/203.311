@@ -399,48 +399,7 @@ Do this for both the Oxford Nanopore and Illumina reads.
 
 #### Summary Stats with fastp
 
-Let's use the somewhat aesthetically more pleasing `fastp` program next. This program also trims adapters and low quality sequences (if you would like). You should have installed it using the directions above and `mamba`. First check if it's properly installed:
-
-```bash
-# As usual, we use the --help option to see if the
-# install worked.
-fastp --help
-```
-
-```bash
-# fastp --help shows many options, with four critical ones: 
-# the input files (-i), output (-o), and the names of the 
-# html and json files (where the summary information goes). We have to
-# specify all of those. You probably know what an .html file is. You may not 
-# know what a .json file is. Do not worry about it, I barely do -- but look it 
-# up if you want. I add the -A options below (please do as well). What does it do?
-fastp -A -i montana-2021-29-09.fastq.gz -o montana-2021-29-09.trim.fastq.gz -h montana.html -j montana.json
-```
-
-```bash
-# repeat for the Illumina data
-# We now have two inputs, -i and -I
-# and two outputs -o and -O
-# but still only one html and json.
-# The two inputs and outputs are becuase
-# the data are paired end.
-# Note that the "\" below indicates
-# that the command extends over multiple lines. This
-# is done so that it's easier to see. You do not  
-# need to do this but you can if you like.
-# Note that here you **should not** use the -A option
-fastp -i kwazulu-natal-2020-06-02_R1_sub.fastq.gz -I kwazulu-natal-2020-06-02_R2_sub.fastq.gz \
--o kwazulu-natal-2020-06-02_R1_sub.trim.fastq.gz -O kwazulu-natal-2020-06-02_R2_sub.trim.fastq.gz \
--h kwazulu-natal-2020-06-02.html -j kwazulu-natal-2020-06-02.json
-```
-
-Unfortunately, the results of the fastp analysis do not display properly in your browser. However, I think it is important that you see them. For this reason, do the following:
-1. Find a simple text editor on your computer. For MacOS users, this could be TextEdit. For Windows users, this could be Notepad.
-2. Open a new document in that editor.
-3. In your RStudio _files_, find the files that you just made using fastp (e.g. montana.html and montana.json). open the `.html` _in the RStudio editor window_.
-4. Copy all the text from the _RStudio_ editor window, paste it into the text editor window, and save this file to your desktop with an `.html` suffix.
-5. Repeat this for the `.json` file and save it with *the same name and sample place as the html file but with a `.json` suffix*.
-6. Open the `.html` file now on your desktop by double clicking on it. This should bring you to a web page displaying the `fastp` results.
+There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here]( "sample fastp report"). Please look at this report now.
 
 #### QUESTIONS
 1. What percentage of reads were scored as having low quality?
