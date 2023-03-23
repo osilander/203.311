@@ -363,6 +363,8 @@ Now let's use `seqkit` ("sequence kit") first. Type `seqkit --help` to make sure
 
 ```bash
 # Some simple statistics about your files
+# these will list the numbers in basepairs
+# e.g. total bp, etc.
 seqkit stats *fastq.gz
 ```
 
