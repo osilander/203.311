@@ -179,7 +179,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
     # During installation. You will need to 
     # press enter and the spacebar several
     # times at the --More-- prompt, and 
-    # type "yes" three times. It should
+    # type "yes" each time it prompts you to. It should
     # be readily apparent where to do this:
     # "Miniconda3 will now be installed into this location:" yes
     # "Do you wish the installer to initialize Miniconda3
