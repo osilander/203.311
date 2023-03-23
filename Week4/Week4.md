@@ -208,7 +208,7 @@ This should bring up a list of sub-commands that `conda` can do (assuming you ha
 Also note that for most command line programs, options are specified using one dash (e.g. `-h`) or two dashes (e.g. `--help`). It's sometimes hard to know which one though.
 
 <img src="graphics/output.jpg" title="which one!!?" width="400"/><br>
-**Me explaining to students the joy of learning R**<br>credit: @evornithology Twitter
+**Oh man, which is it.**<br>
 
 ### Faster Management
 Over the years, the `conda` ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a faster manager, `mamba`. `mamba` will allow faster searching of `conda` channels as it works in parallel and uses `C++`. Install `mamba` using the following syntax:
