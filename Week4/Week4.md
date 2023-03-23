@@ -283,7 +283,7 @@ tar -xvf sequence-files.tar
 
 This should result in a single directory, `sequence-files`, containing four compressed `fastq` files (`fastq.gz`). Two of these are Illumina files, and two are Oxford Nanopore.
 
-Nopte that the Illumina data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2], but these are from the same SARAS-CoV-2 viral isolate.
+Nopte that the Illumina data are [paired end](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/paired-end-vs-single-read.html "Illumina info page"), so there are two files)[^2], but these are from the same SARS-CoV-2 viral isolate.
 
 Quick note: here and throughout the lab sessions I will often refer to certain files or directories as `myfile.txt` or `mydir/`. This does not mean that you should use this name, or that this file or directory exists for you. Rather, you should replace this name with a filename that *does* exist or which you *do* want to analyse or which is nicely descriptive. For example, intead of a `covid/data/` directory above, you could make a directory called `scv/sequence_data/`. Feel free to change the name now if you like (hint: use `mv`).
 
@@ -419,6 +419,9 @@ There are a number of other ways to look at your sequence data, and some of them
 3. What text is at the very bottom of the web page? Why is this useful?
 
 ## Getting Tabulated Data to Plot in R
+
+<img src="graphics/frog-toad.png" title="They're friends!" width="300"/>
+**Me explaining the joy of learning R** credit: @evornithology Twitter
 
 In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. But these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
 
