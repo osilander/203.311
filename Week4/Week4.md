@@ -205,6 +205,11 @@ conda --help
 
 This should bring up a list of sub-commands that `conda` can do (assuming you have installed it correctly). If this does not work, ask someone for help (lecturer, demonstrator, or classmate). Note that this is different from the `R` help command.
 
+Also note that for most command line programs, options are specified using one dash (e.g. `-h`) or two dashes (e.g. `--help`). It's sometimes hard to know which one though.
+
+<img src="graphics/output.jpg" title="which one!!?" width="400"/><br>
+**Me explaining the joy of learning R** credit: @evornithology Twitter
+
 ### Faster Management
 Over the years, the `conda` ecosystem has gotten so large that it is slow and sometimes painful to navigate. For this reason, we will use a faster manager, `mamba`. `mamba` will allow faster searching of `conda` channels as it works in parallel and uses `C++`. Install `mamba` using the following syntax:
 
@@ -420,7 +425,7 @@ There are a number of other ways to look at your sequence data, and some of them
 
 ## Getting Tabulated Data to Plot in R
 
-<img src="graphics/frog-toad.png" title="They're friends!" width="300"/>
+<img src="graphics/frog-toad.png" title="They're friends!" width="400"/><br>
 **Me explaining the joy of learning R** credit: @evornithology Twitter
 
 In the fastp report we have several useful statistics, such as the mean read quality for each base over the length of the reads, and the fraction of bases at each position that are A, C, G, or T. However, there are additional important statistics that are not provided. Some of these we saw with the `seqkit` tool kit. But these plots were not aesthetically pleasing, and in some cases difficult to interpret. For that reason, we are going to replot some data, as well as additional data, using our familiar plotting software, `R`.
