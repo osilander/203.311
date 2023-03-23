@@ -375,7 +375,7 @@ seqkit stats *fastq.gz
 4. How do the average read lengths differ between your sequencing files?
 
 ```bash
-# Maybe a few more stats using the -a option. Remember the
+# Maybe a few more seqkit stats using the -a option. Remember the
 # *correct name* of the program and you know that
 # gzipped files don't end in ".gx" so
 # don't copy-paste
