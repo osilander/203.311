@@ -76,7 +76,6 @@ It's difficult to know what the sequencing landscape will look like in five year
 
 
 
-
 #### Today
 
 > Note: we will refer to any DNA sequence data from an NGS platform as a "read".
@@ -127,6 +126,8 @@ You must also never forget the up arrow.
 **Every seasoned bioinformatician uses it.** <br>
 
 Second, try to follow the instructions exactly today, [and whatever you do don't click here as it will delete all your files](graphics/instructions.jpeg "DON'T EVEN THINK ABOUT IT"). If you get an error or warning of any sort, go back and make sure you have followed the instructions. If you continue to get the error, then it *could* be my fault.
+
+> Throughout today, commands will appear in grey boxes, sometimes with plentiful comments above. Please read the comments to understnad what to do, and what the command is doing.
 
 Good. Now, we download `conda`.
 
