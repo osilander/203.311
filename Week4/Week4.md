@@ -258,7 +258,7 @@ There are several methods used to sequence SARS-CoV-2, but perhaps the most comm
 
 The NGS methods that produced today's data (sequence data from different SARS-CoV-2 isolates) are Illumina and Oxford Nanopore. The format of the sequence data is *fastq*. Remember that the `fastq` format specifies a name for each sequence, the sequence itself (i.e. order of basepairs), and the quality of each basepair (i.e. how certain the sequencing machine is that it is giving you the correct base). Review [fastq format here](https://en.wikipedia.org/wiki/FASTQ_format "fastq on Wikipedia").
 
-The sequence data are available as a tarball [normal tarball here](./data/sequence-files.tar "tarball of all data") as a `tar.gz` file. **Do not download the data yet**.
+The sequence data are available as a [normal tarball here](./data/sequence-files.tar "tarball of all data") as a `tar.gz` file. **Do not download the data yet**.
 
 To download the data, first make sure you are in your `/cloud/project` directory. Second, make a new directory, perhaps `covid/`, and change into that directory. Third, copy the link address (right click on the link and scroll to *Copy Link Address*). Finally, download the files using `wget`:
 
@@ -416,7 +416,7 @@ Do this for both the Oxford Nanopore and Illumina reads.
 
 #### Summary Stats with fastp
 
-There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](https://htmlpreview.github.io/?https://github.com/osilander/203.311/blob/main/Week4/files/montana-2021-29-09.html "sample fastp report"). Please look at this report now.
+There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](./data/fastp.tar "sample fastp report"). Download this, and then expand (untar) the files by double clicking. This will open a folder called "fastp". Double click on the **html** file, and this should open in your default browser. Please look at this report now.
 
 #### QUESTIONS
 1. What percentage of reads were scored as having low quality?
