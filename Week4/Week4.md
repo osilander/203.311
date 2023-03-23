@@ -416,7 +416,7 @@ Do this for both the Oxford Nanopore and Illumina reads.
 
 #### Summary Stats with fastp
 
-There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](./data/fastp.tar "sample fastp report"). Download this, and then expand (untar) the files by double clicking. This will open a folder called "fastp". Double click on the **html** file, and this should open in your default browser. Please look at this report now.
+There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](./data/fastp.tar "sample fastp report"). Download this by clicking on the link, and then expand (untar) the files by double clicking the downloaded `tar` file. This will open a folder called "fastp". Double click on the **html** file, and this should open in your default browser. Please look at this report now.
 
 #### QUESTIONS
 1. What percentage of reads were scored as having low quality?
