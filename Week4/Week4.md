@@ -333,7 +333,7 @@ Check out the `tree` command using the `--help` subcommand. What do the `-L --du
 
 #### Making Good Use of Summary Statistics
 
-Next, let's next look quickly inside the files. However, we don't want to open them up - they're quite large (well, not *that* large for genome sequence data). We will use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
+Next, let's next look quickly inside the sequence data files. However, we don't want to open them up - they're quite large (well, not *that* large for genome sequence data). We will use the simple terminal command you know well, `head` (you could also use `less` or `tail`. You have encountered all of them previously):
 ```bash
 # Here we first have to use zcat, not head directly, or cat,
 # as the files are zipped. 
