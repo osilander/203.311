@@ -440,6 +440,7 @@ To begin, we make some files with the new data we would like. In this case, we w
 
 ```bash
 #let's try seqkit fx2tab ("fastx format to tab format")
+# fx2tab is an odd-looking command, but it is the correct command.
 seqkit fx2tab --help
 # -q and -l options give the length and quality for each sequence.
 # -n supresses the output of the sequences and qualities for *every bp* 
