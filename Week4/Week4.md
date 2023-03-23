@@ -365,6 +365,8 @@ Now let's use `seqkit` ("sequence kit") first. Type `seqkit --help` to make sure
 # Some simple statistics about your files
 # these will list the numbers in basepairs
 # e.g. total bp, etc.
+# here, stats is a *subcommand* of seqkit
+# this also means it won't tab-complete (as it is a subcommand)
 seqkit stats *fastq.gz
 ```
 
@@ -441,6 +443,7 @@ To begin, we make some files with the new data we would like. In this case, we w
 ```bash
 #let's try seqkit fx2tab ("fastx format to tab format")
 # fx2tab is an odd-looking command, but it is the correct command.
+# Again, fx2tab is a *subcommand* of seqkit and will not tab-complete
 seqkit fx2tab --help
 # -q and -l options give the length and quality for each sequence.
 # -n supresses the output of the sequences and qualities for *every bp* 
