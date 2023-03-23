@@ -444,6 +444,8 @@ seqkit fx2tab --help
 # of each read
 # note that here we can squish them into a single option, -qln rather
 # than -q -l -n (also possible)
+# so here we will have a file with three columns:
+# the NAME, the LENGTH, and the QUALITY
 seqkit fx2tab -qln myseqs.fastq.gz
 ```
 
