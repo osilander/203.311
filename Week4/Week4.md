@@ -410,13 +410,13 @@ Do this for both the Oxford Nanopore and Illumina reads.
 #### QUESTIONS
 1. If a base has a quality score of 10, what is the likelihood that it is the correct base? See if you can find this out using Google, or calculate it if you remember how to convert q-score to accuracy.
 2. What if a base has a quality score of 25? Again, see if you can search for this answer or calculate it.
-3. How do the Illumin and Oxford Nanopore sequencing files differ in the distributions of quality scores?
+3. How do the Illumina and Oxford Nanopore sequencing files differ in the distributions of quality scores?
 4. What are the *highest* average read qualities for the Oxford Nanopore reads (approximately)?
 5. For an Oxford Nanopore read with a "high" average quality, what fraction of bases do you expect to be correct?
 
 #### Summary Stats with fastp
 
-There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](https://github.com/osilander/203.311/blob/main/Week4/files/montana-2021-29-09.html "sample fastp report"). Please look at this report now.
+There are a number of other ways to look at your sequence data, and some of them are far more aesthetically pleasing than `seqkit`. One of these is `fastp`, which provides interactive reports via html. `fastp` is somewhat fiddly to get working on your versions of `RStudioCloud`, so instead I provide an example report [here](https://htmlpreview.github.io/?https://github.com/osilander/203.311/blob/main/Week4/files/montana-2021-29-09.html "sample fastp report"). Please look at this report now.
 
 #### QUESTIONS
 1. What percentage of reads were scored as having low quality?
