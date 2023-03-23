@@ -194,6 +194,7 @@ Let's now actually install `conda` (in our case we install a miniature version o
 `Conda` may not behave *quite* as it should in this cloud-based platform. Try typing `conda --help`. If there is an error, then to use `conda` we will need to addjust our `$PATH` variable.[^1] You do this by typing the following at the terminal (simply copy-paste) the *entire* line below:
 
 ```bash
+# Make sure you type this EXACTLY, including the $ !!!
 export PATH="$HOME/miniconda3/bin:$PATH"
 ``` 
 **If you keep your terminal session active (i.e. don't close it) then you should be able to use `conda` for the rest of the Semester in the terminal. If you do close the terminal, repeat the above step**.
