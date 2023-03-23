@@ -317,7 +317,9 @@ Now we can use our tree command to see what is where and how it's organised:
 
 ```bash
 # We use the -L option, the -h option, and the --du option
-# First head back up a directory
+# First head back up a directory (it does not matter where
+# you are, just that you have at least one directory
+# or file below you)
 cd ..
 # Then run tree
 tree -L 2 --du -h
