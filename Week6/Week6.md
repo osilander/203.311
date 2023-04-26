@@ -13,7 +13,7 @@ After studying this section of the tutorial you should be able to:
 
 ## Introduction
 
-Now that we we have the reads from the new SARS-CoV-2 strains (from Kwazulu Natal and Montana) and they have been QC'ed and trimmed, we want to identify the changes that have occurred in these SARS-CoV-2 viruses compared to the ancestral virus. There are at least two ways to do this.
+Now that we we have the reads from the new SARS-CoV-2 strains (from Kwazulu Natal and Montana) and they have been QC'ed (and trimmed when possible), we want to identify the changes that have occurred in these SARS-CoV-2 viruses compared to the ancestral virus. There are at least two ways to do this.
 One option would be to assemble a new genome from our sequence reads and compare this to the ancestral viral genome. However, this would be the wrong approach for two reasons. First, it is more computationally difficult to peform an assembly. Thus, we would be wasting time and effort and computational resources. Second, assemblies are hard. It is difficult to ensure your assebmly is accurate, *especially* when using long, error-prone reads (like Oxford Nanopore).<br><br>
 
 
@@ -30,7 +30,7 @@ This process of finding mutations is often called *variant-calling*. A "variant"
 1. Do you think you need more or less data to do a genome assembly compared to read mapping and calling variants? A question to ponder.
 2. Why does comparing two assemblies not give you any indication of how sure you can be that the two assemblies differ?
 
-To map reads and call variants we will use both the Illumina and Nanopore reads that you have. First, you need to make sure that the *Illumina* reads you are using have been trimmed using `fastp`, which you should have done last week. If they are not, please go ahead and do that. The Nanopore reads that you have have been trimmed previously using software called [filtlong](https://github.com/rrwick/Filtlong "Filtlong GitHub"), so do not worry about using `fastp` on those.
+To map reads and call variants we will use both the Illumina and Nanopore reads that you have. **Ideally**, you would have *Illumina* that have been trimmed using `fastp`. However, we did not perform this step, so you can use the untrimmed reads from last week. The Nanopore reads that you have have been trimmed previously using software called [filtlong](https://github.com/rrwick/Filtlong "Filtlong GitHub"), so do not worry about using `fastp` on those.
 
 
 ### Background
