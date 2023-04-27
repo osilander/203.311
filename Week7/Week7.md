@@ -80,7 +80,7 @@ bedtools genomecov -ibam kwazulu-natal-mapped.bam -bg | awk '$4 < 12' > low_cov.
 Go ahead and `cat` the `low_cov.bed` to the screen. You should see four columns: the name of the reference, the start coordinate, end coordinate, and coverage.
 
 
-Now we can mask the low coverage regions using this `.bed` format file:
+Now we can mask the low coverage regions using this `.bed` format file. Here, `-fo` is the output masked file that you will have to name.
 
 ```bash
 # the fasta below is the one you made using bcftools and consensus above
