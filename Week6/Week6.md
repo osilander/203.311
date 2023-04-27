@@ -64,13 +64,14 @@ One of the most important things to note here is that **this outbreak was not un
 
 Onward and upward.
 
+_Note that if you have `mamba` installed, you should use it in place of `conda`.
 
 ### Software Installation
 We are going to several new pieces of software today. The first is a program called [bwa](https://github.com/lh3/bwa "bwa GitHub"), which we will use to map our reads to our genome.
 
 `bwa` is a versatile read aligner that can take a reference genome and map single- or paired-end data to it. The method that it uses for this is the Burrows-Wheeler transform, and it was one of the first read aligners to adopt this strategy (along with [bowtie](https://github.com/BenLangmead/bowtie2 "Bowtie GitHub")).
 
-Please install `bwa` now using `conda` (use the `bioconda` channel).
+Please install `bwa` now using `conda` or `mamba` (use the `bioconda` channel).
 
 ```bash
 # a simple install
