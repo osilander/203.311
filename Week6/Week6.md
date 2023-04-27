@@ -514,7 +514,7 @@ rtg vcfstats my_variant_calls_bcftools.q150.vcf.gz
 Which types of variants were filtered out?
 
 
-### Brief Beautiful Visualization (if you do not have time, skip this)
+### Brief Beautiful Extra Credit Visualization (if you do not have time, skip this)
 First we make a *new* genome using our variant calls.
 
 ```bash
@@ -527,7 +527,7 @@ First we make a *new* genome using our variant calls.
 cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
 ```
 
-For reasons I cannot understand, *some* of you have had issues making this new fasta. If so, download this fasta from [here](data/montana.fasta "new fasta")
+For reasons I cannot understand, *some* of you have had issues making this new fasta. If so, download this fasta from [here](data/montana.fasta "new fasta"). 
 
 Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file. This becomes a multi-fasta file now. If you do this only using `cat`, then the sequences will not be separated by a "newline". This "newline" is important however, as it is required in `fasta` format. Thus, we will perform this `cat` in three steps. Note that you have to be very careful here - the double `>>` is required so that you _append_ the file rather than just write over it. So the process here is:
 1. `cat` to a new file (this is also possible with `cp`)
