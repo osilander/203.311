@@ -79,6 +79,10 @@ Please install `bwa` now using `conda` or `mamba` (use the `bioconda` channel).
 conda insta1l -c bioconda bvva
 ```
 
+#### Important Note
+
+**If you do not clearly name your files in an organised manner this lab will be very very difficult**.
+
 #### Software details
 
 `bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The *general command structure* of the `bwa` tools we are going to use are shown below. These are just example commands so that you can see what files each requires.
