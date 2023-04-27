@@ -81,16 +81,15 @@ conda insta1l -c bioconda bvva
 
 #### Software details
 
-`bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The general command structure of the `bwa` tools we are going to use are shown below:
+`bwa` first requires an indexing step for which you need to supply the reference genome. In subsequent steps this index will be used for aligning the reads to the reference genome. The *general command structure* of the `bwa` tools we are going to use are shown below. These are just example commands so that you can see what files each requires.
 
 ```bash
 # bwa index help
 bwa index
 
-# This is just indexing
-# You only need your reference here
-bwa index reference-genome.fasta
+```
 
+```bash
 # bwa mem help
 bwa mem
 
@@ -181,7 +180,7 @@ But we have to adjust our `conda` configuration so that it *prioritises* certain
 conda config --add channels bioconda
 conda config --add channels conda-forge
 ### type the top two first
-conda install mamba
+conda install -c conda-forge mamba
 ```
 **You must specify the version as 1.14**
 **You must use `mamba`**
@@ -289,7 +288,7 @@ samtools view -h -b -F 4 my_mapped.bam > my_actually_mapped.bam
 - `-b`: Output will be bam-format
 - `-F 4`: Only extract mapped reads. `-F` *ignores* reads with the specified bitwise `4` SAM flag set.
 
-We can now remove all other `.bam` (and `.sam`) to clean up your directory and memory footprint.
+We can now remove all **other** `.bam` (and `.sam`) to clean up your directory and memory footprint.
 
 #### QUESTION
 1. What are concordant and discordant read pairs?
@@ -575,9 +574,9 @@ Check your file list in the `RStudio Cloud` bottom right corner window. There sh
 
      You *may* need to access specific columns of your matrix to do this analysis. If you want to do this, there are different methods. **However, in this example you do not have column names**. For this reason, you cannot access using some of the methods shown in `R bootcamp`. Intead, you can *only* use the number of the column. To figure out which column that is, see the `samtools depth` help section (command: `samtools depth --help`). To specifically access that column in your matrix, I would recommend:
 
-     ```R
+     ```bash
      # if you read the data in like this
      my.depth <- read.table(file="my.depth.txt")
      # then you can find column two like this:
      my.depth[,2]
-
+     ```
