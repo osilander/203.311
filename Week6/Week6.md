@@ -514,7 +514,7 @@ rtg vcfstats my_variant_calls_bcftools.q150.vcf.gz
 Which types of variants were filtered out?
 
 
-### Brief Beautiful Extra Credit Visualization (if you do not have time, skip this)
+### Brief Beautiful Extra Credit Visualization (if you do not have time, skip to the next lab)
 First we make a *new* genome using our variant calls.
 
 ```bash
