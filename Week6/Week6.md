@@ -333,11 +333,7 @@ samtools view -h -b -q 20 my_mapped.bam > my_mapped.q20.bam
 - `-q 20`: Only extract reads with mapping quality >= 20
 
 
-### Cleanup
-Once we have this compressed bam-file, delete the `.sam` files as they take up a unneeded space. Use `rm` to do this, but **be careful because `rm` is forever**.
-
-
-<br><br>
+### Calling variants
 
 Tools we are going to use in this section and how to intall them if you not have done it yet.
 
@@ -365,8 +361,6 @@ This command will output a new file with the extension `.fai`. Furthermore we ne
 # a quick bam file index
 bamtools index -in my_mapped_q20.bam
 ```
-
-### Calling variants
 
 #### bcftools mpileup
 
