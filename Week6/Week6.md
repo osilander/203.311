@@ -373,8 +373,7 @@ We use the sorted filtered bam-file that we produced in the mapping step before.
 ```bash
 # We first pile up all the reads and then call
 # variants using the pipe | operator
-bcftools mpileup -f reference.fasta my_mapped_q20.bam | bcftools \
-call -v -m -o my_variant_calls_bcftools.vcf
+bcftools mpileup -f reference.fasta my_mapped_q20.bam | bcftools call -v -m -o my_variant_calls_bcftools.vcf
 ```
 
 - `-f` input fasta reference
