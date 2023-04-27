@@ -64,7 +64,7 @@ One of the most important things to note here is that **this outbreak was not un
 
 Onward and upward.
 
-_Note that if you have `mamba` installed, you should use it in place of `conda`.
+_Note that if you have `mamba` installed, you should use it in place of `conda`._
 
 ### Software Installation
 We are going to several new pieces of software today. The first is a program called [bwa](https://github.com/lh3/bwa "bwa GitHub"), which we will use to map our reads to our genome.
