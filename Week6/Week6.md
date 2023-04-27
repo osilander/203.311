@@ -105,7 +105,7 @@ Let's first make the index. We can't do that without the reference genome. First
 
 Wait, are you looking around your `data/` directory? Do a quick `ls` or `ls -lh`. Are there a lot of extra files there? Remove them if so (you can also look in the "Files" tab of the *RStudio Cloud* browser window). Be careful when removing!
 
-Now download the reference SARS-CoV-2 genome [here](./data/nCoV-2019.reference.fasta "it's me!") (right click, copy link, and `wget`). 
+Now download the reference SARS-CoV-2 genome [here](./data/nCoV-2019.reference.fasta "it's me!") (right click, copy link, and `wget`). _If_ this does not work and you get an `html` file, then you should instead be able to click on the link, which will open a text file, copy all the text, and `cat` this into a new file using `cat <paste text here> > nCoV-2019.reference.fasta`. 
 
 ```bash
 # if you don't remember
