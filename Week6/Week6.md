@@ -288,7 +288,6 @@ samtools view -h -b -F 4 my_mapped.bam > my_actually_mapped.bam
 - `-b`: Output will be bam-format
 - `-F 4`: Only extract mapped reads. `-F` *ignores* reads with the specified bitwise `4` SAM flag set.
 
-We can now remove all **other** `.bam` (and `.sam`) to clean up your directory and memory footprint.
 
 #### QUESTION
 1. What are concordant and discordant read pairs?
