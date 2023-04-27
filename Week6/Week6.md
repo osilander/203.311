@@ -531,10 +531,15 @@ First we make a *new* genome using our variant calls.
 cat nCoV-2019.reference.fasta | bcftools consensus -p montana_ my_variants.q150.vcf.gz > consensus.fasta
 ```
 
-Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file. This becomes a multi-fasta file now.
+Now a quick alignment. Select *only* your ONT (Montana) genome (made from the variant calls above), and cat the two genomes into a single file. This becomes a multi-fasta file now. If you do this only using `cat`, then the sequences will not be separated by a "newline". This "newline" is important however, as it is required in `fasta` format. Thus, we will perform this `cat` in three steps. Note that you have to be very careful here - the double `>>` is required so that you _append_ the file rather than just write over it. So the process here is:
+1. `cat` to a new file (this is also possible with `cp`)
+2. add a newline to the new file using `echo` but _append_ this.
+3. `cat` the other set of sequences to the _same_ new file and _append_ it.
 
 ```bash
-cat reference.fasta consensus.fasta > both_genomes.fasta
+cat reference.fasta > both_genomes.fasta
+echo >> both_genomes.fasta
+cat consensus.fasta >> both_genomes.fasta
 ```
 
 Two last installs (phew!)
