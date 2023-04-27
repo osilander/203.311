@@ -358,6 +358,7 @@ Given an assembly file in fasta-format, e.g. ``assembly.fasta`` which is located
 ```bash
 samtools faidx reference.fasta
 ```
+In some cases an error might appear where samtools fails to recognize the `faidx` command. If so, please try to re-install `samtools`.
 
 This command will output a new file with the extension `.fai`. Furthermore we need to pre-process our mapping files a bit further and create a bam-index file (`.bai`) for the bam-file we want to work with:
 
