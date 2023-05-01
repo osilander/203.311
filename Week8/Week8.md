@@ -147,15 +147,15 @@ We will check we have all we need to do the analysis first.  The commands below 
 ### check on packages being there and their versions ###
 > library(dada2)
 > packageVersion("dada2")
-[1] ‘1.24.0’
+[1] ‘1.28.0’
 
 > library(ShortRead)
 > packageVersion("ShortRead")
-[1] ‘1.54.0’
+[1] ‘1.58.0’
 
 > library(ggplot2)
 > packageVersion("ggplot2")
-[1] ‘3.3.5’
+[1] ‘3.4.2’
 ```
 
 The next thing we want to do is to set a working path and then define a path variable to check it is all OK for the work we are going to do today. 
