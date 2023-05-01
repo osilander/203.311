@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-### **29-Apr-2022 There is a compact physical copy of this practical on the "Week | Wiki 7" Stream page.**
+### **01-May-2023 There will be a compact physical copy of this practical on the "Week | Wiki 8" Stream page before the lab practical on Friday.**
 
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
@@ -41,7 +41,7 @@ To learn how to perform an analysis of 16S rRNA sequencing data from raw sequenc
 
 Microbial diversity has been revolutionised by the rapid advances in sequencing technology, given us new insights into the role of the microbial world in all environments on Earth. Sequencing of metagenomes (all the DNA in a given sample etc) or of specific markers (metabarcodes e.g. 16S rRNA amplicons) have been crucial in this regard. Knowing what is there, and what it is potentially doing are two of the main research areas of interest.  How we then analyse the data, visualise and interpret the results is thus of importance.
 
-Week 7 focusses on introducing ideas around the analysis of microbial diversity - for bacteria - within the 16S rRNA amplicon, and performing a typical workflow analysis on such sequences in `R` using a piece of software called DADA2. These ideas will be developed further in the next two weeks (weeks 8 and 9) of this module. 
+Week 8 focusses on introducing ideas around the analysis of microbial diversity - for bacteria - within the 16S rRNA amplicon, and performing a typical workflow analysis on such sequences in `R` using a piece of software called DADA2. These ideas will be developed further in the next two weeks (weeks 9 and 10) of this module. 
 
 
 
@@ -79,15 +79,16 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the `R` c
 
 ## Accessing the resources needed
 
+
 ### Computing
 
 #### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -736,9 +737,9 @@ From Exercise 13, you worked with a method to generate a sequence logo from the 
 
 ## Assessment
 
-To reiterate, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course.  This will take place between Thursday 19-May-2022 and Friday 20-May-2022 online.
+To reiterate, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course.  This will take place between Thursday 25-May-2023 and Friday 26-May-2023 online.
 
-The mastery test will test the contents of weeks 7 to 9, more information will follow soon.
+The mastery test will test the contents of weeks 8 to 10, more information will follow soon.
 
 
 
