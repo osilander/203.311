@@ -137,7 +137,7 @@ The output of the DADA2 pipeline is a sample-by-sequence matrix – a so-called 
 
 We will check we have all we need to do the analysis first.  The commands below have been checked and should work fine.  The below screenshot shows the folder structure within `/cloud/project/` for the new Module.
 
-1. Go to the _`MiSeq_SOP`_ folder in the `/cloud/project/` project within the "weeks7to9" project within the "MicrobialDiversity_2022" workspace and check that there are files there.
+1. Go to the _`MiSeq_SOP`_ folder in the `/cloud/project/` project within the "weeks8to10" project within the "MicrobialDiversity_2023" workspace and check that there are files there.
 
 <img src="graphics/window4_2022.PNG" width="600"/>
 
