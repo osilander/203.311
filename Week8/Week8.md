@@ -763,5 +763,5 @@ School of Natural Sciences
 <p.biggs@massey.ac.nz>
 
 
-[^1]: <https://www.nature.com/nmeth/journal/v13/n7/pdf/nmeth.3869.pdf >
+[^1]: Callahan et al. _**Nature Methods**_ 13:581–583. (2016)
 [^2]: Concepts for this part of the practical came from a tutorial found at: <https://benjjneb.github.io/dada2/tutorial.html>
