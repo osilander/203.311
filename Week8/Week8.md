@@ -139,7 +139,7 @@ We will check we have all we need to do the analysis first.  The commands below 
 
 1. Go to the _`MiSeq_SOP`_ folder in the `/cloud/project/` project within the "weeks8to10" project within the "MicrobialDiversity_2023" workspace and check that there are files there.
 
-<img src="graphics/window4_2022.PNG" width="600"/>
+<img src="graphics/window4_2023.PNG" width="600"/>
 
 2. Check we have all our packages we need for the work, so typing into the console as you have done before:
 
@@ -633,6 +633,8 @@ This mock community dataset contained 20 bacterial strains. DADA2 found 20 uniqu
 
 ## Exercise 13: Working with fasta files to generate a sequence logo
 
+I covered the theory around sequence logos in the Tuesday tutorial, but if you are interested in the maths behind this (information content and bits), the base information can be found on the [Wikipedia sequence logo](https://en.wikipedia.org/wiki/Sequence_logo) page.
+
 We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ that represent the sequences in our experiment.  We now consider these sequences as *unique* sequences, even though we know that they are present at vastly different proportions in the 20 samples we have.  However, we are going to ignore that fact for now and make a fasta file of these sequences for illustrating the principles required for the Portfolio Analysis.  To do this, we need to load some pre-installed packages in order to create a fasta file that we can do further analysis on. 
 
 ```R
@@ -647,7 +649,7 @@ We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ t
 > fasta.sample(infile = "nochimSeqs232.fa", nseq = 100, file.out = "sub100_nochimSeqs.fa")
 ```
 
-As we are randomly pulling sequences in this seection, the output will look slightly different from one attempt to the other in the below.
+As we are randomly pulling sequences in this section, the output will look slightly different from one attempt to the other in the below.
 
 To illustrate the path from fasta sequence file to aligned sequence to a sequence logo, we will use the fasta file _`sub100_nochimSeqs.fa`_ as an example of the workflow.
 
