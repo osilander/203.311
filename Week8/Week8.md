@@ -378,7 +378,7 @@ As in many optimization problems, the algorithm must begin with an initial guess
 ### forward reads first and then look at the output
 > errF <- learnErrors(derepFs, multithread=FALSE)
 33514080 total bases in 139642 reads from 20 samples will be used for learning the error rates.
-> dadaFs.lrn <- dada(derepFs, err=errR, multithread=TRUE)
+> dadaFs.lrn <- dada(derepFs, err=errF, multithread=TRUE)
 Sample 1 - 7113 reads in 1979 unique sequences.
 Sample 2 - 5299 reads in 1639 unique sequences.
 Sample 3 - 5463 reads in 1477 unique sequences.
@@ -539,7 +539,7 @@ This is not the same as _`sebtab`_.  Let’s calculate our sequences remaining a
 
 ```R
 > sum(seqtab.nochim)/sum(seqtab)
-[1] 0.964064
+[1] 0.9640374
 ```
 
 The fraction of chimeras varies based on factors including experimental procedures and sample complexity but can be substantial. Here chimeras make up about 21% of the inferred sequence variants (61 out of 293), but those variants account for only about 4% of the total sequence reads.
