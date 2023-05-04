@@ -1,7 +1,5 @@
 **[Return to the Course Home Page](../index.html)**
 
-### **04-May-2023 There will be a compact physical copy of this practical on the "Week | Wiki 8" Stream page before the lab practical on Friday.**
-
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
 **Professor Patrick Biggs**
