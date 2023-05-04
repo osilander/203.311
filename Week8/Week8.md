@@ -689,7 +689,7 @@ MsaDNAMultipleAlignment with 100 rows and 258 columns
 
 ### print out the alignment
 > msaPrettyPrint(my16SAlignment, output="pdf", showNames="left", file = "ourSet.pdf",
-+                showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
+                showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
 ```
 
 The `msaPrettyPrint()` command has lots of options including showing the sequence names and printing out certain regions only.  I would **strongly suggest giving `?msaPrettyPrint` a look and to understand what is going on**.
