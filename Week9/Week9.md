@@ -113,7 +113,7 @@ In this, the second practical session of this Microbial Diversity Module, we wil
 
 The below screenshot shows the folder structure within `/cloud/project/` for the new Module.
 
-<img src="graphics/window4_2023.PNG" width="600"/>
+<img src="graphics/window4_2023.png" width="600"/>
 
 The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called _`sampleA_500k_R1.fq.gz`_ and _`sampleA_500k_R2.fq.gz`_ – to the Kaiju webserver and perform a taxonomic analysis on the reads. 
 
