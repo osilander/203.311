@@ -173,21 +173,21 @@ Now let’s go to the website, and start the uploading process:
 
 3.  Enter your name for the job, and then your email address, so you will know when the job is complete by getting an email.
 
- <img src="graphics/image3.png" width="400"/>
+    <img src="graphics/image3.png" width="400"/>
 
 4.  Now we can upload the reads, one at a time. Select the “Select file” box, and it will open up a window for the first read.  Select _`sampleA_500k_R1.fq.gz`_ from the dialogue box and click on “Start upload”.  As soon as you have done this, click on “Upload a second file for paired end sequencing”.
 
- <img src="graphics/image4.png" width="400"/>
+    <img src="graphics/image4.png" width="400"/>
 
 5.  In the same way, you can upload _`sampleA_500k_R2.fq.gz`_ as well.   Click on “Start upload” again.
 
- <img src="graphics/image5.png" width="400"/>
+    <img src="graphics/image5.png" width="400"/>
 
 6.  When both reads are completely uploaded, you see the following.
 
- <img src="graphics/image6.png" width="400"/>
+    <img src="graphics/image6.png" width="400"/>
 
-_NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
+    _NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
 
 7.  Now you can choose the database for the job name, as in the table above, and you are ready to click on “Submit” at the bottom of the page.
 
