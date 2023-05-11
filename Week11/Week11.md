@@ -8,7 +8,7 @@
 1. Understand the purpose of dimensional reduction techniques
 2. Understand why dimensional reduction is useful for analysing large datasets
 3. List three common methods for visualising RNA-seq data (volcano plot, heatmap, and dimensional reduction - PCA/UMAP/tSNE)
-4. Explain the differences between each of the above visulaisation methods
+4. Explain the differences between each of the above visualisation methods
 5. Explain the insights that dimensional reduction can give for RNA-seq data
 6. Perform the steps necessary to implement dimensional reduction on a dataset
 7. Interpret dimensional reduction plots
@@ -57,17 +57,17 @@ Our aim here is to find out which of these countries &#128556; differ the most i
 
 We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
 
-We can also visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar. Note, importantly, that it does not say much about *how* similar.
+We can visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar.
 
 <img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
 **It's getting hot in here**<br><br>
 
-Inb contrast, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is becuase PCA finds the combinations of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components. Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
+In contrast, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is because PCA finds the **combinations** of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components, although there are a total of 17 components (the same as the number of variables). Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
 
 <img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
 **England is central to it all**<br><br>
 
-Not only that, we can visualise which diet items *contribute* to those components. The top four items that contribute the most to these principal components (Dim1 and Dim2) are shown below.
+Not only that, we can visualise which diet items *contribute* to those components. The **top four** items that contribute the most to these principal components (Dim1 and Dim2) are shown below. This plot is the same as the one above (although not lengthened along dimension 1), but instead of showing how much the countries differ in their diet combinations, it shows which *parts* of the diet contribute the most to making the countries different. Here, this is the top four, with *sugars* contributing the most to the differences *in the direction of Wales*, *fresh potatoes* contributing *in the direction of N. Ireland*, and alcohoic dirnks *in the direction of Scotland and Wales*.
 
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
