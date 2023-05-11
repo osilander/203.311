@@ -278,15 +278,15 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 
 >**Question 4:** 
 >
->Given how many counts there are in the original input test file, what percentages do these cutoffs represent?
+>Given how many counts there are in the original input test sequence files, what percentages do the following cutoffs represent?
 >
 > <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 >**Question 5:**
 >
->How many taxa are represented for each of the 5 cutoff levels?
+>Now we turn to the Excel file, and its contents. How many taxa are represented for each of the 5 cutoff levels?
 >
-> <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
+> <table><thead><tr><th>cutoff</th><th>number</th><th>cutoff</th><th>number</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 Let’s investigate the data a little further.  Looking at the first tab - _`Cutoff10000`_ – does not show much, so we move on to the next one - _`Cutoff1000`_ – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
 
