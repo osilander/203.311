@@ -206,7 +206,7 @@ This is not super-long but gives you a chance to see the motivation for the pape
 
 ### Exercise 2: Data downloading
 
-### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
 
 After a little while, you should have been emailed three times from the Kaiju webserver with your results.  We now have to download these to analyse them.  Using your email link, click on the link to open up the results page.  It lists 4 things:
 1.  A summary of the results, and the parameters used for the run
@@ -255,7 +255,7 @@ We are going to have a look at the now uncompressed  _`kaiju.out`_ file quickly 
 
 ### Exercise 3: Data analysis
 
-### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
 
 We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
 
@@ -335,7 +335,7 @@ Ok, so now we can look at visualising these data with Krona.
 
 ## Data visualisation with Krona
 
-### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
 
 For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - <https://github.com/marbl/Krona/wiki> - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  
 
