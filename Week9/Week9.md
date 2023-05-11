@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-### **06-May-2022 - Hard copy available on 'Wiki | Week 8' Stream page**
+### **11-May-2023 - Hard copy will be available soon on the 'Wiki | Week 9' Stream page**
 
 # Introduction to Metagenomic analysis
 
@@ -206,6 +206,8 @@ This is not super-long but gives you a chance to see the motivation for the pape
 
 ### Exercise 2: Data downloading
 
+### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+
 After a little while, you should have been emailed three times from the Kaiju webserver with your results.  We now have to download these to analyse them.  Using your email link, click on the link to open up the results page.  It lists 4 things:
 1.  A summary of the results, and the parameters used for the run
 2.  A metagenomics overview with an interactive bubble plot.
@@ -253,6 +255,8 @@ We are going to have a look at the now uncompressed  _`kaiju.out`_ file quickly 
 
 ### Exercise 3: Data analysis
 
+### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+
 We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
 
 >**Question 3:**
@@ -264,11 +268,13 @@ We are interested in the file for the taxon path counts.  In a similar way, let�
 >
 > <table><tbody><tr><td>Over 1000 counts:</td><td></td></tr><tr><td>Counts for 0.1% cutoff:</td><td></td></tr><tr><td>Taxa present at more than 0.1%:</td><td></td></tr><tr><td>Taxon at count of 916:</td><td></td></tr></tbody></table>
 
+### Exercise 4: Data comparisons
+
 Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
 
 I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – _`500k_cutoffs.xlsx`_ – in the _`kaiju`_ folder for today’s practical.
 
-Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called _`Cutoff1`_, _`Cutoff10`_, _`Cutoff100`_, _`Cutoff1000`_ and _`Cutoff10000`_ respectively.
+Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called _`Cutoff1, Cutoff10, Cutoff10, Cutoff1000`_ and _`Cutoff10000`_ respectively.
 
 >**Question 4:** 
 >
@@ -328,6 +334,8 @@ Ok, so now we can look at visualising these data with Krona.
 
 
 ## Data visualisation with Krona
+
+### **11-May-2023 - There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
 
 For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - <https://github.com/marbl/Krona/wiki> - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  
 
