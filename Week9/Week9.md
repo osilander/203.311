@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-### **06-May-2022 - Hard copy available on 'Wiki | Week 8' Stream page**
+### **11-May-2023 - Hard copy will be available soon on the 'Wiki | Week 9' Stream page**
 
 # Introduction to Metagenomic analysis
 
@@ -26,9 +26,9 @@ To use a mixture of tools (online) to explore a small set of metagenomic reads f
 
 ## Introduction
 
-Microbial diversity has been revolutionised by the rapid advances in sequencing technology, given us new insights into the role of the microbial world in all environments on Earth. Sequencing of metagenomes (all the DNA in a given sample etc) or of specific markers (metabarcodes e.g. 16S rRNA amplicons) have been crucial in this regard. Knowing what is there, and what it is potentially doing are two of the main research areas of interest.  How we then analyse the data, visualise and interpret the results is thus of importance.
+Microbial diversity has been revolutionised by the rapid advances in sequencing technology, given us new insights into the role of the microbial world in all environments on Earth. Sequencing of metagenomes (all the DNA in a given sample etc.) or of specific markers (metabarcodes e.g. 16S rRNA amplicons) have been crucial in this regard. Knowing what is there, and what it is potentially doing are two of the main research areas of interest.  How we then analyse the data, visualise and interpret the results is thus of importance.
 
-Week 8 focusses on using tools outside of `R` for most of today's practical to use online classfiers and visualisation methodologies to explore the complexitites of metagenomic data.
+Week 9 focusses on using tools outside of `R` for most of today's practical to use online classfiers and visualisation methodologies to explore the complexitites of metagenomic data.
 
 
 ## Lecture Overview
@@ -71,11 +71,11 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the `R` c
 
 #### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -113,15 +113,15 @@ In this, the second practical session of this Microbial Diversity Module, we wil
 
 The below screenshot shows the folder structure within `/cloud/project/` for the new Module.
 
-<img src="graphics/window4_2022.PNG" width="600"/>
+<img src="graphics/window4_2023.png" width="600"/>
 
 The first thing we are going to do is upload a set of 500,000 paired Fastq sequences in two files – called _`sampleA_500k_R1.fq.gz`_ and _`sampleA_500k_R2.fq.gz`_ – to the Kaiju webserver and perform a taxonomic analysis on the reads. 
 
 <img src="graphics/kaijuLogo.png" width="400"/>
 
-These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the _`kaiju`_ folder in the `/cloud/project/` project within the "weeks7to9" project within the "MicrobialDiversity_2022" workspace.  There are other files in there too, but more on those later. 
+These are environmental samples taken as part of a Massey University research project I was involved with a few years ago.  So, to do that, we need to use the reads from the _`kaiju`_ folder in the `/cloud/project/` project within the "weeks8to10" project within the "MicrobialDiversity_2023" workspace.  There are other files in there too, but more on those later. 
 
-We have 3 set of analyses to perform so, your job name for each analysis will vary according to what we are going to run.  The combinations of names for the jobs is shown in the table below:
+We have 3 set of analyses to perform so, your job name for each analysis will vary according to what we are going to run.  Replace `XXX` with your initials.  The combinations of names for the jobs is shown in the table below:
 
 <table>
 <thead>
@@ -167,33 +167,33 @@ We have 3 set of analyses to perform so, your job name for each analysis will va
 
 Now let’s go to the website, and start the uploading process:
 
-1.  Go to http://kaiju.binf.ku.dk/
+1.  Go to <https://kaiju.binf.ku.dk/>
 
 2.  Click on the webserver icon at the top of the page.
 
 3.  Enter your name for the job, and then your email address, so you will know when the job is complete by getting an email.
 
-<img src="graphics/image3.png" width="400"/>
+    <img src="graphics/image3.png" width="400"/>
 
-4.  Now we can upload the reads, one at a time. Select the “Select file” box, and it will open up a window for the first read.  Select sampleA_500k_R1.fq.gz from the dialogue box and click on “Start upload”.  As soon as you have done this, click on “Upload a second file for paired end sequencing”.
+4.  Now we can upload the reads, one at a time. Select the “Select file” box, and it will open up a window for the first read.  Select _`sampleA_500k_R1.fq.gz`_ from the dialogue box and click on “Start upload”.  As soon as you have done this, click on “Upload a second file for paired end sequencing”.
 
-<img src="graphics/image4.png" width="400"/>
+    <img src="graphics/image4.png" width="400"/>
 
-5.  In the same way, you can upload sampleA_500k_R2.fq.gz as well.   Click on “Start upload” again.
+5.  In the same way, you can upload _`sampleA_500k_R2.fq.gz`_ as well.   Click on “Start upload” again.
 
-<img src="graphics/image5.png" width="400"/>
+    <img src="graphics/image5.png" width="400"/>
 
 6.  When both reads are completely uploaded, you see the following.
 
-<img src="graphics/image6.png" width="400"/>
+    <img src="graphics/image6.png" width="400"/>
 
-_NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
+    _NB: This is a little weird in its behaviour, but you need to keep an eye on the upload, as I have had experience where the upload times out, and then you have to do it again.  Given that for me it took me up to 7 minutes to upload, and there are 3 to do, you have to keep an eye on things, and also I appreciate it will take a little while.  This also depends a little on the Massey network._
 
 7.  Now you can choose the database for the job name, as in the table above, and you are ready to click on “Submit” at the bottom of the page.
 
 NB2: There is a bit of waiting for this first part of the process, so I suggest whilst you are waiting, you read the “Behind the Paper” feature on the Nature Microbiology website for the Kaiju publication.  The link is below:
 
-https://naturemicrobiologycommunity.nature.com/users/10226-peter-menzel/posts/6200-from-metagenomics-of-hot-springs-to-bioinformatics-software-development 
+<https://naturemicrobiologycommunity.nature.com/users/10226-peter-menzel/posts/6200-from-metagenomics-of-hot-springs-to-bioinformatics-software-development> 
 
 This is not super-long but gives you a chance to see the motivation for the paper from the authors.  It is also important to note that we are relying on the Internet here, so this is a little risky.  If the worst happens, and things do not go to plan, please let a demonstrator know, and magically a set of results can be made to appear for you.
 
@@ -205,6 +205,8 @@ This is not super-long but gives you a chance to see the motivation for the pape
 
 
 ### Exercise 2: Data downloading
+
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
 
 After a little while, you should have been emailed three times from the Kaiju webserver with your results.  We now have to download these to analyse them.  Using your email link, click on the link to open up the results page.  It lists 4 things:
 1.  A summary of the results, and the parameters used for the run
@@ -228,12 +230,12 @@ The next thing we are going to do is download the results from the 3 runs.  We a
 4.  The file is always called _`kaiju.out.gz`_.  
 5.  Go to your downloads folder and uncompress this file (double click on it) to make a file called _`kaiju.out`_.
 
-> **Please remember that uncompressing a _`.gz`_ file will be a different process depending on your machine and whatever compression software you use, e.g. 7Zip on windows PCs.**
+> **Please remember that uncompressing a _`.gz`_ file will be a different process depending on your machine and whatever compression software you use, e.g. 7Zip on Windows PCs.**
 >
 > **If there is an issue with downloading from the web you can run the following code to retrieve the file, as per the below from the terminal in RStudio.**
 
 ```bash
-wget https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/kaiju.out.gz
+wget https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/kaiju.out.gz
 gunzip kaiju.out.gz
 ```
 
@@ -253,6 +255,8 @@ We are going to have a look at the now uncompressed  _`kaiju.out`_ file quickly 
 
 ### Exercise 3: Data analysis
 
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+
 We are interested in the file for the taxon path counts.  In a similar way, let’s open up this file in a spreadsheet program like Excel to have a look at the contents.  This has far fewer rows of data as the hits to the same taxon have been merged.  
 
 >**Question 3:**
@@ -264,23 +268,25 @@ We are interested in the file for the taxon path counts.  In a similar way, let�
 >
 > <table><tbody><tr><td>Over 1000 counts:</td><td></td></tr><tr><td>Counts for 0.1% cutoff:</td><td></td></tr><tr><td>Taxa present at more than 0.1%:</td><td></td></tr><tr><td>Taxon at count of 916:</td><td></td></tr></tbody></table>
 
+### Exercise 4: Data comparisons
+
 Part of the practical today is to look at similarities and differences between the databases, and what effect that can have on the results.  To do that, we need to have a file where all this data is listed together.  We will look at a file I have made to do this.  
 
-I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – _`500k_cutoffs.xlsx`_ – in the Kaiju folder for today’s practical.
+I have performed the same 3 analyses (against the same 3 databases), but with the “MEM” algorithm specified rather than the default “Greedy” that you have used.  I have then used a scripting language – Perl – and a database – MySQL – to process this data into a format where everything is all together based on the taxonomic classification.  You will find this file – _`500k_cutoffs.xlsx`_ – in the _`kaiju`_ folder for today’s practical.
 
-Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called _`Cutoff1`_, _`Cutoff10`_, _`Cutoff100`_, _`Cutoff1000`_ and _`Cutoff10000`_ respectively.
+Open this file in Excel.  Immediately you will notice that there are actually 5 tabs here, where the data has been trimmed to remove any taxa that are present at fewer than 1, 10, 100, 1000 or 10000 counts.  These are unsurprisingly called _`Cutoff1, Cutoff10, Cutoff10, Cutoff1000`_ and _`Cutoff10000`_ respectively.
 
 >**Question 4:** 
 >
->Given how many counts there are in the original input test file, what percentages do these cutoffs represent?
+>Given how many counts there are in the original input test sequence files, what percentages do the following cutoffs represent?
 >
 > <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 >**Question 5:**
 >
->How many taxa are represented for each of the 5 cutoff levels?
+>Now we turn to the Excel file, and its contents. How many taxa are represented for each of the 5 cutoff levels?
 >
-> <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
+> <table><thead><tr><th>cutoff</th><th>number</th><th>cutoff</th><th>number</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
 Let’s investigate the data a little further.  Looking at the first tab - _`Cutoff10000`_ – does not show much, so we move on to the next one - _`Cutoff1000`_ – where we can start to see some differences in the counts.  Remember, this is the same underlying sequence dataset analysed in 6 different ways.  
 
@@ -294,7 +300,7 @@ Let’s investigate the data a little further.  Looking at the first tab - _`Cut
 
 We have to go to the next two tabs - _`Cutoff100`_ and _`Cutoff10`_ – to really explore the data.  We will leave the last tab - _`Cutoff1`_ – for today, as there are too many taxa to deal with.  We shall look at _`Cutoff100`_ first.  Go to that tab now if you are not there.  
 
-**NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry, and you will make incorrect inferences.  If that happens, download the file again, and start sorting again. **
+**NB: Any sorting you are going to do shortly on the sheets needs to be across the columns A to I, otherwise things will go badly awry, and you will make incorrect inferences.  If that happens, download the file again, and start sorting again.**
 
 The data are sorted by the descending average value (column G).  If we sort on the coefficient of variation (COV; column H), we are looking at the most equal counts.
  
@@ -329,7 +335,9 @@ Ok, so now we can look at visualising these data with Krona.
 
 ## Data visualisation with Krona
 
-For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - https://github.com/marbl/Krona/wiki - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  
+**11-May-2023 - Please note: There is a major issue with the Kaiju webserver that cannot be solved quickly, so we will return to this exercise next week (week 10).**
+
+For this last part of this metagenomics portion, we will head back to our Kaiju results page, and look at the Krona chart. Krona - <https://github.com/marbl/Krona/wiki> - is a way to explore hierarchical data with multi-layered pie charts in an interactive manner.  
 
 <img src="graphics/image9.png" width="400"/>
 
@@ -400,16 +408,16 @@ Within the Gammaproteobacteria is the order Legionellales (one member of which i
 
 We will now return to using `R` to look at our data, and head back to our RStudio Cloud environment.  The first thing we will need to do is to download our _`CutoffXXXX`_ files, i.e., our 5 different levels of counts from an external source this time.  These are now the file names, but with hyperlinks:  
 
-- [500k_Cutoff1.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff1.txt "500k_Cutoff1.txt")
-- [500k_Cutoff10.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff10.txt "500k_Cutoff10.txt")
-- [500k_Cutoff100.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff100.txt "500k_Cutoff100.txt")
-- [500k_Cutoff1000.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff1000.txt "500k_Cutoff1000.txt")
-- [500k_Cutoff10000.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week8/files/500k_Cutoff10000.txt "500k_Cutoff10000.txt")
+- [500k_Cutoff1.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/500k_Cutoff1.txt "500k_Cutoff1.txt")
+- [500k_Cutoff10.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/500k_Cutoff10.txt "500k_Cutoff10.txt")
+- [500k_Cutoff100.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/500k_Cutoff100.txt "500k_Cutoff100.txt")
+- [500k_Cutoff1000.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/500k_Cutoff1000.txt "500k_Cutoff1000.txt")
+- [500k_Cutoff10000.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week9/files/500k_Cutoff10000.txt "500k_Cutoff10000.txt")
 
-We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week8data`_, and change into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
+We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week9data`_, and change (`cd`) into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
 
 ```bash
-wget link_address_you_just_copied
+wget the_link_address_you_just_copied
 ```
 
 >**Question 14:**
@@ -443,11 +451,11 @@ Please install the following packages, and then load them - and another one - fo
 
 #### Loading data and subsetting on taxonomy
 
-Let's load in some data now.  This presumes that you are at _`/cloud/project/`_ and that you have made the  _`week8data`_ directory.  We will load in the _`500k_Cutoff1000.txt`_ file as an example, and perform some manipulation on it to allow us to work with the file in the rest of this section.
+Let's load in some data now.  This presumes that you are at _`/cloud/project/`_ and that you have made the  _`week9data`_ directory as stated above.  We will load in the _`500k_Cutoff1000.txt`_ file as an example, and perform some manipulation on it to allow us to work with the file in the rest of this section.
 
 ```R
 ### load in data
-> cutDataFile <- read.table("week8data/500k_Cutoff1000.txt", header = TRUE, sep = "\t")
+> cutDataFile <- read.table("week9data/500k_Cutoff1000.txt", header = TRUE, sep = "\t")
 
 ### remove unwanted columns
 > cutDataFileRemovedCols <- subset(cutDataFile, select=-c(averVal, COV))
@@ -456,7 +464,7 @@ Let's load in some data now.  This presumes that you are at _`/cloud/project/`_ 
 > cutDataFileRemovedCols_noUC <- cutDataFileRemovedCols[-c(1), ]
 ```
 
-The next gthing is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
+The next thing is to make a subset based on a certain taxonomic classification.  Let's take "Proteobacteria" as a group.  You need to know the point in the taxonomy to get to "Proteobacteria", as this is therefore common also all taxonomic hits, and we can remove it to make the very long taxonomic names shorter.  So for "Proteobacteria", it is "root__cellular__organisms__Bacteria__Proteobacteria__", and this is want we want to remove, which we shall do thus:
 
 ```R
 ### make a new object on a certain taxonomic classification and below
@@ -478,7 +486,7 @@ This is why we are making a copy of the object here, so that you can look at _`c
 
 >**Question 15:**
 >
-> How many rows does _`onlyTaxaOfInterest`_ have compared to  _`cutDataFileRemovedCols_noUC2`_? (Use one of the many methods you now are aware of, e.g. `grep` in the terminal, or manual inspection to find the numbers.)
+> How many rows does _`onlyTaxaOfInterest`_ have compared to  _`cutDataFileRemovedCols_noUC2`_? (Use one of the many methods you now are aware of, e.g. `grep` in the terminal, or by a manual inspection to find the numbers.)
 >
 > <table><tr><td>
 > ____________________
@@ -491,26 +499,26 @@ We are going to look at our data as heatmaps, and something called an UpSet plot
 
 #### Heatmaps
 
-I talked about abundance of reads in the second Week 8 lecture.  a convenient way to view the abundance of the different taxa is with a heatmap (https://r-graph-gallery.com/heatmap).  Hopefully you are slightly familiar with these from the other Portfolio analyses.
+I talked about abundance of reads in the Week 9 lectures.  A convenient way to view the abundance of the different taxa is with a heatmap (such as at <https://r-graph-gallery.com/heatmap>).  Hopefully you are slightly familiar with these from the other Portfolio analyses.
 
-To drawe a very basic heatmap, we use the `pheatmap()` command from the `pheatmap` package.  
+To draw a very basic heatmap, we use the `pheatmap()` command from the `pheatmap` package.  
 
 ```R
 ### draw a basic heatmap
 > pheatmap(onlyTaxaOfInterest)
 ```
-This command can be modified very extensively - have a look at `?pheatmap()` in the `R` console to get the help pages.  Try a few things out if you like. 
+This command can be modified very extensively - have a look at `?pheatmap()` in the `R` console to get the help pages.  Try out a few things out if you like. 
 
 In window #4, this will look at little weird due to the long taxa names (which is why we have shortened them).  Click in the "Zoom" for the image to go to a new window.  This window is stretchable, so you can make it look how you want, right click it and save it as an image.
 
 
 #### UpSet plots
 
-Now we are going to look at the data in a very different way.  This method is all to do with Venn diagrams, and thinking about the taxa results as members of sets.  In other words, overall if we get a taxon returned from a specific database, what other databases can we find that taxon in as well.  As we have 6 sets of data, we want to look at the insection of those 6.  How do we do that?  Here is an example of a Venn diagram with 6 intersecting sets:
+Now we are going to look at the data in a very different way.  This method is all to do with Venn diagrams, and thinking about the taxa results as members of sets.  In other words, overall if we get a taxon returned from a specific database, what other databases can we find that taxon in as well?  As we have 6 sets of data, we want to look at the insection of those 6.  How do we do that?  Here is an example of a Venn diagram with 6 intersecting sets:
 
 <img src="graphics/Venn6.jpg" width="400"/>
 
-What is going on here?  How intuitive is this?  The answer is **not very intuitive at all**.   Above 7 sets it is almost impossible to work out what is going on (it might be at 6 too!) with all the combination of relationships.  Therefore we are going to look at our data in a different way, using an UpSet plot.  You might have seen these on the R graph gallery (https://r-graph-gallery.com/) at https://r-graph-gallery.com/upset-plot.html.  Have a read of https://upset.app/ for a brief introduction, an example plot and an explanation of what is going on here.  We are going to create a similar plot with our data.
+What is going on here?  How intuitive is this?  The answer is **not very intuitive at all**.   Above 7 sets it is almost impossible to work out what is going on (it might be at 6 too!) with all the combination of relationships, and ever smaller parts of the figure where the intersections are found.  Therefore we are going to look at our data in a different way, using an UpSet plot.  You might have seen these on the R graph gallery (<https://r-graph-gallery.com/>) at <https://r-graph-gallery.com/upset-plot.html>.  Have a read of <https://upset.app/> for a brief introduction, an example plot and an explanation of what is going on here.  We are going to create a similar plot with our data.
 
 To make the plot, we have to apply a transformation to our data to make it an absence/presence dataset and therefore lose our quantitative data.  So, in this case, any non-zero value in our dataset becomes 1, and 0 stays as 0.  Hence, if a taxon has 3 or 2048 counts associated with it, it gets transformed to 1.  This shows us the detected taxa, rather than the abundance.  This is still a useful way to look at the data to understand the relationship between the 6 datasets we have from our sample.  
 
@@ -532,27 +540,27 @@ To make the plot, we have to apply a transformation to our data to make it an ab
 +       sets = setOrder, keep.order = TRUE)
 ```
 
-We have fixed the order of the sets here, have a go at changing the order of _`setOrder`_ if you want to change how the ouptut looks.
+We have fixed the order of the sets here with the _`setOrder`_ object, have a go at changing the order of _`setOrder`_ if you want to change how the ouptut looks.
 
 ---
 
 
 ## Portfolio analysis
 
-Once again, this is a two part analysis for the week 8 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listedin the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
+Once again, this is a two part analysis for the week 9 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listed in the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
 
 
-In the "Visualising data in different ways" sectikon above, for the "Heatmaps", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose on one the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
+In the "Visualising data in different ways" section above, for the "Heatmaps", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose one -- and only one -- of the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
 
 - combination 1: file _`500k_Cutoff10.txt`_ and taxonomic classification _`__Chitinophagia__`_
 - combination 2: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Rhodobacter__`_
 - combination 3: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Methanomicrobiales__`_
 
-As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.  Please use the exact search term above, otherwise you will get fat more data and your plot will look very complex.
+As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.  Please use the exact search term above, otherwise you will get far more data and your plot will look very complex.
 
 #### Part B
 
-In the "Visualising data in different ways" sectikon above, for the "UpSet plots", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand the relationship between the databases, and how these overlap.  In this part, I would like you to choose on one the following file s to visualise how the number of times a taxonomic result varies based on searching algorithm and database:
+In the "Visualising data in different ways" section above, for the "UpSet plots", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand the relationship between the databases, and how these overlap.  In this part, I would like you to choose one  -- and only one -- of the following files to visualise how the number of times a taxonomic result varies based on searching algorithm and database:
 
 - file 1: file _`500k_Cutoff10.txt`_
 - file 2: file _`500k_Cutoff1.txt`_ 
@@ -563,9 +571,9 @@ In the "Visualising data in different ways" sectikon above, for the "UpSet plots
 
 ## Assessment
 
-To reiterate, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course.  This will take place between Thursday 19-May-2022 and Friday 20-May-2022 online.
+To reiterate, there is no direct assessment today. What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course. This will take place between Thursday 25-May-2023 and Friday 26-May-2023 online.
 
-The mastery test will test the contents of weeks 7 to 9, more information will follow soon.
+The mastery test will test the contents of weeks 8 to 10, more information will follow next week.
 
 
 

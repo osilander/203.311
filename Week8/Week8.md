@@ -1,7 +1,5 @@
 **[Return to the Course Home Page](../index.html)**
 
-### **29-Apr-2022 There is a compact physical copy of this practical on the "Week | Wiki 7" Stream page.**
-
 # Barcodes and diversity - Fastq read analysis for 16S rRNA metabarcoding using the R package DADA2
 
 **Professor Patrick Biggs**
@@ -41,7 +39,7 @@ To learn how to perform an analysis of 16S rRNA sequencing data from raw sequenc
 
 Microbial diversity has been revolutionised by the rapid advances in sequencing technology, given us new insights into the role of the microbial world in all environments on Earth. Sequencing of metagenomes (all the DNA in a given sample etc) or of specific markers (metabarcodes e.g. 16S rRNA amplicons) have been crucial in this regard. Knowing what is there, and what it is potentially doing are two of the main research areas of interest.  How we then analyse the data, visualise and interpret the results is thus of importance.
 
-Week 7 focusses on introducing ideas around the analysis of microbial diversity - for bacteria - within the 16S rRNA amplicon, and performing a typical workflow analysis on such sequences in `R` using a piece of software called DADA2. These ideas will be developed further in the next two weeks (weeks 8 and 9) of this module. 
+Week 8 focusses on introducing ideas around the analysis of microbial diversity - for bacteria - within the 16S rRNA amplicon, and performing a typical workflow analysis on such sequences in `R` using a piece of software called DADA2. These ideas will be developed further in the next two weeks (weeks 9 and 10) of this module. 
 
 
 
@@ -79,15 +77,16 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the `R` c
 
 ## Accessing the resources needed
 
+
 ### Computing
 
 #### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -136,9 +135,9 @@ The output of the DADA2 pipeline is a sample-by-sequence matrix – a so-called 
 
 We will check we have all we need to do the analysis first.  The commands below have been checked and should work fine.  The below screenshot shows the folder structure within `/cloud/project/` for the new Module.
 
-1. Go to the _`MiSeq_SOP`_ folder in the `/cloud/project/` project within the "weeks7to9" project within the "MicrobialDiversity_2022" workspace and check that there are files there.
+1. Go to the _`MiSeq_SOP`_ folder in the `/cloud/project/` project within the "weeks8to10" project within the "MicrobialDiversity_2023" workspace and check that there are files there.
 
-<img src="graphics/window4_2022.PNG" width="600"/>
+<img src="graphics/window4_2023.PNG" width="600"/>
 
 2. Check we have all our packages we need for the work, so typing into the console as you have done before:
 
@@ -146,15 +145,15 @@ We will check we have all we need to do the analysis first.  The commands below 
 ### check on packages being there and their versions ###
 > library(dada2)
 > packageVersion("dada2")
-[1] ‘1.24.0’
+[1] ‘1.28.0’
 
 > library(ShortRead)
 > packageVersion("ShortRead")
-[1] ‘1.54.0’
+[1] ‘1.58.0’
 
 > library(ggplot2)
 > packageVersion("ggplot2")
-[1] ‘3.3.5’
+[1] ‘3.4.2’
 ```
 
 The next thing we want to do is to set a working path and then define a path variable to check it is all OK for the work we are going to do today. 
@@ -377,7 +376,7 @@ As in many optimization problems, the algorithm must begin with an initial guess
 ### forward reads first and then look at the output
 > errF <- learnErrors(derepFs, multithread=FALSE)
 33514080 total bases in 139642 reads from 20 samples will be used for learning the error rates.
-> dadaFs.lrn <- dada(derepFs, err=errR, multithread=TRUE)
+> dadaFs.lrn <- dada(derepFs, err=errF, multithread=TRUE)
 Sample 1 - 7113 reads in 1979 unique sequences.
 Sample 2 - 5299 reads in 1639 unique sequences.
 Sample 3 - 5463 reads in 1477 unique sequences.
@@ -538,7 +537,7 @@ This is not the same as _`sebtab`_.  Let’s calculate our sequences remaining a
 
 ```R
 > sum(seqtab.nochim)/sum(seqtab)
-[1] 0.964064
+[1] 0.9640374
 ```
 
 The fraction of chimeras varies based on factors including experimental procedures and sample complexity but can be substantial. Here chimeras make up about 21% of the inferred sequence variants (61 out of 293), but those variants account for only about 4% of the total sequence reads.
@@ -632,6 +631,8 @@ This mock community dataset contained 20 bacterial strains. DADA2 found 20 uniqu
 
 ## Exercise 13: Working with fasta files to generate a sequence logo
 
+I covered the theory around sequence logos in the Tuesday tutorial, but if you are interested in the maths behind this (information content and bits), the base information can be found on the [Wikipedia sequence logo](https://en.wikipedia.org/wiki/Sequence_logo) page.
+
 We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ that represent the sequences in our experiment.  We now consider these sequences as *unique* sequences, even though we know that they are present at vastly different proportions in the 20 samples we have.  However, we are going to ignore that fact for now and make a fasta file of these sequences for illustrating the principles required for the Portfolio Analysis.  To do this, we need to load some pre-installed packages in order to create a fasta file that we can do further analysis on. 
 
 ```R
@@ -646,7 +647,7 @@ We have created a dataframe of 232 16S rRNA sequences called _`seqtab.nochim`_ t
 > fasta.sample(infile = "nochimSeqs232.fa", nseq = 100, file.out = "sub100_nochimSeqs.fa")
 ```
 
-As we are randomly pulling sequences in this seection, the output will look slightly different from one attempt to the other in the below.
+As we are randomly pulling sequences in this section, the output will look slightly different from one attempt to the other in the below.
 
 To illustrate the path from fasta sequence file to aligned sequence to a sequence logo, we will use the fasta file _`sub100_nochimSeqs.fa`_ as an example of the workflow.
 
@@ -688,7 +689,7 @@ MsaDNAMultipleAlignment with 100 rows and 258 columns
 
 ### print out the alignment
 > msaPrettyPrint(my16SAlignment, output="pdf", showNames="left", file = "ourSet.pdf",
-+                showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
+                showLogo="top", askForOverwrite=FALSE, verbose=FALSE)
 ```
 
 The `msaPrettyPrint()` command has lots of options including showing the sequence names and printing out certain regions only.  I would **strongly suggest giving `?msaPrettyPrint` a look and to understand what is going on**.
@@ -736,9 +737,9 @@ From Exercise 13, you worked with a method to generate a sequence logo from the 
 
 ## Assessment
 
-To reiterate, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course.  This will take place between Thursday 19-May-2022 and Friday 20-May-2022 online.
+To reiterate, there is no direct assessment today.  What is required however, is an understanding of the principles we have learnt today, as these will be required for the mastery test which accounts for 15% of the course.  This will take place between Thursday 25-May-2023 and Friday 26-May-2023 online.
 
-The mastery test will test the contents of weeks 7 to 9, more information will follow soon.
+The mastery test will test the contents of weeks 8 to 10, more information will follow soon.
 
 
 
@@ -762,5 +763,5 @@ School of Natural Sciences
 <p.biggs@massey.ac.nz>
 
 
-[^1]: <https://www.nature.com/nmeth/journal/v13/n7/pdf/nmeth.3869.pdf >
+[^1]: Callahan et al. _**Nature Methods**_ 13:581–583. (2016)
 [^2]: Concepts for this part of the practical came from a tutorial found at: <https://benjjneb.github.io/dada2/tutorial.html>
