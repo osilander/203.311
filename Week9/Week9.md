@@ -282,7 +282,7 @@ Open this file in Excel.  Immediately you will notice that there are actually 5 
 
 >**Question 4:** 
 >
->Given how many counts there are in the original input test sequence files, what percentages do the following cutoffs represent?
+>The original file, _`500k_cutoffs.xlsx`_, has the taxon count numbers from 500,000 sequences that were classified by Kaiju.  We might be interested in focusing our analysis only on taxa that are present above a certain count, or above a certain percentage.  If we use count as a cutoff for including a taxon in the analysis, what percentage of total reads would the following specific counts correspond to?
 >
 > <table><thead><tr><th>cutoff</th><th>percentage</th><th>cutoff</th><th>percentage</th></tr></thead><tbody><tr><td>1</td><td></td><td>1000</td><td></td></tr><tr><td>10</td><td></td><td>10000</td><td></td></tr><tr><td>100</td><td></td><td></td><td></td></tr></tbody></table>
 
