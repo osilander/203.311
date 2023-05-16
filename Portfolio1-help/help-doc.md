@@ -106,9 +106,57 @@ The Portfolio Assessment does not require any statistics (although it does not n
 #### Getting the data into R
 
 This is the first hurdle. However, in the Section "Plotting the data more deliberately in R" we noted that:
-"you will need to use the read.table function." For the Portfolio Assessment, this is *probably* what you need to do: plot the data more deliberately.
+"you will need to use the read.table function." For the Portfolio Assessment, this is *probably* what you need to do: plot the data more deliberately. Alternatively, we could google [how do I read data into R](https://www.datacamp.com/tutorial/r-data-import-tutorial?utm_source=google&utm_medium=paid_search&utm_campaignid=19589720821&utm_adgroupid=143216588577&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=657040116618&utm_targetid=dsa-1947282172981&utm_loc_interest_ms=&utm_loc_physical_ms=9121921&utm_content=dsa~page~community-tuto&utm_campaign=230119_1-sea~dsa~tutorials_2-b2c_3-row-p1_4-prc_5-na_6-na_7-le_8-pdsh-go_9-na_10-na_11-na-mayftyc23&gclid=Cj0KCQjwsIejBhDOARIsANYqkD0Anfvh-vOnPOSbS1ipLBTqHgi_4mefXipOic8ra8dy_oe4uhDJsSEaAgomEALw_wcB). The first hit I find is the datacamp page, where I see you can use `read_csv()`, `read.table()`, `read.delim`, `read.csv`, `read.csv2`, and others.
 
+I will read in some data in column format on my own using `read.table`, and called it `mydata`. For the purpose here I will note that this data is in the form of four columns, with the columns (in order) being:
+1. sequence name
+2. sequence length
+3. GC-content
+4. quality
 
+Now I need to look for correlations. It is possible to Google this [How do I test for correlations in R easy] (http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r#:~:text=correlation%20in%20R-,R%20functions,%2Dvalue)%20of%20the%20correlation%20.) The first hit I get is from the STHDA page, but above that I see the Google summary:
 
-In Lab 3 on data visualisation, we noted that:
+*R functions
+Correlation coefficient can be computed using the functions cor() or cor.test(): cor() computes the correlation coefficient. cor.test() test for association/correlation between paired samples. It returns both the correlation coefficient and the significance level(or p-value) of the correlation.*
 
+If I return to `R` I can try this:
+
+```bash
+cor.test(mydata)
+```
+
+This gives an error.
+
+```bash
+Error in cor.test.default(mydata) : 'x' must be a numeric vector
+```
+
+I can Google this [Error in cor.test.default(mydata) : 'x' must be a numeric vector](https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector) and get Stack Overflow as the first hit, where it says *year is not a numeric value - it will be either a character string or a factor. Check with str(mydata).*
+
+I need to look more carefully at `cor.test`: 
+
+```bash
+?cor.test()
+```
+
+And find:
+```bash
+Test for association between paired samples, using one of Pearson's product moment correlation coefficient, Kendall's tau or Spearman's rho.
+
+Usage
+
+cor.test(x, ...)
+
+## Default S3 method:
+cor.test(x, y,
+         alternative = c("two.sided", "less", "greater"),
+         method = c("pearson", "kendall", "spearman"),
+         exact = NULL, conf.level = 0.95, continuity = FALSE, ...)
+``` 
+
+Which is slightly difficult to interpret. I only have three options:
+1. Ask a classmate
+2. Ask a lecturer/demonstrator
+3. Google
+
+#### to be continued
