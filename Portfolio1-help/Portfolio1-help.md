@@ -13,7 +13,9 @@
 
 ## Introduction
 
-The Portfolio Assessment from Week 4 is the first part of this Assessment. For many of you it will be the first time you have tried to visualise data, or certainly to visualise data outside of Excel. The purpose here is to show possible ways to move step-by-step through the Assessment.
+**This will take you around an hour to read through. We would expect an average of three hours *beyond* completion of the lab for each Portfolio Assessment component.** For the first few portfolio asssignments this is likely to take much longer; as you improve with `R` and the terminal, this time shoudl decrease.
+
+The Portfolio Assessment from Week 4 is the first part of the Portfoli Assessment. For many of you it will be the first time you have tried to visualise data, or certainly to visualise data outside of Excel. The purpose here is to show possible ways to move step-by-step through the Assessment.
 
 ## Background
 
@@ -155,11 +157,6 @@ cor.test(x, y,
          exact = NULL, conf.level = 0.95, continuity = FALSE, ...)
 ``` 
 
-Which is slightly difficult to interpret. I only have three options:
-1. Ask a classmate
-2. Ask a lecturer/demonstrator
-3. Google
-
-A second Google of "cor.test Tutorial" gives a [YouTube video](https://youtu.be/XaNKst8ODEQ) as nearly the top hit, which could be more helpful. A quick view shows that the author shows `cor.test` help (1:12). Interestingly, in this video we see that the author does a plot almost immediately (1:21). At 4:42, an "all-vs-all" plot is shown. I cn decide whether this would be useful in the case of this Portfolio Assessment.
+Which is slightly difficult to interpret. I can try a slightly different strategy. For example, a second Google of "cor.test Tutorial" gives a [YouTube video](https://youtu.be/XaNKst8ODEQ) as nearly the top hit. A quick view shows that the author shows `cor.test` help (1m 12s). Interestingly, in this video we see that the author does a plot almost immediately (1m 21s). At 4m 42s, an "all-vs-all" plot is shown. I cn decide whether this would be useful in the case of this Portfolio Assessment.
 
 #### to be continued
