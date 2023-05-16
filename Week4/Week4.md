@@ -496,7 +496,10 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 
 ## Portfolio Analysis {#Portfolio-Analysis}
 
-[See here for help](../Portfolio1-help/help-doc.md)
+[See here for help](../Portfolio1-help/Portfolio1-help.html)
+
+
+[See here for brief TLDR help](../Portfolio-tldr/Portfolio-tldr.html)
 
 1. The GC (guanine and cytosine) content of a genome (and read) is known to affect how easy it is to sequence. For example, regions of genomes that are GC-rich are often under-represented in sequencing data. One question that arises from this is whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads. Please address this question.<br>
 
