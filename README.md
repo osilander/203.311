@@ -18,3 +18,5 @@ This practice-oriented course differs from many of the other courses you may hav
 | 10 | Microbial Diversity               | [Metagenomic Visualization](Week10/Week10.html)      |
 | 11 | Human Genomics                  | [Transcriptomics](Week11/Week11.html) |
 | 12 | Human Genomics               | [Transcriptomic Visualization](Week12/Week12.html) |
+| NA | Portfolio Assessment Week 4 Help               | [Help](Portfolio1-help/Portfolio1-help.html) |
+| NA | Week 4 Help TLDR               | [TLDR](Portfolio-help/Portfolio-tldr.html) |
