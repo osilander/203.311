@@ -117,7 +117,7 @@ I will read in some data in column format on my own using `read.table`, and call
 Now I need to look for correlations. It is possible to Google this [How do I test for correlations in R easy](http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r#:~:text=correlation%20in%20R-,R%20functions,%2Dvalue%20of%20the%20correlation%20.) The first hit I get is from the STHDA page, but above that I see the Google summary:
 
 
-<img src="graphics/google-cor-test.png" title="cor-test" width="400"/><br>
+<img src="graphics/google-cor-test.png" title="cor-test" width="600"/><br>
 **Here is help on how to do a correlation.**<br>
 
 If I return to `R` I can try this:
