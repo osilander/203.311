@@ -114,7 +114,7 @@ I will read in some data in column format on my own using `read.table`, and call
 3. GC-content
 4. quality
 
-Now I need to look for correlations. It is possible to Google this [How do I test for correlations in R easy](http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r#:~:text=correlation%20in%20R-,R%20functions,%2Dvalue)%20of%20the%20correlation%20.) The first hit I get is from the STHDA page, but above that I see the Google summary:
+Now I need to look for correlations. It is possible to Google this [How do I test for correlations in R easy](http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r#:~:text=correlation%20in%20R-,R%20functions,%2Dvalue%20of%20the%20correlation%20.) The first hit I get is from the STHDA page, but above that I see the Google summary:
 
 *R functions
 Correlation coefficient can be computed using the functions cor() or cor.test(): cor() computes the correlation coefficient. cor.test() test for association/correlation between paired samples. It returns both the correlation coefficient and the significance level(or p-value) of the correlation.*
