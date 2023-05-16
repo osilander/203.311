@@ -46,4 +46,43 @@ Quality scores of *what*?
 There are two hints in the assessment. First, it ask: *[is] GC content correlated with quality scores for either Illumina or Oxford Nanopore sequencing READS.*
 With some careful reading it becomes clear we are talking about sequencing reads.
 
-There is also a second clue: we should use `seqkit fx2tab` 
+There is also a second clue: we should use `seqkit fx2tab`. What is the output of `seqkit fx2tab`?
+
+As noted when you did this in the lab, it is "lengths and quality per sequence," or in the comments of commands, "a file with three columns: the NAME, the LENGTH, and the QUALITY".
+
+With some careful reading we should be able to see that we need to get the **quality scores of individual reads**. Furthermore, we know how to do this: using `seqkit fx2tab`, and we know that this will give us column formatted data.
+
+We should remind ourselves **how** to get this type of data. We can look back at the lab, where we see `seqkit fx2tab -qln myseqs.fastq.gz > mydata.txt` gives a file with that information. However, arguably a better way is through using seqkit itself. Two ways to do this - command line help:
+
+```bash
+# what is the output of seqkit help
+seqkit --help
+
+SeqKit -- a cross-platform and ultrafast toolkit for FASTA/Q file manipulation
+
+Version: 0.13.2
+
+Author: Wei Shen <shenwei356@gmail.com>
+
+Documents  : http://bioinf.shenwei.me/seqkit
+Source code: https://github.com/shenwei356/seqkit
+Please cite: https://doi.org/10.1371/journal.pone.0163962
+
+Usage:
+  seqkit [command]
+
+Available Commands:
+  amplicon        retrieve amplicon (or specific region around it) via primer(s)
+  bam             monitoring and online histograms of BAM record features
+  common          find common sequences of multiple files by id/name/sequence
+  concat          concatenate sequences with same ID from multiple files
+  convert         convert FASTQ quality encoding between Sanger, Solexa and Illumina
+  duplicate       duplicate sequences N times
+  faidx           create FASTA index file and extract subsequence
+  fish            look for short sequences in larger sequences using local alignment
+  fq2fa           convert FASTQ to FASTA
+  fx2tab          convert FASTA/Q to tabular format (with length/GC content/GC skew)
+  ```
+
+  OR [Google](https://bioinf.shenwei.me/seqkit/usage/ "Google: 'seqkit help'")
+
