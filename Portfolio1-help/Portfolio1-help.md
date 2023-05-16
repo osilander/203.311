@@ -159,4 +159,76 @@ cor.test(x, y,
 
 Which is slightly difficult to interpret. I can try a slightly different strategy. For example, a second Google of "cor.test Tutorial" gives a [YouTube video](https://youtu.be/XaNKst8ODEQ) as nearly the top hit. A quick view shows that the author shows `cor.test` help (1m 12s). Interestingly, in this video we see that the author does a plot almost immediately (1m 21s). At 4m 42s, an "all-vs-all" plot is shown. I cn decide whether this would be useful in the case of this Portfolio Assessment.
 
-#### to be continued
+Another possibility is to Google [correlation between variables](https://www.google.com/search?q=correlation+between+variables&sxsrf=APwXEdeIgokF1OppvGQmGnki5YlUVGiP_w:1684217085845&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjRkYHJlfn-AhVQG4gKHdAkB_QQ_AUoAXoECAEQAw&biw=1178&bih=692&dpr=2).
+
+Here, we see a nice result from Google:<br><br>
+
+<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+## The visualisation
+
+There is **no one way to visualise this.**
+
+Once we have the data in `R` we can try different methods. Note that my data is called `mydata`
+
+```bash
+hist(mydata[,2], xlab="The Data")
+```
+
+<img src="graphics/the-data.png" title="hist" width="600"/><br>
+**Here is a very simple viz, the histogram.**<br><br>
+
+
+Some adjustments (go ahead and copy this code if you want; you will have to change the variable name).
+
+```bash
+par(las=1)
+hist(mydata[,2], xlab="The Data", main="The Data Title", col="light green")
+```
+
+<img src="graphics/the-data-green.png" title="green" width="600"/><br>
+**An adjusted histogram.**<br><br>
+
+
+```bash
+barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
+```
+
+<img src="graphics/barplot.png" title="bar" width="600"/><br>
+**A simple barplot.**<br><br>
+
+
+```bash
+
+plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Connected line plot")
+```
+
+<img src="graphics/line-plot.png" title="line" width="600"/><br>
+**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+
+```bash
+plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="Connected line plot")
+```
+
+<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+
+```bash
+plot(mydata[,3],sort(mydata[,2]),ty="l")
+```
+
+<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+
+```bash
+plot(sort(mydata[,3]),sort(mydata[,2]),ty="l",xlab="Sorted",ylab="Sorted",col="purple",lwd=2,main="Both sorted")
+```
+
+<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+This is all the same data (or part of the same data) plotted in different ways. One of these (or many or none) may be a gret way to illusttrate "whether GC content is correlated with quality scores".
