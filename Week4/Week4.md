@@ -495,6 +495,9 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 > The Illumina data will have four columns. This is because of the naming scheme. Make sure you use only the relevant columnbs for plotting. The nanopore data has the expected three columns.
 
 ## Portfolio Analysis {#Portfolio-Analysis}
+
+[See here for help](../Portfolio1-help/help-doc.md)
+
 1. The GC (guanine and cytosine) content of a genome (and read) is known to affect how easy it is to sequence. For example, regions of genomes that are GC-rich are often under-represented in sequencing data. One question that arises from this is whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads. Please address this question.<br>
 
     You will have to generate new data on GC content and quality using the `seqkit fx2tab` subcommand (make sure you use the help command, so: `seqkit fx2tab --help`), and combine it with `R` plotting methods to answer this question. Please do this, and state whether you think there is, or is not, a link between GC content and read quality in this data, and provide your graphical analysis as evidence (you are free to present additional evidence).
