@@ -118,7 +118,7 @@ Now I need to look for correlations. It is possible to Google this [How do I tes
 
 
 <img src="graphics/google-cor-test.png" title="cor-test" width="600"/><br>
-**Here is help on how to do a correlation.**<br>
+**Here is help on how to do a correlation.**<br><br>
 
 If I return to `R` I can try this:
 
@@ -134,7 +134,7 @@ Error in cor.test.default(mydata) : 'x' must be a numeric vector
 
 I can Google this [Error in cor.test.default(mydata) : 'x' must be a numeric vector](https://stackoverflow.com/questions/43497128/r-error-in-correlation-test-x-must-be-a-numeric-vector) and get Stack Overflow as the first hit, where it says *year is not a numeric value - it will be either a character string or a factor. Check with str(mydata).*
 
-I need to look more carefully at `cor.test`: 
+This is not that helpful as we don't even have years. Maybe I can look more carefully at `cor.test`: 
 
 ```bash
 ?cor.test()
@@ -159,5 +159,7 @@ Which is slightly difficult to interpret. I only have three options:
 1. Ask a classmate
 2. Ask a lecturer/demonstrator
 3. Google
+
+A second Google of "cor.test Tutorial" gives a [YouTube video](https://youtu.be/XaNKst8ODEQ) as nearly the top hit, which could be more helpful. A quick view shows that the author shows `cor.test` help (1:12). Interestingly, in this video we see that the author does a plot almost immediately (1:21). At 4:42, an "all-vs-all" plot is shown. I cn decide whether this would be useful in the case of this Portfolio Assessment.
 
 #### to be continued
