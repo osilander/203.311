@@ -19,4 +19,4 @@ This practice-oriented course differs from many of the other courses you may hav
 | 11 | Human Genomics                  | [Transcriptomics](Week11/Week11.html) |
 | 12 | Human Genomics               | [Transcriptomic Visualization](Week12/Week12.html) |
 | NA | Portfolio Assessment Week 4 Help               | [Help](Portfolio1-help/Portfolio1-help.html) |
-| NA | Week 4 Help TLDR               | [TLDR](Portfolio-tldr/Portfolio-tldr.html) |
+| NA | PA Week 4 Help TLDR               | [TLDR](Portfolio1-tldr/Portfolio1-tldr.html) |
