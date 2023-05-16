@@ -31,3 +31,19 @@ Let's take this step by step
 
 ### Please address this question
 This is the first and most important part of the assessment. *How will you test "whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads"*?
+
+You need to understand how to break this question down to its most important parts:
+1. GC content
+2. Correlated
+3. Quality Scores
+4. Illumina
+5. Oxford Nanopore
+
+These are the components of your answer. We need to interpret each a bit further.
+
+#### Quality Scores
+Quality scores of *what*?
+There are two hints in the assessment. First, it ask: *[is] GC content correlated with quality scores for either Illumina or Oxford Nanopore sequencing READS.*
+With some careful reading it becomes clear we are talking about sequencing reads.
+
+There is also a second clue: we should use `seqkit fx2tab` 
