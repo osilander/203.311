@@ -41,7 +41,7 @@ You need to understand how to break this question down to its most important par
 
 These are the components of your answer. We need to interpret each a bit further.
 
-#### Quality Scores
+### Quality Scores
 Quality scores of *what*?
 There are two hints in the assessment. First, it ask: *[is] GC content correlated with quality scores for either Illumina or Oxford Nanopore sequencing READS.*
 With some careful reading it becomes clear we are talking about sequencing reads.
@@ -84,5 +84,29 @@ Available Commands:
   fx2tab          convert FASTA/Q to tabular format (with length/GC content/GC skew)
   ```
 
-  OR [Google](https://bioinf.shenwei.me/seqkit/usage/ "Google: 'seqkit help'")
+  OR [Google seqkit help] (https://bioinf.shenwei.me/seqkit/usage/ "Google: seqkit help")
+
+Unfortunataely Googling [seqkit help fx2tab](https://bioinf.shenwei.me/seqkit/usage/) does not give us more useful information. Nevertheless we can use command-f (control-f on Windows) to find the relevant section. Finding `fx2tab` or `GC` brings us to the [fx2tab page](https://bioinf.shenwei.me/seqkit/usage/#fx2tab-tab2fx).
+
+We can either command-f quality, which brings us to the *flag* we need to use to get quality, or we can scan the page to see that the second flag listed gives quality. But we don't actually need to any of that, as this was all noted in the previous lab.
+
+### GC content
+We next need to find **per read** GC content. We have not encountered this before. There are two solutions here. First, we have only used a single method to get pre-read characteristics, `fx2tab`. We can make an educated guess that we should use this. Alternatively, reading the Portfolio Assessment carefully, we see that we can get data on GC: "new data on GC content and quality using the `seqkit fx2tab`" using the help function.
+
+### Illumina and Nanopore
+This should be apparent - we simply need to make sure that we do this for Illumina and Nanopore.
+
+### Correlation
+We need to know what we are correlating. This is apparent in the question: "whether GC content is correlated with quality scores". We can only test this if we have the data. You should now have the data *in column format* by using the correct `seqkit f2tab` command. The only way that we have used to visualise so far is `R`, so we will stick with that.
+
+
+### Correlation in R
+The Portfolio Assessment does not require any statistics (although it does not note this explicitly.)
+
+#### Getting the data into R
+
+This is the first hurdle, and we will have to return to different parts of the labs to do this. In the Section "Plotting the data more deliberately in R" we noted that:
+"you will need to use the read.table function."
+
+In Lab 3 on data visualisation, we noted that:
 
