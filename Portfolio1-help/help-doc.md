@@ -91,7 +91,7 @@ Unfortunataely Googling [seqkit help fx2tab](https://bioinf.shenwei.me/seqkit/us
 We can either command-f quality, which brings us to the *flag* we need to use to get quality, or we can scan the page to see that the second flag listed gives quality. But we don't actually need to any of that, as this was all noted in the previous lab.
 
 ### GC content
-We next need to find **per read** GC content. We have not encountered this before. There are two solutions here. First, we have only used a single method to get pre-read characteristics, `fx2tab`. We can make an educated guess that we should use this. Alternatively, reading the Portfolio Assessment carefully, we see that we can get data on GC: "new data on GC content and quality using the `seqkit fx2tab`" using the help function.
+We next need to find **per read** GC content. We have not encountered this before. There are two solutions here. First, we have only used a single method to get pre-read characteristics, `fx2tab`. We can make an educated guess that we should use this. Alternatively, reading the Portfolio Assessment carefully, we see that we can get data on GC with `seqkit`: "new data on GC content and quality using the `seqkit fx2tab`" using the help function.
 
 ### Illumina and Nanopore
 This should be apparent - we simply need to make sure that we do this for Illumina and Nanopore.
@@ -105,8 +105,10 @@ The Portfolio Assessment does not require any statistics (although it does not n
 
 #### Getting the data into R
 
-This is the first hurdle, and we will have to return to different parts of the labs to do this. In the Section "Plotting the data more deliberately in R" we noted that:
-"you will need to use the read.table function."
+This is the first hurdle. However, in the Section "Plotting the data more deliberately in R" we noted that:
+"you will need to use the read.table function." For the Portfolio Assessment, this is *probably* what you need to do: plot the data more deliberately.
+
+
 
 In Lab 3 on data visualisation, we noted that:
 
