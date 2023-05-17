@@ -183,6 +183,8 @@ hist(mydata[,2], xlab="The Data")
 
 Some adjustments (go ahead and copy this code if you want; you will have to change the variable name).
 
+### Improved hist
+
 ```bash
 par(las=1)
 hist(mydata[,2], xlab="The Data", main="The Data Title", col="light green")
@@ -193,6 +195,8 @@ hist(mydata[,2], xlab="The Data", main="The Data Title", col="light green")
 
 ---
 
+### Barplot
+
 ```bash
 barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
 ```
@@ -201,6 +205,8 @@ barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
 **A simple barplot.**<br><br>
 
 ---
+
+### Connected line plot
 
 ```bash
 
@@ -212,25 +218,30 @@ plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Conn
 
 ---
 
+### One variable sorted
+
 ```bash
 plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="Connected line plot")
 ```
 
 <img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
-**Here is a plot in which one variable is sorted. This is sometimes usf.**<br><br>
+**Here is a plot in which one variable is sorted. This is sometimes useful.**<br><br>
 
 
 ---
 
+### Both sorted
+
 ```bash
-plot(mydata[,3],sort(mydata[,2]),ty="l")
+pplot(sort(mydata[,3]), sort(mydata[,2]), ty="l", xlab="Sorted", ylab="Sorted", col="purple", lwd=2, main="Both sorted")
 ```
 
 <img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
-**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
-
+**Here is a plot in which both variables are sorted. This is sometimes useful.**<br><br>
 
 ---
+
+### Subsampled
 
 ```bash
 plot(sort(mydata[,3]),sort(mydata[,2]),ty="l",xlab="Sorted",ylab="Sorted",col="purple",lwd=2,main="Both sorted")
