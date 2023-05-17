@@ -72,11 +72,11 @@ Don\'t forget to press the **\[Enter\]** key: commands are not sent to the `R` c
 
 #### General
 
-We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account.
+We will be working within web browsers, and Firefox and Chrome are installed on the machines, or Safari if you are an Apple user. We will then login to RStudio Cloud using your personalised account. If you would like to use your own laptop in the labs on either campus, please feel free to do so.
 
 #### Manawatu (iMacs)
 
-The machines we are using for the course -- Apple iMacs -- have been updated for 2022, and there is a new login method for them. Usernames and passwords will be supplied to you in the lab, but please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
+The machines we are using for the course are Apple iMacs. Please use your normal Massey username and password to login to these machines. Please remember to ignore (i.e. cancel) the dialogue box about the network when you log in.
 
 #### Albany (PCs)
 
@@ -89,7 +89,7 @@ Most likely this is your own machine, so this should not be an issue.
 
 ### Our work today
 
-We will return to our RStudio cloud environment to analyse the data we started working on in Week 7, and then further that analysis by following some tutorial examples on the pre-loaded `phyloseq` datasets.
+We will return to our RStudio cloud environment to analyse the data we started working on in Week 8, and then further that analysis by following some tutorial examples on the pre-loaded `phyloseq` datasets.
 
 
 ### What we are going to do today?
@@ -107,7 +107,7 @@ The commands below have been checked and should work fine.
 
 ## Exercise 1: Completion of the DADA2 tutorial
 
-We wil use information described on the phyloseq pages (https://joey711.github.io/phyloseq/) by its author -- Paul J. McMurdie -- for this practical, and this work is acknowledged.
+We wil use information described on the phyloseq pages <https://joey711.github.io/phyloseq/> by its author -- Paul J. McMurdie -- for this practical, and this work is acknowledged.
 
 The DADA2 pipeline produced a sequence table and a taxonomy table which is appropriate for further analysis in phyloseq. We'll also include the small amount of metadata we have – the samples are named by the gender (G), mouse subject number (X) and the day post-weaning (Y) it was sampled (e.g. GXDY is the format of the sample names).  So, now we shall build up this metadata file, but we shall do it inside of `R` using source files available to us:
 
@@ -217,8 +217,8 @@ Now let’s have a quick look at the composition via an ordination of the data u
 
 ```R
 ### a quick look at the data via an ordination method
-ord.nmds.bray <- ordinate(ps, method="NMDS", distance="bray")
-plot_ordination(ps, ord.nmds.bray, color="When", title="Bray NMDS")
+> ord.nmds.bray <- ordinate(ps, method="NMDS", distance="bray")
+> plot_ordination(ps, ord.nmds.bray, color="When", title="Bray NMDS")
 ```
 
 You should see something like the following:
@@ -285,10 +285,10 @@ OK, on to the data analysis, so, let’s check that everything is there.
 ### set up packages ###
 > library(phyloseq)
 > packageVersion("phyloseq")
-[1] ‘1.30.0’
+[1] ‘1.44.0’
 > library(ggplot2)
 > packageVersion("ggplot2")
-[1] ‘3.3.2’
+[1] ‘3.4.2’
 
 ### load the base data
 > data(GlobalPatterns)
@@ -449,7 +449,7 @@ Our next exercise for this module is to look at some ways we can ordinate the da
 
 We take as our first example, a reproduction of Figure 5 from the “Global Patterns” article (Caporaso 2011). The authors show a 3-dimensional representation of the first three axes of a Principal Coordinates Analysis (PCoA; This is also sometimes referred to as “Multi-Dimensional Scaling”, or “MDS”) performed on the unweighted-UniFrac distance using all of the available sequences (their approach included both 5’ and 3’ sequences). 
 
-> From: https://en.wikipedia.org/wiki/UniFrac: “UniFrac is a distance metric used for comparing biological communities. It differs from dissimilarity measures such as Bray-Curtis dissimilarity in that it incorporates information on the relative relatedness of community members by incorporating phylogenetic distances between observed organisms in the computation. Both weighted (quantitative) and unweighted (qualitative) variants of UniFrac are widely used in microbial ecology, where the former accounts for abundance of observed organisms, while the latter only considers their presence or absence.”
+> From: <https://en.wikipedia.org/wiki/UniFrac>: “UniFrac is a distance metric used for comparing biological communities. It differs from dissimilarity measures such as Bray-Curtis dissimilarity in that it incorporates information on the relative relatedness of community members by incorporating phylogenetic distances between observed organisms in the computation. Both weighted (quantitative) and unweighted (qualitative) variants of UniFrac are widely used in microbial ecology, where the former accounts for abundance of observed organisms, while the latter only considers their presence or absence.”
 
 According to the authors, “the first axis [appears to be associated with a] host associated/free living [classification],” and similarly the third axis with “saline/nonsaline environment[s].”  The following reproduces the unweighted UniFrac distance calculation on the full dataset.
 
@@ -474,7 +474,7 @@ Remember we are looking to reduce high dimensional data down to a level we can p
 
 <img src="graphics/phylo_scree.png" width="500"/>
 
-We can see that ~43% of the variation in the data comes from the first 3 axes.  So, if we wanted to compare say the 1st and 2nd, and then the 1st and 3rd axes of data, we could use the following code to make the following plots:
+We can see that ~43% of the variation in the data comes from the first 3 axes.  So, if we wanted to compare say the 1st and 2nd, and then the 1st and 3rd axes of data, we could use the following code to make the following plots (please remember that these are multiline commands, so htere is no need to type in the `+` at the start of the lines):
 
 ```R
 ### plot axes 1 and 2 (left hand side):
@@ -638,7 +638,7 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 
 ### Introduction
 
-In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (https://doi.org/10.1371/journal.pone.0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to work with.  The objective of the paper was:
+In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (Nov 5;16(11):e0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to work with.  The objective of the paper was:
 
 > "To characterize the microbiota of postmenopausal women undergoing hysterectomy for endometrioid (EAC) or uterine serous cancers (USC) compared to controls with non-malignant conditions."
 
@@ -676,11 +676,11 @@ So we have gone from a range of 1 to 182,085 redas per sample from _`all90`_ to 
 
 I have made the three data types that are needed to make a phyloseq object.  The first thing we will need to do is to download our three files that form the core of a phyloseq object.  These are the file names, but with hyperlinks:  
 
-- [Portfolio_OTUtable.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_OTUtable.txt "Portfolio_OTUtable.txt")
-- [Portfolio_sampleData60.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_sampleData60.txt "Portfolio_sampleData60.txt")
-- [Portfolio_taxa.txt](https://raw.githubusercontent.com/mpcox/203.311/main/Week9/files/Portfolio_taxa.txt "Portfolio_taxa.txt")
+- [Portfolio_OTUtable.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week10/files/Portfolio_OTUtable.txt "Portfolio_OTUtable.txt")
+- [Portfolio_sampleData60.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week10/files/Portfolio_sampleData60.txt "Portfolio_sampleData60.txt")
+- [Portfolio_taxa.txt](https://raw.githubusercontent.com/osilander/203.311/main/Week10/files/Portfolio_taxa.txt "Portfolio_taxa.txt")
 
-We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week9data`_, and change into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
+We will then repeat the process Olin introduced in Week 4.  To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, make a new directory called _`week10data`_, and change (`cd`) into that directory. Third, copy the link address (right click on the link and scroll to Copy Link Address). Finally, download the files using `wget`:
 
 ```bash
 wget link_address_you_just_copied
@@ -692,7 +692,7 @@ So now we can import our tables to make a new phyloseq object.  **Please be awar
 
 ```R
 ### set the working directory
-> setwd("/cloud/project/week9data/")
+> setwd("/cloud/project/week10data/")
 
 ### sample table
 > portfolio_samp <- read.table(file = "Portfolio_sampleData60.txt", sep = "\t", header = TRUE)
@@ -747,7 +747,7 @@ Using the code described in this practical, and maybe from the Week 9 lecture, p
 
 ## Assessment
 
-To reiterate this week's lab is only assessed via the Portfolio analysis as described above.  **Any code shown here that has not been at least briefly described in the Week 9 lecture will not the subject of assessment in the Mastery test for this Module that is taking place between Thursday 19-May-2022 and Friday 20-May-2022 online.**
+To reiterate this week's lab is only assessed via the Portfolio analysis as described above.  **Any code shown here that has not been at least briefly described in the Week 10 lecture will not the subject of assessment in the Mastery test for this Module that is taking place between Thursday 25-May-2023 and Friday 26-May-2023 online.**
 
 
 
