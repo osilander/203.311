@@ -221,7 +221,7 @@ plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Conn
 ### One variable sorted
 
 ```bash
-plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="Connected line plot")
+plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="")
 ```
 
 <img src="graphics/one-sorted.png" title="cor-viz" width="600"/><br>
@@ -252,12 +252,25 @@ plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",ma
 ### Subsampled
 
 ```bash
-sample()
-plot(sort(mydata[,3]),sort(mydata[,2]),ty="l",xlab="Sorted",ylab="Sorted",col="purple",lwd=2,main="Both sorted")
+# sample the data
+sub.data <- mydata[sample(nrow(mydata),500),]
+plot(sub.data[,3],sub.data[,2])
 ```
 
-<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
-**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+<img src="graphics/sub-data.png" title="cor-viz" width="600"/><br>
+**Here is a smaller part of the data.**<br><br>
+
+---
+
+### Boxplot with help
+
+Last, we can move to very complicated plots which become easier with external help (this approach is allowed).
+
+<img src="graphics/chat-solution.png" title="cor-viz" width="400"/><br>
+**Exteranl assistance.**<br><br>
+
+<img src="graphics/bins.png" title="cor-viz" width="600"/><br>
+**A complicated plot.**<br><br>
 
 ---
 
