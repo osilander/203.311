@@ -200,7 +200,7 @@ barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
 <img src="graphics/barplot.png" title="bar" width="600"/><br>
 **A simple barplot.**<br><br>
 
---
+---
 
 ```bash
 
@@ -210,6 +210,7 @@ plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Conn
 <img src="graphics/line-plot.png" title="line" width="600"/><br>
 **Here is a connected line plot, which looks quite messy.**<br><br>
 
+---
 
 ```bash
 plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="Connected line plot")
@@ -219,6 +220,8 @@ plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",ma
 **Here is a plot in which one variable is sorted. This is sometimes usf.**<br><br>
 
 
+---
+
 ```bash
 plot(mydata[,3],sort(mydata[,2]),ty="l")
 ```
@@ -227,11 +230,15 @@ plot(mydata[,3],sort(mydata[,2]),ty="l")
 **Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
 
 
+---
+
 ```bash
 plot(sort(mydata[,3]),sort(mydata[,2]),ty="l",xlab="Sorted",ylab="Sorted",col="purple",lwd=2,main="Both sorted")
 ```
 
 <img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
 **Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+
+---
 
 This is all the same data (or part of the same data) plotted in different ways. One of these (or many or none) may be a gret way to illusttrate "whether GC content is correlated with quality scores".
