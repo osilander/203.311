@@ -179,7 +179,7 @@ hist(mydata[,2], xlab="The Data")
 <img src="graphics/the-data.png" title="hist" width="600"/><br>
 **Here is a very simple viz, the histogram.**<br><br>
 
---
+---
 
 Some adjustments (go ahead and copy this code if you want; you will have to change the variable name).
 
@@ -191,7 +191,7 @@ hist(mydata[,2], xlab="The Data", main="The Data Title", col="light green")
 <img src="graphics/the-data-green.png" title="green" width="600"/><br>
 **An adjusted histogram.**<br><br>
 
---
+---
 
 ```bash
 barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
