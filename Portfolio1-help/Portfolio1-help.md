@@ -224,7 +224,7 @@ plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Conn
 plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="Connected line plot")
 ```
 
-<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+<img src="graphics/one-sorted.png" title="cor-viz" width="600"/><br>
 **Here is a plot in which one variable is sorted. This is sometimes useful.**<br><br>
 
 
@@ -236,14 +236,23 @@ plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",ma
 pplot(sort(mydata[,3]), sort(mydata[,2]), ty="l", xlab="Sorted", ylab="Sorted", col="purple", lwd=2, main="Both sorted")
 ```
 
-<img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
+<img src="graphics/both-sorted.png" title="cor-viz" width="600"/><br>
 **Here is a plot in which both variables are sorted. This is sometimes useful.**<br><br>
 
 ---
+### A scatter plot
 
+```bash
+plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",main="")
+```
+<img src="graphics/scatter-plot.jpg" title="cor-viz" width="600"/><br>
+**A very simple scatter plot.**<br><br>
+
+---
 ### Subsampled
 
 ```bash
+sample()
 plot(sort(mydata[,3]),sort(mydata[,2]),ty="l",xlab="Sorted",ylab="Sorted",col="purple",lwd=2,main="Both sorted")
 ```
 
