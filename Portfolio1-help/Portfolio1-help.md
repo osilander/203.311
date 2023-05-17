@@ -179,6 +179,7 @@ hist(mydata[,2], xlab="The Data")
 <img src="graphics/the-data.png" title="hist" width="600"/><br>
 **Here is a very simple viz, the histogram.**<br><br>
 
+--
 
 Some adjustments (go ahead and copy this code if you want; you will have to change the variable name).
 
@@ -190,6 +191,7 @@ hist(mydata[,2], xlab="The Data", main="The Data Title", col="light green")
 <img src="graphics/the-data-green.png" title="green" width="600"/><br>
 **An adjusted histogram.**<br><br>
 
+--
 
 ```bash
 barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
@@ -198,6 +200,7 @@ barplot(mydata[,2], main="A barplot", xlab="The x-axis", ylab="The y-value")
 <img src="graphics/barplot.png" title="bar" width="600"/><br>
 **A simple barplot.**<br><br>
 
+--
 
 ```bash
 
@@ -205,7 +208,7 @@ plot(mydata[,3],mydata[,2],ty="l",xlab="The x data",ylab="The y data",main="Conn
 ```
 
 <img src="graphics/line-plot.png" title="line" width="600"/><br>
-**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+**Here is a connected line plot, which looks quite messy.**<br><br>
 
 
 ```bash
@@ -213,7 +216,7 @@ plot(mydata[,3],mydata[,2],ty="p",xlab="The crowded x data",ylab="The y data",ma
 ```
 
 <img src="graphics/cor-variables.png" title="cor-viz" width="600"/><br>
-**Here is the definition of a correlation, which comes with some visuals (off-screen to the right).**<br><br>
+**Here is a plot in which one variable is sorted. This is sometimes usf.**<br><br>
 
 
 ```bash
