@@ -1,6 +1,6 @@
 **[Return to the Course Home Page](../index.html)**
 
-#### **13-May-2022 - Hard copy is available on the 'Wiki | Week 9' Stream page.**
+#### **19-May-2023 - Hard copy will be available shortly on the 'Wiki | Week 10' Stream page.**
 
 # Metagenomic and metabarcoding visualisation
 
@@ -720,11 +720,11 @@ We have now built the object called _`portfolioPhy`_ that we need for the portfo
 
 ## Portfolio analysis
 
-Once again, this is a two part analysis for the week 9 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria, and give it a new name such as _`portfolioPhyBac`_.  You did this earlier today (e.g. in Exercise 3).  This smaller object -- again check on its size with `portfolioPhyBac` as a comparison -- is what you will work with here.
+Once again, this is a two part analysis for the week 10 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria, and give it a new name such as _`portfolioPhyBac`_.  You did this earlier today (e.g. in Exercise 3).  This smaller object -- again check on its size with `portfolioPhyBac` as a comparison -- is what you will work with here.
 
 #### Part A
 
-Using the code described in this practical, and maybe from the Week 9 lecture, plot the alpha diversity values as a plot for the following conditions:
+Using the code described in this practical, and maybe from the Week 10 lecture, plot the alpha diversity values as a plot for the following conditions:
 
 - plot (i): plot the values for _`Sample`_ on the x-axis colouring by _`env_broad_scale`_ with the _`Shannon`_ diversity measure
 - plot (ii): plot the values for _`env_local_scale`_ on the x-axis colouring by _`env_broad_scale`_ with both the _`Shannon`_ and _`Simpson`_ diversity measures.  The order of these measures is unimportant here.
@@ -734,7 +734,7 @@ Using the code described in this practical, and maybe from the Week 9 lecture, p
 
 #### Part B
 
-Using the code described in this practical, and maybe from the Week 9 lecture, plot a single barplot using the following set of instructions:
+Using the code described in this practical, and maybe from the Week 10 lecture, plot a single barplot using the following set of instructions:
 
 - make a new object of the top 100 taxa (in descending order)
 - transform the sample counts to a fraction incorporating the code `function(OTU) OTU/sum(OTU)`
