@@ -94,13 +94,14 @@ We will return to our RStudio cloud environment to analyse the data we started w
 
 ### What we are going to do today?
 
-We have 5 exercises -- with questions along the way --  to work through before getting to the Portfolio analysis (more on that below):
+We have 6 exercises -- with questions along the way --  to work through before getting to the Portfolio analysis (more on that below):
 - We will follow on with the DADA2 tutorial, and take that data into phyloseq to see what we can glean from further analysis.
 - We will start working through the phyloseq tutorial to get an idea of what is possible.
 - We will perform some initial data plotting.
 - We will perform some initial data ordination.
-- Finally, we will have a quick look at some network visualisations.
-
+- We will have a quick look at some network visualisations.
+- Finally, we will download some new data for further analysis.
+ 
 The commands below have been checked and should work fine.
 
 ---
@@ -638,7 +639,7 @@ The names here indicate there maybe a structure here.  Let’s colour this the s
 
 ### Introduction
 
-In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (Nov 5;16(11):e0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to work with.  The objective of the paper was:
+In order to look at a completely novel dataset, I have found a dataset in a paper from 2021 that is of interest by Gessel _et al._ called "Characterization of the endometrial, cervicovaginal and anorectal microbiota in post-menopausal women with endometrioid and serous endometrial cancers" (_PLoS ONE_ Nov 5;16(11):e0259188).  I chose this paper as the data was readily available, and whilst I could not replicate the 'pre-phyloseq' sequence processing, I used DADA2 to process the reads, and then use phyloseq to make an object for you to work with.  The objective of the paper was:
 
 > "To characterize the microbiota of postmenopausal women undergoing hysterectomy for endometrioid (EAC) or uterine serous cancers (USC) compared to controls with non-malignant conditions."
 
@@ -770,8 +771,8 @@ School of Natural Sciences
 
 <p.biggs@massey.ac.nz>
 
-[^1]: <http://www.pnas.org/content/108/Supplement_1/4516.full.pdf?with-ds=yes>
-[^2]: <http://www.nature.com/nature/journal/v473/n7346/full/nature09944.html>
+[^1]: (Caporaso _et al. Proc Natl Acad Sci USA._ (2011) Mar 15;108 Suppl 1(Suppl 1):4516-22)
+[^2]: (Arumugam _et al. Nature_ (2011) 473, 174–180)
 
 
 <!-- <br><br><br>
