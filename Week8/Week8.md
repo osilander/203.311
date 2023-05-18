@@ -723,7 +723,9 @@ You could then export this image to save it through the Export command in the Pl
 
 ## Portfolio analysis
 
-There are two parts to the week 7 Portfolio analysis.  This will result in a figure with a part A and a part B.
+There are two parts to the week 8 Portfolio analysis.  This will result in a figure with a part A and a part B.
+
+[See here for help](../Help8.html)
 
 ### Part A
 
