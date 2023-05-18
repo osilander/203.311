@@ -725,7 +725,7 @@ You could then export this image to save it through the Export command in the Pl
 
 There are two parts to the week 8 Portfolio analysis.  This will result in a figure with a part A and a part B.
 
-[See here for help](../PJB_help/PJB_help.html)
+[See here for help](https://github.com/osilander/203.311/blob/main/Week8/Help8.html)
 
 ### Part A
 
