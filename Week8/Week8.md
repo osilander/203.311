@@ -725,16 +725,38 @@ You could then export this image to save it through the Export command in the Pl
 
 There are two parts to the week 8 Portfolio analysis.  This will result in a figure with a part A and a part B.
 
-[See here for help](../Week8/Help8.html)
-
 ### Part A
 
-From Exercise 10, you generated a dataframe called _`track`_.  Your task is to plot this dataframe in a way that shows whether the multiple steps in the processing are adversely affecting (or not) one or more samples.  Consider the dataframe from left to right, as there is a general reduction in the number of sequences from left to right.  The columns 'denoisedF' and 'denoisedR' are a little different, but leave them as they are.  Remember to get inspirarion and ideas from https://r-graph-gallery.com/.  Would you plot the data as is, would you proportionate, and if so, by rows or columns?  If this was a way to go, as a hint, the function `prop.table()` could be of use, as was used for a different purpose in Exercise 13 above.
+From Exercise 10, you generated a dataframe called _`track`_ with dimensions of 6 columns and 20 rows.  
+
+Your task is to plot this dataframe in a way that shows whether the multiple steps in the processing are adversely affecting (or not) one or more samples.  Consider the dataframe from left to right, as there is a general reduction in the number of sequences at each stage from left to right.  The columns 'denoisedF' and 'denoisedR' are a little different, but leave them as they are.  Remember to get inspiration and ideas from <https://r-graph-gallery.com/>.  Would you plot the data as is, would you proportionate, and if so, by rows or columns?  If this was a way to go, as a hint, the function `prop.table()` could be of use, as was used for a different purpose in Exercise 13 above.
 
 ### Part B
 
-From Exercise 13, you worked with a method to generate a sequence logo from the sequences from the DADA2 tutorial.  Unfortunately, due to its scale, this is not a dataset with a lot of sequence variation within it. To get to looking at a truer represenation of the 9 hypervariable regions within 16S rRNA, we need to use a reference fasta file such as _`rdp_train_set_14.fa`_.  Your task is to generate a new fasta file of 50 sequences chosen at random, and search with the `msa` and `seqLogo` packages to find a region of ~100 - 150 bp in length that shows a high degree of sequence similarity and then variability.  You should then also plot the same region with the `msa` package showing the alignment and the sequence logo, describing what you observe in the figure legend.  
+From Exercise 13, you worked with a method to generate a sequence logo from the sequences from the DADA2 tutorial.  Unfortunately, due to its scale, this is not a dataset with a lot of sequence variation within it. To get to looking at a truer represenation of the 9 hypervariable regions within 16S rRNA, we need to use a reference fasta file such as _`rdp_train_set_14.fa`_.  
+
+Your task is to generate a new fasta file of 50 sequences chosen at random, and search with the `msa` and `seqLogo` packages to find a region of ~100 - 150 bp in length that shows a high degree of sequence similarity and then variability.  You should then also plot the same region with the `msa` package showing the alignment and the sequence logo, describing what you observe in the figure legend.  
  
+
+### Guiding thoughts for the portfolio
+
+Added 18-May-2023 and currently a work in progress.
+
+#### Part A
+
+Things to consider for plotting:
+- Even though _`track`_ is a dataframe, do you want to keep it like that?  Would it help if was of a different data class? 
+
+```R
+
+
+```
+
+
+
+
+#### Part B
+
 
 
 ## Assessment
