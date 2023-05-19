@@ -110,7 +110,20 @@ The commands below have been checked and should work fine.
 
 We wil use information described on the phyloseq pages <https://joey711.github.io/phyloseq/> by its author -- Paul J. McMurdie -- for this practical, and this work is acknowledged.
 
-The DADA2 pipeline produced a sequence table and a taxonomy table which is appropriate for further analysis in phyloseq. We'll also include the small amount of metadata we have – the samples are named by the gender (G), mouse subject number (X) and the day post-weaning (Y) it was sampled (e.g. GXDY is the format of the sample names).  So, now we shall build up this metadata file, but we shall do it inside of `R` using source files available to us:
+The DADA2 pipeline from week 8 produced a sequence table and a taxonomy table which is appropriate for further analysis in phyloseq. There might ba an issue with the data from week 8, so a file within R called a workspace file can be uploaded into your RStudio project to have the parts you need.  
+
+- [week8_dataForR](https://raw.githubusercontent.com/osilander/203.311/main/Week10/files/week8_all.zip "week8_all.zip")
+
+To download the data, first make sure you are in your _`/cloud/project/`_ directory, and that you are using the Terminal tab in RStudio. Second, copy the link address (right click on the link and scroll to Copy Link Address). Third, download the files using `wget`, as below.  Next, unzip the file, and finally double click on it to load the contents into your R session (so click "Yes" when asked to "confirm Load RData").
+
+```bash
+wget link_address_you_just_copied
+unzip week8_all.zip
+```
+
+We should now have the source data to work with.
+
+We'll also include the small amount of metadata we have – the samples are named by the gender (G), mouse subject number (X) and the day post-weaning (Y) it was sampled (e.g. GXDY is the format of the sample names).  So, now we shall build up this metadata file, but we shall do it inside of `R` using source files available to us:
 
 ```R
 ### load our required packages
