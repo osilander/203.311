@@ -499,7 +499,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 [See here for help](../Portfolio1-help/Portfolio1-help.html)
 
 
-[See here for brief TLDR help](../Portfolio-tldr/Portfolio-tldr.html)
+[See here for brief TLDR help](../Portfolio-tldr/Portfolio-tldr.html) (or below)
 
 1. The GC (guanine and cytosine) content of a genome (and read) is known to affect how easy it is to sequence. For example, regions of genomes that are GC-rich are often under-represented in sequencing data. One question that arises from this is whether GC content is correlated with quality scores for either Illumina or Oxford Nanopore sequencing reads. Please address this question.<br>
 
@@ -512,6 +512,17 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
     This analysis is part of the **Portfolio Assessment**:
 
     *In the practicals for weeks 4 to 12, you will encounter one question in each practical session that relates to different methods of visualisation. These will be highlighted as a “Portfolio Analysis”. For these, you will need to perform the necessary analyses and accompanying visualisations to communicate the results in a clear and aesthetically pleasing manner. You will also need to write a brief caption for each figure (100 words or less) explaining the visualisation and why you selected that particular one. Finally, you will also submit the code you have used to generate the visualisations. This code needs to be commented (for example, an average of one comment per line of code). Submit these to via Stream as a single .pdf. These should be in the order: code, followed by visualisation, followed by caption. If you have used both `terminal` and `R` code, please submit them together, with comments delimiting each section.*
+
+
+## Portfolio TLDR help 
+TLDR summary of how to approach to Portfolio Assessment from Week 4.
+
+1. Find a way to get the GC content and any other useful info from the fastq.gz sequence files using `fx2tab`
+2. Write the output to a file; this will automatically be in tabbed column format.
+3. Import the data (i.e. file) into R; `read.table()` is one possibility. `read.table` has a default expectation of tabbed column format
+4. Make sure you know what the columns mean. You can rename them in the text file or using `col.names=c("sequence-name", "length", "etc")` within the `read.table()` line. You can also rename them after having read in the data using `colnames(mydata) <- c("sequence-name", "length", "etc")`. Note that in naming variables *and* column / row names, spaces are highly discouraged.
+5. Look for correlations or patterns in the data: in Chrome, [How can I look for correlations in data](https://www.google.com/search?q=How+can+I+look+for+correlations+in+data&oq=How+can+I+look+for+correlations+in+data&aqs=chrome..69i57j0i22i30j0i390i650l4.206j0j7&sourceid=chrome&ie=UTF-8)
+6. Produce visualisations of your findings and explain/interpret them in a caption below the visualisaltion.
 
 
 ## Appendix
