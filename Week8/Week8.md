@@ -740,8 +740,6 @@ Your task is to generate a new fasta file of 50 sequences chosen at random, and 
 
 ### Guiding thoughts for the portfolio
 
-Added 18-May-2023 and currently a work in progress.
-
 #### Part A
 
 Things to consider for plotting:
@@ -764,11 +762,11 @@ What about converting it to a data matrix ([Goolging](https://www.statology.org/
 ii) Now you have decided on a visualisation method, do you plot the data as raw data -- the numbers you have already in _`track`_ -- or do you transform them somehow?  I mentioned `prop.table()` above as a potential function to use.  Have a look at the help with:
 
 ```R
-`?prop.table`
+> ?prop.table
 ```
-to see what the code is for rows and columns.
+to see what the code is for proportioning on rows or columns.
 
-iii) Please note that soe of the guiding code at <https://r-graph-gallery.com/ uses the `ggplot2` library.  Whilst we have not taught this explicitly in the course, there are methods out there on such pages that hopefully you will be able to adapt for your situation.
+iii) Please note that some of the guiding code at <https://r-graph-gallery.com/> uses the `ggplot2` library.  Whilst we have not taught this explicitly in the course, there are methods out there on such pages that hopefully you will be able to adapt for your situation.
 
 iv) It's a good idea to save your portfolio code and to maybe to start off with a copy of the _`track`_ object and work with that, so your original version is not damaged:
 
@@ -781,6 +779,20 @@ iv) It's a good idea to save your portfolio code and to maybe to start off with 
 ```
 
 #### Part B
+
+i) First of all, there is no perfect region here, there are many regions to choose from across the alignment, and as you are making a random subset, in theory everyone's alignment will be subtly different.  
+
+ii) The reference fasta file we are using --  _`rdp_train_set_14.fa`_ -- has a great range of sequence length within it.  For your information (i.e. there is no need to do this):
+
+```bash
+/cloud/project$ seqkit stats rdp_train_set_14.fa
+file                 format  type  num_seqs     sum_len  min_len  avg_len  max_len
+rdp_train_set_14.fa  FASTA   DNA     10,678  15,409,307      320  1,443.1    2,210
+```
+
+so as you can see, a wide range.  This will result in a large alignment visualised with `msaPrettyPrint()`.  In orer to find an area of interest as above with the way the printing works, look at the options with `msaPrettyPrint()` to find a way to remove the names temporaily as this will maximise the alignment in the PDF, and there are less pages to visually inspect.
+
+iii) Choosing the ~100 - 150bp region is up to you.  Once you have a region, I would suggest getting that smaller region clarified with `msa` (as a new object maybe), and then using the same region coordinates ((i.e., `start` and `end`) for visualising the alignment with  `seqLogo`. 
 
 
 
