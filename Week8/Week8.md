@@ -748,9 +748,13 @@ Things to consider for plotting:
 - Even though _`track`_ is a dataframe, do you want to keep it like that?  Would it help if was of a different data class? 
 
 ```R
-
-
+> class(track)
+[1] "data.frame"
 ```
+
+What about converting it to a data matrix (Goolging <https://www.statology.org/r-convert-data-frame-to-matrix/> will find an answer to this quickly) to give more flexibility?  Please remember the difference between dataframes and data matrices.  A data matrix allows you to consider other plotting functions such as:
+  - barplots ()
+  - heatmaps ()
 
 
 
