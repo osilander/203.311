@@ -761,7 +761,7 @@ Using the code described in this practical, and maybe from the Week 10 lecture, 
 
 #### Part A
 
-i) At any point with a phyloseq object, you can check on its contents just by typing in its name.  Is the object therefore the size you expect it to be.  Has it reduced in size if you have made a subset from the initial object? in other words, does _`portfolioPhy`_ have more data in it than _`portfolioPhyBac`_?  It may be a subtle change depending on what you are doing.
+i) At any point with a phyloseq object, you can check on its contents just by typing in its name.  Is the object therefore the size you expect it to be.  Has it reduced in size if you have made a subset from the initial object by one of the methods? In other words, does _`portfolioPhy`_ have more data in it than _`portfolioPhyBac`_?  It may be a subtle change depending on what you are doing.
 
 ```R
 > portfolioPhy
@@ -770,7 +770,7 @@ i) At any point with a phyloseq object, you can check on its contents just by ty
 
 #### Part B
 
-i)  
+i) There is no option to print to a filename from within the `plot_bar()` command, so that has to happen through other methods we have discussed already.
 
 ---
 
