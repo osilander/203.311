@@ -575,7 +575,7 @@ In the "Visualising data in different ways" section above, for the "UpSet plots"
 
 #### Part A
 
-i) The command `pheatmap()` is one of the commands that have many options that you can use the modify the output.  Commands that you might want to consider to modify its output include:
+i) The command `pheatmap()` is one of the commands that have many options that you can use the modify the output.  Options that you might want to consider to modify its output include:
 
 - `fontsize_row` -> change the font size of the rows i.e., the taxonomy names
 - `filename` -> automatically print your image to a file, say a PDF or a PNG, but this might require a little checking in how your data will look
