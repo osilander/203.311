@@ -792,7 +792,7 @@ rdp_train_set_14.fa  FASTA   DNA     10,678  15,409,307      320  1,443.1    2,2
 
 so as you can see, a wide range.  This will result in a large alignment visualised with `msaPrettyPrint()`.  In orer to find an area of interest as above with the way the printing works, look at the options with `msaPrettyPrint()` to find a way to remove the names temporaily as this will maximise the alignment in the PDF, and there are less pages to visually inspect.
 
-iii) Choosing the ~100 - 150bp region is up to you.  Once you have a region, I would suggest getting that smaller region clarified with `msa` (as a new object maybe), and then using the same region coordinates ((i.e., `start` and `end`) for visualising the alignment with  `seqLogo`. 
+iii) Choosing the ~100 - 150bp region is up to you.  Once you have a region, I would suggest getting that smaller region clarified with `msa` (as a new object maybe), and then using the same region coordinates (i.e., `start` and `end`) for visualising the alignment with  `seqLogo`. 
 
 
 
