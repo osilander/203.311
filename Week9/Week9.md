@@ -524,7 +524,7 @@ Now we are going to look at the data in a very different way.  This method is al
 
 What is going on here?  How intuitive is this?  The answer is **not very intuitive at all**.   Above 7 sets it is almost impossible to work out what is going on (it might be at 6 too!) with all the combination of relationships, and ever smaller parts of the figure where the intersections are found.  Therefore we are going to look at our data in a different way, using an UpSet plot.  You might have seen these on the R graph gallery (<https://r-graph-gallery.com/>) at <https://r-graph-gallery.com/upset-plot.html>.  Have a read of <https://upset.app/> for a brief introduction, an example plot and an explanation of what is going on here.  We are going to create a similar plot with our data.
 
-To make the plot, we have to apply a transformation to our data to make it an absence/presence dataset and therefore lose our quantitative data.  So, in this case, any non-zero value in our dataset becomes 1, and 0 stays as 0.  Hence, if a taxon has 3 or 2048 counts associated with it, it gets transformed to 1.  This shows us the detected taxa, rather than the abundance.  This is still a useful way to look at the data to understand the relationship between the 6 datasets we have from our sample.  
+To make the plot, we have to apply a transformation to our data to make it an absence/presence dataset and therefore lose our quantitative data.  So, in this case, any non-zero value in our dataset becomes 1, and 0 stays as 0.  Hence, if a taxon has 3 or 2048 counts associated with it, it gets transformed to 1.  This shows us relationships of the detected taxa, rather than the abundance.  This is still a useful way to look at the data to understand the relationship between the 6 datasets we have from our sample.  
 
 ```R
 ### remove unwanted columns
@@ -553,6 +553,7 @@ We have fixed the order of the sets here with the _`setOrder`_ object, have a go
 
 Once again, this is a two part analysis for the week 9 Portfolio analysis. This will result in a figure with a part A and a part B.  In the section above, the code and principles described are what you need for this Portfolio analysis.  You will have to apply them to the conditions and files listed in the sections below.  The code requirement, images and figure legends from this Week's analysis are as previously described. 
 
+#### Part A
 
 In the "Visualising data in different ways" section above, for the "Heatmaps", we worked with an example file - _`500k_Cutoff1000.txt`_ - to understand and build the code to generate a heatmap that is readable in terms of numbers involved to easily visualise.  In this part, I would like you to choose one -- and only one -- of the following combinations to visualise how the taxonomic classification varies based on searching algorithm and database:
 
@@ -560,7 +561,7 @@ In the "Visualising data in different ways" section above, for the "Heatmaps", w
 - combination 2: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Rhodobacter__`_
 - combination 3: file _`500k_Cutoff1.txt`_ and taxonomic classification _`__Methanomicrobiales__`_
 
-As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.  Please use the exact search term above, otherwise you will get far more data and your plot will look very complex.
+As with the code above, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name.  Please use the exact search term above, otherwise you will get far longer taxomony names and your plot will look very complex.
 
 #### Part B
 
@@ -570,8 +571,37 @@ In the "Visualising data in different ways" section above, for the "UpSet plots"
 - file 2: file _`500k_Cutoff1.txt`_ 
 
 
----
+### Guiding thoughts for the portfolio
 
+#### Part A
+
+i) The command `pheatmap()` is one of the commands that have many options that you can use the modify the output.  Commands that you might want to consider to modify its output include:
+
+- `fontsize_row` -> change the size of the taxonomy names
+- `filename` -> automatically print your image to a file, say a PDF or a PNG, but thi smight require a little checking in how your data will look
+- `height` and `width` -> parameters to control the printing size (worth checking out the help material)
+
+These and many more options are available via:
+
+```R
+> ?pheatmap
+```
+
+ii) In regards to the taxanomic classification, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name for the purposes of plotting.  This requires a manual hunt in the text file you are working with to find the common parts of the taxonomy up to the names above, and then you can remove those also as above.  
+
+iii) A random thought - if you have issues with viewing plots, remember to run `dev.off()` potentially a number of times to reset plotting until you see:
+
+```R
+> dev.off()
+null device 
+          1
+```
+
+#### Part B
+
+i) There is not much to say here.  Plotting the data as it is is completely fine.  `upset` is another command with many options to modify th eoutput.  There is no option to print to a filename from within `upset`, so that has to happen through other methods we have discussed already.
+
+---
 
 ## Assessment
 
@@ -580,6 +610,7 @@ To reiterate, there is no direct assessment today. What is required however, is 
 The mastery test will test the contents of weeks 8 to 10, more information will follow next week.
 
 
+---
 
 ## Contact
 
