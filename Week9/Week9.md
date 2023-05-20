@@ -577,8 +577,8 @@ In the "Visualising data in different ways" section above, for the "UpSet plots"
 
 i) The command `pheatmap()` is one of the commands that have many options that you can use the modify the output.  Commands that you might want to consider to modify its output include:
 
-- `fontsize_row` -> change the size of the taxonomy names
-- `filename` -> automatically print your image to a file, say a PDF or a PNG, but thi smight require a little checking in how your data will look
+- `fontsize_row` -> change the font size of the rows i.e., the taxonomy names
+- `filename` -> automatically print your image to a file, say a PDF or a PNG, but this might require a little checking in how your data will look
 - `height` and `width` -> parameters to control the printing size (worth checking out the help material)
 
 These and many more options are available via:
@@ -589,7 +589,7 @@ These and many more options are available via:
 
 ii) In regards to the taxanomic classification, you are required to trim out the constant part of the taxonomic name to reduce the length of classification name for the purposes of plotting.  This requires a manual hunt in the text file you are working with to find the common parts of the taxonomy up to the names above, and then you can remove those also as above.  
 
-iii) A random thought - if you have issues with viewing plots, remember to run `dev.off()` potentially a number of times to reset plotting until you see:
+iii) A random thought - if you have issues with viewing plots and you are writing output to files as well, please remember to run `dev.off()` potentially a number of times to reset plotting until you see:
 
 ```R
 > dev.off()
@@ -599,7 +599,7 @@ null device
 
 #### Part B
 
-i) There is not much to say here.  Plotting the data as it is is completely fine.  `upset` is another command with many options to modify th eoutput.  There is no option to print to a filename from within `upset`, so that has to happen through other methods we have discussed already.
+i) There is not much to say here.  Plotting the data as it is is completely fine.  `upset()` is another command with many options to modify the output.  There is no option to print to a filename from within `upset()`, so that has to happen through other methods we have discussed already.
 
 ---
 
