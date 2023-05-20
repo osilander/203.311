@@ -733,7 +733,7 @@ We have now built the object called _`portfolioPhy`_ that we need for the portfo
 
 ## Portfolio analysis
 
-Once again, this is a two part analysis for the week 10 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria, and give it a new name such as _`portfolioPhyBac`_.  You did this earlier today (e.g. in Exercise 3).  This smaller object -- again check on its size with `portfolioPhyBac` as a comparison -- is what you will work with here.
+Once again, this is a two part analysis for the week 10 Portfolio analysis. We are going to follow some of the examples with _`portfolioPhy`_ to generate.  First of all though, you will need to make a smaller subset of only Bacteria (which can be forund at the taxonomic level of "Kingdom"), and give it a new name such as _`portfolioPhyBac`_.  You did this earlier today (e.g. in Exercise 3).  This smaller object -- again check on its size with `portfolioPhyBac` as a comparison -- is what you will work with here.
 
 #### Part A
 
@@ -755,6 +755,22 @@ Using the code described in this practical, and maybe from the Week 10 lecture, 
 - plot the barplot by _`env_local_scale`_ on the x-axis with colouring by _`Genus`_  and `facet_wrap` on _`env_broad_scale`_  
 
 **You include all code as to how you got to generate the plots.** 
+
+
+### Guiding thoughts for the portfolio
+
+#### Part A
+
+i) At any point with a phyloseq object, you can check on its contents just by typing in its name.  Is the object therefore the size you expect it to be.  Has it reduced in size if you have made a subset from the initial object? in other words, does _`portfolioPhy`_ have more data in it than _`portfolioPhyBac`_?  It may be a subtle change depending on what you are doing.
+
+```R
+> portfolioPhy
+> portfolioPhyBac
+```
+
+#### Part B
+
+i)  
 
 ---
 
