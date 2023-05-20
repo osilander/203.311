@@ -745,19 +745,40 @@ Added 18-May-2023 and currently a work in progress.
 #### Part A
 
 Things to consider for plotting:
-- Even though _`track`_ is a dataframe, do you want to keep it like that?  Would it help if was of a different data class? 
+
+i) Even though _`track`_ is a dataframe, do you want to keep it like that?  Would it help if was of a different data class? 
 
 ```R
 > class(track)
 [1] "data.frame"
 ```
 
-What about converting it to a data matrix (Goolging <https://www.statology.org/r-convert-data-frame-to-matrix/> will find an answer to this quickly) to give more flexibility?  Please remember the difference between dataframes and data matrices.  A data matrix allows you to consider other plotting functions such as:
-  - barplots ()
-  - heatmaps ()
+What about converting it to a data matrix ([Goolging](https://www.statology.org/r-convert-data-frame-to-matrix/) will find an answer to this quickly) to give more flexibility?  Please remember the difference between dataframes and data matrices.  A data matrix allows you to consider other plotting functions such as:
 
+  -> [Barplots](https://r-graph-gallery.com/barplot.html)
+  
+  -> [Heatmaps](https://r-graph-gallery.com/heatmap.html)
+  
+  -> [Stacked barplot](https://r-graph-gallery.com/stacked-barplot.html)
 
+ii) Now you have decided on a visualisation method, do you plot the data as raw data -- the numbers you have already in _`track`_ -- or do you transform them somehow?  I mentioned `prop.table()` above as a potential function to use.  Have a look at the help with:
 
+```R
+`?prop.table`
+```
+to see what the code is for rows and columns.
+
+iii) Please note that soe of the guiding code at <https://r-graph-gallery.com/ uses the `ggplot2` library.  Whilst we have not taught this explicitly in the course, there are methods out there on such pages that hopefully you will be able to adapt for your situation.
+
+iv) It's a good idea to save your portfolio code and to maybe to start off with a copy of the _`track`_ object and work with that, so your original version is not damaged:
+
+```R
+> trackCopy <- track
+> dim(track)
+[1] 20  6
+> dim(trackCopy)
+[1] 20  6
+```
 
 #### Part B
 
