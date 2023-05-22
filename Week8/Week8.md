@@ -420,7 +420,7 @@ Hopefully you will see the image overleaf.  So, what does this show?  The error 
 > </td></tr></table>
 
 
- ## Exercise 7: Sample inference
+## Exercise 7: Sample inference
 
 We are now ready to apply the core sequence-variant inference algorithm to the dereplicated data.  What does that mean?  Well, looking at the help for `dada()` - `?dada` - indicates that “The dada function takes as input dereplicated amplicon sequencing reads and returns the inferred composition of the sample (or samples).  Put another way, `dada()` removes all sequencing errors to reveal the members of the sequenced community.”
 
