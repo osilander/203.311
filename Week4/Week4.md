@@ -34,6 +34,11 @@
 
 The data we will investigate today is from publicly available SARS-Cov-2 genome sequences. Over the next two weeks. you will learn how to use this data to find specific mutations that new SARS-CoV-2 strains have, how to place these strains in an evolutionary context, and how to visualise this context.
 
+A flowchart of the process we will follow is below. It is unlikely that you will understand all of these steps right now, but hopefully after the lecture content and labs in the next three weeks, this will become more clear.<br>
+
+<img src="graphics/flow-chart.png" title="our plan" width="500"/>
+
+
 ## Background
 
 Soon after the birth of Next Generation Sequencing in 2005 (or so), the technology rapidly proliferated into a number of 
@@ -512,6 +517,11 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
     This analysis is part of the **Portfolio Assessment**:
 
     *In the practicals for weeks 4 to 12, you will encounter one question in each practical session that relates to different methods of visualisation. These will be highlighted as a “Portfolio Analysis”. For these, you will need to perform the necessary analyses and accompanying visualisations to communicate the results in a clear and aesthetically pleasing manner. You will also need to write a brief caption for each figure (100 words or less) explaining the visualisation and why you selected that particular one. Finally, you will also submit the code you have used to generate the visualisations. This code needs to be commented (for example, an average of one comment per line of code). Submit these to via Stream as a single .pdf. These should be in the order: code, followed by visualisation, followed by caption. If you have used both `terminal` and `R` code, please submit them together, with comments delimiting each section.*
+
+
+### Reminder of the steps you have completed today
+<img src="graphics/flowchart-by-day.png" title="TMakin' progress" width="400"/><br>
+**Getting there**.
 
 
 ## Portfolio TLDR help 

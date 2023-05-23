@@ -578,3 +578,8 @@ Check your file list in the `RStudio Cloud` bottom right corner window. There sh
      # then you can find column two like this:
      my.depth[,2]
      ```
+
+### Reminder of the steps you have completed today
+<img src="graphics/flowchart-by-day.png" title="Makin' progress" width="400"/><br>
+**Getting there**.
+
