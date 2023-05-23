@@ -218,6 +218,6 @@ Above, you have inferred a phylogeny, but have not calculated any level of *cert
 
 
 ### Reminder of the steps you have completed today
-<img src="graphics/flowchart-by-day.png" title="TMakin' progress" width="400"/><br>
+<img src="graphics/flowchart-by-day.png" title="TMakin' progress" width="700"/><br>
 **Done**.
 

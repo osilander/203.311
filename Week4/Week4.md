@@ -36,7 +36,7 @@ The data we will investigate today is from publicly available SARS-Cov-2 genome 
 
 A flowchart of the process we will follow is below. It is unlikely that you will understand all of these steps right now, but hopefully after the lecture content and labs in the next three weeks, this will become more clear.<br>
 
-<img src="graphics/flow-chart.png" title="our plan" width="500"/>
+<img src="graphics/flow-chart.png" title="our plan" width="700"/>
 
 
 ## Background
@@ -520,7 +520,7 @@ Finally, you can plot the data. If you have used `seqkit fx2tab` as suggested ab
 
 
 ### Reminder of the steps you have completed today
-<img src="graphics/flowchart-by-day.png" title="TMakin' progress" width="400"/><br>
+<img src="graphics/flowchart-by-day.png" title="TMakin' progress" width="700"/><br>
 **Getting there**.
 
 

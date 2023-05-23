@@ -580,6 +580,6 @@ Check your file list in the `RStudio Cloud` bottom right corner window. There sh
      ```
 
 ### Reminder of the steps you have completed today
-<img src="graphics/flowchart-by-day.png" title="Makin' progress" width="400"/><br>
+<img src="graphics/flowchart-by-day.png" title="Makin' progress" width="700"/><br>
 **Getting there**.
 
