@@ -274,4 +274,17 @@ Last, we can move to very complicated plots which become easier with external he
 
 ---
 
+### Complicated plot with help
+I realise that some of you are exploiting this last resource more than others. The fact is that most programmers are now exploiting this resource. For example, take this ChatGPT prompt:
+
+_I have a matrix with two columns quantifying characteristics of an Illumina run. In the first column are %GC values and in the second column is quality. There are 2000 rows. I want a faceted plot in which one panel shows %GC vs quality with a linear regression, and second panel with a histogram of quality, a third panel with a histogram of %GC, and a fourth panel with a ridge plot of quality for which the data have been divided into quartiles based on %GC. The colour theme of the plots should be green to purple, and the output should be in pdf format. Can I have the R code for this?_
+
+Here is the output after running the code and fixing the error messages (also with ChatGPT).
+
+<img src="graphics/facet.png" title="facet-viz" width="600"/><br>
+**A faceted plot.**<br><br>
+
+
+---
+
 This is all the same data (or part of the same data) plotted in different ways. One of these (or many or none) may be a gret way to illusttrate "whether GC content is correlated with quality scores".
