@@ -30,6 +30,11 @@ Microbial diversity has been revolutionised by the rapid advances in sequencing 
 
 Week 9 focusses on using tools outside of `R` for most of today's practical to use online classfiers and visualisation methodologies to explore the complexitites of metagenomic data.
 
+An outline of the lab today is below.<br>
+
+<img src="graphics/flow-chart-w9.png" width="500"/>
+Brief outline of the steps we will be following in Week 9.<br><br>
+
 
 ## Lecture Overview
 
