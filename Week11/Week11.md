@@ -19,7 +19,7 @@
 
 ### Today's plan
 
-A flowchart of today's lab is shown below.
+A flowchart of today's lab is below.
 <br>
 
 <img src="graphics/w11-flowchart.png" width="700" title="so happy I'm here!"/><br>
