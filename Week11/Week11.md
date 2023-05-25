@@ -26,12 +26,12 @@ For example, last week you visualised differences in microbiome content based on
 We will use **dimensional reduction** techniques. In this way we can objectively reduce tens of thousands of variables into *combinations of variables* so we can focus only on the one or two (or three) *most important (combinations) of variables* and determine which of our samples are most similar or different on the basis of these combinations.
 
 Dimensional reduction is an important technique. In fact when you have any biological samples that have a large number of variables, e.g.
-- microbiome samples with hundreds of different bacteria
+- microbiome samples with hundreds of different bacteria (as you did last week)
 - genotype data for individuals with hundreds of different SNPs
 - gene expression data from cancer samples for hundreds of different genes
-- phenotypic data from hundreds of dogs with information on tens of different phenotypes (e.g. height, weight, disposition, leg length, tail length, hair length, coat colour, and eye colour)
+- [genotypic data from hundreds of dogs](https://www.biorxiv.org/content/10.1101/2022.04.13.488108v2.full "so many dogs") to predict breed, height, and weight.
 
-**I would argue that after dimensional reduction is the single most important technique you can apply for visulaisation of the data.** Here, we will focus on two main methods: Principal Component Analysis (PCA) and UMAP.
+**I would argue that after dimensional reduction is the single most important technique you can apply for visulisation of data with many variables (i.e. matrix columns in the cases you have encountered previosuly).** Here, we will focus on two main methods: Principal Component Analysis (PCA) and UMAP.
 
 Before reading further, please take five minutes and read [this quick intro to PCA](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues "eigen-who?") before continuing.
 
@@ -57,22 +57,27 @@ Our aim here is to find out which of these countries &#128556; differ the most i
 
 We can already see that consumption of some types of foods differs more than others. For example, cereal consumption varies by about 5% between all countries. However, Welsh people drink more than 3.5 times as much alcohol than Irish people (*Northern Irish*).
 
-We can visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). N. Ireland appears the most different, while England and Wales appear the most similar.
+We can visualise food consumption as a heatmap (here I have used the `heatmap.2` function in `R`), which plots the same information, but more compactly. At the top of the heatmap is a dendrogram, which indicates how similar the countries are using [Ward's method](https://python-data-science.readthedocs.io/en/latest/unsupervised.html#agglomerative-clustering "it's a bit complicated"). The dendrogram can be interpreted a little bit like a phylogeny, with the most closely "related" samples connected by the shortest "branches". N. Ireland appears the most different, while England and Wales appear the most similar.
 
 <img src="graphics/diet_heat.png" width="300" title="cookin"/><br>
 **It's getting hot in here**<br><br>
 
-In contrast, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is because PCA finds the **combinations** of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components, although there are a total of 17 components (the same as the number of variables). Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets. I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
+In contrast to a heatmap or barchart, PCA will help us to figure out which countries are the most similar or different in their combined diet. This is because PCA finds the **combinations** of diet items (components) that vary the most between countries. We can then take these components and plot them. Below, I show the first two components (Dim1 and Dim2) - these are the two most important components, although there are a total of 17 components (the same as the number of variables). Clearly, Wales and N. Ireland differ the most in the combinations of items in their diets (the "components"). I have made the x-axis (Dim1) approximately three times longer than the y-axis (Dim2), as Dim1 accounts for approximately three times more variance (68%) than Dim2 (25%). 
 
 <img src="graphics/diet_pca.png" width="700" title="N. Ireland is a different place"/><br>
 **England is central to it all**<br><br>
 
-Not only that, we can visualise which diet items *contribute* to those components. The **top four** items that contribute the most to these principal components (Dim1 and Dim2) are shown below. This plot is the same as the one above (although not lengthened along dimension 1), but instead of showing how much the countries differ in their diet combinations, it shows which *parts* of the diet contribute the most to making the countries different. Here, this is the top four, with *sugars* contributing the most to the differences *in the direction of Wales*, *fresh potatoes* contributing *in the direction of N. Ireland*, and alcohoic dirnks *in the direction of Scotland and Wales*.
+Not only that, we can visualise which combinations of diet items *contribute* to those components. The **top four** items that contribute the most to these principal components (Dim1 and Dim2) are shown below. This plot is the same as the one above (although not lengthened along dimension 1), but instead of showing how much the countries differ in their diet combinations, it shows which *parts* of the diet contribute the most to making the countries different. Here, this is the top four, with *sugars* contributing the most to the differences *in the direction of Wales*, *fresh potatoes* contributing *in the direction of N. Ireland*, and alcohoic drinks *in the direction of Scotland and Wales*.
 
 <img src="graphics/diet_comps.png" width="400" title="aha it's the vegetables"/><br>
 **What are "other veg", Wales?**<br><br>
 
 Now we can see that Dimension (Component) 1 consists primarily of sugars and other_veg (and a bit of alcohol), all of which the Welsh consume more of -- especially compared to N. Ireland. Dimension 2 consists primarily of the Irish tendency to eat a lot of potatoes (with some avoidance of alcohol). But perhaps most importantly, we have shrunk our 17-dimensional dataset to two dimensions that account for 68.3 + 24.9 = 93.2% (!) of the variance in the original 17 dimensions.
+
+We can double check our results here by returning to the barchart. In this case we find, as expected, that N. Ireland consumes less alcohol.
+
+<img src="graphics/sub-diet.png" width="700" title="Too cool for school"/><br>
+**Probably lots of those cool alcohol-free seltzers.**<br><br>
 
 Okay, let's repeat this ourselves, with a new dataset.
 
@@ -82,7 +87,7 @@ We will move on to a cocktail dataset and a tutorial derived from [here](https:/
 
 **At this point, open your `terminal`**.
 
-Next, download the data from [here](data/all_cocktails.tab). If you have forgotten how to do that, ask your neighbour.
+Next, download the data from [here](data/all_cocktails.tab). The address should be: `https://osilander.github.io/203.311/Week11/data/all_cocktails.tab`. If you have forgotten how to do that, ask your neighbour.
 
 Navigate to your `RStudio` tab and read this file into `R`. Use the `read.table()` function to do this. Ensure that you use the `header=T` argument and assign it to a reasonably named variable (you can choose, but note that this is a dataset on cocktails. Or, for simplicity you can name it `cocktails_df` (as that will match the code below).
 
@@ -113,7 +118,8 @@ Now we start on the path toward cocktail PCA.
 ```R
 # This is a recipe
 # We don't really sweat the details
-# We just paste the code (*all* of it)
+# WIn a rare breach of rules,
+# we just paste the code (*all* of it)
 # But I put comments in if you're curious
 
 # Tell the recipe what's happening but have no model ( ~. )
@@ -123,6 +129,9 @@ pca_rec <- recipe(~., data = cocktails_df) %>%
   update_role(name, category, new_role = "id") %>%
   # Normalise so all the 
   # variables have mean 0 and stdev 1
+  # note that the %>% thing is the *pipe* 
+  # operator and performs similarly to the 
+  # pipe | in the terminal
   step_normalize(all_predictors()) %>%
   step_pca(all_predictors())
 ```
@@ -144,7 +153,7 @@ the most between cocktail drinks).
 
 Below we use the [ggplot](https://ggplot2.tidyverse.org/index.html "Thanks, Hadley!") plotting package.
 This uses the idea of a *grammar* of graphics
-and is among the most popular plotting methods in R
+and is among the most popular plotting methods in R. Some of you have already encountered it.
 
 ```R
 # juice gets the results of the recipe
@@ -160,15 +169,21 @@ juice(pca_prep) %>%
   labs(color = NULL)
 ```
 Note that you can change the `PC1` and `PC2` in the `ggplot` function to 
-plot the next principal components. Feel free to try this (e.g. to `PC2` and `PC3`.
+plot the next principal components. Feel free to try this (e.g. to plot `PC2` and `PC3`).
 
-Wow, a few cocktails are quite different from others. What's in an Applejack punch?
+Wow, a few cocktails are very different from others. What's in an Applejack punch?
 
 ```R
 # we have a cocktail of interest
 my.cocktail <- "Applejack Punch"
 # Let's find the ingredients and assign it to a variable, "ingredients"
 # You should be able to see what the code below is doing
+# If not, it is getting the *rows* from the matrix
+# cocktails_df in which the variable in the column $name
+# matches == your cocktail of interest. So it total:
+# cocktails_df$name==my.cocktail.
+# We want the rows and *all* the columns in those rows, so use
+# cocktails_df[row.of.interest, ]
 
 ingredients <- cocktails_df[cocktails_df$name==my.cocktail,]
 # Now we can see the ingredients
@@ -188,12 +203,15 @@ if you were bartending.
 
 ```R
 # Here, we choose a couple of cocktails to look at
-# You can choose these or different ontes
+# You can choose these or different ones
+# We select these as they're similar
 my.cocktails <- c("Silver Fizz", "Peach Blow Fizz")
-# Another new method, the for loop
+# Another new method, the *for* loop
 # we repeat the same as above, but
 # "loop" over all values of the my.cocktails vector above
 # of course here, coi means "cocktail of interest"
+# for each coi, we get the ingredients and print them 
+# to the screen
 for(coi in my.cocktails) {
   ingredients <- cocktails_df[cocktails_df$name==coi,]
   print(cocktails_df[cocktails_df$name==coi,which(ingredients>0)])
@@ -201,7 +219,7 @@ for(coi in my.cocktails) {
 ```
 So similar yet so different.
 
-Finbally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!"))
+Finally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!"))
 
 ```R
 tidied_pca %>%
@@ -326,7 +344,7 @@ Great. Let's take a quick look at our results.
 
 ```bash
 # samtools is so versatile
-samtools flagstats UHR_Rep1.bwa.sam
+samtools flagstat UHR_Rep1.bwa.sam
 ```
 
 Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good").
@@ -354,9 +372,9 @@ hisat2 -x human-GRCh38-22sub -1 UHR_Rep1.R1.fastq -2 UHR_Rep1.R2.fastq -S UHR_Re
 
 ```bash
 # samtools is so versatile
-samtools flagstats UHR_Rep1.bwa.sam
+samtools flagstat UHR_Rep1.bwa.sam
 # then the hisat version to compare
-samtools flagstats UHR_Rep1.hisat2.sam
+samtools flagstat UHR_Rep1.hisat2.sam
 ```
 Note the differences between the two `.sam` files.
 

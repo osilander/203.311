@@ -43,7 +43,7 @@ Week 8 focusses on introducing ideas around the analysis of microbial diversity 
 
 An outline of the labs during Weeks 8 and 10 is below.<br>
 
-<img src="graphics/flow-chart-w8-w10.png" width="700"/>
+<img src="graphics/flow-chart-w8-w10.png" width="700"/><br>
 Brief outline of the steps we will be following in Week 8 (today) and Week 10.<br><br>
 
 ## Lecture Overview

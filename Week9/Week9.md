@@ -32,7 +32,7 @@ Week 9 focusses on using tools outside of `R` for most of today's practical to u
 
 An outline of the lab today is below.<br>
 
-<img src="graphics/flow-chart-w9.png" width="500"/>
+<img src="graphics/flow-chart-w9.png" width="500"/><br>
 Brief outline of the steps we will be following in Week 9.<br><br>
 
 
