@@ -106,7 +106,7 @@ We need to know what we are correlating. This is apparent in the question: "whet
 The Portfolio Assessment does not require any statistics (although it does not note this explicitly.)
 
 ### A resource for virualisation techniques
-This is a [great resource](https://clauswilke.com/dataviz/ "no, really it's good"). Please take a look.
+This is a [great resource](https://clauswilke.com/dataviz/ "no, really it's good"). Please take a look. Specifically, [this section here](https://clauswilke.com/dataviz/directory-of-visualizations.html "kinds of plots presented in a simple manner")
 
 #### Getting the data into R
 

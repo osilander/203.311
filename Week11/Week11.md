@@ -249,6 +249,7 @@ Please take a couple of minutes to browse [this site](https://pair-code.github.i
 Okay, let's go through this quickly just so we can compare to our previous results. We make almost exact the same recipe as before:
 
 ```R
+# feel free to cut and paste, this is all correct
 umap_rec <- recipe(~., data = cocktails_df) %>%
   update_role(name, category, new_role = "id") %>%
   step_normalize(all_predictors()) %>%
@@ -263,6 +264,7 @@ umap_prep
 And juice our results to plot it.
 
 ```R
+# copy pasta, no typos here
 juice(umap_prep) %>%
   ggplot(aes(UMAP1, UMAP2, label = name)) +
   geom_point(aes(color = category), alpha = 0.7, size = 2) +
@@ -270,15 +272,17 @@ juice(umap_prep) %>%
   labs(color = NULL)
 ```
 
-Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* Here we can see that UMAP does not aim to find what variables differentiate samples the most (thereby *stretching* some dimensions considerably and *shrinking* others, especially if there are only a few outliers in some dimensions). Rather, UMAP aims to find ways to reduce dimensions while maintaining groupings. If we consider the Woolly Mammoth example from the link above, PCA would find that the variable with the most variation is (largely speaking) length and width. It would then project onto these, leaving differences between the left and right side nearly non-existent. You canimagine, for example, that the two tusks would thus become indistinguishable. However, this is not at all true for UMAP. It groups the tusks (as they are near) but keeps them separate. Similar for the left and right legs.
+Woah. Compare this to the previous PCA result. What is different? Although *both of these methods have the same goal - dimensional reduction - you can see that there are very different results.* Here we can see that UMAP does not aim to find which variables differentiate samples the most (which PCA does by *stretching* some dimensions considerably and *shrinking* others).
 
-A second difference between the two methods is that PCA is better suited for datasets in which there are a small number of variable-combinations that differentiate samples (e.g. when the first three principal components accounts for 90% of the variation of the data). In contrast, UMAP is better suited for datasets in which there are many many variable combinations that differentiate samples 
+Rather, UMAP aims to find ways to reduce dimensions while maintaining groupings. If we consider the Woolly Mammoth example from the link above, PCA would find that the variable with the most variation is (largely speaking) length and width. It would then project onto these, leaving differences between the left and right side nearly non-existent. You canimagine, for example, that the two tusks would thus become indistinguishable. However, this is not at all true for UMAP. It would group each tusk (as they are near to themselves) but keeps them separate. Similar for the left and right legs.
+
+A second difference between the two methods is that PCA is better suited for datasets in which there are a small number of variable-combinations that differentiate samples (e.g. when the first three principal components accounts for 90% of the variation of the data). In contrast, UMAP is better suited for datasets in which there are many many variable combinations that differentiate samples.
 
 ## RNA-seq
 
 ### The Data
 
-Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
+Now we can begin our RNA-seq journey. To do this, we will begin at the beginning, with some RNA-seq reads from human samples. These are from [here](data/fastq.data.tar "THE TAR FILE"). This address should be: `https://osilander.github.io/203.311/Week11/data/fastq.data.tar` Let's make a fresh directory for this analysis, perhaps `rnaseq`. Do that, change into that directory, and please download the RNA-seq reads now (`wget`). Note that this is a subset of the data from the tutorial [here](https://github.com/griffithlab/rnaseq_tutorial/wiki/RNAseq-Data "Awesome tutorial").
 
  Let's first untar the [tarball](https://en.wikipedia.org/wiki/Tar_(computing "Sticky!") so that we see the files inside.
 
@@ -294,16 +298,16 @@ rm fastq.data.tar
 **You're lucky I told you the command.**<br><br>
 
 
-If you look at the names of the `.fastq` files, you will see that some are called "HBR" and some "UHR". The HBR reads are from RNA isolated from the brains of 23 Caucasians, male and female, of varying age but mostly 60-80 years old. The UHR are from RNA isolated from a diverse set of 10 cancer cell lines.
+If you look at the names of the `.fastq` files, you will see that some are called "HBR" and some "UHR". The HBR reads are from RNA isolated from the **brains** of 23 Caucasians, male and female, of varying age but mostly 60-80 years old. The UHR are from RNA isolated from a diverse set of 10 **cancer cell lines**.
 
-Let's next, check the that `.fastq` files look as we expect. Use your trusty friend, `seqkit`.
+Let's next check the that `.fastq` files look as we expect. Use your trusty friend, `seqkit`.
 
-Finally, let's do a quick QC step. Before, we used the comprehensive QC tool `fastp`. This is an excellent tool as an all-in-one QC and trimmer. Now we will use `fastqc` and look at a report generated by `multiqc` for rapid QC assessment
+Next, let's do a quick QC step. Before, we used the comprehensive QC tool `fastp`. This is an excellent tool as an all-in-one QC and trimmer. Now we will use `fastqc` and look at a report generated by `multiqc` for rapid QC assessment
 
 We can do a quick install:
 
 ```bash
-# both at once
+# all at once
 # might briefly redline your RAM
 mamba install -c bioconda fastqc multiqc
 ``` 
@@ -318,16 +322,20 @@ mu1tiqc .
 
 ```
 
-Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300;
+Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300; Why would this be? What kind of data is this? Would you expect duplicates? Why or why not? Should we consider removing these duplicates?
 
-We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances this could be fatal for your pipeline.
+We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances not doing this could be fatal for your pipeline.
 
 ### Alignment
 The human genome is three billion base pairs long (the haploid version). Clearly we cannot take the reads from above and map them to this genome as you will not be able to handle this genome in the memory of your `RStudio` instance. Instead, then, I have extracted 500 Kbp from chromosome 22, and we will deal only with this region. You can see this region [here - yes, clickme](https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&lastVirtModeType=default&lastVirtModeExtraState=&virtModeType=default&virtMode=0&nonVirtPosition=&position=chr22%3A22500000%2D23000000&hgsid=1357628733_TbqBbiOKKUkY821r3FT7Pi0FieRA "It's the Santa Cruz genome browser!").
 
 The webpage you were just on (or are about to go on) is the Santa Cruz Genome Browser, one of the primary repositories for reference genomes, with many of the genome features hand-annotated. Here, you can see a region from human chromosome 22 (visible at the top of the screen, with the focal region in a red rectangle). In an extreme stroke of luck, this region also has genes in it. (Kidding, I made sure it did). These genes are visible as dark blue / purplish annotated elements, and are clickable if you'd like to see more details.
 
-The `.fasta` file of the extracted region from Chromosome 22 is [here](data/human-GRCh38-22sub.fasta). Go ahead and download it now (yes, `wget`).
+You can also see several other "tracks" toward the lower part of the page. The first are labeled [OMIM](https://www.omim.org/ "new database"), which are locations of known genetic changes that cause human genetic diseases. OMIM stands for Online Mendelian Inheritance in Man.
+
+After that are several other tracks, for example one labeled IGLV2-14. Click on this. You will see it leads to a data page containing information on where this gene tends to be expressed.
+
+The `.fasta` file of the extracted region from Chromosome 22 is [here](data/human-GRCh38-22sub.fasta). Go ahead and download it now (yes, `wget`). That address should be `https://osilander.github.io/203.311/Week11/data/human-GRCh38-22sub.fasta`
 
 We now need to map our reads. What should we use? Well, you have mapped reads before in the lab in which we reconstructed SARS-CoV-2 genomes. We can repeat that here.
 
@@ -351,9 +359,9 @@ Great. Let's take a quick look at our results.
 samtools flagstat UHR_Rep1.bwa.sam
 ```
 
-Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good").
+Look specifically at the "Supplementary reads." What are these? [Click here to find out](https://www.biostars.org/p/181901/ "Hint: they're not good"): *split read is a conceptual name for the situation, that your read is broken in 2 parts. And to say it is a split read you have a bit wise flag of 0x800 marking supplementary alignment*
 
-Why do we have these Supplementary reads? Did you forget something? We are looking at RNA-seq data. RNA-seq data is from mRNA, which is often *spliced*. So we need a splice-aware aligner!
+Why do we have these Supplementary reads? Did you forget something? We are looking at RNA-seq data. RNA-seq data is from mRNA, which is often *spliced*. So we need a splice-aware aligner!<br>
 
 
 <img src="graphics/map-reads.png" width="400"/><br>
@@ -371,6 +379,7 @@ mamba install -c bioconda hisat2
 hisat2-build human-GRCh38-22sub.fasta human-GRCh38-22sub
 
 # then we map. These arguments should be relatively self-explanatory
+# -x the reference; -1 the first read; -2 the second read; -S the Sam file
 hisat2 -x human-GRCh38-22sub -1 UHR_Rep1.R1.fastq -2 UHR_Rep1.R2.fastq -S UHR_Rep1.hisat2.sam
 ```
 
@@ -396,23 +405,35 @@ We have just seen that there are no Supplementary reads in the `hisat2` `.sam` f
 # We'll also sort
 # With some careful examination you should
 # be able to understand what is happening here
+# first line uses the for loop, recognises all R1 fastq
+# using the wildcard * symbol, and then says "do this"
 for F in *R1.fastq; do
+# second line maps with hisat2 on the fastq file
+# we're currently looping over ($F) while simultaneously
+# substituting the suffix .fastq with .sam
     hisat2 -x human-GRCh38-22sub -1 $F -2 ${F/R1/R2} -S ${F/R1\.fastq/sam};
+# last line sorts the output sam from hisat and outputs this sorted
+# data into a new bam labeled "sort.bam"
     samtools sort ${F/R1\.fastq/sam} > ${F/R1\.fastq/sort\.bam};
+# we tell it we are done with our loop
 done
 ```
 
-You should now be able to see six new `.sam` files in your directory. You can easily check this using a wildcard: `ls -lh *sam`. You can immediately see that the Human Brain datasets have fewer mapped reads (the files are much much smaller). Finally, we can take a look at the depths.
+You should now be able to see six new `.bam` files in your directory. You can easily check this using a wildcard: `ls -lh *bam`. You can immediately see that the Human Brain datasets have fewer mapped reads (the files are much much smaller). Finally, we can take a look at the depths.
 
 ```bash
+# This should work, an example is below if it doesn't
 samtools coverage -m bam.file.of.your.choice.bam
 ```
+
+<img src="graphics/samtools-cov.png" width="400"/><br>
+**Example.**<br><br>
 
 Take a look at all the replicates for each sample. Do they look the same? You can return to the UCSC browser page to see how the plots here relate to the gene locations on the chromosome. Remember that the region you have mappoed to is a small part of chromosome 22. Specifically, it's from 22.5 Mbp to 23 Mbp. Thus, on your `samtools coverage` plot, position 150 Kbp will be 22.5 Mbp + 150 Kbp = 22,650,000 bp.
 
 There are clearly specific genes that are almost completely turned off in the brain. Which are those?
 
-Look also at *UHR_Rep2.sort.bam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?**
+Look also at *UHR_Rep2.sort.bam*. There is something slightly funny going on with this sample. What is different about this sample? More importantly: **How could this happen?** To understand this we have to remember how RNA-seq is done, and most importantly, what the input biological material is. What **is** the input material for our sequencing experiment? What transformation do we have to do to this material before sequencing? Are we *actually* sequencing RNA or DNA? Think carefully about this, as it is the key to your Portfolio Analysis.
 <br>
 <br>
 
@@ -423,10 +444,10 @@ Remember that there are more decisions to make than just "plot a histogram(s)". 
 
 ## Next Time
 
-Next time: Why do bulk RNA-seq when we can do single-cell RNA-seq? What is single-cell RNA-seq? And more.
+Next time: What about volcanoes? And heatmaps? And the Poisson?
 
 <img src="graphics/single-cell.jpeg" width="500"/><br>
-**Problem solved.**<br><br>
+**Unfortunately we won't be able to look at scRNA-seq data. We'll save that for your writing assignment.**<br><br>
 
 
 
