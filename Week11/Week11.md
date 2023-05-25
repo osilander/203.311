@@ -413,6 +413,8 @@ rm *hisat2.sam
 
 We have just seen that there are no Supplementary reads in the `hisat2` `.sam` file, and thus we have successfully mapped across the exon junctions. However, we have six different read sets here and would like to map them all. We could go and map each one of them by hand. But we are operating on the command line and would like to do things a little more quickly. In this case we will use a `bash` loop, a slightly complicated format but one which can help tremendously when you have hundreds of files. I have written it out below. If you *have not* used the same file names as the ones listed above, then the loop won't work. Let someone know if this is the case.
 
+This is a difficult bit of code to understand. I have put plenty of comments in. However, to execute this you need to type all the *code* part at once. You can copy paste this.
+
 ```bash
 # the F here is a variable that we loop over
 # We'll also sort
