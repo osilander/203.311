@@ -17,6 +17,14 @@
 
 ## Introduction
 
+### Today's plan
+
+A flowchart of today's lab is shown below.
+<br>
+
+<img src="graphics/w11-flowchart.png" width="700" title="so happy I'm here!"/><br>
+**Two different activities today**<br><br>
+
 ### Dimensional Reduction
 
 As we have learned throughout the Semester, a key aspect of data analysis is data visualisation. However, working in genomics, we often have extremely complicated data, and coming up with ways to visualise it in an intuitive yet objective manner is hard.
