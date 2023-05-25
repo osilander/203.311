@@ -425,7 +425,7 @@ You should now be able to see six new `.bam` files in your directory. You can ea
 # This should work, an example is below if it doesn't
 samtools coverage -m bam.file.of.your.choice.bam
 ```
-
+<br>
 <img src="graphics/samtools-cov.png" width="400"/><br>
 **Example.**<br><br>
 
