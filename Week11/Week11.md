@@ -219,9 +219,11 @@ for(coi in my.cocktails) {
 ```
 So similar yet so different.
 
-Finally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!"))
+Finally, we can discover which _variables_ are contributing the most to each component (as we did above). This time we will plot it slightly differently, again with `ggplot` (and credit to the tutorial [here](https://juliasilge.com/blog/cocktail-recipes-umap/ "Thanks Julia!")). Let's remember what this is doing: we are finding the sets of variables (i.e. ingredients) that differ the most between all cocktails.
 
 ```R
+# No issue here with breaking the rules
+# and copy-pasta
 tidied_pca %>%
   filter(component %in% paste0("PC", 1:5)) %>%
   mutate(component = fct_inorder(component)) %>%
@@ -232,7 +234,7 @@ tidied_pca %>%
 ```
 
 
-So what have we discovered? We have found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
+So what have we discovered? We have hopefully found that dimensional reduction is a powerful method to let us determine what variables (or, *combinations* of variables, e.g. diet items or cocktail ingredients) differentiate samples (e.g. countries or cocktails). We can use this to objectively determine which samples are the most similar, and which are the most different. We can also determine which (combinations of) variables are most responsible for *making* these samples different.
 
 But enough of that, onwards and upwards (hopefully). <br><br>
 
@@ -240,7 +242,9 @@ But enough of that, onwards and upwards (hopefully). <br><br>
 **Even so, we will go upwards.**<br><br>
 
 ### Who map? UMAP
-A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimensions while preserving the original structure of the data (i.e. the relative relationships and distances between samples). Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!"). Scroll down to the Woolly Mammoth and adjust the parameters. Specifically, try n_neighbors = 100 and min_dist = 0.25.
+A second commonly used method for dimensional reduction is UMAP (Uniform Manifold Approximation). UMAP is not as easy as PCA to understand from an algorithmic point of view. It is, however, an extremely powerful method for reducing dimensions while preserving the original structure of the data (i.e. the relative relationships and distances between samples). However, there are [some people that have recently](https://twitter.com/lpachter/status/1431325969411821572?s=20 "is this site still operational?") argued against the utility of UMAP. I personally think there is still great insights to be had, but they are very much qualitative and not quantitative insights.
+
+Please take a couple of minutes to browse [this site](https://pair-code.github.io/understanding-umap/ "Wooly Mammoth!!"). Scroll down to the Woolly Mammoth and adjust the parameters. Specifically, try n_neighbors = 100 and min_dist = 0.25.
 
 Okay, let's go through this quickly just so we can compare to our previous results. We make almost exact the same recipe as before:
 

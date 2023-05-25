@@ -15,7 +15,7 @@
 
 **This will take you around an hour to read through. We would expect an average of three hours *beyond* completion of the lab for each Portfolio Assessment component.** For the first few portfolio asssignments this is likely to take much longer; as you improve with `R` and the terminal, this time shoudl decrease.
 
-The Portfolio Assessment from Week 4 is the first part of the Portfoli Assessment. For many of you it will be the first time you have tried to visualise data, or certainly to visualise data outside of Excel. The purpose here is to show possible ways to move step-by-step through the Assessment.
+The Portfolio Assessment from Week 4 is the first part of the Portfolio Assessment. For many of you it will be the first time you have tried to visualise data, or certainly to visualise data outside of Excel. The purpose here is to show possible ways to move step-by-step through the Assessment.
 
 ## Background
 
@@ -104,6 +104,9 @@ We need to know what we are correlating. This is apparent in the question: "whet
 
 ### Correlation in R
 The Portfolio Assessment does not require any statistics (although it does not note this explicitly.)
+
+### A resource for virualisation techniques
+This is a [great resource](https://clauswilke.com/dataviz/ "no, really it's good"). Please take a look.
 
 #### Getting the data into R
 
