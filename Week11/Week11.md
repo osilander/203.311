@@ -335,7 +335,7 @@ mu1tiqc .
 
 ```
 
-Go ahead and click on the multiqc report file (`.html`). (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300; Why would this be? What kind of data is this? Would you expect duplicates? Why or why not? Should we consider removing these duplicates?
+This will make a lot of files. Scroll and find the multiqc report `.html`. Go ahead and click on the multiqc report file. (Open in your browser.) For each of the `.fastq` files we can see a summary of its statistics. Note that there is a clickable menu on the left, and a toolbox available on the right (click the "toolbox" tab). The toolbox allows you to do things like colour samples by group or hide specific samples. We will not worry about that. However, one important statistic we can see is that there a lot of sequence duplicates. &#129300; Why would this be? What kind of data is this? Would you expect duplicates? Why or why not? Should we consider removing these duplicates?
 
 We are not going to worry about the adaptor trimming step of QC, as *I have already done this for you*. However, under normal circumstances not doing this could be fatal for your pipeline.
 
