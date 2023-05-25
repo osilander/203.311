@@ -41,7 +41,10 @@ Microbial diversity has been revolutionised by the rapid advances in sequencing 
 
 Week 8 focusses on introducing ideas around the analysis of microbial diversity - for bacteria - within the 16S rRNA amplicon, and performing a typical workflow analysis on such sequences in `R` using a piece of software called DADA2. These ideas will be developed further in the next two weeks (weeks 9 and 10) of this module. 
 
+An outline of the labs during Weeks 8 and 10 is below.<br>
 
+<img src="graphics/flow-chart-w8-w10.PNG" width="700"/>
+Brief outline of the steps we will be following in Week 8 (today) and Week 10.<br><br>
 
 ## Lecture Overview
 
