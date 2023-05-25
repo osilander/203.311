@@ -119,6 +119,11 @@ library(embed)
 # it's a famous plotting package!
 install.packages("ggplot2")
 library(ggplot2)
+
+# for pipes
+install.packages("magrittr")
+library(magrittr)
+
 ```
 
 Now we start on the path toward cocktail PCA.
