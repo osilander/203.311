@@ -9,7 +9,11 @@ After studying this section of the tutorial you should be able to:
 
 1. Explain the process of sequence read mapping.
 2. Use bioinformatics tools to map sequencing reads to a reference genome.
-3. Filter mapped reads based on quality.
+3. Filter mapped reads based on quality.<br>
+
+### Completed in Week 4 (Day 1)
+<img src="graphics/flowchart-by-day.png" title="Makin' progress" width="700"/><br>
+**Day 1 is completed**.
 
 ## Introduction
 

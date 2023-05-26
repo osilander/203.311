@@ -12,6 +12,9 @@ After studying this section of the tutorial you should be able to:
 3. Use bioinformatic tools to align sequences and infer a phylogeny.
 4. Identify different ways of visualising phylogenies and the advantages and disadvantages of each.
 
+### Reminder of the steps you have completed 
+<img src="graphics/flowchart-by-day.png" title="Makin' progress" width="700"/><br>
+**Today is the last day of this section**.
 
 ### Introduction
 
