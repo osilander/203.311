@@ -290,4 +290,4 @@ Here is the output after running the code and fixing the error messages (also wi
 
 ---
 
-This is all the same data (or part of the same data) plotted in different ways. One of these (or many or none) may be a gret way to illusttrate "whether GC content is correlated with quality scores".
+This is all the same data (or part of the same data) plotted in different ways. One of these (or many or none) may be a great way to illusttrate "whether GC content is correlated with quality scores".
