@@ -233,15 +233,18 @@ dge.low.counts
 
 Looks good.
 
+
+### Letting edgeR use a negative binomial
+
 I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (because in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
 
 ```R
-# we do this across genes and across samples
+# we estimate "dispersion" across genes and across samples
 dge.low.counts <- estimateCommonDisp(dge.low.counts)
 dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 ```
 
-Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot..
+Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot. An MDS plot is very very similar to a PCA plot. Here we have many genes that differ in "expression" between samples. This is analogous to the Food-Country relationships we saw last week, except the samples here (normal and cancer) are the countries, and the *genes*, which are expressed at different levels in different samples, are the foods.
 
 ```R
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
