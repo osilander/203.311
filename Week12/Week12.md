@@ -324,16 +324,16 @@ dge.low.counts <- estimateCommonDisp(dge.low.counts)
 dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 ```
 
-Now we have a new dataset. Here, a number of genes have higher expression in cancer. Specifically, we changed the expression 2-fold. We need to check whether this had the expected effect - are these genes actually inferred as being "differentially" expressed?
+Now we have a new dataset. Here, a number of genes have higher expression in cancer. Specifically, we changed the expression 3-fold. We need to check whether this had the expected effect - are these genes actually inferred as being "differentially" expressed?
 
 ```R
 # Does this change anything? Let's check. First, we will plot an MDS
-# plot again. This time, some of the genes (foods) *do* differ between the 
-# samples. The MDS analysis can use those genes to separate the samples
+# plot again. This time, some of the genes ("foods") *do* differ between the 
+# samples ("countries"). The MDS analysis can use those genes to separate the samples
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 ```
 
-With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
+With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by three-fold with such small read numbers does not guarantee we find anything at all.
 
 We can also do a volcano plot.
 
@@ -358,7 +358,10 @@ head(sort.dge, n=22L)
 
 Now you should see some differentially expressed genes (but maybe not many, especially depending on how much you changed the genes' expression (e,g. by two-fold or four-fold or 1.5-fold)).
 
-Finally, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads (i.e. increase our POisson average from 4 to 50). We can just run through the code quite quickly.
+
+### A dataset with more reads per gene
+
+Finally, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads (i.e. increase our Poisson average from 4 to 50). We can just run through the code quite quickly.
 
 ```R
 n.genes <- 4000
@@ -389,16 +392,18 @@ We first take a quick peak at how Poisson this is.
 ```R
 # Again, we use a histogram
 hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
-points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
+points(0:100, dpois(0:100,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
 
 ```
 
-Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
+Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50% (presuming youu set your read count per gene high enough). This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
 
 
 <img src="graphics/normals.png" width="600" title="It's not Ohio"/><br>
 **There are lots of distributions and they're all related**<br><br>
 
+
+### An edgeR analysis when we have more reads
 
 Now, the `edgeR` bit.
 
@@ -452,11 +457,11 @@ Or plot the volcano plot but with the False Discovery Rate, FDR, rather than the
 
 ```R
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
-colnames(volcanoData) <- c("logFC", "-log10(p-value)")
+colnames(volcanoData) <- c("logFC", "-log10(FDR)")
 plot(volcanoData, pch=19)
 ```
 
-What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not (necessarily) *more* differentially expressed - we just have more reads. This shows the power of having deeper sequencing datasets.
+What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not (necessarily) *more* differentially expressed - we just have more reads. This shows the power of having deeper sequencing datasets.<br>
 
 
 <img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
