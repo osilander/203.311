@@ -90,7 +90,7 @@ Using `head` you should see a matrix with columns labeled "cancer_1 etc. and row
 
 ### Testing for a match to the Poisson distribution
 
-Next we can check that the read counts are Poisson distributed - they should be as we made the numbers using `rpois`. We'll use the `hist()` function to visualise the number of reads per gene. In this case, the plurality of genes should have a read count of the mean we assigned (4).
+Next we can check that the read counts are Poisson distributed - they *should be* as we made the numbers using `rpois`, the Poisson random number generator. We'll use the `hist()` function to visualise the number of reads per gene. In this case, the plurality of genes should have a read count of the mean we assigned (4).
 
 ```R
 # I always change this as I don't like sideways numbers
@@ -101,17 +101,19 @@ par(las=1)
 hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
 
-You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number of genes with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes.
+You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as many mapped reads, some with 1/4 as many mapped reads, and a number of genes with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes.
 
 In fact we should have made sure that our sequencing data that is *deeper* - i.e. has more reads per sample and thus on average, more reads per gene. Regardless, let's test how well our gene and read counts match the Poisson. We can use `R`'s built-in **exact** calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
 # We use the same "avg.reads" from above as the argument to dpois
-points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
+# and we only get the exact Poisson numbers for 1:12 as those are the only ones
+# on our plot.
+points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=3, pch=21)
 ```
 
-This line should follow the distribution fairly closely, with some sampling noise.
+This line should follow the distribution fairly closely, with some sampling noise, and it should be a beatiful shade of pink.
 
 ### Visualising the toy data with a heatmap
 
@@ -142,7 +144,7 @@ BiocManager::install("edgeR")
 library(edgeR)
 ```
 
-We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a vector that will tell `edgeR` which samples are which. Let's do that quickly:
+We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a vector that will tell `edgeR` which samples are which (here we are pretending they are "normal" and "cancer"). Let's do that quickly:
 
 ```R
 # for this to work you must have named your
@@ -159,6 +161,7 @@ Next we can have `edgeR` do the analysis for us. Various parts of the tutorial b
 
 ```R
 # Here we make our edgeR object using the DGEList function
+# grouping the samples on the basis of the sample.data we made above
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 # check what it looks like
 summary(dge.low.counts)
@@ -169,7 +172,7 @@ dge.low.counts.backup <- dge.low.counts
 
 ```
 
-### Stepping through counts per million Normalisation and filtering with edgeR
+### Stepping through counts-per-million Normalisation and filtering with edgeR
 
 
 ```R
@@ -186,7 +189,7 @@ head(cpm(dge.low.counts))
 
 Note that these numbers are much much larger. This is becuase `edgeR` has *normalised* our numbers so that they are per million. However, because our total "read numbers" were much much less than one million, it ended up *multiplying* them for the normalisation.
 
-We can filter our results so that we only include genes that have mapped read **counts per million mapped reads** of at least 100 in at least two samples.
+We can filter our results so that we only include genes that have mapped read **counts per million mapped reads** of *at least 100* in *at least two* samples.
 
 
 ```R
@@ -195,7 +198,8 @@ We can filter our results so that we only include genes that have mapped read **
 # TRUE when the counts are above 100 and FALSE when not.
 # TRUE is also interpreted as "1" by R, and FALSE as "0".
 # Thus the sum function below "sums" up the TRUE rows
-# (those with counts > 100 in at least two smaples)
+# to test if the sum is greater than 2
+# In this way we get genes with counts > 100 in at least two samples.
 keep <- rowSums(cpm(dge.low.counts)>100) >= 2
 
 # keep only those rows
@@ -205,9 +209,13 @@ dge.low.counts <- dge.low.counts[keep,]
 dim(dge.low.counts)
 ```
 
-We've kept all (or almost all) our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2 reads\*62.5 normalisation factor is greater than 100, so if each row satisifes this, then it is kept.
+We've kept all (or almost all) our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. And *apparently*, all rows have at least two samples each with two or more reads. 2 reads\*62.5 normalisation factor is greater than 100, so if each row satisifes this, then it is kept.
 
-We can think whether this is a good thing or not (in fact, it's likely to not be a problem). We could also calculate the exact probability that five of our samples in one row have fewer than two reads, and that we would get rid fo that row. That is just the probability that at least five samples in a row have one or zero reads, which is about one in six million. We could change our cutoff to **three** samples having at least 100 mapped reads. Then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000.
+We can think whether this is a good thing or not (in fact, it's likely to not be a problem).
+
+Interestingly, we can also calculate the exact probability that five of our samples in one row have fewer than two reads, such that we would get rid of that row. That is just the probability that at least five samples in a row have one or zero reads. The probability that any one gene in one sample has 0 or 1 read is 0.091. The chance that five do is 0.091^5*0.909, or about one in six million. Thus, one in six million rows should have fewer than two reads in at least five samples.
+
+We could change our cutoff to **three** samples having at least 100 mapped reads. Then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000.
 
 ```R
 keep <- rowSums(cpm(dge.low.counts)>100) >= 3
@@ -236,7 +244,7 @@ Looks good.
 
 ### Letting edgeR use a negative binomial
 
-I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (because in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the dispersion and fit a *negative binomial* to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson, and the negative binomial let's us fit our data to match that extra variance.
+I claimed that this data is Poisson distributed (in fact, it is). However, `edgeR` is loathe to admit it is (because in fact, most RNA-seq data is *not*). Therefore, we are going to calculate the [dispersion](https://en.wikipedia.org/wiki/Statistical_dispersion "more stats") (how squished or flattened a distribution is) and fit a [negative binomial](https://en.wikipedia.org/wiki/Negative_binomial_distribution "let's not be negative") to model the data (rather than a Poisson). This is simply because RNA-seq data almost always has *more* variance than a Poisson (i.e. it's flattened relative to our expectations), and the negative binomial let's us fit our data to match that extra variance.
 
 ```R
 # we estimate "dispersion" across genes and across samples
@@ -244,9 +252,10 @@ dge.low.counts <- estimateCommonDisp(dge.low.counts)
 dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 ```
 
+### MDS and Volcano plots
+
 Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot. An MDS plot is very very similar to a PCA plot. Here we have many genes that differ in "expression" between samples. This is analogous to the Food-Country relationships we saw last week, except the samples here (normal and cancer) are the countries, and the *genes*, which are expressed at different levels in different samples, are the foods.
 
-### MDS and Volcano plots
 
 ```R
 # in this case we won't worry about the specific method
@@ -269,7 +278,8 @@ We can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-sa
 
 ```R
 # as everyone knows, a volcano plot requires the log2 fold-change and the -log10 p-values
-# here, logFC is the fold-change
+# here, logFC is the fold-change. We use cbind ("column bind") to put
+# the fold-change and p-values together
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 
@@ -280,17 +290,18 @@ plot(volcanoData, pch=19)
 It looks like there are some "significantly" differentially expressed genes with low p-values (high -log10). Are these real? Let's correct for "multiple tests" (when we do the same statistical test again and again and again).
 
 ```R
-# What if we *correct for multiple tests, and instead use a statistic similar to 
-# a corrected p-value (here, called False Discovery Rate, or FDR)
+# What if we *correct for multiple tests*, and instead use a statistic similar to 
+# a corrected p-value (here, called False Discovery Rate, or FDR). Instead
+# of the p-value, we cbind the FDR
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 plot(volcanoData, pch=19)
 ```
 
-Nothing significant! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+Nothing to see here! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
 
 ### A more interesting dataset
 
-We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
+We can now make our toy data set a bit more interesting. For example, we can change the read counts for a few random genes. Let's do that.
 
 ```R
 # Randomly increase read counts of 20 genes
@@ -300,12 +311,12 @@ rand.genes <- sample(1:n.genes,20)
 #
 # Then we increase the counts for those genes, but *only* in 
 # the cancer samples (the 2nd half of the samples)
-# Here I am multiplying the expression levels by 2.
+# Here I am multiplying the expression levels by 3.
 # You should be able to understand the basic syntax here
 # where we are accessing matrix elements using the matrix[n,m]
 # notation, and changing *only* the cancer genes which are
 # in columns 4:6, i.e. (n.samples/2+1):n.samples)
-low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 3*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
 # now we redo the edgeR analysis
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
