@@ -414,13 +414,15 @@ dge.counts <- estimateTagwiseDisp(dge.counts)
 # do any of the samples differ now?
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 
+# do the stats
+dge.test <- exactTest(dge.counts)
+
 # Finally, lets do the volcano plot
-volcanoData <- cbind(dge.counts$table$logFC, -log10(dge.counts$table$PValue))
+volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 
 # let's find the differentially expressed genes (DGE)
-dge.test <- exactTest(dge.counts)
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge, n=22L)
 ```
@@ -439,6 +441,7 @@ dge.counts <- calcNormFactors(dge.counts)
 dge.counts <- estimateCommonDisp(dge.counts)
 dge.counts <- estimateTagwiseDisp(dge.counts)
 dge.test <- exactTest(dge.counts)
+
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
