@@ -31,6 +31,7 @@ Closely related to the binomial distribution is The Poisson Distribution, which 
 <img src="graphics/prob-dists.jpeg" width="1400" title="C'mon this looks too complicated"/><br>
 **There are lots of distributions and they're all related**<br><br>
 
+### RNA-seq reads are Poisson distributed
 
 The number of RNA-seq reads that map to a gene [is also Poisson distributed](https://www.biostars.org/p/84445/ "I knew it!") (largely speaking). As expected, then, most packages for analysing RNA-seq data *model* the data as being Poisson distributed (well...more on that later). Let us see what this means for genes with high and low number of reads mapped to them.
 
@@ -38,41 +39,58 @@ The number of RNA-seq reads that map to a gene [is also Poisson distributed](htt
 **I literally do not understand this at all**. Credit: [xkcd](https://www.explainxkcd.com/wiki/index.php/12:_Poisson "But here's an explanation")<br><br>
 
 
+### Constructing a toy RNA-seq dataset
+
 We'll make some pretend RNA-seq data. First, we will make a toy dataset with a very small number of read counts per gene. Maybe it was from a bad library prep. Or maybe from an under-represented set of barcodes in what was otherwise a good sequencing run. To make this toy dataset, we will sample our read counts as if they were Poisson. Navigate to your `R` console.
 
 ```R
-# Let's keep this simple
+# To make a toy dataset
 # we'll use R's built-in Poisson random number generator rpois()
-# In this case, the first argument is the number of random numbers
+# This will give us a set of random numbers that 
+# are Poisson-distributed.
+#
+# In the rpois function, the first argument is the number of random numbers
 # and the second is the *mean* of the Poisson distribution
-# We don't need to specify the variance, as the variance of 
-# a Poisson distribution is EQUAL to the mean!
-# And we'll get results for six "samples"
+# We'll make up fake data for six "samples"
 
-# Doing this at the top let's us easily adjust the number of genes
+# First, by declaring some "master" variables here,
+# we can easily adjust the number of genes
 # and number of samples without adjusting the rest of the code
-# (if for some reason you wanted to do that)
+# total nmber of "genes" in our organism
 n.genes <- 4000
+# total number of samples
 n.samples <- 6
+# average number of reads per gene
 avg.reads <- 4
-# Next, make our data. The total amount of "read" data we need is just the number 
-# of samples multiplied by the number of genes, and we'll have
-# a mean of 3. We'll pretend our data come from two
-# samples, "normal" and "cancer" tissue
+
+# We will make our data all at once. The total number 
+# of Poisson distributed "reads per gene" is the total number
+# of samples multiplied by the number of genes.
+# However, we'll divide our six "samples" into two
+# sets of three (n.samples*n.genes/2): one set of three is
+# "normal" tissue and one set of three is "cancer" tissue
 
 normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
 cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
 
+# here we make a single matrix of all this data
+# the total columns will be our number of samples
+# and we will have one row for each gene
 low.read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
 
-# Add some labels
+# We need to label the rows of our matrix with "gene_1", "gene_2", etc.
 rownames(low.read.counts) <- paste0("gene_",1:n.genes)
+# we label the columnes as "normal_1", "normal_2" etc. using paste()
 colnames(low.read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1:(n.samples/2)))
 # Did it work?
 head(low.read.counts)
 ``` 
 
-Let's check that these are Poisson distributed. We'll use the `hist()` function.
+Using `head` you should see a matrix with columns labeled "cancer_1 etc. and rows labeled "gene_1" etc.
+
+### Testing for a match to the Poisson distribution
+
+Next we can check that the read counts are Poisson distributed - they should be as we made the numbers using `rpois`. We'll use the `hist()` function to visualise the number of reads per gene. In this case, the plurality of genes should have a read count of the mean we assigned (4).
 
 ```R
 # I always change this as I don't like sideways numbers
@@ -83,7 +101,9 @@ par(las=1)
 hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 ```
 
-You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes. We should have sequencing data that is *deeper* - i.e. has more reads per sample. Also note that this distribution has a relatively long tail - there are probably even some genes with read counts of ten or eleven (in fact we can calculate the exact fraction we would expect). Let's go ahead and do that. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
+You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number of genes with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes.
+
+In fact we should have made sure that our sequencing data that is *deeper* - i.e. has more reads per sample and thus on average, more reads per gene. Regardless, let's test how well our gene and read counts match the Poisson. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
