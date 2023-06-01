@@ -335,6 +335,16 @@ plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$grou
 
 With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by three-fold with such small read numbers does not guarantee we find anything at all.
 
+
+Let's get the test stats on our differentially expressed genes?
+```R
+dge.test <- exactTest(dge.low.counts)
+# here, n is the number of genes to return, we just make it all genes
+sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+# We'll look at a few extra lines
+head(sort.dge, n=22L)
+```
+
 We can also do a volcano plot.
 
 ```R
@@ -344,16 +354,6 @@ plot(volcanoData, pch=19)
 # let's highlight which points we made differentially expressed in orange
 # We know which these are because we made our list of "rand.genes" above
 points(volcanoData[rand.genes,], pch=19,col="orange")
-```
-
-
-What about our differentially expressed genes?
-```R
-dge.test <- exactTest(dge.low.counts)
-# here, n is the number of genes to return, we just make it all genes
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-# We'll look at a few extra lines
-head(sort.dge, n=22L)
 ```
 
 Now you should see some differentially expressed genes (but maybe not many, especially depending on how much you changed the genes' expression (e,g. by two-fold or four-fold or 1.5-fold)).
