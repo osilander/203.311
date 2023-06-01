@@ -274,6 +274,8 @@ sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 ```
 
+### Our FIRST volcano plot - the small toy data
+
 We can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-satellite-image "Sharkcano") plot. First we have to extract the relevant fields from our `edgeR` object, then plot.
 
 ```R
@@ -288,6 +290,8 @@ plot(volcanoData, pch=19)
 ```
 
 It looks like there are some "significantly" differentially expressed genes with low p-values (high -log10). Are these real? Let's correct for "multiple tests" (when we do the same statistical test again and again and again).
+
+### Our SECOND volcano plot - the FDR
 
 ```R
 # What if we *correct for multiple tests*, and instead use a statistic similar to 
@@ -344,6 +348,8 @@ sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 # We'll look at a few extra lines
 head(sort.dge, n=22L)
 ```
+
+### Our THIRD volcano plot - with some genes made differentially expressed
 
 We can also do a volcano plot.
 
@@ -417,6 +423,8 @@ plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 # do the stats
 dge.test <- exactTest(dge.counts)
 
+### Our FOURTH volcano plot - with more reads
+
 # Finally, lets do the volcano plot
 volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
@@ -448,6 +456,8 @@ plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 ```
 And then as usual, we follow that with the volcano plot.
 
+### Our FIFTH volcano plot - with more reads and some genes made differentially expressed
+
 ```R
 volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
@@ -455,6 +465,8 @@ plot(volcanoData, pch=19)
 # let's highlight which points we made differentially expressed
 points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
+
+### Our SIXTH volcano plot -  more reads, differentially expressed, FDR
 
 Or plot the volcano plot but with the False Discovery Rate, FDR, rather than the p-value.
 
