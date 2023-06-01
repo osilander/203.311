@@ -464,5 +464,5 @@ plot(volcanoData, pch=19)
 What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not (necessarily) *more* differentially expressed - we just have more reads. This shows the power of having deeper sequencing datasets.<br>
 
 
-<img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
+<img src="graphics/finally.png" width="700" title="Well, on Sunday night"/><br>
 **Well, on Sunday it is.**<br><br>
