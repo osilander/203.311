@@ -422,9 +422,11 @@ plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
 
 # do the stats
 dge.test <- exactTest(dge.counts)
+```
 
 ### Our FOURTH volcano plot - with more reads
 
+```R
 # Finally, lets do the volcano plot
 volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
