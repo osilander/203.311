@@ -246,67 +246,95 @@ dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
 
 Finally, we can begin to *look* at our data. First, a multidimensional scaling (MDS) plot. An MDS plot is very very similar to a PCA plot. Here we have many genes that differ in "expression" between samples. This is analogous to the Food-Country relationships we saw last week, except the samples here (normal and cancer) are the countries, and the *genes*, which are expressed at different levels in different samples, are the foods.
 
+### MDS and Volcano plots
+
 ```R
+# in this case we won't worry about the specific method
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
 ```
 
-Your plot - for the most part - should indicate that none of the samples cluster by type (although you might find, by chance, that they do).
+Your plot - for the most part - should indicate that none of the samples cluster by type. This is not surprising, as we made these samples with random data.
 
-We can also sort our data to find the most differentially expressed genes using the `exactTest` and `topTags` functions:
+We can sort our data to find the **most differentially** expressed genes using the `exactTest` and `topTags` functions:
 
 ```R
 dge.test <- exactTest(dge.low.counts)
-# here, n is the number of genes to return, we just make it all genes
+# here, n is the number of genes to return, we just tell it to return it all genes
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
+# this gives us the most differentially expressed (remember, this is not really true)
 head(sort.dge)
 ```
 
-But we can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-satellite-image "Sharkcano") plot. First we have to extract the relevant fields from our `edgeR` object, then plot.
+We can also make a [volcano](https://www.space.com/sharkcano-undersea-volcano-satellite-image "Sharkcano") plot. First we have to extract the relevant fields from our `edgeR` object, then plot.
 
 ```R
 # as everyone knows, a volcano plot requires the log2 fold-change and the -log10 p-values
+# here, logFC is the fold-change
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 
 # Everyone loves pch 19
 plot(volcanoData, pch=19)
+```
 
-# okay but what if we *correct for multiple tests, and instead use the 
-# corrected p-value (here, called FDR)
+It looks like there are some "significantly" differentially expressed genes with low p-values (high -log10). Are these real? Let's correct for "multiple tests" (when we do the same statistical test again and again and again).
+
+```R
+# What if we *correct for multiple tests, and instead use a statistic similar to 
+# a corrected p-value (here, called False Discovery Rate, or FDR)
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
 plot(volcanoData, pch=19)
 ```
 
-Nothing! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+Nothing significant! Phew. This is unsurprising, as we are using a completely random data set. However, you can see the characteristic volcano plot shape, where genes that have high or low log2-fold-changes also have low p-values (or high -log10 p-values).
+
+### A more interesting dataset
 
 We can now make our toy data set a bit more interesting. For example, we could change the read counts for a few random genes. Let's do that.
-
 
 ```R
 # Randomly increase read counts of 20 genes
 # in the cancer samples by 3-fold
-# to do that we first find random genes (rows)
+# to do that we first find random genes (rows) using "sample"
 rand.genes <- sample(1:n.genes,20)
-# Then we increase the counts, but *only* in the cancer samples (the 
-# 2nd half of the samples)
-# Here I am multiplying the expression levels by 2. You can chnage this and mulitply
-# by a different number if you please.
+#
+# Then we increase the counts for those genes, but *only* in 
+# the cancer samples (the 2nd half of the samples)
+# Here I am multiplying the expression levels by 2.
+# You should be able to understand the basic syntax here
+# where we are accessing matrix elements using the matrix[n,m]
+# notation, and changing *only* the cancer genes which are
+# in columns 4:6, i.e. (n.samples/2+1):n.samples)
 low.read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*low.read.counts[rand.genes,(n.samples/2+1):n.samples]
+# now we redo the edgeR analysis
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 dge.low.counts <- calcNormFactors(dge.low.counts)
 dge.low.counts <- estimateCommonDisp(dge.low.counts)
 dge.low.counts <- estimateTagwiseDisp(dge.low.counts)
+```
 
-# Does this change anything? Let's check.
+Now we have a new dataset. Here, a number of genes have higher expression in cancer. Specifically, we changed the expression 2-fold. We need to check whether this had the expected effect - are these genes actually inferred as being "differentially" expressed?
+
+```R
+# Does this change anything? Let's check. First, we will plot an MDS
+# plot again. This time, some of the genes (foods) *do* differ between the 
+# samples. The MDS analysis can use those genes to separate the samples
 plotMDS(dge.low.counts, method="bcv", col=as.numeric(dge.low.counts$samples$group))
+```
 
+With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
+
+We can also do a volcano plot.
+
+```R
 volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
-# let's highlight which points we made differentially expressed
+# let's highlight which points we made differentially expressed in orange
+# We know which these are because we made our list of "rand.genes" above
 points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
-With any luck, you might now see some samples grouping. And we've only changed the expression of 20 genes! However, you might not - changing the expression level of 20 genes by two-fold with such small read numbers does not guarantee we find anything at all.
+
 
 What about our differentially expressed genes?
 ```R
@@ -319,15 +347,17 @@ head(sort.dge, n=22L)
 
 Now you should see some differentially expressed genes (but maybe not many, especially depending on how much you changed the genes' expression (e,g. by two-fold or four-fold or 1.5-fold)).
 
-Okay, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads. We can just run through the code quite quickly.
+Finally, to get a better handle on this whole process, let's change some more parameters. This time, we'll get more reads (i.e. increase our POisson average from 4 to 50). We can just run through the code quite quickly.
 
 ```R
 n.genes <- 4000
 
 # change one or both of these to whatever values you like
-# before they were 6 and 4
+# before they were 6 and 4. Make sure your avg reads per gene is quite high
 n.samples <- 8
 avg.reads <- 50
+
+# this is where we get the random numbers
 normal.counts <- rpois(n.samples*n.genes/2, avg.reads)
 cancer.counts <- rpois(n.samples*n.genes/2, avg.reads)
 read.counts <- matrix(c(normal.counts, cancer.counts), ncol=n.samples, nrow=n.genes)
@@ -337,20 +367,21 @@ colnames(read.counts) <- c(paste0("normal_",1:(n.samples/2)), paste0("cancer_",1
 # Did it work?
 head(read.counts)
 sample.data <- (rep("normal",n.samples/2),rep("cancer",n.samples/2))
-
 # check what it looks like
 summary(read.counts)
 dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
 dge.counts <- calcNormFactors(dge.counts)
-
 ```
 
-Take a quick peak at how Poisson this is.
+We first take a quick peak at how Poisson this is.
+
 ```R
+# Again, we use a histogram
 hist(read.counts[,1], breaks=0:200-0.5, xlim=c(0,100), xlab="Number of mapped reads", ylab="Number of genes", main="Poisson or not?")
 points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
 
 ```
+
 Poisson? It looks Normal! *The Poisson converges to the normal for large numbers*. Note that **none** of the read counts vary by more than 50%. This contrasts with our low read count sample, in which many gene read counts varied by 2- or 3-fold.
 
 
@@ -364,25 +395,28 @@ Now, the `edgeR` bit.
 dge.counts <- estimateCommonDisp(dge.counts)
 dge.counts <- estimateTagwiseDisp(dge.counts)
 # look at this plot, don't ignore it
+# do any of the samples differ now?
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
-dge.test <- exactTest(dge.counts)
-sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
-head(sort.dge)
 
+# Finally, lets do the volcano plot
 volcanoData <- cbind(dge.counts$table$logFC, -log10(dge.counts$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 
+# let's find the differentially expressed genes (DGE)
 dge.test <- exactTest(dge.counts)
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge, n=22L)
 ```
-As before, you should find that there are few differences. But maybe we can change the exopression of a few genes.
+As before, you should find that there are few differences becuase this data is just random. But as before, we can change the expression of a few genes.
 
 ```R
+# we change this in the same way. If you would like, you can change many more of
+# the genes instead of just 10
 rand.genes <- sample(1:n.genes,10)
-# Then we increase the counts, but *only* in the cancer samples (the 
-# 2nd half of the samples)
+# Then we increase the counts for the randomly selected genes, but *only* in the
+# cancer samples (the 2nd half of the samples)
+# and do the analysis all the way to the MDS in one fell swoop
 read.counts[rand.genes,(n.samples/2+1):n.samples] <- 2*read.counts[rand.genes,(n.samples/2+1):n.samples]
 dge.counts <- DGEList(counts=read.counts,group=factor(sample.data))
 dge.counts <- calcNormFactors(dge.counts)
@@ -392,7 +426,10 @@ dge.test <- exactTest(dge.counts)
 sort.dge <- topTags(dge.test, n=nrow(dge.test$table))
 head(sort.dge)
 plotMDS(dge.counts, method="bcv", col=as.numeric(dge.counts$samples$group))
+```
+And then as usual, we follow that with the volcano plot.
 
+```R
 volcanoData <- cbind(dge.test$table$logFC, -log10(dge.test$table$PValue))
 colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
@@ -400,7 +437,7 @@ plot(volcanoData, pch=19)
 points(volcanoData[rand.genes,], pch=19,col="orange")
 ```
 
-Or plot the volcano plot but with FDR.
+Or plot the volcano plot but with the False Discovery Rate, FDR, rather than the p-value.
 
 ```R
 volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$FDR))
@@ -408,12 +445,7 @@ colnames(volcanoData) <- c("logFC", "-log10(p-value)")
 plot(volcanoData, pch=19)
 ```
 
-What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not *more* differentially expressed - we just have more reads.
-
-
-### Apologies
-
-We have no single-cell data today as the datasets are all quite large and unwieldy in this session - 1,000s of cells and genes, so even a small matrix has millions of entries. However, you should have some insight from last week's lab, enough to read and understand your papers.<br>
+What is different here versus the dataset with few reads? We can easily see that we have found more differentially expressed genes, even though they are not (necessarily) *more* differentially expressed - we just have more reads. This shows the power of having deeper sequencing datasets.
 
 
 <img src="graphics/finally.png" width="400" title="Well, on Sunday night"/><br>
