@@ -57,7 +57,7 @@ We'll make some pretend RNA-seq data. First, we will make a toy dataset with a v
 # we can easily adjust the number of genes
 # and number of samples without adjusting the rest of the code
 # total nmber of "genes" in our organism
-n.genes <- 4000
+    n.genes <- 4000
 # total number of samples
 n.samples <- 6
 # average number of reads per gene
@@ -103,14 +103,19 @@ hist(low.read.counts[,1], breaks=0:200-0.5, xlim=c(0,12), xlab="Number of mapped
 
 You'll note that even though we specified that the mean of our distributions should be four, there are **many** genes that have more than twice as many mapped reads, some with three times as manmy mapped reads, some with 1/4 as many mapped reads, and a number of genes with zero mapped reads. Should we conclude that the genes with zero mapped reads are actually not expressed? **No!** It is simply sampling noise that has prevented us from observing reads that map to these genes.
 
-In fact we should have made sure that our sequencing data that is *deeper* - i.e. has more reads per sample and thus on average, more reads per gene. Regardless, let's test how well our gene and read counts match the Poisson. We can use `R`'s built-in exact calculator of Poisson probabilities, `dpois()`
+In fact we should have made sure that our sequencing data that is *deeper* - i.e. has more reads per sample and thus on average, more reads per gene. Regardless, let's test how well our gene and read counts match the Poisson. We can use `R`'s built-in **exact** calculator of Poisson probabilities, `dpois()`
 
 ```R
 # Make sure your histogram window is still active
+# We use the same "avg.reads" from above as the argument to dpois
 points(0:12, dpois(0:12,avg.reads)*n.genes, ty="o", bg="pink", lwd=2, pch=21)
 ```
 
-This line should follow the distribution fairly closely, with some sampling noise. Let's next look at our dataset more holistically. Here, we will use a heatmap, which most of you will have already encountered.
+This line should follow the distribution fairly closely, with some sampling noise.
+
+### Visualising the toy data with a heatmap
+
+Let's next look at our dataset more holistically. Here, we will use a heatmap, which most of you will have already encountered.
 
 ```R
 # We don't care if it's pretty
@@ -120,7 +125,11 @@ heatmap(low.read.counts)
 dev.off()
 ```
 
-Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. If you *actually* think this, you are squinting at your data too hard... Now we can go through our differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
+Go ahead and open the pdf. Great! We've got some clearly differentially expressed genes, some only in sample 1, some only in sample 2, etc. But let's be careful not to squint at the data too hard...
+
+### Differential expression analysis using edgeR
+
+Now we can go through a differential gene expression analysis using [edgeR](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=XPfrRQEAAAAJ&citation_for_view=XPfrRQEAAAAJ:SGW5VrABaM0C "it's popular"). This is one of the primary RNA-seq analysis packages, the other being [DESeq2](https://scholar.google.co.nz/citations?view_op=view_citation&hl=en&user=vzXv764AAAAJ&citation_for_view=vzXv764AAAAJ:IjCSPb-OGe4C "Wow Mike").
 
 
 <img src="graphics/edger-deseq2.jpeg" width="500" title="It was always non-parametric tests"/><br>
@@ -130,6 +139,7 @@ Go ahead and open the pdf. Great! We've got some clearly differentially expresse
 # Get edgeR from the bioconductor website
 library(BiocManager)
 BiocManager::install("edgeR")
+library(edgeR)
 ```
 
 We also have to set up our sample data so that `edgeR` can handle it. This is relatively simple, and just involves constructing a vector that will tell `edgeR` which samples are which. Let's do that quickly:
@@ -137,16 +147,18 @@ We also have to set up our sample data so that `edgeR` can handle it. This is re
 ```R
 # for this to work you must have named your
 # sample number variable "n.samples" 
+# this gives us a 6-element vector of names 
+# for our samples
 sample.data <- c(rep("normal",n.samples/2),rep("cancer",n.samples/2))
 
 # What does it look  like?
 sample.data
 ```
 
-Then we can have `edgeR` do the analysis for us (thanks!). Various parts of the tutorial below are from [here](https://www.nathalievialaneix.eu/doc/html/solution-edgeR-rnaseq.html) and [here](https://web.stanford.edu/class/bios221/labs/rnaseq/lab_4_rnaseq.html).
+Next we can have `edgeR` do the analysis for us. Various parts of the tutorial below are from [here](https://www.nathalievialaneix.eu/doc/html/solution-edgeR-rnaseq.html) and [here](https://web.stanford.edu/class/bios221/labs/rnaseq/lab_4_rnaseq.html).
 
 ```R
-# Here we make our edgeR object
+# Here we make our edgeR object using the DGEList function
 dge.low.counts <- DGEList(counts=low.read.counts,group=factor(sample.data))
 # check what it looks like
 summary(dge.low.counts)
@@ -157,19 +169,33 @@ dge.low.counts.backup <- dge.low.counts
 
 ```
 
-We can then filter our results so that we only include genes that have mapped read counts per million mapped reads of at least 100 in at least two samples.
+### Stepping through counts per million Normalisation and filtering with edgeR
+
 
 ```R
 # remind ourselves what the read counts look like
 head(dge.low.counts)
+```
 
-# What do the counts per million look like?
+Note that these are the small read numbers we started with.
+
+```R
+# What do the counts per million (cpm) look like?
 head(cpm(dge.low.counts))
+```
 
+Note that these numbers are much much larger. This is becuase `edgeR` has *normalised* our numbers so that they are per million. However, because our total "read numbers" were much much less than one million, it ended up *multiplying* them for the normalisation.
+
+We can filter our results so that we only include genes that have mapped read **counts per million mapped reads** of at least 100 in at least two samples.
+
+
+```R
 # find out which rows to keep
-# here cpm(dge.low.counts)>100 gives a TRUE or FALSE
-# which can also be summed as they can be 
-# interpreted as ones (TRUE) or zeroes (FALSE)
+# here cpm(dge.low.counts)>100 gives a TRUE or FALSE - 
+# TRUE when the counts are above 100 and FALSE when not.
+# TRUE is also interpreted as "1" by R, and FALSE as "0".
+# Thus the sum function below "sums" up the TRUE rows
+# (those with counts > 100 in at least two smaples)
 keep <- rowSums(cpm(dge.low.counts)>100) >= 2
 
 # keep only those rows
@@ -179,7 +205,9 @@ dge.low.counts <- dge.low.counts[keep,]
 dim(dge.low.counts)
 ```
 
-We've kept all our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2\*62.5 is greater than 100, so that's all we need. We can think whether this is a good thing or not (in fact, it's likely to not be a problem). Of course we can also calculate the probability that five of our samples in one row have fewer than two eads, and that is just the probability that at least five have one or zero reads, which is about one in six million. We could change our cutoff to three samples having at least 100 mapped reads, and then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000. Let's do that.
+We've kept all (or almost all) our genes (rows)! Even though they have low counts! That's because our total library has (on average) only about 16,000 reads per sample. If we normalise by millions, that means the sum of each row (on average) gets multiplied by 1,000,000/16,000 = 62.5. *And* all rows have at least two samples each with two or more reads. 2 reads\*62.5 normalisation factor is greater than 100, so if each row satisifes this, then it is kept.
+
+We can think whether this is a good thing or not (in fact, it's likely to not be a problem). We could also calculate the exact probability that five of our samples in one row have fewer than two reads, and that we would get rid fo that row. That is just the probability that at least five samples in a row have one or zero reads, which is about one in six million. We could change our cutoff to **three** samples having at least 100 mapped reads. Then we see that we (probably) lose a few genes. This is unsurprising, as the probablility of this happening is close to 1 in 1,000.
 
 ```R
 keep <- rowSums(cpm(dge.low.counts)>100) >= 3
@@ -191,10 +219,12 @@ dge.low.counts <- dge.low.counts[keep,]
 dim(dge.low.counts)
 ```
 
+### Stepping through Normalisation for library size
+
 Next we need to normalise our data for library size.
 
 ```R
-# normalise
+# normalise using the edgeR calcNormFactors
 dge.low.counts <- calcNormFactors(dge.low.counts)
 
 # check what we did
