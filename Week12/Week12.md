@@ -483,3 +483,17 @@ What is different here versus the dataset with few reads? We can easily see that
 
 <img src="graphics/finally.png" width="700" title="Well, on Sunday night"/><br>
 **Well, on Sunday it is.**<br><br>
+
+
+```R
+# another way to plot
+# make character vector of the names of the random genes that were changed to be differentially expressed
+paste0("gene_", rand.genes) -> rand.names
+volcanoData <- cbind(sort.dge$table$logFC, -log10(sort.dge$table$PValue))
+colnames(volcanoData) <- c("logFC", "-log10(FDR)")
+# make the row names of the volcano data the same as in the data used (sort.dge in this case)
+rownames(volcanoData) <- rownames(sort.dge)
+plot(volcanoData, pch=19)
+# can now call the points based on their name rather than position in the data
+points(volcanoData[rand.names,], pch=19,col="orange")
+```
